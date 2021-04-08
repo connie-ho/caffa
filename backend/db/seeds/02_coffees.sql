@@ -1,6 +1,19 @@
 INSERT INTO coffees (name, description, region, roast, brand, acidity, grain_species, image_url)
 VALUES
 
+('Tim Hortons Dark Roast, Fine Grind Coffee', 'Perfectly balanced, medium-bodied coffee with a smooth finish', 'Colombia', 'Dark','Tim Hortons','low', 'Arabica', 'https://images-na.ssl-images-amazon.com/images/I/81ms6TpLMEL._AC_SL1500_.jpg'),
+
+('Smart Ass', 'Cheeky, bright, precocious. A bright, chocolatey concoction for the smart-thinking, deep-drinking, good-at-their-game-in-the-morning crowd', 'Africa', 'Medium', 'Kicking Horse', 'Medium', 'Arabica', 'https://images-na.ssl-images-amazon.com/images/I/61FAldq1gsL._AC_SL1500_.jpg'),
+
+('Kick Ass', 'Sweet, smoky, audacious. This remarkable blend of beans is the spirit of Kicking Horse Coffee, and a bold invitation to wake up and kick ass with us', 'Indonesia', 'Dark','Kicking Horse', 'Low', 'Arabica', 'https://m.media-amazon.com/images/I/61gK0Dyq0rL._AC_SL1500_.jpg'),
+
+('Half Ass', 'On your mark... get set... take it easy! This blend is the full taste of our Kick Ass coffee, with just half the caffeine.', 'Indonesia',  'Dark', 'Kicking Horse','Low','Arabica', 'https://m.media-amazon.com/images/I/61oqnUvxXIL._AC_SL1500_.jpg'),
+
+('NESCAFÉ Gold Origins Sumatra Instant Coffee','NESCAFÉ Gold origins Colombia coffee (95 g) is a medium-bodied profile with a juicy and fruity flavour','Colombia','Dark','Nescafe','Low','Arabica','https://images-na.ssl-images-amazon.com/images/I/81EALMbmyOL._AC_SL1500_.jpg'),
+
+('NESCAFÉ Gold Origins Sumatra Instant Coffee','NESCAFÉ Gold origins Sumatra coffee (95 g) is a full-bodied profile with a smoky, earthy flavour underpinned by subtle notes of caramel and nut','Indonesia','Medium','Nescafe','Medium','Arabica','https://m.media-amazon.com/images/I/813s1iOsRwL._AC_SL1500_.jpg'),
+
+
 ('Ethical Bean Fair Trade Organic Coffee', 'One 907g (2lb) bag of Ethical Bean Fair Trade Organic Lush Medium Dark Roast whole bean coffee
 Certified organic coffee is grown free from harmful chemicals and pesticides
 Fair trade certification ensures farmers and their families receive a fair price for their coffee
