@@ -4,5 +4,5 @@ CREATE TABLE favourites(
   id SERIAL PRIMARY KEY,
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   coffee_id INTEGER REFERENCES coffees(id) ON DELETE CASCADE,
-  created_at DATE
+  created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
