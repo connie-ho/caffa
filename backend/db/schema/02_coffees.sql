@@ -8,7 +8,6 @@ CREATE TABLE coffees (
   roast VARCHAR(255) NOT NULL,
   brand VARCHAR(255) NOT NULL,
   acidity VARCHAR(255) NOT NULL,
-  type VARCHAR(255) NOT NULL,
   grain_species VARCHAR(255) NOT NULL,
   image_url VARCHAR(255) NOT NULL
 );
