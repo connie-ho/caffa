@@ -12,35 +12,33 @@ import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: 200,
+    maxWidth: 500,
   },
   media: {
-    height: 140,
+    height: 500,
   },
 });
 
-function Coffee() {
+function Coffee(props) {
   const classes = useStyles();
   const params = useParams();
-  console.log(params)
-  
-  // get product details
+  const {coffees} = props;
+  const coffee = coffees[params.id -1];
 
   return (
     <Card className={classes.root}>
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          image="/static/images/cards/contemplative-reptile.jpg"
+          image={coffee.image_url}
           title="Contemplative Reptile"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            Coffee {params.id}
+            {coffee.name}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            Coffees are a widespread group of squamate reptiles, with over 6,000 species, ranging
-            across all continents except Antarctica
+            {coffee.description}
           </Typography>
         </CardContent>
       </CardActionArea>

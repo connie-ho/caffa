@@ -3,7 +3,10 @@ import Nav from './Nav';
 import Home from './Home';
 import Coffees from './Coffees';
 
-const Main = () => {
+const Main = (props) => {
+
+  const {coffees} = props;
+
   return (
     <div>
       <Router>
@@ -11,7 +14,9 @@ const Main = () => {
 
         <Switch>
           <Route path="/coffees" >
-            <Coffees />
+            <Coffees 
+              coffees = {coffees}
+            />
           </Route>
           <Route path="/">
             <Home />

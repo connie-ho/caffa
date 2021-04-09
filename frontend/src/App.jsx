@@ -5,12 +5,13 @@ import useApplicationData from './hooks/useApplicationData';
 
 function App() {
 
-  const state = useApplicationData();
-  console.log(state)
+  const {state} = useApplicationData();
 
   return (
     <div className="App">
-      <Main />
+      <Main 
+        coffees={state.coffees}
+      />
     </div>
   );
 }

@@ -8,19 +8,18 @@ function useApplicationData(){
   
   const [state, dispatch] = useReducer(reducer, {
     users: [],
-    coffees: [],
-    reviews: [],
+    coffees: {},
+    reviews: {},
     favourites: []
   });
-
 
   useEffect(()=>{
     Promise.all([
       axios.get("http://localhost:3001/api/coffees"),
       axios.get("http://localhost:3001/api/reviews"),
     ]).then((all) => {
-      const coffees = [...all[0].data];
-      const reviews =  [...all[1].data];
+      const coffees = {...all[0].data};
+      const reviews =  {...all[1].data};
       dispatch({type: SET_APPLICATION_DATA, coffees, reviews});
     });
   }, []);
