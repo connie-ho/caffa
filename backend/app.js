@@ -3,6 +3,7 @@ const express = require("express");
 const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
+const cookieSession = require("cookie-session");
 
 require('dotenv').config();
 const dbHelpers = require('./helpers/dbHelpers')(db);
@@ -46,10 +47,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
+app.use(
+  cookieSession({
+    name: "session",
+    keys: ["key1"],
+  })
+);
 
-app.use('/api/users', usersRouter(dbHelpers));
-
-// app.use("/", indexRouter);
-// app.use("/users", usersRouter);
 
 module.exports = app;
