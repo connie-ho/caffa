@@ -9,10 +9,11 @@ import Typography from '@material-ui/core/Typography';
 import InputBase from '@material-ui/core/InputBase';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
-import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MoreIcon from '@material-ui/icons/MoreVert';
+import LocalCafeIcon from '@material-ui/icons/LocalCafe';
+import CameraAltIcon from '@material-ui/icons/CameraAlt';
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -116,6 +117,7 @@ function Nav() {
     >
       <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
       <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <MenuItem onClick={handleMenuClose}>Upload</MenuItem>
     </Menu>
   );
 
@@ -140,7 +142,16 @@ function Nav() {
         >
           <AccountCircle />
         </IconButton>
-        <p>Profile</p>
+      </MenuItem>
+      <MenuItem onClick={handleProfileMenuOpen}>
+        <IconButton
+          aria-label="account of current user"
+          aria-controls="primary-search-account-menu"
+          aria-haspopup="true"
+          color="inherit"
+        >
+          <CameraAltIcon />
+        </IconButton>
       </MenuItem>
     </Menu>
   );
@@ -156,7 +167,7 @@ function Nav() {
               color="inherit"
               aria-label="open drawer"
               >
-              <MenuIcon />
+              <LocalCafeIcon />
             </IconButton>
           </Link>
           <Link to="/coffees">
@@ -181,6 +192,16 @@ function Nav() {
           <div className={classes.sectionDesktop}>
             <IconButton
               edge="end"
+              aria-label="camera"
+              aria-controls={menuId}
+              aria-haspopup="true"
+              onClick={handleProfileMenuOpen}
+              color="inherit"
+            >
+              <CameraAltIcon />
+            </IconButton>
+            <IconButton
+              edge="end"
               aria-label="account of current user"
               aria-controls={menuId}
               aria-haspopup="true"
@@ -189,6 +210,7 @@ function Nav() {
             >
               <AccountCircle />
             </IconButton>
+           
           </div>
           <div className={classes.sectionMobile}>
             <IconButton
