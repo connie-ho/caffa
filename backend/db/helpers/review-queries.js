@@ -1,28 +1,13 @@
 const db = require("..");
 
-const getReviews = function(coffeeId) {
+const getReviews = function() {
   const text = `
   SELECT * FROM reviews
-  WHERE coffee_id = $1
   `;
 
-  const values = [coffeeId];
-
   return db
-    .query(text, values)
+    .query(text)
     .then((data) => data.rows)
-    .catch((err) => console.error(this, "query failed", err.stack));
-};
-
-const getCoffee = function(coffeeId) {
-  const text = `
-  SELECT * FROM coffees
-  WHERE id = $1;`;
-  const values = [coffeeId];
-
-  return db
-    .query(text, values)
-    .then((data) => data.rows[0])
     .catch((err) => console.error(this, "query failed", err.stack));
 };
 
@@ -35,10 +20,10 @@ const addReview = function(params) {
   } = params;
 
   const text = `
-  INSERT INTO coffees (name, description, region, roast, brand, acidity, grain_species, image_url)
+  INSERT INTO reviews (rating, description, user_id, coffee_id)
   VALUES ($1, $2, $3, $4) RETURNING *;`;
   const values = [
-    rating,
+    Number(rating),
     description,
     user_id,
     coffee_id
@@ -66,12 +51,12 @@ const editReview = function(params) {
     text += `rating = $${values.length} `;
   }
 
-  values.push(params.user_id, params.coffee_id);
-  text += `WHERE user_id = $${values.length - 1} AND id = $${values.length} RETURNING *`;
+  values.push(params.review_id);
+  text += `WHERE id = $${values.length} RETURNING *`;
 
   return db.query(text, values)
     .then(data => data.rows[0])
-    .catch(err => console.error(this, 'query failed', err.stack));
+    .catch(err => console.error(text, 'query failed', err.stack));
 };
 
 const deleteReview = function(review_id) {

@@ -8,16 +8,7 @@ const {
 } = require("../db/helpers/review-queries");
 
 router.get("/", (req, res) => {
-  //uncomment replace 1 with the variable
-  getReviews(1)
-    .then((data) => res.status(200).json(data))
-    .catch((err) => res.status(500).json({ error: err.message }));
-});
-
-router.get("/:id", (req, res) => {
-  const coffeeId = Number(req.params.id);
-
-  getCoffee(coffeeId)
+  getReviews()
     .then((data) => res.status(200).json(data))
     .catch((err) => res.status(500).json({ error: err.message }));
 });
@@ -45,8 +36,8 @@ router.patch("/:id", (req, res) => {
   //   return;
   // }
 
-  editReview(req.body)
-    .then(data => res.json(data))
+  editReview({...req.body, ...req.params})
+    .then(data => res.status(201).json(data))
     .catch(err => res.status(500).json({ error: err.message }));
 });
 
