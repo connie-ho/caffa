@@ -1,10 +1,5 @@
-DROP TABLE IF EXISTS reviews CASCADE;
-
-CREATE TABLE reviews (
-  id SERIAL PRIMARY KEY NOT NULL,
-  rating NUMERIC NOT NULL,
-  description TEXT,
-  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
-  coffee_id INTEGER REFERENCES coffees(id) ON DELETE CASCADE,
-  created_at DATE
-);
+INSERT INTO reviews (rating, description, user_id, coffee_id)
+VALUES
+(4, 'Fantastic coffee highly recommended to anyone who loves to drink coffee throughout the day', 1, 1),
+(4, 'Love it!', 1, 2),
+(4, 'Really surprised how this coffee turned out. Would purchase this item again.', 1, 3);
