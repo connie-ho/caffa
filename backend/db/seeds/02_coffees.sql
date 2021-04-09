@@ -86,13 +86,13 @@ A complex cup of aromatics laced with fruity, floral innuendo. Never boring - a 
 "https://cdn.shopify.com/s/files/1/1521/8648/products/godfathernewwhite_grande.jpg?v=1563287995"),
 
 ("Mambo #5",
- "Delicate and lush, with notes of red wine and mixed berry. This java originates from the El Salvadar and is a local favorite."
+ "Delicate and lush, with notes of red wine and mixed berry. This java originates from the El Salvadar and is a local favorite.",
  "El Salvador",
  "Light",
  "Analog Coffee",
  "Medium-High",
  "Arabica",
- "https://cdn.shopify.com/s/files/1/1521/8648/products/Mambo5_grande.jpg?v=1602599464")
+ "https://cdn.shopify.com/s/files/1/1521/8648/products/Mambo5_grande.jpg?v=1602599464"),
 
 ('Ethical Bean Fair Trade Organic Coffee Mellow', 'Medium body, nutty aroma and a sweet brightness.
 Ommm. Serenity now. Medium body, nutty aroma and a sweet brightness. Stirring memories of hazelnuts and caramelized sugar.', 'Guatemala', 'Dark Roast', 'Ethical Bean Coffee', 'Medium', 'Arabica', 'https://cdn.shopify.com/s/files/1/0059/2772/products/exotic-wb_600x600.jpg?v=1594355883');
