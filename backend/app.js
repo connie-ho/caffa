@@ -1,42 +1,43 @@
 // load .env data into process.env
+require('dotenv').config();
+const PORT       = process.env.PORT || 8080;
+const ENV        = process.env.ENV || "development";
+
 const express = require("express");
 const path = require("path");
+const bodyParser = require("body-parser");
+// const sass       = require("node-sass-middleware");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const cookieSession = require("cookie-session");
 
-require('dotenv').config();
-const dbHelpers = require('./helpers/dbHelpers')(db);
-
-const PORT       = process.env.PORT || 8080;
-const ENV        = process.env.ENV || "development";
-const cookieSession = require('cookie-session');
-
 const app = express();
+
 const db = require("./db");
-db.connect();
+// const dbHelpers = require('./helpers/dbHelpers')(db);
 
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use("/styles", sass({
-  src: __dirname + "/styles",
-  dest: __dirname + "/public/styles",
-  debug: true,
-  outputStyle: 'expanded'
-}));
+
+// app.use("/styles", sass({
+//   src: __dirname + "/styles",
+//   dest: __dirname + "/public/styles",
+//   debug: true,
+//   outputStyle: 'expanded'
+// }));
 app.use(express.static("public"));
 app.use(cookieSession({
   name: 'session',
   keys: ['key1']
 }));
 
-const indexRouter = require("./routes/index");
+// const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
 const coffeesRouter = require("./routes/coffees");
 const favouritesRouter = require("./routes/favourites");
 const reviewsRouter = require("./routes/reviews");
 
-app.use("/", indexRouter);
+// app.use("/", indexRouter);
 app.use("/api/users", usersRouter);
 app.use("/api/coffees", coffeesRouter);
 app.use("/api/favourites", favouritesRouter);
