@@ -17,9 +17,9 @@ Multidimensional and dripping with crema.', 'Guatemala', 'Medium', 'Ethical Bean
 The lovechild of dark alchemy and complete combustion. A hammering dark roast, blended to display body, balance and a dazzling dark cocoa-laced finish.', 'Guatemala', 'Dark', 'Ethical Bean Coffee', 'High', 'Arabica', 'https://cdn.shopify.com/s/files/1/0059/2772/products/superdark-wb_600x600.jpg?v=1594355886'), 
 
 ('Ethical Bean Fair Trade Organic Coffee Bold', 'Edgy on the one hand, seductively smooth on the other. 
-Dark, but not too dark. Edgy on one hand, seductively smooth on the other. You might want to take two.', 'Guatemala', 'Dark', 'Ethical Bean Coffee', 'Medium to High', 'Arabica', 'https://shop.cdn.ethicalbean.com/products/bold-dark-roast-organic-coffee-beans'), 
+Dark, but not too dark. Edgy on one hand, seductively smooth on the other. You might want to take two.', 'Guatemala', 'Dark', 'Ethical Bean Coffee', 'Medium to High', 'Arabica', 'https://cdn.shopify.com/s/files/1/0059/2772/products/bold-wb_600x600.jpg?v=1594355878'), 
 
-('Ethical Bean Fair Trade Organic Coffee Classic', 'A coffee insider’s favourite. Elegant acidity highlights a nuanced, medium-bodied cup.', 'Guatemala', 'Medium', 'Ethical Bean Coffee', 'Medium to High', 'Arabica', 'https://shop.cdn.ethicalbean.com/products/chemical-free-water-process-decaf-dark-roast-whole-bean-coffee'), 
+('Ethical Bean Fair Trade Organic Coffee Classic', 'A coffee insider’s favourite. Elegant acidity highlights a nuanced, medium-bodied cup.', 'Guatemala', 'Medium', 'Ethical Bean Coffee', 'Medium to High', 'Arabica', 'https://cdn.shopify.com/s/files/1/0059/2772/products/decaf-ground_600x600.jpg?v=1594355882'), 
 
 ('Ethical Bean Fair Trade Organic Coffee Exotic', 'Ephemeral aromatics laced with fruity, floral innuendo. 
 A complex cup of aromatics laced with fruity, floral innuendo. Never boring - a coffee you wont soon forget.', 'Guatemala', 'Dark', 'Ethical Bean Coffee', 'Medium', 'Arabica', 'https://cdn.shopify.com/s/files/1/0059/2772/products/classic-wb_600x600.jpg?v=1594355890'), 
