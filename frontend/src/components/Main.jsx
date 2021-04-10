@@ -1,9 +1,11 @@
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Nav from './Nav';
+import Login from './Login';
 import Home from './Home';
 import CoffeeList from './coffees/CoffeeList';
 
 const Main = (props) => {
+
 
   console.log(props.coffees)
   return (
@@ -14,6 +16,9 @@ const Main = (props) => {
         <Switch>
           <Route path="/coffees" >
             <CoffeeList coffees={props.coffees}/>
+          </Route>
+          <Route path="/login" >
+            <Login />
           </Route>
           <Route path="/image-search">
           </Route>

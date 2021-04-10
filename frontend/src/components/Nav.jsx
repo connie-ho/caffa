@@ -14,7 +14,7 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import LocalCafeIcon from '@material-ui/icons/LocalCafe';
 import CameraAltIcon from '@material-ui/icons/CameraAlt';
-import Login from './Login';
+// import Login from './Login';
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -119,6 +119,9 @@ function Nav() {
       <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
       <MenuItem onClick={handleMenuClose}>My account</MenuItem>
       <MenuItem onClick={handleMenuClose}>Upload</MenuItem>
+      <MenuItem onClick={handleMenuClose}>
+        <Link to="/login">Login</Link>
+      </MenuItem>
     </Menu>
   );
 
