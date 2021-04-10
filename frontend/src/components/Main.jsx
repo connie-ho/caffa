@@ -3,20 +3,23 @@ import Nav from './Nav';
 import Login from './Login';
 import Home from './Home';
 import CoffeeList from './coffees/CoffeeList';
+import CoffeeContext from '../contexts/CoffeeContext';
 
 const Main = (props) => {
 
+  const {state, setState} = props;
 
-  console.log(props.coffees)
   return (
     <div>
       <Router>
         <Nav />
 
         <Switch>
-          <Route path="/coffees" >
-            <CoffeeList coffees={props.coffees}/>
-          </Route>
+          <CoffeeContext.Provider value={{coffees: state.coffees, setState}}>
+            <Route path="/coffees" >
+              <CoffeeList/>
+            </Route>
+          </CoffeeContext.Provider>
           <Route path="/login" >
             <Login />
           </Route>

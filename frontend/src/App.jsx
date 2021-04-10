@@ -1,16 +1,17 @@
-import Main from './components/Main'
+import Main from './components/Main';
 import "./App.css";
 
 import useApplicationData from './hooks/useApplicationData';
 
 function App() {
 
-  const {state} = useApplicationData();
-  console.log(state)
+  const {state, setState} = useApplicationData();
+
   return (
     <div className="App">
       <Main 
-        coffees={state.coffees}
+        state={state}
+        setState={setState}
       />
     </div>
   );

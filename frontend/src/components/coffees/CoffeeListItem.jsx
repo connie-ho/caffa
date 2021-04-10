@@ -1,5 +1,5 @@
 import React from 'react';
-import {useParams} from 'react-router-dom';
+// import {useParams} from 'react-router-dom';
 
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
@@ -22,7 +22,7 @@ const useStyles = makeStyles({
 
 function CoffeeListItem(props) {
   const classes = useStyles();
-  const params = useParams();
+  // const params = useParams();
   const {coffee} = props;
 
   return (

@@ -1,11 +1,22 @@
 import {Route, Switch} from 'react-router-dom';
+import {useContext} from 'react';
+import CoffeeContext from '../../contexts/CoffeeContext';
 import CoffeeListItem from './CoffeeListItem';
 
 const CoffeeList = (props) => {
-  console.log('coffeelist called', props.coffees )
-  const addCoffeeArray = Object.keys(props.coffees).map( coffee => {
-    return props.coffees[coffee]
+  const {coffees} = useContext(CoffeeContext);
+  // console.log(coffees)
+  const coffeeList = coffees.map(coffee => {
+    return (
+      <CoffeeListItem
+        key={coffee.id}
+        coffee={coffee}
+      />
+    );
   })
+  // const addCoffeeArray = Object.keys(props.coffees).map( coffee => {
+  //   return props.coffees[coffee]
+  // })
 
   return (
     <div>
@@ -14,11 +25,15 @@ const CoffeeList = (props) => {
         </Route>
         <Route path="/coffees">
           <h1>All Coffees</h1>
-         {addCoffeeArray.map((coffee) => {
+          {coffeeList}
+         {/* {addCoffeeArray.map((coffee) => {
            return (
-             <CoffeeListItem coffee={coffee} />
+             <CoffeeListItem 
+             key={coffee.id}
+             coffee={coffee} 
+             />
            )
-         })}
+         })} */}
         </Route>
       </Switch>
     </div>
