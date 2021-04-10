@@ -1,5 +1,5 @@
 import React from 'react';
-// import {useParams} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
@@ -55,9 +55,11 @@ function CoffeeListItem(props) {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary">
-          Learn More
-        </Button>
+        <Link to="/coffees/:id">
+          <Button size="small" color="primary">
+            Details
+          </Button>
+        </Link>
       </CardActions>
     </Card>
   );

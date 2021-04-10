@@ -15,8 +15,6 @@ const CoffeeList = (props) => {
 
     const coffeeReviews = getReviewsForCoffee(reviews,coffee.id)
     const avgRating = avgRatingForCoffee(coffeeReviews);
-    console.log(coffeeReviews)
-    console.log(avgRating);
 
     return (
       <CoffeeListItem
