@@ -16,14 +16,14 @@ const useStyles = makeStyles({
   },
   media: {
     height: 500,
+
   },
 });
 
 function CoffeeListItem(props) {
   const classes = useStyles();
   const params = useParams();
-  const {coffees} = props;
-  const coffee = coffees[params.id -1];
+  const {coffee} = props;
 
   return (
     <Card className={classes.root}>
