@@ -1,17 +1,11 @@
 import {Route, Switch} from 'react-router-dom';
-import Coffee from './Coffee';
 
-const Coffees = (props) => {
-
-  const {coffees} = props;
+const CoffeeList = () => {
 
   return (
     <div>
       <Switch>
         <Route path="/coffees/:id">
-          <Coffee
-            coffees={coffees}
-          />
         </Route>
         <Route path="/coffees">
           <h1>All Coffees</h1>
@@ -21,4 +15,4 @@ const Coffees = (props) => {
   )
 };
 
-export default Coffees;
+export default CoffeeList;

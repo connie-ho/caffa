@@ -19,7 +19,7 @@ const useStyles = makeStyles({
   },
 });
 
-function Coffee(props) {
+function CoffeeListItem(props) {
   const classes = useStyles();
   const params = useParams();
   const {coffees} = props;
@@ -54,4 +54,4 @@ function Coffee(props) {
   );
 }
 
-export default Coffee;
+export default CoffeeListItem;

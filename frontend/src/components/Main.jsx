@@ -1,11 +1,10 @@
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Nav from './Nav';
 import Home from './Home';
-import Coffees from './Coffees';
+import CoffeeList from './coffees/CoffeeList';
 
 const Main = (props) => {
 
-  const {coffees} = props;
 
   return (
     <div>
@@ -14,9 +13,9 @@ const Main = (props) => {
 
         <Switch>
           <Route path="/coffees" >
-            <Coffees 
-              coffees = {coffees}
-            />
+            <CoffeeList />
+          </Route>
+          <Route path="/image-search">
           </Route>
           <Route path="/">
             <Home />
