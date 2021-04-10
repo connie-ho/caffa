@@ -2,11 +2,7 @@
 require('dotenv').config();
 const PORT       = process.env.PORT || 8080;
 const ENV        = process.env.ENV || "development";
-<<<<<<< HEAD
-
-=======
 // const cors = require('cors');
->>>>>>> 221021b33d819b95cb04b165bd8933bac07f9805
 const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
@@ -34,8 +30,6 @@ app.use(cookieSession({
   name: 'session',
   keys: ['key1']
 }));
-<<<<<<< HEAD
-=======
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -56,7 +50,6 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // // Then pass them to cors:
 // app.use(cors(corsOptions));
->>>>>>> 221021b33d819b95cb04b165bd8933bac07f9805
 
 // const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
