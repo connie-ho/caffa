@@ -1,19 +1,19 @@
 const express = require('express');
-const favourites = express.Router();
+const router = express.Router();
 
 // Show details of multiple favourites
-favourites.get("/", (req, res) => {
+router.get("/", (req, res) => {
   res.send("ok")
 })
 
 // Create a favourite
-favourites.post("/", (req, res) => {
+router.post("/", (req, res) => {
   res.send("ok")
 })
 
 // Delete a favourite
-favourites.post("/:favourite_id", (req, res) => {
+router.post("/:id", (req, res) => {
   res.send("ok")
 })
 
-module.exports = favourites;
+module.exports = router;
