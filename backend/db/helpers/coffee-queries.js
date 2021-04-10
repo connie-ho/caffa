@@ -1,6 +1,6 @@
 const db = require("../");
 
-const getCoffees = function() {
+const getCoffees = function () {
   const text = `
   SELECT * FROM coffees
   `;

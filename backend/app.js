@@ -63,5 +63,17 @@ app.use("/api/coffees", coffeesRouter);
 app.use("/api/favourites", favouritesRouter);
 app.use("/api/reviews", reviewsRouter);
 
+app.use(logger("dev"));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, "public")));
+app.use(
+  cookieSession({
+    name: "session",
+    keys: ["key1"],
+  })
+);
+
 
 module.exports = app;

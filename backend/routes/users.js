@@ -1,30 +1,42 @@
 const express = require('express');
-const users = express.Router();
+const router = express.Router();
+const {
+  getUserByID,
+  getUsers,
+  getUserByEmail,
+  addUser,
+  getUsersPosts
+} = require("../db/helpers/user-queries");
 
-
-// Create a user
-users.post("/", (req, res) => {
-  res.send("ok")
-})
 
 // Show details of a user
-users.get("/:user_id", (req, res) => {
+router.get(":id", (req, res) => {
+  const userId = Number(req.params.id);
+  // const userId = req.session.user_id;
+
+  getUserByID(userId)
+    .then((data) => res.status(200).json(data))
+    .catch((err) => res.status(500).json({ error: err.message }));
+});
+
+// Create a user
+router.post("/", (req, res) => {
   res.send("ok")
 })
 
 // Login user
-users.post("/login", (req, res) => {
+router.post("/login", (req, res) => {
   res.send("ok")
 })
 
 // Register user
-users.post("/register", (req, res) => {
+router.post("/register", (req, res) => {
   res.send("ok")
 })
 
 // Authenticate user
-users.post("/authenticate", (req, res) => {
+router.post("/authenticate", (req, res) => {
   res.send("ok")
 })
 
-module.exports = users;
+module.exports = router;

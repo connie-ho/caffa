@@ -10,6 +10,18 @@ module.exports = (db) => {
             .catch((err) => err);
     };
 
+    const getUserByID = function (userId) {
+        const text = `
+        SELECT * FROM users 
+        WHERE id = $1;`;
+        const values = [userId];
+
+        return db
+            .query(text, values)
+            .then(data => data.rows[0])
+            .catch((err) => console.error(this, "query failed", err.stack));
+    };
+
     const getUserByEmail = email => {
 
         const query = {
@@ -49,6 +61,7 @@ module.exports = (db) => {
     }
 
     return {
+        getUserByID,
         getUsers,
         getUserByEmail,
         addUser,
