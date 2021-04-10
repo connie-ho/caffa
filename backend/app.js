@@ -2,7 +2,7 @@
 require('dotenv').config();
 const PORT       = process.env.PORT || 8080;
 const ENV        = process.env.ENV || "development";
-const cors = require('cors');
+// const cors = require('cors');
 const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
@@ -36,20 +36,20 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
-// Set up a whitelist and check against it:
-const whitelist = ['http://localhost:3001', 'http://localhost:3002'];
-const corsOptions = {
-  origin: function(origin, callback) {
-    if (whitelist.indexOf(origin) !== -1) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  }
-};
+// // Set up a whitelist and check against it:
+// const whitelist = ['http://localhost:3001', 'http://localhost:3002', 'http://localhost:3005'];
+// const corsOptions = {
+//   origin: function(origin, callback) {
+//     if (whitelist.indexOf(origin) !== -1) {
+//       callback(null, true);
+//     } else {
+//       callback(new Error('Not allowed by CORS'));
+//     }
+//   }
+// };
 
-// Then pass them to cors:
-app.use(cors(corsOptions));
+// // Then pass them to cors:
+// app.use(cors(corsOptions));
 
 // const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
