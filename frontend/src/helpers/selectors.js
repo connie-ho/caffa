@@ -3,7 +3,8 @@ export function getReviewsForCoffee(reviews, coffeeId){
   const res = [];
 
   for (const review of reviews){
-    if (review.coffee_id === coffeeId){
+
+    if (Number(review.coffee_id) === Number(coffeeId)){
       res.push(review);
     }
   }
@@ -17,5 +18,16 @@ export function avgRatingForCoffee(coffeeReviews){
     return;
   }
 
-  return coffeeReviews.reduce((a, b) => (Number(a.rating) + Number(b.rating)))/ coffeeReviews.length;
+  if(coffeeReviews.length === 1){
+    return Number(coffeeReviews[0].rating);
+  }
+
+  let sum = 0; 
+  
+  for (const review of coffeeReviews){
+    sum += Number(review.rating);
+  }
+
+
+  return Math.round(sum/coffeeReviews.length*10)/10;
 }

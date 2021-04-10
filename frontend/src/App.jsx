@@ -5,13 +5,19 @@ import useApplicationData from './hooks/useApplicationData';
 
 function App() {
 
-  const {state, setState} = useApplicationData();
+  const {users, coffees, reviews, favourites, setUsers, setCoffees, setFavourites, setReviews} = useApplicationData();
 
   return (
     <div className="App">
       <Main 
-        state={state}
-        setState={setState}
+        users={users}
+        coffees={coffees}
+        reviews={reviews}
+        favourites={favourites}
+        setUsers={setUsers}
+        setCoffees={setCoffees}
+        setFavourites={setFavourites}
+        setReviews={setReviews}
       />
     </div>
   );

@@ -2,12 +2,14 @@ import {Route, Switch} from 'react-router-dom';
 
 import FilterList from './FilterList';
 import CoffeeList from './CoffeeList';
+import Coffee from '../coffee-id/Coffee';
 
 function Coffees(props) {
   return (
     <div>
     <Switch>
         <Route path="/coffees/:id">
+          <Coffee />
         </Route>
         <Route path="/coffees">
           <>

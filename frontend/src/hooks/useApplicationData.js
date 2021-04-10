@@ -6,6 +6,11 @@ import axios from "axios";
 
 function useApplicationData(){
   
+  const [users, setUsers] = useState([])
+  const [coffees, setCoffees] = useState([])
+  const [reviews, setReviews] = useState([])
+  const [favourites, setFavourites] = useState([])
+
   const [state, setState] = useState({
     users: [],
     coffees: [],
@@ -13,35 +18,42 @@ function useApplicationData(){
     favourites: []
   })
 
-  // const [state, dispatch] = useReducer(reducer, {
-  //   users: [],
-  //   coffees: [],
-  //   reviews: {},
-  //   favourites: []
-  // });
 
   useEffect(()=>{
-    Promise.all([
-      axios.get("/api/users"),
-      axios.get("/api/coffees"),
-      axios.get("/api/reviews"),
-      axios.get("/api/favourites")
-    ])
-    .then(all=>{
-      setState(prev=>({
-        ...prev,
-        users: [...all[0].data],
-        coffees: [...all[1].data],
-        reviews: [...all[2].data],
-        favourites: [...all[3].data]
-      }))
-      // dispatch({type: SET_APPLICATION_DATA, users, coffees, reviews, favourites});
-    })
+    
+    const fetchUsersData = async ()=>{
+      const res = await axios.get("/api/users");
+      setUsers(res.data)
+    };
+    const fetchCoffeesData = async ()=>{
+      const res = await axios.get("/api/coffees");
+      setCoffees(res.data)
+    };
+    const fetchReviewsData = async ()=>{
+      const res = await axios.get("/api/reviews");
+      setReviews(res.data)
+    };
+    const fetchFavouritesData = async ()=>{
+      const res = await axios.get("/api/favourites");
+      setFavourites(res.data)
+    };
+
+    fetchCoffeesData();
+    fetchFavouritesData();
+    fetchUsersData();
+    fetchReviewsData();
+  
   }, []);
 
   return {
-    state,
-    setState
+    users,
+    coffees,
+    reviews,
+    favourites,
+    setCoffees,
+    setUsers,
+    setFavourites,
+    setReviews
   };
 
 };

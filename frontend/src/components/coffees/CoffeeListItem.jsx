@@ -29,11 +29,12 @@ function CoffeeListItem(props) {
 
   if (!avgRating) {
     avgRating = 'No Ratings Yet!'
+  } else {
+    avgRating += ' Stars'
   }
 
-
   return (
-    <Link to="/coffees/:id">
+    <Link to={`/coffees/${coffee.id}`}>
     <Card className={classes.root}>
       <CardActionArea>
         <CardMedia
