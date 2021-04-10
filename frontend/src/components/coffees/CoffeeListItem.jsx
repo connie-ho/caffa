@@ -33,6 +33,7 @@ function CoffeeListItem(props) {
 
 
   return (
+    <Link to="/coffees/:id">
     <Card className={classes.root}>
       <CardActionArea>
         <CardMedia
@@ -56,13 +57,12 @@ function CoffeeListItem(props) {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Link to="/coffees/:id">
           <Button size="small" color="primary">
             Details
           </Button>
-        </Link>
       </CardActions>
     </Card>
+    </Link>
   );
 }
 
