@@ -1,19 +1,30 @@
 const express = require('express');
 const router = express.Router();
+const {
+  getFavourites,
+  addFavourite,
+  deleteFavourite,
+} = require("../db/helpers/favourite-queries");
 
 // Show details of multiple favourites
 router.get("/", (req, res) => {
-  res.send("ok")
-})
+  getFavourites()
+    .then((data) => res.status(200).json(data))
+    .catch((err) => res.status(500).json({ error: err.message }));
+});
 
 // Create a favourite
 router.post("/", (req, res) => {
-  res.send("ok")
-})
+  addFavourite(req.body)
+    .then((data) => res.status(200).json(data))
+    .catch((err) => res.status(500).json({ error: err.message }));
+});
 
 // Delete a favourite
 router.post("/:id", (req, res) => {
-  res.send("ok")
-})
+  deleteFavourite(req.body.id)
+    .then((data) => res.status(200).json(data))
+    .catch((err) => res.status(500).json({ error: err.message }));
+});
 
 module.exports = router;
