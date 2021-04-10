@@ -1,5 +1,5 @@
 import React from 'react';
-// import {useParams} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
@@ -12,10 +12,11 @@ import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: 500,
+    maxWidth: 300,
+    maxHeight: 500
   },
   media: {
-    height: 500,
+    height: 200,
 
   },
 });
@@ -24,6 +25,12 @@ function CoffeeListItem(props) {
   const classes = useStyles();
   // const params = useParams();
   const {coffee} = props;
+  let {avgRating} = props;
+
+  if (!avgRating) {
+    avgRating = 'No Ratings Yet!'
+  }
+
 
   return (
     <Card className={classes.root}>
@@ -37,18 +44,23 @@ function CoffeeListItem(props) {
           <Typography gutterBottom variant="h5" component="h2">
             {coffee.name}
           </Typography>
+          <Typography gutterBottom variant="h5" component="h4">
+            {coffee.region}
+          </Typography>
+          <Typography gutterBottom variant="h5" component="h4">
+            {avgRating}
+          </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
             {coffee.description}
           </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary">
-          Share
-        </Button>
-        <Button size="small" color="primary">
-          Learn More
-        </Button>
+        <Link to="/coffees/:id">
+          <Button size="small" color="primary">
+            Details
+          </Button>
+        </Link>
       </CardActions>
     </Card>
   );
