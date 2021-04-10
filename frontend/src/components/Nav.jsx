@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {Link} from 'react-router-dom';
 
 import { fade, makeStyles } from '@material-ui/core/styles';
@@ -14,7 +14,8 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import LocalCafeIcon from '@material-ui/icons/LocalCafe';
 import CameraAltIcon from '@material-ui/icons/CameraAlt';
-// import Login from './Login';
+import { UserContext } from '../contexts/UserContext';
+import Login from './Login';
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -105,24 +106,26 @@ function Nav() {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
+
+
   const menuId = 'primary-search-account-menu';
   const renderMenu = (
-    <Menu
-      anchorEl={anchorEl}
-      anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
-      id={menuId}
-      keepMounted
-      transformOrigin={{ vertical: 'top', horizontal: 'right' }}
-      open={isMenuOpen}
-      onClose={handleMenuClose}
-    >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
-      <MenuItem onClick={handleMenuClose}>Upload</MenuItem>
-      <MenuItem onClick={handleMenuClose}>
-        <Link to="/login">Login</Link>
-      </MenuItem>
-    </Menu>
+      <Menu
+        anchorEl={anchorEl}
+        anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+        id={menuId}
+        keepMounted
+        transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+        open={isMenuOpen}
+        onClose={handleMenuClose}
+      >
+        <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
+        <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+        <MenuItem onClick={handleMenuClose}>Upload</MenuItem>
+        <MenuItem onClick={handleMenuClose}>
+          <Link to="/login">Login</Link>
+        </MenuItem>
+      </Menu>
   );
 
   const mobileMenuId = 'primary-search-account-menu-mobile';
@@ -227,6 +230,15 @@ function Nav() {
               <MoreIcon />
             </IconButton>
           </div>
+          
+          <div>
+          <Link to="/login">
+            <Typography className={classes.title} variant="h6" noWrap>
+              Login
+            </Typography>
+          </Link>
+          </div>
+
         </Toolbar>
       </AppBar>
       {renderMobileMenu}

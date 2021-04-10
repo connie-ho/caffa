@@ -4,10 +4,12 @@ import Login from './Login';
 import Home from './Home';
 import CoffeeList from './coffees/CoffeeList';
 import CoffeeContext from '../contexts/CoffeeContext';
+import { UserContext } from '../contexts/UserContext';
 
 const Main = (props) => {
 
   const {state, setState} = props;
+  console.log("PROPS:", props)
 
   return (
     <div>
@@ -20,9 +22,11 @@ const Main = (props) => {
               <CoffeeList/>
             </Route>
           </CoffeeContext.Provider>
-          <Route path="/login" >
-            <Login />
-          </Route>
+          <UserContext.Provider value={{users: state.users, setState}}>
+            <Route path="/login" >
+              <Login />
+            </Route>
+          </UserContext.Provider>
           <Route path="/image-search">
           </Route>
           <Route path="/">
