@@ -8,7 +8,7 @@ function useApplicationData(){
   
   const [state, dispatch] = useReducer(reducer, {
     users: [],
-    coffees: {},
+    coffees: [],
     reviews: {},
     favourites: []
   });
@@ -20,7 +20,7 @@ function useApplicationData(){
     ]).then((all) => {
       const coffees = {...all[0].data};
       const reviews =  {...all[1].data};
-      console.log(coffees)
+  
       dispatch({type: SET_APPLICATION_DATA, coffees, reviews});
     });
   }, []);

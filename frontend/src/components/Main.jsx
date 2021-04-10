@@ -5,7 +5,7 @@ import CoffeeList from './coffees/CoffeeList';
 
 const Main = (props) => {
 
-
+  console.log(props.coffees)
   return (
     <div>
       <Router>
@@ -13,7 +13,7 @@ const Main = (props) => {
 
         <Switch>
           <Route path="/coffees" >
-            <CoffeeList />
+            <CoffeeList coffees={props.coffees}/>
           </Route>
           <Route path="/image-search">
           </Route>
