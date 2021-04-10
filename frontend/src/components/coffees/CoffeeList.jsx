@@ -1,6 +1,6 @@
 import {Route, Switch} from 'react-router-dom';
 
-const CoffeeList = () => {
+const CoffeeList = (props) => {
 
   return (
     <div>
@@ -9,6 +9,7 @@ const CoffeeList = () => {
         </Route>
         <Route path="/coffees">
           <h1>All Coffees</h1>
+
         </Route>
       </Switch>
     </div>

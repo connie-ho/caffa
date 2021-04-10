@@ -24,7 +24,7 @@ function CoffeeListItem(props) {
   const params = useParams();
   const {coffees} = props;
   const coffee = coffees[params.id -1];
-
+  console.log(params)
   return (
     <Card className={classes.root}>
       <CardActionArea>

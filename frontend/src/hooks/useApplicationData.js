@@ -15,11 +15,12 @@ function useApplicationData(){
 
   useEffect(()=>{
     Promise.all([
-      axios.get("http://localhost:3001/api/coffees"),
-      axios.get("http://localhost:3001/api/reviews"),
+      axios.get("/api/coffees"),
+      axios.get("/api/reviews"),
     ]).then((all) => {
       const coffees = {...all[0].data};
       const reviews =  {...all[1].data};
+      console.log(coffees)
       dispatch({type: SET_APPLICATION_DATA, coffees, reviews});
     });
   }, []);
