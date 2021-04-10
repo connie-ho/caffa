@@ -25,11 +25,10 @@ const Main = (props) => {
             </Route>
           </ReviewContext.Provider>
           </CoffeeContext.Provider>
-          <UserContext.Provider value={{users: state.users}}>
-            <Route path="/login" >
-              <Login />
-            </Route>
-          </UserContext.Provider>
+          <Route path="/login" >
+            {/* <Login /> */}
+            <h1>HELLO</h1>
+          </Route>
           <Route path="/image-search">
           </Route>
           <Route path="/">
