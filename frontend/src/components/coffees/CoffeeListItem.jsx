@@ -24,6 +24,12 @@ function CoffeeListItem(props) {
   const classes = useStyles();
   // const params = useParams();
   const {coffee} = props;
+  let {avgRating} = props;
+
+  if (!avgRating) {
+    avgRating = 'No Ratings Yet!'
+  }
+
 
   return (
     <Card className={classes.root}>
@@ -37,15 +43,18 @@ function CoffeeListItem(props) {
           <Typography gutterBottom variant="h5" component="h2">
             {coffee.name}
           </Typography>
+          <Typography gutterBottom variant="h5" component="h4">
+            {coffee.region}
+          </Typography>
+          <Typography gutterBottom variant="h5" component="h4">
+            {avgRating}
+          </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
             {coffee.description}
           </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary">
-          Share
-        </Button>
         <Button size="small" color="primary">
           Learn More
         </Button>

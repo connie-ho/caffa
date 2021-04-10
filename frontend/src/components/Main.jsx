@@ -4,6 +4,7 @@ import Login from './Login';
 import Home from './Home';
 import CoffeeList from './coffees/CoffeeList';
 import CoffeeContext from '../contexts/CoffeeContext';
+import ReviewContext from '../contexts/ReviewContext';
 
 const Main = (props) => {
 
@@ -15,10 +16,12 @@ const Main = (props) => {
         <Nav />
 
         <Switch>
-          <CoffeeContext.Provider value={{coffees: state.coffees, setState}}>
+          <CoffeeContext.Provider value={{coffees: state.coffees}}>
+          <ReviewContext.Provider value={{reviews: state.reviews}}>
             <Route path="/coffees" >
               <CoffeeList/>
             </Route>
+          </ReviewContext.Provider>
           </CoffeeContext.Provider>
           <Route path="/login" >
             <Login />
