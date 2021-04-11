@@ -1,30 +1,44 @@
-import {useContext} from 'react';
-import DataContext from '../../contexts/DataContext';
-import {getReviewsForCoffee, avgRatingForCoffee} from '../../helpers/selectors';
-
-
+import {useState, useContext} from 'react';
+import FavouriteContext from '../../contexts/FavouriteContext';
+import {calcFavourites} from '../../helpers/selectors';
 import IconButton from '@material-ui/core/IconButton';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 
 export default function Details(props) {
   
-  const {coffeeId, addFavourite} = props;
-  console.log(props)
+  const {addFavourite, deleteFavourite} = useContext(FavouriteContext);
 
-  const {state} = useContext(DataContext);
-  const coffees = state.coffees;
-  const reviews = state.reviews;
+  const {
+    coffee, 
+    reviews, 
+    avgRating, 
+    favourites, 
+    isLiked} = props;
 
-  const coffee = coffees[coffeeId - 1];
+  const user_id = 2 // temporary
 
-  const coffeeReviews = getReviewsForCoffee(reviews, coffeeId)
-  let avgRating = avgRatingForCoffee(coffeeReviews);
+  const [fav, setFav] = useState(isLiked(favourites, user_id))
+  const numFav = calcFavourites(favourites);
+  // add/delete favourites logic
+  const onClickHandler = (e) => {
+    
+    e.preventDefault()
 
-  if (!avgRating) {
-    avgRating = 'No Ratings Yet!'
-  } else {
-    avgRating += ' Stars'
+    if(fav){  
+      deleteFavourite(fav)
+      setFav(prev => false)
+    } else {
+      addFavourite(coffee.id, user_id)
+      .then(res => {
+        console.log('in handler')
+        console.log(res)
+        setFav(prev=>res)
+      })
+    }
+
+    return false;
+    
   }
 
 
@@ -37,14 +51,19 @@ export default function Details(props) {
         <div>
           <h2>{coffee.brand}</h2>
           <h1>{coffee.name}</h1>
-          <h1>{avgRating}</h1>
-          <h2>{coffeeReviews.length} {coffeeReviews.length === 1 && 'Rating' || 'Ratings'} </h2>
+          <h1>{avgRating} {avgRating=== 1? 'Star' : 'Stars'}</h1>
+          <h2>{reviews.length} {reviews.length === 1 ? 'Rating' : 'Ratings'} </h2>
           <p>{coffee.description}</p>
-          <IconButton aria-label="delete">
-            <FavoriteBorderIcon 
-              onClick={()=>{addFavourite.addFavourite(coffee.id, 1)}}
-            />
-          </IconButton>
+          <div>
+            <IconButton 
+              type="submit"
+              aria-label="delete"
+              onClick={onClickHandler}>
+                {fav &&  <FavoriteIcon/>} 
+                {!fav &&  <FavoriteBorderIcon/>} 
+            </IconButton>
+            {numFav} {numFav === 1? 'like':'likes'}
+          </div>
         </div>
         <div>
           <div>
