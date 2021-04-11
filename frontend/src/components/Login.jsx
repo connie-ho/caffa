@@ -76,8 +76,6 @@ export default function Login(props) {
             name="email"
             autoComplete="email"
             autoFocus
-            // value={email}
-    
           />
           <TextField
             variant="outlined"

@@ -11,7 +11,7 @@ const CoffeeList = (props) => {
 
   const {state} = useContext(DataContext);
   console.log('in coffeelist')
-  console.log(state)
+  // console.log(state)
   const coffees = state.coffees;
   const reviews = state.reviews;
 
