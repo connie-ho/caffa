@@ -3,12 +3,13 @@ import Nav from './Nav';
 import Login from './Login';
 import Home from './Home';
 import Coffees from './coffees/Coffees';
-import CoffeeContext from '../contexts/CoffeeContext';
 import UserContext from '../contexts/UserContext';
-import ReviewContext from '../contexts/ReviewContext';
+
 
 const Main = (props) => {
 
+  const {addFavourite} = props;
+  
   return (
     <div>
       <Router>
@@ -16,7 +17,9 @@ const Main = (props) => {
 
         <Switch>
           <Route path="/coffees" >
-            <Coffees />
+            <Coffees 
+              addFavourite={addFavourite}
+            />
           </Route>
           <Route path="/login" >
             <Login />
