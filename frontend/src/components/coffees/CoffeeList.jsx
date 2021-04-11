@@ -19,7 +19,7 @@ const CoffeeList = (props) => {
   
   const indexOfLastCoffee = currentPage * coffeesPerPage;
   const indexOfFirstCoffee = indexOfLastCoffee - coffeesPerPage;
-  const currentCoffees = coffees.slice(indexOfFirstCoffee, indexOfLastCoffee)
+  const currentCoffees = Object.values(coffees).slice(indexOfFirstCoffee, indexOfLastCoffee)
   
   // Change page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
@@ -27,7 +27,7 @@ const CoffeeList = (props) => {
 
   // Create Coffee List Item
   const coffeeList = currentCoffees.map(coffee => {
-    const coffeeReviews = getReviewsForCoffee(reviews,coffee.id)
+    const coffeeReviews = getReviewsForCoffee(Object.values(reviews),coffee.id)
     const avgRating = avgRatingForCoffee(coffeeReviews);
 
     return (

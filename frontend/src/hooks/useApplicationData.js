@@ -25,14 +25,27 @@ function useApplicationData(){
     ])
     .then(all=>{
       const users = [...all[0].data];
-      const coffees = [...all[1].data];
-      const reviews = [...all[2].data];
+
+
+      // copy coffeess into an object
+      const coffees = {}
+      for(const coffee of all[1].data){
+        coffees[coffee.id] = coffee;
+      }
+
+      // copy reviews into an object
+      const reviews = {}
+      for(const review of all[2].data){
+        reviews[review.id] = review;
+      }
 
       // copy favourites into an object
       const favourites = {}
       for(const fav of all[3].data){
         favourites[fav.id] = fav;
       }
+
+
       dispatch({type: SET_APPLICATION_DATA, users, coffees, reviews, favourites});
     })
   }, []);
