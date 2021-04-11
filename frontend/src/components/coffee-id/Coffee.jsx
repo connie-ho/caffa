@@ -26,7 +26,7 @@ export default function Coffee(props) {
   // filter for coffee reviews & favourites
   const coffeeReviews = getReviewsForCoffee(reviews, coffeeId);
   const avgRating = avgRatingForCoffee(coffeeReviews);
-  const coffeeFavourites = getFavouritesForCoffee(favourites, coffeeId);
+  const coffeeFavourites = getFavouritesForCoffee(Object.values(favourites), coffeeId);
 
 
   return (

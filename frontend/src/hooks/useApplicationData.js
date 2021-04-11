@@ -11,7 +11,7 @@ function useApplicationData(){
     users: [],
     coffees: [],
     reviews: [],
-    favourites: []
+    favourites: {}
   });
 
 
@@ -27,7 +27,12 @@ function useApplicationData(){
       const users = [...all[0].data];
       const coffees = [...all[1].data];
       const reviews = [...all[2].data];
-      const favourites = [...all[3].data];
+
+      // copy favourites into an object
+      const favourites = {}
+      for(const fav of all[3].data){
+        favourites[fav.id] = fav;
+      }
       dispatch({type: SET_APPLICATION_DATA, users, coffees, reviews, favourites});
     })
   }, []);
@@ -51,8 +56,8 @@ function useApplicationData(){
           ...state.favourites,
           [res.data.id]: favourite
         }
-        dispatch({type:SET_FAVOURITE, favourite});
 
+        dispatch({type:SET_FAVOURITE, favourites});
         return res.data.id;
       })
   }
@@ -68,6 +73,7 @@ function useApplicationData(){
       ...state.favourites,
       [id]: favourite
     }
+
 
     return axios.delete(`/api/favourites/${id}`)
       .then(res=>{

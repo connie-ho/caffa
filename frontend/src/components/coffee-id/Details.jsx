@@ -1,4 +1,5 @@
-import {useState} from 'react';
+import {useState, useContext} from 'react';
+import FavouriteContext from '../../contexts/FavouriteContext';
 
 import IconButton from '@material-ui/core/IconButton';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
@@ -6,16 +7,14 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 
 export default function Details(props) {
   
+  const {addFavourite, deleteFavourite} = useContext(FavouriteContext);
+
   const {
     coffee, 
     reviews, 
     avgRating, 
     favourites, 
-    addFavourite, 
-    deleteFavourite,
     isLiked} = props;
-
-  console.log(favourites)
 
   const user_id = 2 // temporary
 
@@ -23,21 +22,21 @@ export default function Details(props) {
 
   // add/delete favourites logic
   const onClickHandler = (e) => {
+    
+    console.log('in click handler')
+    console.log(fav)
     e.preventDefault()
+
     if(fav){  
       deleteFavourite(fav)
-      setFav(prev => null)   
-      return (
-        <FavoriteIcon/>
-        ) 
+      setFav(prev => false)
     } else {
       addFavourite(coffee.id, user_id)
-      .then(res => setFav(prev=>(res.data)))
-      return (
-        <FavoriteBorderIcon/> 
-    )
+      .then(res => setFav(prev=>true))
     }
 
+    return false;
+    
   }
 
 
@@ -58,8 +57,8 @@ export default function Details(props) {
               type="submit"
               aria-label="delete"
               onClick={onClickHandler}>
-                {isLiked(favourites,user_id) &&  <FavoriteIcon/>} 
-                {!isLiked(favourites,user_id) &&  <FavoriteBorderIcon/>} 
+                {fav &&  <FavoriteIcon/>} 
+                {!fav &&  <FavoriteBorderIcon/>} 
             </IconButton>
             {favourites.length} {favourites.length === 1? 'like':'likes'}
           </div>

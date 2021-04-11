@@ -8,6 +8,7 @@ import CoffeeList from './coffees/CoffeeList';
 import SearchList from './image-search/SearchList';
 import Coffees from './coffees/Coffees';
 import UserContext from '../contexts/UserContext';
+import FavouriteContext from '../contexts/FavouriteContext';
 
 import ReviewContext from '../contexts/ReviewContext';
 import SearchContext from '../contexts/SearchContext';
@@ -15,7 +16,7 @@ import SearchContext from '../contexts/SearchContext';
 const Main = (props) => {
   const {loginHandler} = props
 
-  const {addFavourite,deleteFavourite, user, setUser} = props;
+  const {addFavourite, deleteFavourite, user, setUser} = props;
 
   const [results, setResults] = useState(
     {
@@ -24,8 +25,6 @@ const Main = (props) => {
       
     }
   )
-
-  console.log("MAIN.JSX USER :", user)
 
   return (
     <div>
@@ -40,10 +39,9 @@ const Main = (props) => {
               <SearchList results={results}/>
             </Route>
           <Route path="/coffees" >
-            <Coffees 
-              addFavourite={addFavourite}
-              deleteFavourite={deleteFavourite}
-            />
+            <FavouriteContext.Provider value={{addFavourite, deleteFavourite}}>
+              <Coffees />
+            </FavouriteContext.Provider>
           </Route>
           <Route path="/login" >
             <Login loginHandler={loginHandler}/>

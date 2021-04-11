@@ -27,13 +27,9 @@ function App() {
   }
 
 
-
-  console.log("IN APP COMP")
-  console.log("USER :", user)
-
   const {state, addFavourite, deleteFavourite} = useApplicationData();
 
-  console.log("APP STATE: ", state)
+
   return (
     <div className="App">
       <DataContext.Provider value={{state}}>
