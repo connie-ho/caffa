@@ -5,11 +5,15 @@ import CoffeeList from './CoffeeList';
 import Coffee from '../coffee-id/Coffee';
 
 function Coffees(props) {
+
+  const {addFavourite} = props;
   return (
     <div>
     <Switch>
         <Route path="/coffees/:id">
-          <Coffee />
+          <Coffee 
+            addFavourite={addFavourite}
+          />
         </Route>
         <Route path="/coffees">
           <>

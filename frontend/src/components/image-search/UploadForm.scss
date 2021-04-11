@@ -1,0 +1,39 @@
+form{
+  margin: 30px auto 10px;
+  text-align: center;
+}
+label input{
+  height: 0;
+  width: 0;
+  opacity: 0;
+}
+label{
+  display: block;
+  width: 30px;
+  height: 30px;
+  border: 0.5px solid black;
+  border-radius: 50%;
+  margin: 10px auto;
+  line-height: 30px;
+  color: black ;
+  font-weight: bold;
+  font-size: 24px;
+}
+label:hover{
+  background: rgb(162, 202, 255);
+  color: black;
+}
+.output{
+  height: 60px;
+  font-size: 0.8rem;
+}
+.error{
+  color: black;
+}
+
+/* progress bar styles */
+.progress-bar{
+  height: 5px;
+  background: var(--primary);
+  margin-top: 20px;
+}

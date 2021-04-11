@@ -4,11 +4,13 @@ import axios from 'axios';
 import "./App.css";
 
 import DataContext from './contexts/DataContext';
+import FavouriteContext from './contexts/DataContext';
 
 
 import useApplicationData from './hooks/useApplicationData';
 
 function App() {
+
 
   const [user, setUser] = useState(null);
 
@@ -19,14 +21,20 @@ function App() {
       .then(res => console.log("RES :", res))
   }
 
-  const {state} = useApplicationData();
+
   console.log("IN APP COMP")
   console.log("USER :", user)
 
+
+  const {state, addFavourite} = useApplicationData();
+  console.log(state)
   return (
     <div className="App">
-      <DataContext.Provider value ={{state}}>
-        <Main loginHandler={handleLogin}/>
+      <DataContext.Provider value={{state}}>
+        <Main 
+          addFavourite={addFavourite}
+        />
+    
       </DataContext.Provider>
     </div>
   );
