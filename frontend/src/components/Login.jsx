@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -50,10 +50,16 @@ const useStyles = makeStyles((theme) => ({
 export default function Login(props) {
   const classes = useStyles();
   const {loginHandler} = props
-  console.log("IN LOGIN COMP")
-  console.log("LOGIN PROPS :", props)
-
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
   // console.log(email, password)
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+
+    console.log('Email', email, 'Password', password)
+    loginHandler(email, password)
+  }
 
   return (
     <Container component="main" maxWidth="xs">
@@ -65,7 +71,7 @@ export default function Login(props) {
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
-        <form className={classes.form} onSubmit={e => e.preventDefault()}>
+        <form className={classes.form} onSubmit={handleSubmit}>
           <TextField
             variant="outlined"
             margin="normal"
@@ -76,6 +82,8 @@ export default function Login(props) {
             name="email"
             autoComplete="email"
             autoFocus
+            value={email}
+            onInput={ e=>setEmail(e.target.value)}
           />
           <TextField
             variant="outlined"
@@ -87,6 +95,8 @@ export default function Login(props) {
             type="password"
             id="password"
             autoComplete="current-password"
+            value={password}
+            onInput={ e=>setPassword(e.target.value)}
           />
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
@@ -98,7 +108,6 @@ export default function Login(props) {
             variant="contained"
             color="primary"
             className={classes.submit}
-            onClick={loginHandler}
           >
             Sign In
           </Button>
