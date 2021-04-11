@@ -32,7 +32,7 @@ const getUserByEmail = function (email) {
     
   return db
     .query(text, values)
-    .then((data) => data.rows[0])
+    .then((data) => data.rows)
     .catch((err) => err);
 };
 

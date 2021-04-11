@@ -29,10 +29,23 @@ router.post("/", (req, res) => {
 
 // Login user
 router.post("/login", (req, res) => {
-
   getUserByEmail(req.body.email)
-  .then((data) => res.status(200).json(data))
-  .catch((err) => res.status(500).json({ error: err.message }));
+  .then(data => {
+    const user = data[0];
+    console.log("DATA :", data)
+    console.log("USER :", user)
+    if (user) {
+      req.session.user_id = user
+      res.redirect("/");
+    } else {
+      res.json({result: "Wrong email/password"})
+    }
+  })
+  .catch(err => {
+    res
+    .status(500)
+    .json({ error: err.message });
+  });
 });
 
 // Register user
