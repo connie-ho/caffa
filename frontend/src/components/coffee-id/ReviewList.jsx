@@ -7,7 +7,7 @@ function ReviewList({coffeeId}) {
   
   const {state} = useContext(DataContext);
   const reviews = state.reviews;
-  const coffeeReviews = getReviewsForCoffee(reviews, coffeeId);
+  const coffeeReviews = getReviewsForCoffee(Object.values(reviews), coffeeId);
   
 
   // Create Review List Item

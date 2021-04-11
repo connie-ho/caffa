@@ -11,12 +11,11 @@ function useApplicationData(){
     users: [],
     coffees: [],
     reviews: [],
-    favourites: []
+    favourites: {}
   });
 
 
   useEffect(()=>{
-    
 
     Promise.all([
       axios.get("/api/users"),
@@ -26,9 +25,27 @@ function useApplicationData(){
     ])
     .then(all=>{
       const users = [...all[0].data];
-      const coffees = [...all[1].data];
-      const reviews = [...all[2].data];
-      const favourites = [...all[3].data];
+
+
+      // copy coffeess into an object
+      const coffees = {}
+      for(const coffee of all[1].data){
+        coffees[coffee.id] = coffee;
+      }
+
+      // copy reviews into an object
+      const reviews = {}
+      for(const review of all[2].data){
+        reviews[review.id] = review;
+      }
+
+      // copy favourites into an object
+      const favourites = {}
+      for(const fav of all[3].data){
+        favourites[fav.id] = fav;
+      }
+
+
       dispatch({type: SET_APPLICATION_DATA, users, coffees, reviews, favourites});
     })
   }, []);
@@ -36,28 +53,51 @@ function useApplicationData(){
 
   function addFavourite(coffee_id, user_id){
 
-    const id = state.favourites.length;
-    const favourite = {
-      id,
+    const req = {
       coffee_id,
       user_id
     }
 
+    return axios.post(`/api/favourites`, req)
+      .then(res=>{
+
+        const favourite = {
+          ...res.data
+        }
+
+        const favourites = {
+          ...state.favourites,
+          [res.data.id]: favourite
+        }
+
+        dispatch({type:SET_FAVOURITE, favourites});
+        console.log('inside axios requiest')
+        console.log(res.data.id)
+        return res.data.id;
+      })
+  }
+
+  function deleteFavourite(id){
+
+
     const favourites = {
       ...state.favourites,
-      [id]: favourite
+      [id]: null
     }
 
-    return axios.put(`api/favourites/${id}`, favourite)
+
+    return axios.delete(`/api/favourites/${id}`)
       .then(res=>{
         dispatch({type: SET_FAVOURITE, favourites})
       })
 
   }
+  
 
   return {
     state,
-    addFavourite
+    addFavourite,
+    deleteFavourite
   };
 
 };

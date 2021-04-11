@@ -10,9 +10,8 @@ import {getReviewsForCoffee, avgRatingForCoffee} from '../../helpers/selectors';
 const CoffeeList = (props) => {
 
   const {state} = useContext(DataContext);
-  console.log('in coffeelist')
-  // console.log(state)
-  const coffees = state.coffees;
+
+  const coffees = Object.values(state.coffees);
   const reviews = state.reviews;
 
   // Pagination Logic
@@ -29,7 +28,7 @@ const CoffeeList = (props) => {
 
   // Create Coffee List Item
   const coffeeList = currentCoffees.map(coffee => {
-    const coffeeReviews = getReviewsForCoffee(reviews,coffee.id)
+    const coffeeReviews = getReviewsForCoffee(Object.values(reviews),coffee.id)
     const avgRating = avgRatingForCoffee(coffeeReviews);
 
     return (

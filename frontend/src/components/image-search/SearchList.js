@@ -9,7 +9,7 @@ import DataContext from '../../contexts/DataContext';
 export default function SearchList(props) {
   
   const {state} = useContext(DataContext);
-  const coffees = state.coffees;
+  const coffees = Object.values(state.coffees);
   const reviews = state.reviews;
   const {results} = props;
 
@@ -40,7 +40,7 @@ export default function SearchList(props) {
       const Results = fuse.search(results.textArray[0], {limit: 3})
       if (Results.length !== 0) { 
       return Results.map(coffee => {
-        const coffeeReviews = getReviewsForCoffee(reviews,coffee.item.id)
+        const coffeeReviews = getReviewsForCoffee(Object.values(reviews),coffee.item.id)
         const avgRating = avgRatingForCoffee(coffeeReviews);
         return (
           <CoffeeListItem
