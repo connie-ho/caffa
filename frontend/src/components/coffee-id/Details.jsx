@@ -1,6 +1,5 @@
 import {useContext} from 'react';
-import CoffeeContext from '../../contexts/CoffeeContext';
-import ReviewContext from '../../contexts/ReviewContext';
+import DataContext from '../../contexts/DataContext';
 import {getReviewsForCoffee, avgRatingForCoffee} from '../../helpers/selectors';
 
 import IconButton from '@material-ui/core/IconButton';
@@ -9,8 +8,10 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 
 export default function Details({coffeeId}) {
   
-  const {coffees} = useContext(CoffeeContext);
-  const {reviews} = useContext(ReviewContext);
+  const {state} = useContext(DataContext);
+  const coffees = state.coffees;
+  const reviews = state.reviews;
+
   const coffee = coffees[coffeeId - 1];
 
   const coffeeReviews = getReviewsForCoffee(reviews, coffeeId)

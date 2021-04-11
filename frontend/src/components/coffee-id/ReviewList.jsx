@@ -1,12 +1,13 @@
 import ReviewListItem from './ReviewListItem';
 import {useContext} from 'react';
-import ReviewContext from '../../contexts/ReviewContext';
+import DataContext from '../../contexts/DataContext';
 import {getReviewsForCoffee} from '../../helpers/selectors';
 
 function ReviewList({coffeeId}) {
   
-  const {reviews} = useContext(ReviewContext);
-  const coffeeReviews = getReviewsForCoffee(reviews, coffeeId)
+  const {state} = useContext(DataContext);
+  const reviews = state.reviews;
+  const coffeeReviews = getReviewsForCoffee(reviews, coffeeId);
   
 
   // Create Review List Item

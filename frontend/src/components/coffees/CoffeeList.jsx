@@ -1,18 +1,17 @@
 import {Route, Switch} from 'react-router-dom';
 import {useContext,useState} from 'react';
 
-import CoffeeContext from '../../contexts/CoffeeContext';
-import ReviewContext from '../../contexts/ReviewContext';
+import DataContext from '../../contexts/DataContext';
 import CoffeeListItem from './CoffeeListItem';
 import Pagination from './Pagination';
 
 import {getReviewsForCoffee, avgRatingForCoffee} from '../../helpers/selectors';
 
 const CoffeeList = (props) => {
-  const {coffees} = useContext(CoffeeContext);
-  const {reviews} = useContext(ReviewContext);
+  const {state} = useContext(DataContext);
+  const coffees = state.coffees;
+  const reviews = state.reviews;
 
-  
   // Pagination Logic
   const[currentPage, setCurrentPage] = useState(1);
   const[coffeesPerPage, setCoffeesPerPage] = useState(6);

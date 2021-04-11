@@ -1,59 +1,42 @@
-import {useEffect, useState, useReducer} from 'react';
+import {useEffect, useReducer} from 'react';
 import axios from "axios";
-// import reducer, {
-//   SET_APPLICATION_DATA
-// } from "../reducers/application";
+import reducer, {
+  SET_APPLICATION_DATA
+} from "../reducers/application";
 
 function useApplicationData(){
   
-  const [users, setUsers] = useState([])
-  const [coffees, setCoffees] = useState([])
-  const [reviews, setReviews] = useState([])
-  const [favourites, setFavourites] = useState([])
+  // const [users, setUsers] = useState([])
+  // const [coffees, setCoffees] = useState([])
+  // const [reviews, setReviews] = useState([])
+  // const [favourites, setFavourites] = useState([])
 
-  const [state, setState] = useState({
+  const [state, dispatch] = useReducer(reducer, {
     users: [],
     coffees: [],
-    reviews: [],
+    reviews: {},
     favourites: []
-  })
+  });
 
 
   useEffect(()=>{
-    
-    const fetchUsersData = async ()=>{
-      const res = await axios.get("/api/users");
-      setUsers(res.data)
-    };
-    const fetchCoffeesData = async ()=>{
-      const res = await axios.get("/api/coffees");
-      setCoffees(res.data)
-    };
-    const fetchReviewsData = async ()=>{
-      const res = await axios.get("/api/reviews");
-      setReviews(res.data)
-    };
-    const fetchFavouritesData = async ()=>{
-      const res = await axios.get("/api/favourites");
-      setFavourites(res.data)
-    };
-
-    fetchCoffeesData();
-    fetchFavouritesData();
-    fetchUsersData();
-    fetchReviewsData();
-  
+    Promise.all([
+      axios.get("/api/users"),
+      axios.get("/api/coffees"),
+      axios.get("/api/reviews"),
+      axios.get("/api/favourites"),
+    ])
+    .then(all=>{
+      const users = [...all[0].data];
+      const coffees = [...all[1].data];
+      const reviews = [...all[2].data];
+      const favourites = [...all[3].data];
+      dispatch({type: SET_APPLICATION_DATA, users, coffees, reviews, favourites});
+    })
   }, []);
 
   return {
-    users,
-    coffees,
-    reviews,
-    favourites,
-    setCoffees,
-    setUsers,
-    setFavourites,
-    setReviews
+    state
   };
 
 };
