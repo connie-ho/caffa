@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const {
-  getUser,
+  getUserById,
   getUserByEmail,
   getUsers
 } = require("../db/helpers/user-queries");
@@ -32,9 +32,12 @@ router.post("/login", (req, res) => {
   getUserByEmail(req.body.email)
   .then(data => {
     console.log("DATA :", data)
+    const userId = data.id
+    console.log("userId :", userId)
     if (data) {
-      req.session.user_id = data
-      res.send(data)
+      console.log("ANOTHER ONE :", data)
+      res.cookie('user_id', userId)
+      res.json({ data })
     } else {
       res.json({result: "Wrong email/password"})
     }
@@ -46,6 +49,12 @@ router.post("/login", (req, res) => {
   });
 });
 
+// LOGOUT
+router.post('/logout', (req, res) => {
+  req.session = null;
+  res.redirect("/");
+});
+
 // Register user
 router.post("/register", (req, res) => {
   res.send("ok")
@@ -53,7 +62,16 @@ router.post("/register", (req, res) => {
 
 // Authenticate user
 router.post("/authenticate", (req, res) => {
-  res.send("ok")
+  console.log("REQ COOKIESSSSSS! :", req.cookies)
+  const userId = req.cookies.user_id;
+  console.log("AUTHEN POST USER ID :", userId);
+  const currentUser = getUserById(userId);
+  console.log("currentUser :", currentUser);
+  if (req.cookies.user_id === 3) {
+    console.log("THE /AUTHENTICATE POST COOKIE")
+    res.send(currentUser)
+  }
+  res.json(null)
 });
 
 module.exports = router;
