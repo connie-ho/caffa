@@ -59,7 +59,7 @@ export default function SignIn() {
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
-        <form className={classes.form} noValidate>
+        <form className={classes.form} noValidate action="/api/users/login" method="POST">
           <TextField
             variant="outlined"
             margin="normal"
