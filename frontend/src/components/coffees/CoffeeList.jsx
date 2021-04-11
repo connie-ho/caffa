@@ -11,7 +11,7 @@ import {getReviewsForCoffee, avgRatingForCoffee} from '../../helpers/selectors';
 const CoffeeList = (props) => {
   const {coffees} = useContext(CoffeeContext);
   const {reviews} = useContext(ReviewContext);
-
+  
   
   // Pagination Logic
   const[currentPage, setCurrentPage] = useState(1);
