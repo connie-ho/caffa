@@ -4,10 +4,10 @@ import Login from './Login';
 import Home from './Home';
 import Coffees from './coffees/Coffees';
 import CoffeeContext from '../contexts/CoffeeContext';
+import UserContext from '../contexts/UserContext';
 import ReviewContext from '../contexts/ReviewContext';
 
 const Main = (props) => {
-
   const {users, coffees, reviews, favourites, setUsers, setCoffees, setFavourites, setReviews} = props;
 
   return (
@@ -21,11 +21,11 @@ const Main = (props) => {
             <Route path="/coffees" >
               <Coffees />
             </Route>
-          </ReviewContext.Provider>
-          </CoffeeContext.Provider>
           <Route path="/login" >
             <Login />
           </Route>
+          </ReviewContext.Provider>
+          </CoffeeContext.Provider>
           <Route path="/image-search">
           </Route>
           <Route path="/">
