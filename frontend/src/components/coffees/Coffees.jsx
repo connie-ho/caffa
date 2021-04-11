@@ -6,13 +6,14 @@ import Coffee from '../coffee-id/Coffee';
 
 function Coffees(props) {
 
-  const {addFavourite} = props;
+  const {addFavourite, deleteFavourite} = props;
   return (
     <div>
     <Switch>
         <Route path="/coffees/:id">
           <Coffee 
             addFavourite={addFavourite}
+            deleteFavourite={deleteFavourite}
           />
         </Route>
         <Route path="/coffees">

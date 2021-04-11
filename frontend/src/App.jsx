@@ -32,13 +32,14 @@ function App() {
   console.log("USER :", user)
 
 
-  const {state, addFavourite} = useApplicationData();
+  const {state, addFavourite, deleteFavourite} = useApplicationData();
   console.log("APP STATE: ", state)
   return (
     <div className="App">
       <DataContext.Provider value={{state}}>
         <Main 
           addFavourite={addFavourite}
+          deleteFavourite={deleteFavourite}
           loginHandler={loginHandler}
           user={user}
           setUser={setUser}

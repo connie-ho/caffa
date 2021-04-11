@@ -57,9 +57,30 @@ function useApplicationData(){
 
   }
 
+  function deleteFavourite(id){
+
+    const favourite = {
+      ...state.favourites[id],
+      favourite: null
+    }
+
+    const favourites = {
+      ...state.favourites,
+      [id]: favourite
+    }
+
+    return axios.delete(`/api/favourites${id}`)
+      .then(res=>{
+        dispatch({type: SET_FAVOURITE, favourites})
+      })
+
+  }
+  
+
   return {
     state,
-    addFavourite
+    addFavourite,
+    deleteFavourite
   };
 
 };
