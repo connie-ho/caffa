@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Main from './components/Main';
 import axios from 'axios';
 import "./App.css";
@@ -14,12 +14,14 @@ function App() {
 
   const [user, setUser] = useState(null);
 
-  const handleLogin = () => {
+  const loginHandler = (mail) => {
     console.log("in handle login function")
     axios
-      .post("/api/users/login")
-      .then(res => console.log("RES :", res))
+      .post("/api/users/login", {email: 'jl.justin15@gmail.com'})
+      .then(res => {setUser(res.data)
+      localStorage.setItem('user', res.data)})
   }
+
 
 
   console.log("IN APP COMP")
@@ -33,6 +35,9 @@ function App() {
       <DataContext.Provider value={{state}}>
         <Main 
           addFavourite={addFavourite}
+          loginHandler={loginHandler}
+          user={user}
+          setUser={setUser}
         />
     
       </DataContext.Provider>

@@ -31,12 +31,10 @@ router.post("/", (req, res) => {
 router.post("/login", (req, res) => {
   getUserByEmail(req.body.email)
   .then(data => {
-    const user = data[0];
     console.log("DATA :", data)
-    console.log("USER :", user)
-    if (user) {
-      req.session.user_id = user
-      res.redirect("/");
+    if (data) {
+      req.session.user_id = data
+      res.send(data)
     } else {
       res.json({result: "Wrong email/password"})
     }

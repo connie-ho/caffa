@@ -1,5 +1,5 @@
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 
 import Nav from './Nav';
 import Login from './Login';
@@ -18,7 +18,7 @@ const Main = (props) => {
   console.log("PROPS :", props)
 
   
-  const {addFavourite} = props;
+  const {addFavourite, user, setUser} = props;
 
   const [results, setResults] = useState(
     {
@@ -27,6 +27,7 @@ const Main = (props) => {
       
     }
   )
+
 
   return (
     <div>
