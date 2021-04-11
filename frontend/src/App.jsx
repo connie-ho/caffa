@@ -19,14 +19,13 @@ function App() {
         setUser(res.data)
       )}, []);
 
-  const loginHandler = (email) => {
+  const loginHandler = (email,password) => {
     console.log("in handle login function")
     axios
-      .post("/api/users/login", {email: 'jl.justin15@gmail.com'})
-      .then(res => {setUser(res.data)
-      localStorage.setItem('user', res.data)})
+      .post("/api/users/login", {email: email, password: password})
+      .then(res => setUser(res.data))
   }
-
+  console.log('current user', user)
 
   const {state, addFavourite, deleteFavourite} = useApplicationData();
 

@@ -38,7 +38,7 @@ router.post("/login", (req, res) => {
       console.log("ANOTHER ONE :", user)
       req.session.user_id = user.id;
       // res.cookie('user_id', userId)
-      res.json({ user })
+      res.send({first_name: user.first_name, last_name:user.last_name, email: user.email, id: user.id})
     } else {
       res.json({result: "Wrong email/password"})
     }
@@ -71,7 +71,7 @@ router.post("/authenticate", (req, res) => {
     console.log("DATA ID:", data.id)
     if (data) {
       console.log("THE /AUTHENTICATE POST COOKIE =============>")
-      res.send(data)
+      res.send({first_name: data.first_name, last_name:data.last_name, email: data.email, id: data.id})
     } else {
     res.json(null)
     }
