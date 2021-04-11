@@ -27,7 +27,6 @@ export default function ReviewListItem(props) {
 
   const classes = useStyles();
   const {review} = props;
-  console.log(review)
 
   return (
     <Card className={classes.root}>

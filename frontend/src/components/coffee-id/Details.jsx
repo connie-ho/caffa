@@ -3,6 +3,9 @@ import CoffeeContext from '../../contexts/CoffeeContext';
 import ReviewContext from '../../contexts/ReviewContext';
 import {getReviewsForCoffee, avgRatingForCoffee} from '../../helpers/selectors';
 
+import IconButton from '@material-ui/core/IconButton';
+import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+import FavoriteIcon from '@material-ui/icons/Favorite';
 
 export default function Details({coffeeId}) {
   
@@ -31,6 +34,9 @@ export default function Details({coffeeId}) {
           <h1>{avgRating}</h1>
           <h2>{coffeeReviews.length} {coffeeReviews.length === 1 && 'Rating' || 'Ratings'} </h2>
           <p>{coffee.description}</p>
+          <IconButton aria-label="delete">
+            <FavoriteBorderIcon />
+          </IconButton>
         </div>
         <div>
           <div>

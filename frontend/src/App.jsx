@@ -1,6 +1,9 @@
 import Main from './components/Main';
 import "./App.css";
 
+import CoffeeContext from './contexts/CoffeeContext';
+import ReviewContext from './contexts/ReviewContext';
+
 import useApplicationData from './hooks/useApplicationData';
 
 function App() {
@@ -9,16 +12,11 @@ function App() {
 
   return (
     <div className="App">
-      <Main 
-        users={users}
-        coffees={coffees}
-        reviews={reviews}
-        favourites={favourites}
-        setUsers={setUsers}
-        setCoffees={setCoffees}
-        setFavourites={setFavourites}
-        setReviews={setReviews}
-      />
+      <CoffeeContext.Provider value ={{coffees, setCoffees}}>
+      <ReviewContext.Provider value ={{reviews, setReviews}}>
+        <Main />
+      </ReviewContext.Provider>
+      </CoffeeContext.Provider>
     </div>
   );
 }

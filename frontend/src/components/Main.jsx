@@ -16,13 +16,9 @@ const Main = (props) => {
         <Nav />
 
         <Switch>
-          <CoffeeContext.Provider value={{coffees}}>
-          <ReviewContext.Provider value={{reviews}}>
-            <Route path="/coffees" >
-              <Coffees />
-            </Route>
-          </ReviewContext.Provider>
-          </CoffeeContext.Provider>
+          <Route path="/coffees" >
+            <Coffees />
+          </Route>
           <Route path="/login" >
             <Login />
           </Route>
