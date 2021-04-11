@@ -10,11 +10,15 @@ import FavouriteContext from './contexts/DataContext';
 import useApplicationData from './hooks/useApplicationData';
 
 function App() {
-
-
   const [user, setUser] = useState(null);
 
-  const loginHandler = (mail) => {
+  useEffect(() => {
+    axios
+      .post("/api/users/authenticate")
+      .then(res => setUser(res.data))
+  }, []);
+
+  const loginHandler = (email) => {
     console.log("in handle login function")
     axios
       .post("/api/users/login", {email: 'jl.justin15@gmail.com'})
@@ -29,7 +33,7 @@ function App() {
 
 
   const {state, addFavourite} = useApplicationData();
-  console.log(state)
+  console.log("APP STATE: ", state)
   return (
     <div className="App">
       <DataContext.Provider value={{state}}>
