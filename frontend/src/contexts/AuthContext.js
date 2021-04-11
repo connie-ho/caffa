@@ -1,3 +1,7 @@
+import React from 'react';
+
+export default React.createContext();
+
 // import React, { createContext, useState, useEffect } from "react";
 // import { useHistory, useLocation } from "react-router-dom";
 // // import { getHashParams } from "../util/auth";
@@ -62,4 +66,4 @@
 //   );
 // };
 
-// export default AuthProvider;
+// export default AuthContext;

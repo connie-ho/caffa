@@ -13,6 +13,9 @@ import ReviewContext from '../contexts/ReviewContext';
 import SearchContext from '../contexts/SearchContext';
 
 const Main = (props) => {
+  const {loginHandler} = props
+  console.log("IN MAIN")
+  console.log("PROPS :", props)
 
   
   const {addFavourite} = props;
@@ -45,7 +48,7 @@ const Main = (props) => {
             />
           </Route>
           <Route path="/login" >
-            <Login />
+            <Login loginHandler={loginHandler}/>
           </Route>
           <Route path="/">
             <Home />

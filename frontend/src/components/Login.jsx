@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -12,6 +12,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import axios from 'axios';
 
 function Copyright() {
   return (
@@ -46,8 +47,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignIn() {
+export default function Login(props) {
   const classes = useStyles();
+  const {loginHandler} = props
+  console.log("IN LOGIN COMP")
+  console.log("LOGIN PROPS :", props)
+
+  // console.log(email, password)
 
   return (
     <Container component="main" maxWidth="xs">
@@ -59,7 +65,7 @@ export default function SignIn() {
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
-        <form className={classes.form} noValidate action="/api/users/login" method="POST">
+        <form className={classes.form} onSubmit={e => e.preventDefault()}>
           <TextField
             variant="outlined"
             margin="normal"
@@ -70,6 +76,8 @@ export default function SignIn() {
             name="email"
             autoComplete="email"
             autoFocus
+            // value={email}
+    
           />
           <TextField
             variant="outlined"
@@ -92,6 +100,7 @@ export default function SignIn() {
             variant="contained"
             color="primary"
             className={classes.submit}
+            onClick={loginHandler}
           >
             Sign In
           </Button>
