@@ -51,13 +51,13 @@ app.use(express.static(path.join(__dirname, "public")));
 // // Then pass them to cors:
 // app.use(cors(corsOptions));
 
-const indexRouter = require("./routes/index");
+// const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
 const coffeesRouter = require("./routes/coffees");
 const favouritesRouter = require("./routes/favourites");
 const reviewsRouter = require("./routes/reviews");
 
-app.use("/", indexRouter);
+// app.use("/api/", indexRouter);
 app.use("/api/users", usersRouter);
 app.use("/api/coffees", coffeesRouter);
 app.use("/api/favourites", favouritesRouter);

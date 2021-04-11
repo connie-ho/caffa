@@ -1,3 +1,4 @@
+import React from "react";
 import Main from './components/Main';
 import "./App.css";
 
@@ -9,6 +10,7 @@ import useApplicationData from './hooks/useApplicationData';
 function App() {
 
   const {users, coffees, reviews, favourites, setUsers, setCoffees, setFavourites, setReviews} = useApplicationData();
+
 
   return (
     <div className="App">

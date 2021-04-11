@@ -4,11 +4,10 @@ import Login from './Login';
 import Home from './Home';
 import Coffees from './coffees/Coffees';
 import CoffeeContext from '../contexts/CoffeeContext';
+import UserContext from '../contexts/UserContext';
 import ReviewContext from '../contexts/ReviewContext';
 
 const Main = (props) => {
-
-  const {users, coffees, reviews, favourites, setUsers, setCoffees, setFavourites, setReviews} = props;
 
   return (
     <div>
