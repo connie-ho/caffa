@@ -21,10 +21,10 @@ export default function Coffee(props) {
  const favourites = state.favourites;
 
  // filter for specific coffee details
- const coffee = coffees[coffeeId - 1];
+ const coffee = coffees[coffeeId];
 
   // filter for coffee reviews & favourites
-  const coffeeReviews = getReviewsForCoffee(reviews, coffeeId);
+  const coffeeReviews = getReviewsForCoffee(Object.values(reviews), coffeeId);
   const avgRating = avgRatingForCoffee(coffeeReviews);
   const coffeeFavourites = getFavouritesForCoffee(Object.values(favourites), coffeeId);
 
