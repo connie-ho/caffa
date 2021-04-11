@@ -31,13 +31,14 @@ router.post("/", (req, res) => {
 router.post("/login", (req, res) => {
   getUserByEmail(req.body.email)
   .then(data => {
+    const user = data
     console.log("DATA :", data)
-    const userId = data.id
-    console.log("userId :", userId)
-    if (data) {
-      console.log("ANOTHER ONE :", data)
-      res.cookie('user_id', userId)
-      res.json({ data })
+    console.log("USER :", user)
+    if (user) {
+      console.log("ANOTHER ONE :", user)
+      req.session.user_id = user.id;
+      // res.cookie('user_id', userId)
+      res.json({ user })
     } else {
       res.json({result: "Wrong email/password"})
     }
@@ -62,18 +63,24 @@ router.post("/register", (req, res) => {
 
 // Authenticate user
 router.post("/authenticate", (req, res) => {
-  console.log("REQ COOKIESSSSSS! :", req.cookies)
-  const userId = Number(req.cookies.user_id);
+  const userId = req.session.user_id;
   console.log("AUTHEN POST USER ID :", userId);
   getUserById(userId)
   .then(data => {
     console.log("DATA :", data)
-    if (userId === 3) {
+    console.log("DATA ID:", data.id)
+    if (data) {
       console.log("THE /AUTHENTICATE POST COOKIE =============>")
       res.send(data)
-    }
+    } else {
     res.json(null)
+    }
   })
+  .catch(err => {
+    res
+    .status(500)
+    .json({ error: err.message });
+  });
 });
 
 module.exports = router;
