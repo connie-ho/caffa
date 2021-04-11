@@ -2,17 +2,20 @@ import React from "react";
 import Main from './components/Main';
 import "./App.css";
 
+import DataContext from './contexts/DataContext';
+
+
 import useApplicationData from './hooks/useApplicationData';
 
 function App() {
-  const {state, setState} = useApplicationData();
+
+  const {state} = useApplicationData();
 
   return (
     <div className="App">
-      <Main 
-        state={state}
-        setState={setState}
-      />
+      <DataContext.Provider value ={{state}}>
+        <Main />
+      </DataContext.Provider>
     </div>
   );
 }
