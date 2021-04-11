@@ -15,8 +15,9 @@ function App() {
   useEffect(() => {
     axios
       .post("/api/users/authenticate")
-      .then(res => setUser(res.data))
-  }, []);
+      .then(res => 
+        setUser(res.data)
+      )}, []);
 
   const loginHandler = (email) => {
     console.log("in handle login function")

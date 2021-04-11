@@ -63,15 +63,17 @@ router.post("/register", (req, res) => {
 // Authenticate user
 router.post("/authenticate", (req, res) => {
   console.log("REQ COOKIESSSSSS! :", req.cookies)
-  const userId = req.cookies.user_id;
+  const userId = Number(req.cookies.user_id);
   console.log("AUTHEN POST USER ID :", userId);
-  const currentUser = getUserById(userId);
-  console.log("currentUser :", currentUser);
-  if (req.cookies.user_id === 3) {
-    console.log("THE /AUTHENTICATE POST COOKIE")
-    res.send(currentUser)
-  }
-  res.json(null)
+  getUserById(userId)
+  .then(data => {
+    console.log("DATA :", data)
+    if (userId === 3) {
+      console.log("THE /AUTHENTICATE POST COOKIE =============>")
+      res.send(data)
+    }
+    res.json(null)
+  })
 });
 
 module.exports = router;
