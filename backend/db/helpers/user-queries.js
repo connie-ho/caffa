@@ -11,7 +11,7 @@ const getUsers = function () {
     .catch((err) => console.error(this, "query failed", err.stack));
 };
 
-const getUser = function (userId) {
+const getUserById = function (userId) {
   const text = `
   SELECT * FROM users
   WHERE id = $1;`;
@@ -62,7 +62,7 @@ const getUserByEmail = function (email) {
 // }
 
 module.exports = {
-    getUser,
+    getUserById,
     getUserByEmail,
     getUsers
 };

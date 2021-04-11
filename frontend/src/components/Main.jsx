@@ -25,6 +25,7 @@ const Main = (props) => {
     }
   )
 
+  console.log("MAIN.JSX USER :", user)
 
   return (
     <div>
@@ -32,6 +33,7 @@ const Main = (props) => {
       <SearchContext.Provider value={{results, setResults}}>
         <Nav />
       </SearchContext.Provider >
+        <h2>{user ? "I am logged in" : "I am not logged in"}</h2>
 
         <Switch>
             <Route path="/search">
