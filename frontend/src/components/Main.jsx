@@ -8,6 +8,9 @@ import UserContext from '../contexts/UserContext';
 import ReviewContext from '../contexts/ReviewContext';
 
 const Main = (props) => {
+  const {loginHandler} = props
+  console.log("IN MAIN")
+  console.log("PROPS :", props)
 
   return (
     <div>
@@ -19,7 +22,7 @@ const Main = (props) => {
             <Coffees />
           </Route>
           <Route path="/login" >
-            <Login />
+            <Login loginHandler={loginHandler}/>
           </Route>
           <Route path="/image-search">
           </Route>
