@@ -8,7 +8,9 @@ import Pagination from './Pagination';
 import {getReviewsForCoffee, avgRatingForCoffee} from '../../helpers/selectors';
 
 const CoffeeList = (props) => {
+
   const {state} = useContext(DataContext);
+  console.log('in coffeelist')
   console.log(state)
   const coffees = state.coffees;
   const reviews = state.reviews;

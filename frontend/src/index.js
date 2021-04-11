@@ -6,7 +6,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import AuthProvider from "./contexts/AuthContext";
 // import * as serviceWorker from "./serviceWorker";
 
-ReactDOM.render(
+ ReactDOM.render(
   <React.StrictMode>
     <Router>
       {/* <AuthProvider> */}

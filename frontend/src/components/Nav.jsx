@@ -14,6 +14,7 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import LocalCafeIcon from '@material-ui/icons/LocalCafe';
 import CameraAltIcon from '@material-ui/icons/CameraAlt';
+import FormDialog from './image-search/Dialog';
 import { UserContext } from '../contexts/UserContext';
 import Login from './Login';
 
@@ -85,12 +86,16 @@ function Nav() {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
-
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+  const [modalOpen, setModalOpen] = React.useState(false)
 
   const handleProfileMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
+  };
+
+  const handleModalOpen = () => {
+    setModalOpen(true);
   };
 
   const handleMobileMenuClose = () => {
@@ -127,6 +132,8 @@ function Nav() {
         </MenuItem>
       </Menu>
   );
+  
+  const renderModal = (<FormDialog open={modalOpen} setOpen ={setModalOpen} />)
 
   const mobileMenuId = 'primary-search-account-menu-mobile';
   const renderMobileMenu = (
@@ -202,7 +209,7 @@ function Nav() {
               aria-label="camera"
               aria-controls={menuId}
               aria-haspopup="true"
-              onClick={handleProfileMenuOpen}
+              onClick={handleModalOpen}
               color="inherit"
             >
               <CameraAltIcon />
@@ -243,6 +250,7 @@ function Nav() {
       </AppBar>
       {renderMobileMenu}
       {renderMenu}
+      {renderModal}
     </div>
   );
 }
