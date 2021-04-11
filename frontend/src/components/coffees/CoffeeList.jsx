@@ -10,7 +10,7 @@ import {getReviewsForCoffee, avgRatingForCoffee} from '../../helpers/selectors';
 const CoffeeList = (props) => {
 
   const {state} = useContext(DataContext);
-  const coffees = state.coffees;
+  const coffees = Object.values(state.coffees);
   const reviews = state.reviews;
 
   // Pagination Logic
@@ -19,7 +19,7 @@ const CoffeeList = (props) => {
   
   const indexOfLastCoffee = currentPage * coffeesPerPage;
   const indexOfFirstCoffee = indexOfLastCoffee - coffeesPerPage;
-  const currentCoffees = Object.values(coffees).slice(indexOfFirstCoffee, indexOfLastCoffee)
+  const currentCoffees = coffees.slice(indexOfFirstCoffee, indexOfLastCoffee)
   
   // Change page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
