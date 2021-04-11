@@ -10,7 +10,6 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 export default function Details(props) {
   
   const {coffeeId, addFavourite} = props;
-  console.log(props)
 
   const {state} = useContext(DataContext);
   const coffees = state.coffees;
@@ -40,10 +39,11 @@ export default function Details(props) {
           <h1>{avgRating}</h1>
           <h2>{coffeeReviews.length} {coffeeReviews.length === 1 && 'Rating' || 'Ratings'} </h2>
           <p>{coffee.description}</p>
-          <IconButton aria-label="delete">
-            <FavoriteBorderIcon 
-              onClick={()=>{addFavourite.addFavourite(coffee.id, 1)}}
-            />
+          <IconButton 
+            type="submit"
+            onClick={()=>{addFavourite(coffee.id, 2)}}
+            aria-label="delete">
+            <FavoriteBorderIcon/>
           </IconButton>
         </div>
         <div>

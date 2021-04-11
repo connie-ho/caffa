@@ -14,10 +14,7 @@ import SearchContext from '../contexts/SearchContext';
 
 const Main = (props) => {
   const {loginHandler} = props
-  console.log("IN MAIN")
-  console.log("PROPS :", props)
 
-  
   const {addFavourite, user, setUser} = props;
 
   const [results, setResults] = useState(
@@ -37,9 +34,6 @@ const Main = (props) => {
       </SearchContext.Provider >
 
         <Switch>
-            <Route path="/coffees" >
-              <CoffeeList/>
-            </Route>
             <Route path="/search">
               <SearchList results={results}/>
             </Route>

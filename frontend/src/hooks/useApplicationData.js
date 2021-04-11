@@ -36,7 +36,7 @@ function useApplicationData(){
 
   function addFavourite(coffee_id, user_id){
 
-    const id = state.favourites.length;
+    const id = state.favourites.length + 1;
     const favourite = {
       id,
       coffee_id,
@@ -48,7 +48,9 @@ function useApplicationData(){
       [id]: favourite
     }
 
-    return axios.put(`api/favourites/${id}`, favourite)
+    console.log(state)
+
+    return axios.post(`/api/favourites`, favourite)
       .then(res=>{
         dispatch({type: SET_FAVOURITE, favourites})
       })
