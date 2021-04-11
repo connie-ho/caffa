@@ -23,12 +23,11 @@ const Main = (props) => {
             <Route path="/coffees" >
               <CoffeeList/>
             </Route>
+          <Route path="/login" >
+            <Login />
+          </Route>
           </ReviewContext.Provider>
           </CoffeeContext.Provider>
-          <Route path="/login" >
-            {/* <Login /> */}
-            <h1>HELLO</h1>
-          </Route>
           <Route path="/image-search">
           </Route>
           <Route path="/">
