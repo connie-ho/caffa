@@ -1,10 +1,18 @@
-import {React} from 'react';
+import {React, useContext} from 'react';
 import Fuse from 'fuse.js'
 import {getReviewsForCoffee, avgRatingForCoffee} from '../../helpers/selectors';
 import CoffeeListItem from '../coffees/CoffeeListItem';
+
+import DataContext from '../../contexts/DataContext';
+
+
 export default function SearchList(props) {
   
-  const { results, coffees, reviews } = props
+  const {state} = useContext(DataContext);
+  const coffees = state.coffees;
+  const reviews = state.reviews;
+  const {results} = props;
+
   
   const options = {
     isCaseSensitive: false,
@@ -29,9 +37,7 @@ export default function SearchList(props) {
 
   const searchResult = () => { 
     if(results.textArray[0]){
-      console.log('entered this')
       const Results = fuse.search(results.textArray[0], {limit: 3})
-      console.log(Results)
       if (Results.length !== 0) { 
       return Results.map(coffee => {
         const coffeeReviews = getReviewsForCoffee(reviews,coffee.item.id)

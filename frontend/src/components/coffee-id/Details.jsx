@@ -2,12 +2,16 @@ import {useContext} from 'react';
 import DataContext from '../../contexts/DataContext';
 import {getReviewsForCoffee, avgRatingForCoffee} from '../../helpers/selectors';
 
+
 import IconButton from '@material-ui/core/IconButton';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 
-export default function Details({coffeeId}) {
+export default function Details(props) {
   
+  const {coffeeId, addFavourite} = props;
+  console.log(props)
+
   const {state} = useContext(DataContext);
   const coffees = state.coffees;
   const reviews = state.reviews;
@@ -23,6 +27,7 @@ export default function Details({coffeeId}) {
     avgRating += ' Stars'
   }
 
+
   return (
     <>
       <div>
@@ -36,7 +41,9 @@ export default function Details({coffeeId}) {
           <h2>{coffeeReviews.length} {coffeeReviews.length === 1 && 'Rating' || 'Ratings'} </h2>
           <p>{coffee.description}</p>
           <IconButton aria-label="delete">
-            <FavoriteBorderIcon />
+            <FavoriteBorderIcon 
+              onClick={()=>{addFavourite.addFavourite(coffee.id, 1)}}
+            />
           </IconButton>
         </div>
         <div>
