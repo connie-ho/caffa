@@ -31,6 +31,7 @@ export default function Coffee(props) {
 
   return (
     <div>
+    {coffee && (
       <>
         <Details 
           coffee={coffee}
@@ -45,7 +46,8 @@ export default function Coffee(props) {
         <ReviewList
           coffeeId={coffeeId}
         />
-      </>
+      </>)
+    }
     </div>
   )
 }

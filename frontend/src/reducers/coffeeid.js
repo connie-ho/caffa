@@ -8,7 +8,9 @@ export default function reducer(state, action) {
         ...state,
         coffee: action.coffee,
         reviews: action.reviews,
-        favourites: action.favourites
+        favourites: action.favourites,
+        avgRating: action.avgRating,
+        liked: action.liked
       }
       case SET_FAVOURITE:
       return {

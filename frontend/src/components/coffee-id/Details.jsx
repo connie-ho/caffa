@@ -15,13 +15,14 @@ export default function Details(props) {
     deleteFavourite,
     isLiked} = props;
 
+  console.log(favourites)
+
   const user_id = 2 // temporary
 
   const [fav, setFav] = useState(isLiked(favourites, user_id))
 
   // add/delete favourites logic
   const onClickHandler = (e) => {
-
     e.preventDefault()
     if(fav){  
       deleteFavourite(fav)
