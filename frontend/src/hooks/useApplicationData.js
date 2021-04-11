@@ -58,20 +58,18 @@ function useApplicationData(){
         }
 
         dispatch({type:SET_FAVOURITE, favourites});
+        console.log('inside axios requiest')
+        console.log(res.data.id)
         return res.data.id;
       })
   }
 
   function deleteFavourite(id){
 
-    const favourite = {
-      ...state.favourites[id],
-      favourite: null
-    }
 
     const favourites = {
       ...state.favourites,
-      [id]: favourite
+      [id]: null
     }
 
 

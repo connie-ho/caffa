@@ -38,7 +38,7 @@ export function getFavouritesForCoffee(favourites, coffeeId){
 
   for (const fav of favourites){
 
-    if (Number(fav.coffee_id) === Number(coffeeId)){
+    if (fav && Number(fav.coffee_id) === Number(coffeeId)){
       res.push(fav);
     }
   }
@@ -54,5 +54,21 @@ export function isLiked(favourites, userId){
   }
 
   return null;
+
+}
+
+// pass in filtered favourites array for that coffee
+export function calcFavourites(favourites){
+
+  let num = 0;
+
+  for(const fav of favourites) {
+
+    if(fav){
+      num += 1
+    }
+  }
+  return num;
+
 
 }

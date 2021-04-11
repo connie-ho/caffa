@@ -1,6 +1,6 @@
 import {useState, useContext} from 'react';
 import FavouriteContext from '../../contexts/FavouriteContext';
-
+import {calcFavourites} from '../../helpers/selectors';
 import IconButton from '@material-ui/core/IconButton';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import FavoriteIcon from '@material-ui/icons/Favorite';
@@ -19,12 +19,10 @@ export default function Details(props) {
   const user_id = 2 // temporary
 
   const [fav, setFav] = useState(isLiked(favourites, user_id))
-
+  const numFav = calcFavourites(favourites);
   // add/delete favourites logic
   const onClickHandler = (e) => {
     
-    console.log('in click handler')
-    console.log(fav)
     e.preventDefault()
 
     if(fav){  
@@ -32,7 +30,11 @@ export default function Details(props) {
       setFav(prev => false)
     } else {
       addFavourite(coffee.id, user_id)
-      .then(res => setFav(prev=>true))
+      .then(res => {
+        console.log('in handler')
+        console.log(res)
+        setFav(prev=>res)
+      })
     }
 
     return false;
@@ -60,7 +62,7 @@ export default function Details(props) {
                 {fav &&  <FavoriteIcon/>} 
                 {!fav &&  <FavoriteBorderIcon/>} 
             </IconButton>
-            {favourites.length} {favourites.length === 1? 'like':'likes'}
+            {numFav} {numFav === 1? 'like':'likes'}
           </div>
         </div>
         <div>
