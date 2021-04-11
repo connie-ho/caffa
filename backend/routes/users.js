@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const {
   getUser,
+  getUserByEmail,
   getUsers
 } = require("../db/helpers/user-queries");
 
@@ -28,7 +29,10 @@ router.post("/", (req, res) => {
 
 // Login user
 router.post("/login", (req, res) => {
-  res.send("ok")
+
+  getUserByEmail(req.body.email)
+  .then((data) => res.status(200).json(data))
+  .catch((err) => res.status(500).json({ error: err.message }));
 });
 
 // Register user

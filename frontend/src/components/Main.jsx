@@ -4,11 +4,13 @@ import Login from './Login';
 import Home from './Home';
 import CoffeeList from './coffees/CoffeeList';
 import CoffeeContext from '../contexts/CoffeeContext';
+import UserContext from '../contexts/UserContext';
 import ReviewContext from '../contexts/ReviewContext';
 
 const Main = (props) => {
 
   const {state, setState} = props;
+  console.log("PROPS:", props)
 
   return (
     <div>
@@ -21,11 +23,11 @@ const Main = (props) => {
             <Route path="/coffees" >
               <CoffeeList/>
             </Route>
-          </ReviewContext.Provider>
-          </CoffeeContext.Provider>
           <Route path="/login" >
             <Login />
           </Route>
+          </ReviewContext.Provider>
+          </CoffeeContext.Provider>
           <Route path="/image-search">
           </Route>
           <Route path="/">
