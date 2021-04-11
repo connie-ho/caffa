@@ -16,6 +16,8 @@ function useApplicationData(){
 
 
   useEffect(()=>{
+    
+
     Promise.all([
       axios.get("/api/users"),
       axios.get("/api/coffees"),
