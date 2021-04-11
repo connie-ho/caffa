@@ -1,3 +1,4 @@
+import {useState} from 'react';
 
 import IconButton from '@material-ui/core/IconButton';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
@@ -11,8 +12,32 @@ export default function Details(props) {
     avgRating, 
     favourites, 
     addFavourite, 
-    deleteFavourite, 
-    liked} = props;
+    deleteFavourite,
+    isLiked} = props;
+
+  const user_id = 2 // temporary
+
+  const [fav, setFav] = useState(isLiked(favourites, user_id))
+
+  // add/delete favourites logic
+  const onClickHandler = (e) => {
+
+    e.preventDefault()
+    if(fav){  
+      deleteFavourite(fav)
+      setFav(prev => null)   
+      return (
+        <FavoriteIcon/>
+        ) 
+    } else {
+      addFavourite(coffee.id, user_id)
+      .then(res => setFav(prev=>(res.data)))
+      return (
+        <FavoriteBorderIcon/> 
+    )
+    }
+
+  }
 
 
   return (
@@ -30,10 +55,10 @@ export default function Details(props) {
           <div>
             <IconButton 
               type="submit"
-              onClick={()=>{liked? deleteFavourite(liked) :addFavourite(coffee.id, 2)}}
-              aria-label="delete">
-              
-              <FavoriteBorderIcon/>
+              aria-label="delete"
+              onClick={onClickHandler}>
+                {isLiked(favourites,user_id) &&  <FavoriteIcon/>} 
+                {!isLiked(favourites,user_id) &&  <FavoriteBorderIcon/>} 
             </IconButton>
             {favourites.length} {favourites.length === 1? 'like':'likes'}
           </div>

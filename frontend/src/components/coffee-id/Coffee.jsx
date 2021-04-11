@@ -28,8 +28,6 @@ export default function Coffee(props) {
   const avgRating = avgRatingForCoffee(coffeeReviews);
   const coffeeFavourites = getFavouritesForCoffee(favourites, coffeeId);
 
-  // check if coffee is already liked
-  const liked = isLiked(coffeeFavourites, user_id);
 
   return (
     <div>
@@ -41,7 +39,7 @@ export default function Coffee(props) {
           avgRating={avgRating}
           addFavourite={addFavourite}
           deleteFavourite={deleteFavourite}
-          liked={liked}
+          isLiked={isLiked}
         />
         <h1>Community Reviews</h1>
         <ReviewList

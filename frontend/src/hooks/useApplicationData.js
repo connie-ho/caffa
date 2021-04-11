@@ -16,7 +16,6 @@ function useApplicationData(){
 
 
   useEffect(()=>{
-    
 
     Promise.all([
       axios.get("/api/users"),
@@ -36,25 +35,26 @@ function useApplicationData(){
 
   function addFavourite(coffee_id, user_id){
 
-    const id = state.favourites.length + 1;
-    const favourite = {
-      id,
+    const req = {
       coffee_id,
       user_id
     }
 
-    const favourites = {
-      ...state.favourites,
-      [id]: favourite
-    }
-
-    console.log(state)
-
-    return axios.post(`/api/favourites`, favourite)
+    return axios.post(`/api/favourites`, req)
       .then(res=>{
-        dispatch({type: SET_FAVOURITE, favourites})
-      })
 
+        const favourite = {
+          ...res.data
+        }
+
+        const favourites = {
+          ...state.favourites,
+          [res.data.id]: favourite
+        }
+        dispatch({type:SET_FAVOURITE, favourite});
+
+        return res.data.id;
+      })
   }
 
   function deleteFavourite(id){
@@ -69,7 +69,7 @@ function useApplicationData(){
       [id]: favourite
     }
 
-    return axios.delete(`/api/favourites${id}`)
+    return axios.delete(`/api/favourites/${id}`)
       .then(res=>{
         dispatch({type: SET_FAVOURITE, favourites})
       })
