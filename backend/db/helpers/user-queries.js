@@ -12,29 +12,29 @@ const getUsers = function () {
 };
 
 const getUser = function (userId) {
-    const text = `
-    SELECT * FROM users
-    WHERE id = $1;`;
-    const values = [userId];
+  const text = `
+  SELECT * FROM users
+  WHERE id = $1;`;
+  const values = [userId];
   
-    return db
-      .query(text, values)
-      .then((data) => data.rows[0])
-      .catch((err) => console.error(this, "query failed", err.stack));
-  };
+  return db
+    .query(text, values)
+    .then((data) => data.rows[0])
+    .catch((err) => console.error(this, "query failed", err.stack));
+};
 
-// const getUserByEmail = email => {
+const getUserByEmail = function (email) {
 
-//     const query = {
-//         text: `SELECT * FROM users WHERE email = $1` ,
-//         values: [email]
-//     }
-
-//     return db
-//         .query(query)
-//         .then(result => result.rows[0])
-//         .catch((err) => err);
-// }
+  const text = `
+  SELECT * FROM users 
+  WHERE email = $1;`;
+  const values = [email];
+    
+  return db
+    .query(text, values)
+    .then((data) => data.rows[0])
+    .catch((err) => err);
+};
 
 // const addUser = (firstName, lastName, email, password) => {
 //     const query = {
@@ -63,5 +63,6 @@ const getUser = function (userId) {
 
 module.exports = {
     getUser,
+    getUserByEmail,
     getUsers
 };

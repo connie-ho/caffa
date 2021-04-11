@@ -6,7 +6,9 @@ import Login from './Login';
 import Home from './Home';
 import CoffeeList from './coffees/CoffeeList';
 import SearchList from './image-search/SearchList';
+import Coffees from './coffees/Coffees';
 import CoffeeContext from '../contexts/CoffeeContext';
+import UserContext from '../contexts/UserContext';
 import ReviewContext from '../contexts/ReviewContext';
 import SearchContext from '../contexts/SearchContext';
 
@@ -20,6 +22,7 @@ const Main = (props) => {
       
     }
   )
+
   return (
     <div>
       <Router>
@@ -39,6 +42,9 @@ const Main = (props) => {
             </Route>
           </ReviewContext.Provider>
           </CoffeeContext.Provider>
+          <Route path="/coffees" >
+            <Coffees />
+          </Route>
           <Route path="/login" >
             <Login />
           </Route>
