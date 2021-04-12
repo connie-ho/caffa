@@ -22,9 +22,13 @@ function App() {
 
   const loginHandler = (email,password) => {
     console.log("in handle login function")
-    axios
-      .post("/api/users/login", {email: email, password: password})
-      .then(res => setUser(res.data))
+    axios.post("/api/users/login", {email: email, password: password})
+      .then(res => {
+        setUser(res.data)
+      })
+      .catch(err => {
+        console.log(err)
+      })
   }
 
   const logoutHandler = () => {
