@@ -12,6 +12,7 @@ import useApplicationData from './hooks/useApplicationData';
 
 function App() {
   const [user, setUser] = useState(null);
+  // const [homeCoffees, setHomeCoffees] = useState(null);
 
   useEffect(() => {
     axios
@@ -41,6 +42,18 @@ function App() {
       .post("/api/users/logout")
       .then(res => setUser(res.data))
   }
+
+  // const getMostFavouritedCoffees = () => {
+  //   console.log("getMostFavourited in App.jsx")
+  //   axios
+  //     .get("/api/coffees/popular")
+  //     .then(res => {
+  //       setHomeCoffees(res.data)
+  //     })
+  //     .catch(err => {
+  //       console.log(err.message)
+  //     })
+  // }
 
   // console.log('current user', user)
 

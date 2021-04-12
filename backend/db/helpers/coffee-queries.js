@@ -11,6 +11,16 @@ const getCoffees = function () {
     .catch((err) => console.error(this, "query failed", err.stack));
 };
 
+const getMostFavouritedCoffees = function () {
+  const text = `
+  SELECT coffees.* FROM coffees INNER JOIN favourites ON favourites.coffee_id = coffees.id GROUP BY coffees.id;`;
+
+  return db
+    .query(text)
+    .then((data) => data.rows)
+    .catch((err) => console.error(this, "query failed", err.stack));
+};
+
 const getCoffee = function (coffeeId) {
   const text = `
   SELECT * FROM coffees
@@ -20,20 +30,6 @@ const getCoffee = function (coffeeId) {
   return db
     .query(text, values)
     .then((data) => data.rows[0])
-    .catch((err) => console.error(this, "query failed", err.stack));
-};
-
-const getMostFavouritedCoffees = function () {
-  const text = `
-  SELECT coffees.* 
-  FROM coffees 
-  INNER JOIN favourites 
-  ON favourites.coffee_id = coffees.id 
-  GROUP BY coffees.id;`;
-
-  return db
-    .query(text)
-    .then((data) => data.rows)
     .catch((err) => console.error(this, "query failed", err.stack));
 };
 
