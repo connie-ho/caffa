@@ -23,6 +23,20 @@ const getCoffee = function (coffeeId) {
     .catch((err) => console.error(this, "query failed", err.stack));
 };
 
+const getMostFavouritedCoffees = function () {
+  const text = `
+  SELECT coffees.* 
+  FROM coffees 
+  INNER JOIN favourites 
+  ON favourites.coffee_id = coffees.id 
+  GROUP BY coffees.id;`;
+
+  return db
+    .query(text)
+    .then((data) => data.rows)
+    .catch((err) => console.error(this, "query failed", err.stack));
+};
+
 const addCoffee = function (params) {
   const {
     name,
@@ -90,6 +104,7 @@ const addCoffee = function (params) {
 // };
 module.exports = {
   getCoffees,
+  getMostFavouritedCoffees,
   getCoffee,
   addCoffee,
 };

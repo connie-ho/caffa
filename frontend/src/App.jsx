@@ -27,7 +27,7 @@ function App() {
         setUser(res.data)
       })
       .catch(err => {
-        console.log(err)
+        console.log(err.message)
       })
   }
 
