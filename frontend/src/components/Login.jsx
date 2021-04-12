@@ -1,4 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
+import {useHistory} from 'react-router-dom';
+import UserContext from '../contexts/UserContext';
+
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -12,7 +15,6 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import axios from 'axios';
 
 function Copyright() {
   return (
@@ -48,17 +50,31 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Login(props) {
+
   const classes = useStyles();
-  const {loginHandler} = props
+  const {loginHandler, setOpenLogin} = useContext(UserContext);
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+
+  const history = useHistory();
+  console.log(history.location.pathname)
   // console.log(email, password)
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    loginHandler(email, password)
+
+    // console.log('Email', email, 'Password', password)
     setOpenLogin(prev => false);
+
+    loginHandler(email, password);
+    
+    if (history.location.pathname !=='/login') {
     history.go()
+    }
+    else {
+      history.push('/')
+    }
+
     // console.log('Email', email, 'Password', password)
     
   }
@@ -119,7 +135,7 @@ export default function Login(props) {
                 Forgot password?
               </Link>
             </Grid>
-            <Grid item>b3f49790
+            <Grid item>
             </Grid>
           </Grid>
         </form>

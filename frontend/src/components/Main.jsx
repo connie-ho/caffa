@@ -3,6 +3,7 @@ import {useEffect, useState} from 'react';
 
 import Nav from './Nav';
 import Login from './Login';
+import NotLoggedIn from './NotLoggedIn';
 import Home from './Home';
 import CoffeeList from './coffees/CoffeeList';
 import SearchList from './image-search/SearchList';
@@ -15,7 +16,7 @@ import SearchContext from '../contexts/SearchContext';
 
 const Main = (props) => {
 
-  const {addFavourite, addCoffee, deleteFavourite, user, setUser, loginHandler, logoutHandler} = props;
+  const {addFavourite, deleteFavourite, addReview, addCoffee, user, setUser, loginHandler, logoutHandler} = props;
 
   const [results, setResults] = useState(
     {
@@ -24,6 +25,7 @@ const Main = (props) => {
       
     }
   )
+  
 
   return (
     <div>
@@ -41,12 +43,14 @@ const Main = (props) => {
               <SearchList results={results} setResults={setResults} addCoffee={addCoffee}/>
             </Route>
           <Route path="/coffees" >
-            <FavouriteContext.Provider value={{addFavourite, deleteFavourite}}>
-              <Coffees />
-            </FavouriteContext.Provider>
+            <ReviewContext.Provider value={{addReview}}>
+              <FavouriteContext.Provider value={{addFavourite, deleteFavourite}}>
+                <Coffees />
+              </FavouriteContext.Provider>
+            </ReviewContext.Provider>
           </Route>
           <Route path="/login" >
-            <Login loginHandler={loginHandler}/>
+            <Login/>
           </Route>
           <Route path="/">
             <Home />

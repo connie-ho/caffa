@@ -1,5 +1,6 @@
 const SET_APPLICATION_DATA = "SET_APPLICATION_DATA";
 const SET_FAVOURITE = "SET_FAVOURITE";
+const SET_REVIEW = "SET_REVIEW";
 const SET_COFFEE = "SET_COFFEE";
 
 export default function reducer(state, action) {
@@ -17,6 +18,11 @@ export default function reducer(state, action) {
       return {
         ...state,
         favourites: action.favourites,
+      }
+      case SET_REVIEW:
+      return {
+        ...state,
+        reviews: action.reviews,
       }
     
     case SET_COFFEE:
@@ -36,5 +42,6 @@ export default function reducer(state, action) {
 export {
   SET_APPLICATION_DATA,
   SET_FAVOURITE,
+  SET_REVIEW,
   SET_COFFEE
 }

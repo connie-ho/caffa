@@ -39,7 +39,6 @@ export default function SearchList(props) {
 
   const searchResult = () => { 
 
-    
     const storedArray =(localStorage.getItem("textarray") || [])
     let searchTerm = ''
     if (storedArray) {
