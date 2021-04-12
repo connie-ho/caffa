@@ -52,8 +52,9 @@ router.post("/login", (req, res) => {
 
 // LOGOUT
 router.post('/logout', (req, res) => {
+  console.log("Backend Logout Post ======> ", req.session)
   req.session = null;
-  res.redirect("/");
+  res.send(null);
 });
 
 // Register user

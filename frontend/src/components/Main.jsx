@@ -14,9 +14,8 @@ import ReviewContext from '../contexts/ReviewContext';
 import SearchContext from '../contexts/SearchContext';
 
 const Main = (props) => {
-  const {loginHandler} = props
 
-  const {addFavourite, deleteFavourite, user, setUser} = props;
+  const {addFavourite, deleteFavourite, user, setUser, loginHandler, logoutHandler} = props;
 
   const [results, setResults] = useState(
     {
@@ -30,7 +29,10 @@ const Main = (props) => {
     <div>
       <Router>
       <SearchContext.Provider value={{results, setResults}}>
-        <Nav />
+        <Nav 
+          logoutHandler={logoutHandler} 
+          user={user}
+        />
       </SearchContext.Provider >
         <h2>{user ? "I am logged in" : "I am not logged in"}</h2>
 
