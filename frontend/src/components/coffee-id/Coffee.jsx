@@ -3,6 +3,7 @@ import {useContext} from 'react';
 import DataContext from '../../contexts/DataContext';
 import Details from './Details';
 import ReviewList from './ReviewList';
+import AddReview from './AddReview';
 import {getReviewsForCoffee, avgRatingForCoffee, getFavouritesForCoffee, isLiked} from '../../helpers/selectors';
 
 export default function Coffee(props) {
@@ -46,6 +47,7 @@ export default function Coffee(props) {
         <ReviewList
           coffeeId={coffeeId}
         />
+        <AddReview />
       </>)
     }
     </div>
