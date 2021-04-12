@@ -2,7 +2,8 @@ import {useEffect, useReducer} from 'react';
 import axios from "axios";
 import reducer, {
   SET_APPLICATION_DATA,
-  SET_FAVOURITE
+  SET_FAVOURITE,
+  SET_REVIEW
 } from "../reducers/application";
 
 function useApplicationData(){
@@ -71,8 +72,6 @@ function useApplicationData(){
         }
 
         dispatch({type:SET_FAVOURITE, favourites});
-        console.log('inside post request')
-        console.log(res.data.id)
         return res.data.id;
       })
   }
@@ -83,8 +82,6 @@ function useApplicationData(){
       ...state.favourites,
       [id]: null
     }
-    console.log('in delete request')
-
 
     return axios.delete(`/api/favourites/${id}`)
       .then(res=>{
@@ -93,11 +90,40 @@ function useApplicationData(){
 
   }
 
+  function addReview(params){
+
+    const {coffee_id, user_id, description, rating} = params;
+
+    const req = {
+      coffee_id,
+      user_id,
+      description, 
+      rating
+    }
+
+    return axios.post(`/api/reviews`, req)
+      .then(res=>{
+
+        const review = {
+          ...res.data
+        }
+
+        const reviews = {
+          ...state.reviews,
+          [res.data.id]: review
+        }
+
+        dispatch({type:SET_REVIEW, reviews});
+        console.log('inside add review ost request')
+        return res.data.id;
+      })
+  }
 
   return {
     state,
     addFavourite,
-    deleteFavourite
+    deleteFavourite,
+    addReview
   };
 
 };

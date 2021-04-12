@@ -15,7 +15,7 @@ import SearchContext from '../contexts/SearchContext';
 
 const Main = (props) => {
 
-  const {addFavourite, deleteFavourite, user, setUser, loginHandler, logoutHandler} = props;
+  const {addFavourite, deleteFavourite, addReview, user, setUser, loginHandler, logoutHandler} = props;
 
   const [results, setResults] = useState(
     {
@@ -41,9 +41,11 @@ const Main = (props) => {
               <SearchList results={results}/>
             </Route>
           <Route path="/coffees" >
-            <FavouriteContext.Provider value={{addFavourite, deleteFavourite}}>
-              <Coffees />
-            </FavouriteContext.Provider>
+            <ReviewContext.Provider value={{addReview}}>
+              <FavouriteContext.Provider value={{addFavourite, deleteFavourite}}>
+                <Coffees />
+              </FavouriteContext.Provider>
+            </ReviewContext.Provider>
           </Route>
           <Route path="/login" >
             <Login loginHandler={loginHandler}/>

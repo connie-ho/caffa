@@ -1,5 +1,6 @@
 const SET_APPLICATION_DATA = "SET_APPLICATION_DATA";
 const SET_FAVOURITE = "SET_FAVOURITE";
+const SET_REVIEW = "SET_REVIEW";
 
 export default function reducer(state, action) {
   switch (action.type) {
@@ -16,6 +17,11 @@ export default function reducer(state, action) {
         ...state,
         favourites: action.favourites,
       }
+      case SET_REVIEW:
+      return {
+        ...state,
+        reviews: action.reviews,
+      }
     default:
       throw new Error(
         `Tried to reduce with unsupported action type: ${action.type}`
@@ -25,5 +31,6 @@ export default function reducer(state, action) {
 
 export {
   SET_APPLICATION_DATA,
-  SET_FAVOURITE
+  SET_FAVOURITE,
+  SET_REVIEW
 }

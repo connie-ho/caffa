@@ -36,7 +36,7 @@ function App() {
 
   // console.log('current user', user)
 
-  const {state, addFavourite, deleteFavourite} = useApplicationData();
+  const {state, addFavourite, deleteFavourite, addReview} = useApplicationData();
 
 
   return (
@@ -46,6 +46,7 @@ function App() {
           <Main 
             addFavourite={addFavourite}
             deleteFavourite={deleteFavourite}
+            addReview={addReview}
             loginHandler={loginHandler}
             logoutHandler={logoutHandler}
             user={user}
