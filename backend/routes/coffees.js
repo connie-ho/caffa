@@ -30,7 +30,9 @@ router.post("/", (req, res) => {
   // }
 
   addCoffee(req.body)
-    .then((data) => res.status(201).json(data))
+    .then((data) => {
+      console.log('data sent', data)
+      return res.status(201).json(data)})
     .catch((err) => res.status(500).json({ error: err.message }));
 });
 

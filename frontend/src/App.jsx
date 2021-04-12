@@ -18,7 +18,11 @@ function App() {
       .post("/api/users/authenticate")
       .then(res => 
         setUser(res.data)
-      )}, []);
+      )
+      .catch( res => {
+        console.log('w/e')
+      })
+    }, []);
 
   const loginHandler = (email,password) => {
     console.log("in handle login function")
@@ -40,7 +44,7 @@ function App() {
 
   // console.log('current user', user)
 
-  const {state, addFavourite, deleteFavourite} = useApplicationData();
+  const {state, addFavourite, deleteFavourite, addCoffee} = useApplicationData();
 
 
   return (
@@ -50,6 +54,7 @@ function App() {
           <Main 
             addFavourite={addFavourite}
             deleteFavourite={deleteFavourite}
+            addCoffee={addCoffee}
             loginHandler={loginHandler}
             logoutHandler={logoutHandler}
             user={user}
