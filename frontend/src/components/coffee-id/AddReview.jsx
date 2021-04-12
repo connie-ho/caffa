@@ -14,7 +14,6 @@ export default function AddReview(props) {
 
   const {coffee} = props;
 
-
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState(0)
   const [description, setDescription] = useState('') 
@@ -34,7 +33,7 @@ export default function AddReview(props) {
   };
 
   return (
-    <ReviewContext.Provider value={{value, setValue}}>
+    <ReviewContext.Provider value={{value, setValue, open}}>
     <div>
       <h1>How did you like this Coffee?</h1>
       <Stars 

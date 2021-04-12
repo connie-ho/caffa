@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Main from './components/Main';
+import NotLoggedIn from './components/NotLoggedIn'
 import axios from 'axios';
 import "./App.css";
 
@@ -7,11 +8,18 @@ import DataContext from './contexts/DataContext';
 import UserContext from './contexts/UserContext';
 import FavouriteContext from './contexts/DataContext';
 
-
 import useApplicationData from './hooks/useApplicationData';
 
 function App() {
+
+  // user logic
   const [user, setUser] = useState(null);
+
+  // allows us to enable the modal and close anywhere in the app
+  const [openLogin, setOpenLogin] = useState(false); 
+  const handleLoginClose = () => {
+    setOpenLogin(false);
+  };
 
   useEffect(() => {
     axios
@@ -21,14 +29,14 @@ function App() {
       )}, []);
 
   const loginHandler = (email,password) => {
-    console.log("in handle login function")
+    // console.log("in handle login function")
     axios
       .post("/api/users/login", {email: email, password: password})
       .then(res => setUser(res.data))
   }
 
   const logoutHandler = () => {
-    console.log("in App.jsx logoutHandler")
+    // console.log("in App.jsx logoutHandler")
     axios
       .post("/api/users/logout")
       .then(res => setUser(res.data))
@@ -41,7 +49,10 @@ function App() {
 
   return (
     <div className="App">
-      <UserContext.Provider value={{user}}>
+      <UserContext.Provider value={{user, loginHandler, openLogin, setOpenLogin}}>
+        <NotLoggedIn 
+          handleLoginClose={handleLoginClose}
+        />
         <DataContext.Provider value={{state}}>
           <Main 
             addFavourite={addFavourite}

@@ -94,7 +94,7 @@ export default function Nav(props) {
 
   const {logoutHandler} = props
 
-  console.log("In Nav Component: ", user)
+  // console.log("In Nav Component: ", user)
 
 
   const handleProfileMenuOpen = (event) => {

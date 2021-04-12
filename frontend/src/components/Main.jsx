@@ -3,6 +3,7 @@ import {useEffect, useState} from 'react';
 
 import Nav from './Nav';
 import Login from './Login';
+import NotLoggedIn from './NotLoggedIn';
 import Home from './Home';
 import CoffeeList from './coffees/CoffeeList';
 import SearchList from './image-search/SearchList';
@@ -24,6 +25,7 @@ const Main = (props) => {
       
     }
   )
+  
 
   return (
     <div>
@@ -48,7 +50,7 @@ const Main = (props) => {
             </ReviewContext.Provider>
           </Route>
           <Route path="/login" >
-            <Login loginHandler={loginHandler}/>
+            <Login/>
           </Route>
           <Route path="/">
             <Home />
