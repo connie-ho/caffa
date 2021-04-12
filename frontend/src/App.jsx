@@ -25,7 +25,14 @@ function App() {
       .post("/api/users/login", {email: email, password: password})
       .then(res => setUser(res.data))
   }
-  console.log('current user', user)
+
+  const logoutHandler = () => {
+    console.log("in App.jsx logoutHandler")
+    axios
+      .post("/api/users/logout")
+      .then(res => setUser(res.data))
+  }
+  // console.log('current user', user)
 
   const {state, addFavourite, deleteFavourite} = useApplicationData();
 
@@ -37,6 +44,7 @@ function App() {
           addFavourite={addFavourite}
           deleteFavourite={deleteFavourite}
           loginHandler={loginHandler}
+          logoutHandler={logoutHandler}
           user={user}
           setUser={setUser}
         />

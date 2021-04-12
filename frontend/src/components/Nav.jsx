@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useState, useCookies} from 'react';
 import {Link} from 'react-router-dom';
 
 import { fade, makeStyles } from '@material-ui/core/styles';
@@ -82,13 +82,19 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Nav() {
+
+export default function Nav(props) {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
   const [modalOpen, setModalOpen] = React.useState(false)
+
+  const {logoutHandler, user} = props
+
+  console.log("In Nav Component: ", user)
+
 
   const handleProfileMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
@@ -128,7 +134,7 @@ function Nav() {
         <MenuItem onClick={handleMenuClose}>My account</MenuItem>
         <MenuItem onClick={handleMenuClose}>Upload</MenuItem>
         <MenuItem onClick={handleMenuClose}>
-          <Link to="/login">Login</Link>
+          {user ? <Link to="/login">Login</Link> : <Link to="/logout">Logout</Link>}
         </MenuItem>
       </Menu>
   );
@@ -239,11 +245,20 @@ function Nav() {
           </div>
           
           <div>
+            {user ? 
+          <Link to="/">
+            <Typography className={classes.title} variant="h6" noWrap onClick={logoutHandler}>
+              Logout
+            </Typography>
+          </Link>
+          :
           <Link to="/login">
             <Typography className={classes.title} variant="h6" noWrap>
               Login
             </Typography>
           </Link>
+            }
+
           </div>
 
         </Toolbar>
@@ -254,5 +269,3 @@ function Nav() {
     </div>
   );
 }
-
-export default Nav;
