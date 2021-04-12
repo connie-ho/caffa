@@ -2,15 +2,15 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import { BrowserRouter as Router } from "react-router-dom";
-import AuthContext from "./contexts/AuthContext";
+import UserContext from "./contexts/UserContext";
 // import * as serviceWorker from "./serviceWorker";
 
  ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <AuthContext.Provider>
+      <UserContext.Provider>
         <App />
-      </AuthContext.Provider>
+      </UserContext.Provider>
     </Router>
   </React.StrictMode>,
   document.getElementById("root")

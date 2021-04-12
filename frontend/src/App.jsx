@@ -4,6 +4,7 @@ import axios from 'axios';
 import "./App.css";
 
 import DataContext from './contexts/DataContext';
+import UserContext from './contexts/UserContext';
 import FavouriteContext from './contexts/DataContext';
 
 
@@ -25,23 +26,33 @@ function App() {
       .post("/api/users/login", {email: email, password: password})
       .then(res => setUser(res.data))
   }
-  console.log('current user', user)
+
+  const logoutHandler = () => {
+    console.log("in App.jsx logoutHandler")
+    axios
+      .post("/api/users/logout")
+      .then(res => setUser(res.data))
+  }
+
+  // console.log('current user', user)
 
   const {state, addFavourite, deleteFavourite} = useApplicationData();
 
 
   return (
     <div className="App">
-      <DataContext.Provider value={{state}}>
-        <Main 
-          addFavourite={addFavourite}
-          deleteFavourite={deleteFavourite}
-          loginHandler={loginHandler}
-          user={user}
-          setUser={setUser}
-        />
-    
-      </DataContext.Provider>
+      <UserContext.Provider value={{user}}>
+        <DataContext.Provider value={{state}}>
+          <Main 
+            addFavourite={addFavourite}
+            deleteFavourite={deleteFavourite}
+            loginHandler={loginHandler}
+            logoutHandler={logoutHandler}
+            user={user}
+            setUser={setUser}
+          />
+        </DataContext.Provider>
+      </UserContext.Provider>
     </div>
   );
 }
