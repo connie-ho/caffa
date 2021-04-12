@@ -1,4 +1,5 @@
 import React, {useContext, useState, useCookies} from 'react';
+import UserContext from '../contexts/UserContext';
 import {Link} from 'react-router-dom';
 
 import { fade, makeStyles } from '@material-ui/core/styles';
@@ -15,7 +16,6 @@ import MoreIcon from '@material-ui/icons/MoreVert';
 import LocalCafeIcon from '@material-ui/icons/LocalCafe';
 import CameraAltIcon from '@material-ui/icons/CameraAlt';
 import FormDialog from './image-search/Dialog';
-import { UserContext } from '../contexts/UserContext';
 import Login from './Login';
 
 const useStyles = makeStyles((theme) => ({
@@ -90,8 +90,9 @@ export default function Nav(props) {
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
   const [modalOpen, setModalOpen] = React.useState(false)
+  const {user} = useContext(UserContext);
 
-  const {logoutHandler, user} = props
+  const {logoutHandler} = props
 
   console.log("In Nav Component: ", user)
 
