@@ -32,7 +32,7 @@ function useCoffeeData(id){
 
       dispatch({type: SET_COFFEE_DATA, coffee, reviews, favourites, avgRating, liked});
     })
-  }, [id]);
+  }, [id, coffee]);
 
 
   function addFavourite(coffee_id, user_id){

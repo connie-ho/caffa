@@ -10,13 +10,13 @@ import SearchList from './image-search/SearchList';
 import Coffees from './coffees/Coffees';
 import UserContext from '../contexts/UserContext';
 import FavouriteContext from '../contexts/FavouriteContext';
-
+import Image from 'material-ui-image'
 import ReviewContext from '../contexts/ReviewContext';
 import SearchContext from '../contexts/SearchContext';
 
 const Main = (props) => {
 
-  const {addFavourite, deleteFavourite, addReview, user, setUser, loginHandler, logoutHandler} = props;
+  const {addFavourite, deleteFavourite, addReview, addCoffee, user, setUser, loginHandler, logoutHandler} = props;
 
   const [results, setResults] = useState(
     {
@@ -40,7 +40,7 @@ const Main = (props) => {
 
         <Switch>
             <Route path="/search">
-              <SearchList results={results}/>
+              <SearchList results={results} addCoffee={addCoffee}/>
             </Route>
           <Route path="/coffees" >
             <ReviewContext.Provider value={{addReview}}>

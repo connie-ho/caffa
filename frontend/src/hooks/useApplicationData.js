@@ -3,7 +3,11 @@ import axios from "axios";
 import reducer, {
   SET_APPLICATION_DATA,
   SET_FAVOURITE,
+<<<<<<< HEAD
   SET_REVIEW
+=======
+  SET_COFFEE
+>>>>>>> dc10e7e5cebb8f42953ebca2442682abc6a9dea1
 } from "../reducers/application";
 
 function useApplicationData(){
@@ -118,12 +122,27 @@ function useApplicationData(){
         return res.data.id;
       })
   }
+  function addCoffee(formData) {
+    return axios.post(`/api/coffees`, formData)
+    .then(res => {
+      const coffee = {
+        ...res.data
+      }
+      console.log('coffee data', coffee)
+      
+      dispatch({type: SET_COFFEE, coffee})
+      return res.data.id
+
+    })
+  }
+
 
   return {
     state,
     addFavourite,
     deleteFavourite,
-    addReview
+    addReview,
+    addCoffee
   };
 
 };

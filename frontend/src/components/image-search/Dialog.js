@@ -9,7 +9,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import UploadForm from './UploadForm';
 import { projectStorage } from '../../firebase/config';
-import googleImageDetection from './helpers'
+import {googleImageDetection} from './helpers'
 import { useHistory } from 'react-router-dom';
 import SearchContext from '../../contexts/SearchContext'
 

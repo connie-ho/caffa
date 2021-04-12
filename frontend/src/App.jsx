@@ -26,13 +26,21 @@ function App() {
       .post("/api/users/authenticate")
       .then(res => 
         setUser(res.data)
-      )}, []);
+      )
+      .catch( res => {
+        console.log('w/e')
+      })
+    }, []);
 
   const loginHandler = (email,password) => {
-    // console.log("in handle login function")
-    axios
-      .post("/api/users/login", {email: email, password: password})
-      .then(res => setUser(res.data))
+    console.log("in handle login function")
+    axios.post("/api/users/login", {email: email, password: password})
+      .then(res => {
+        setUser(res.data)
+      })
+      .catch(err => {
+        console.log(err)
+      })
   }
 
   const logoutHandler = () => {
@@ -43,9 +51,7 @@ function App() {
   }
 
   // console.log('current user', user)
-
-  const {state, addFavourite, deleteFavourite, addReview} = useApplicationData();
-
+  const {state, addFavourite, deleteFavourite, addReview, addCoffee} = useApplicationData();
 
   return (
     <div className="App">
@@ -58,6 +64,7 @@ function App() {
             addFavourite={addFavourite}
             deleteFavourite={deleteFavourite}
             addReview={addReview}
+            addCoffee={addCoffee}
             loginHandler={loginHandler}
             logoutHandler={logoutHandler}
             user={user}
