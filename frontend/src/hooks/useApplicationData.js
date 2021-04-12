@@ -2,7 +2,8 @@ import {useEffect, useReducer} from 'react';
 import axios from "axios";
 import reducer, {
   SET_APPLICATION_DATA,
-  SET_FAVOURITE
+  SET_FAVOURITE,
+  SET_COFFEE
 } from "../reducers/application";
 
 function useApplicationData(){
@@ -93,11 +94,26 @@ function useApplicationData(){
 
   }
 
+  function addCoffee(formData) {
+    return axios.post(`/api/coffees`, formData)
+    .then(res => {
+      const coffee = {
+        ...res.data
+      }
+      console.log('coffee data', coffee)
+      
+      dispatch({type: SET_COFFEE, coffee})
+      return res.data.id
+
+    })
+  }
+
 
   return {
     state,
     addFavourite,
-    deleteFavourite
+    deleteFavourite,
+    addCoffee
   };
 
 };

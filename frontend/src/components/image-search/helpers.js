@@ -1,6 +1,13 @@
 import axios from "axios";
 
-async function googleImageDetection(url) {
+
+export function stripSearchTerms(searchObject) {
+  const strippedWords = ["coffee","decaf","organic","espresso","usda","roast","roasted"]
+  const wordsToReplace= new RegExp("\\b"+strippedWords.join('|')+"\\b","gi")
+  return searchObject.replace(/\n/g, " ").replace(/[.,\/#!$%\^&\*;°•':{}=\-_`~()]/g,"").replace(wordsToReplace, '').toLowerCase()
+}
+
+export async function googleImageDetection(url) {
   let body = JSON.stringify({
     requests: [
       {
@@ -39,5 +46,3 @@ async function googleImageDetection(url) {
   
   return finalArray
 }
-
-export default googleImageDetection
