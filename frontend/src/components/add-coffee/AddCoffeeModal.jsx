@@ -15,6 +15,7 @@ import Grid from '@material-ui/core/Grid';
 import Image from 'material-ui-image';
 import { useHistory } from "react-router-dom";
 
+
 const useStyles = makeStyles((theme) => ({
   formControl: {
   },
@@ -235,7 +236,7 @@ export default function CoffeeModal(props) {
         </DialogActions>
         </form>
       </Dialog>
-      
     </div>
+
   );
 }

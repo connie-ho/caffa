@@ -61,11 +61,11 @@ export default function Login(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-
+    loginHandler(email, password)
     setOpenLogin(prev => false);
     history.go()
     // console.log('Email', email, 'Password', password)
-    loginHandler(email, password)
+    
   }
 
   return (
