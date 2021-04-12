@@ -4,6 +4,7 @@ import {getReviewsForCoffee, avgRatingForCoffee} from '../../helpers/selectors';
 import CoffeeListItem from '../coffees/CoffeeListItem';
 
 import DataContext from '../../contexts/DataContext';
+import AddCoffeeButton from '../add-coffee/AddCoffeeButton';
 
 
 export default function SearchList(props) {
@@ -43,16 +44,20 @@ export default function SearchList(props) {
         const coffeeReviews = getReviewsForCoffee(Object.values(reviews),coffee.item.id)
         const avgRating = avgRatingForCoffee(coffeeReviews);
         return (
+          <>
           <CoffeeListItem
             key={coffee.item.id}
             coffee={coffee.item}
             avgRating={avgRating}
           />
+          </>
         );
       })
       }
       return (
+        <>
         <p>There were no matches!</p>
+        </>
       )
     }
     return (
@@ -66,6 +71,7 @@ export default function SearchList(props) {
   <div>
     <h2>Your Search Results</h2>
     {searchResult()}
+    <AddCoffeeButton url={results.url} />
   </div>
   )  
 }
