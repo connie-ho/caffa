@@ -36,6 +36,22 @@ export default function CoffeeModal(props) {
     grain_species:''
   })
 
+  const [errors, setErrors] = useState({})
+
+  const validate = () => {
+    let temp = {}
+    temp.name = formState.name ? "" : "This field is required"
+    temp.description = formState.description ? "" : "This field is required"
+    temp.region = formState.region ? "" : "This field is required"
+    temp.roast = formState.roast ? "" : "This field is required"
+    temp.brand = formState.brand ? "" : "This field is required"
+    temp.acidity = formState.acidity ? "": "This field is required"
+    temp.grain_species = formState.grain_species ? "": "This field is required"
+    setErrors({...temp})
+
+    return Object.values(temp).every( x => x === "")
+  }
+
   const handleClose = () => {
     setFormState({ name:'',
     description:'',
@@ -45,11 +61,8 @@ export default function CoffeeModal(props) {
     acidity:'',
     grain_species:''
   })
+    setErrors({})
     setOpen(false);
-  };
-
-  const handleOpen = () => {
-    setOpen(true);
   };
 
   const handleChange =(event) => {
@@ -57,10 +70,19 @@ export default function CoffeeModal(props) {
     setFormState({...formState, [event.target.name]: event.target.value})
   }
 
+  const handleSubmit =(event) => {
+    event.preventDefault()
+    if(validate()) {
+      return console.log('all good')
+    }
+    console.log('yo')
+  }
+
   return (
     <div>
       <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
         <DialogTitle id="form-dialog-title">Add Your Coffee</DialogTitle>
+        <form className={classes.root} noValidate autoComplete="off" onSubmit={handleSubmit}>
         <DialogContent>
           <DialogContentText>
             Please fill in the fields below to add your coffee.
@@ -77,6 +99,9 @@ export default function CoffeeModal(props) {
               fullWidth
               value={formState.name || ''}
               onChange={handleChange}
+              required
+              {...(errors.name && {error:true,helperText:errors.name})}
+
             />
           </Grid>
           <Grid item >
@@ -90,6 +115,8 @@ export default function CoffeeModal(props) {
               fullWidth
               value={formState.brand || ''}
               onChange={handleChange}
+              required
+              {...(errors.brand && {error:true,helperText:errors.brand})}
             />
             </Grid>
           <Grid item >
@@ -103,6 +130,8 @@ export default function CoffeeModal(props) {
             name="description"
             value={formState.description || ''}
             onChange={handleChange}
+            required
+            {...(errors.description && {error:true,helperText:errors.description})}
             />
           </Grid>
           <Grid item >
@@ -113,7 +142,11 @@ export default function CoffeeModal(props) {
             label="Region"
             type="name"
             name='region'
+            value={formState.region || ''}
+            onChange={handleChange}
             fullWidth
+            required
+            {...(errors.region && {error:true,helperText:errors.region})}
           />
           </Grid>
           <Grid item >
@@ -126,6 +159,8 @@ export default function CoffeeModal(props) {
               name="roast"
               onChange={handleChange}
               fullWidth
+              required
+              {...(errors.roast && {error:true,helperText:errors.roast})}
             >
               <MenuItem value={'Light'}>Light</MenuItem>
               <MenuItem value={'Medium'}>Medium</MenuItem>
@@ -143,6 +178,8 @@ export default function CoffeeModal(props) {
               name="acidity"
               onChange={handleChange}
               fullWidth
+              required
+              {...(errors.acidity && {error:true,helperText:errors.acidity})}
             >
               <MenuItem value={'Low'}>Low</MenuItem>
               <MenuItem value={'Low-Medium'}>Low-Medium</MenuItem>
@@ -162,6 +199,8 @@ export default function CoffeeModal(props) {
               name="grain_species"
               onChange={handleChange}
               fullWidth
+              required
+              {...(errors.grain_species && {error:true,helperText:errors.grain_species})}
             >
               <MenuItem value={'Arabica'}>Arabica</MenuItem>
               <MenuItem value={'Robusta'}>Robusta</MenuItem>
@@ -180,11 +219,13 @@ export default function CoffeeModal(props) {
           <Button onClick={handleClose} color="primary">
             Cancel
           </Button>
-          <Button onClick={handleClose} color="primary">
+          <Button type="submit" color="primary">
             Add
           </Button>
         </DialogActions>
+        </form>
       </Dialog>
+      
     </div>
   );
 }
