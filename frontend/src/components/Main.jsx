@@ -38,7 +38,7 @@ const Main = (props) => {
 
         <Switch>
             <Route path="/search">
-              <SearchList results={results} addCoffee={addCoffee}/>
+              <SearchList results={results} setResults={setResults} addCoffee={addCoffee}/>
             </Route>
           <Route path="/coffees" >
             <FavouriteContext.Provider value={{addFavourite, deleteFavourite}}>

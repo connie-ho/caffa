@@ -56,9 +56,11 @@ export default function Login(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-
-    console.log('Email', email, 'Password', password)
     loginHandler(email, password)
+    setOpenLogin(prev => false);
+    history.go()
+    // console.log('Email', email, 'Password', password)
+    
   }
 
   return (
@@ -117,10 +119,7 @@ export default function Login(props) {
                 Forgot password?
               </Link>
             </Grid>
-            <Grid item>
-              <Link href="#" variant="body2">
-                {"Don't have an account? Sign Up"}
-              </Link>
+            <Grid item>b3f49790
             </Grid>
           </Grid>
         </form>
