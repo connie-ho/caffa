@@ -12,6 +12,7 @@
     "cors": "^2.8.5",
     "firebase": "^8.3.3",
     "fuse.js": "^6.4.6",
+    "material-ui-image": "^3.3.1",
     "node-sass": "^5.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

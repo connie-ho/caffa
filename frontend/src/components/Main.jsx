@@ -9,7 +9,7 @@ import SearchList from './image-search/SearchList';
 import Coffees from './coffees/Coffees';
 import UserContext from '../contexts/UserContext';
 import FavouriteContext from '../contexts/FavouriteContext';
-
+import Image from 'material-ui-image'
 import ReviewContext from '../contexts/ReviewContext';
 import SearchContext from '../contexts/SearchContext';
 

@@ -1,13 +1,24 @@
 import React, { useState } from 'react';
-// import ProgressBar from './ProgressBar';
-// import UploadedImage from './UploadedImage';
-// import useStorage from '../hooks/useStorage';
-// import axios from 'axios';
+import AddCircleOutlineOutlinedIcon from '@material-ui/icons/AddCircleOutlineOutlined';
 import './UploadForm.scss';
+import { makeStyles } from '@material-ui/styles'
+
 
 const UploadForm = (props) =>  {
   const {file, setFile, error, setError} = props
   
+  const useClasses = makeStyles(() => ({
+    AddHoverColor: {
+      "&:hover": {
+        background: 'white',
+        color: 'blue'
+      }
+    }
+  }))
+
+  const classes = useClasses()
+
+
   const [tempURL, setTempURL] = useState('');
   const types = ['image/png', 'image/jpeg'];
   
@@ -29,7 +40,7 @@ const UploadForm = (props) =>  {
     <form>
       <label className='file-upload'>
         <input type="file" accept="image/*" capture onChange={changeHandler} />
-        <span>+</span>
+        <AddCircleOutlineOutlinedIcon classes={{ root: classes.AddHoverColor }} fontSize='large'/>
       </label>
       { error && <div className='error'>{ error }</div>}
      { file &&  
