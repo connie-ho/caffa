@@ -29,12 +29,14 @@ router.post("/", (req, res) => {
 
 // Login user
 router.post("/login", (req, res) => {
-  getUserByEmail(req.body.email)
+  const { email, password } = req.body;
+
+  getUserByEmail(email)
   .then(data => {
     const user = data
     console.log("DATA :", data)
     console.log("USER :", user)
-    if (user) {
+    if (user.password = password) {
       console.log("ANOTHER ONE :", user)
       req.session.user_id = user.id;
       // res.cookie('user_id', userId)
