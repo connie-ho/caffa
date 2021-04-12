@@ -3,11 +3,8 @@ import axios from "axios";
 import reducer, {
   SET_APPLICATION_DATA,
   SET_FAVOURITE,
-<<<<<<< HEAD
-  SET_REVIEW
-=======
+  SET_REVIEW,
   SET_COFFEE
->>>>>>> dc10e7e5cebb8f42953ebca2442682abc6a9dea1
 } from "../reducers/application";
 
 function useApplicationData(){
