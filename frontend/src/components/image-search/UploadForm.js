@@ -27,7 +27,7 @@ const UploadForm = (props) =>  {
 
   return (
     <form>
-      <label>
+      <label className='file-upload'>
         <input type="file" accept="image/*" capture onChange={changeHandler} />
         <span>+</span>
       </label>
