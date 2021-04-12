@@ -34,15 +34,13 @@ router.post("/login", (req, res) => {
   getUserByEmail(email)
   .then(data => {
     const user = data
-    console.log("DATA :", data)
-    console.log("USER :", user)
-    if (user.password = password) {
+    console.log("backend DATA :", data)
+    console.log("backend USER :", user)
+    if (user.password === password) {
       console.log("ANOTHER ONE :", user)
       req.session.user_id = user.id;
       // res.cookie('user_id', userId)
       res.send({first_name: user.first_name, last_name:user.last_name, email: user.email, id: user.id})
-    } else {
-      res.json({result: "Wrong email/password"})
     }
   })
   .catch(err => {
