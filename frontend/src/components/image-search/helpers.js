@@ -28,9 +28,15 @@ async function googleImageDetection(url) {
   
   let responseJson = await response.json();
   console.log(responseJson)
+  
+  if (!responseJson) {
+    return
+  }
+
   let finalArray = responseJson.responses[0].textAnnotations.map(function(obj) {
     return obj.description
   })
+  
   return finalArray
 }
 

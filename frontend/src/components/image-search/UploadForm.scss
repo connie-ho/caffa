@@ -2,12 +2,12 @@ form{
   margin: 30px auto 10px;
   text-align: center;
 }
-label input{
+.file-upload input{
   height: 0;
   width: 0;
   opacity: 0;
 }
-label{
+.file-upload{
   display: block;
   width: 30px;
   height: 30px;
@@ -19,10 +19,11 @@ label{
   font-weight: bold;
   font-size: 24px;
 }
-label:hover{
+.file-upload:hover{
   background: rgb(162, 202, 255);
   color: black;
 }
+
 .output{
   height: 60px;
   font-size: 0.8rem;
