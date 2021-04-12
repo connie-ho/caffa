@@ -2,7 +2,7 @@ import {React, useContext} from 'react';
 import Fuse from 'fuse.js'
 import {getReviewsForCoffee, avgRatingForCoffee} from '../../helpers/selectors';
 import CoffeeListItem from '../coffees/CoffeeListItem';
-
+import {stripSearchTerms} from './helpers.js'
 import DataContext from '../../contexts/DataContext';
 import AddCoffeeButton from '../add-coffee/AddCoffeeButton';
 
@@ -39,10 +39,7 @@ export default function SearchList(props) {
   const searchResult = () => { 
     if(searchObject){
 
-      const strippedWords = ["coffee","decaf","organic","espresso","usda","roast","roasted"]
-      const wordsToReplace= new RegExp("\\b"+strippedWords.join('|')+"\\b","gi")
-      const string = searchObject.replace(/\n/g, " ").replace(/[.,\/#!$%\^&\*;°•':{}=\-_`~()]/g,"").replace(wordsToReplace, '').toLowerCase()
-
+      const string = stripSearchTerms(searchObject)
 
       console.log('stripped', string)
       const Results = fuse.search(string, {limit: 5}) 
@@ -73,13 +70,11 @@ export default function SearchList(props) {
     )
   }
 
-  console.log('searches', searchResult())
-
   return(
   <div>
     <h2>Your Search Results</h2>
     {searchResult()}
-    <AddCoffeeButton url={results.url} addCoffee={addCoffee} />
+    {results.url && <AddCoffeeButton url={results.url} addCoffee={addCoffee} />}
   </div>
   )  
 }
