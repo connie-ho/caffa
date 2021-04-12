@@ -13,6 +13,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import Grid from '@material-ui/core/Grid';
 import Image from 'material-ui-image';
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -25,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
 export default function CoffeeModal(props) {
 
   const classes = useStyles();
-  const {open, setOpen, url} = props
+  const {open, setOpen, url, addCoffee} = props
   const [formState, setFormState] = useState({
     name:'',
     description:'',
@@ -33,8 +34,11 @@ export default function CoffeeModal(props) {
     roast:'',
     brand:'',
     acidity:'',
-    grain_species:''
+    grain_species:'',
+    image_url: url
   })
+
+  let history = useHistory();
 
   const [errors, setErrors] = useState({})
 
@@ -52,6 +56,7 @@ export default function CoffeeModal(props) {
     return Object.values(temp).every( x => x === "")
   }
 
+  
   const handleClose = () => {
     setFormState({ name:'',
     description:'',
@@ -73,7 +78,12 @@ export default function CoffeeModal(props) {
   const handleSubmit =(event) => {
     event.preventDefault()
     if(validate()) {
-      return console.log('all good')
+      console.log('all good')
+      console.log(formState)
+      addCoffee(formState)
+      .then ((data) => {
+        history.push(`/coffees/${data}`)
+      })
     }
     console.log('yo')
   }
@@ -138,9 +148,9 @@ export default function CoffeeModal(props) {
             <TextField
             autoFocus
             margin="dense"
-            id="name"
+            id="region"
             label="Region"
-            type="name"
+            type="region"
             name='region'
             value={formState.region || ''}
             onChange={handleChange}

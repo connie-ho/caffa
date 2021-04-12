@@ -12,9 +12,8 @@ export default function SearchList(props) {
   const {state} = useContext(DataContext);
   const coffees = Object.values(state.coffees);
   const reviews = state.reviews;
-  const {results} = props;
+  const {results, addCoffee} = props;
 
-  
   const options = {
     isCaseSensitive: false,
     includeScore: true,
@@ -23,14 +22,14 @@ export default function SearchList(props) {
     findAllMatches: false,
     minMatchCharLength: 1,
     location: 0,
-    threshold: 0.6,
+    threshold: 0.8,
     distance: 100,
     useExtendedSearch: false,
     ignoreLocation: false,
     ignoreFieldNorm: false,
     keys: [
       "name",
-      "brand"
+      "brand",
     ]
   };
 
@@ -38,7 +37,11 @@ export default function SearchList(props) {
 
   const searchResult = () => { 
     if(results.textArray[0]){
-      const Results = fuse.search(results.textArray[0], {limit: 3})
+
+      const strippedString = results.textArray[0]
+     
+      const Results = fuse.search(strippedString, {limit: 3})
+    
       if (Results.length !== 0) { 
       return Results.map(coffee => {
         const coffeeReviews = getReviewsForCoffee(Object.values(reviews),coffee.item.id)
@@ -71,7 +74,7 @@ export default function SearchList(props) {
   <div>
     <h2>Your Search Results</h2>
     {searchResult()}
-    <AddCoffeeButton url={results.url} />
+    <AddCoffeeButton url={results.url} addCoffee={addCoffee} />
   </div>
   )  
 }
