@@ -20,19 +20,19 @@ export default function Details(props) {
 
   const [fav, setFav] = useState(isLiked(favourites, user_id))
   const numFav = calcFavourites(favourites);
+
   // add/delete favourites logic
   const onClickHandler = (e) => {
     
     e.preventDefault()
 
     if(fav){  
+      console.log(fav)
       deleteFavourite(fav)
       setFav(prev => false)
     } else {
       addFavourite(coffee.id, user_id)
       .then(res => {
-        console.log('in handler')
-        console.log(res)
         setFav(prev=>res)
       })
     }
