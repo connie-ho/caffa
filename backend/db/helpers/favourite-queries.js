@@ -28,7 +28,7 @@ const addFavourite = function (params) {
 const deleteFavourite = function (favouriteID) {
   let text = `
   DELETE FROM favourites
-  WHERE coffee_id = $1;`;
+  WHERE id = $1 RETURNING *;`;
   const values = [favouriteID];
 
   return db

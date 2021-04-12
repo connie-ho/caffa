@@ -71,7 +71,7 @@ function useApplicationData(){
         }
 
         dispatch({type:SET_FAVOURITE, favourites});
-        console.log('inside axios requiest')
+        console.log('inside post request')
         console.log(res.data.id)
         return res.data.id;
       })
@@ -79,11 +79,11 @@ function useApplicationData(){
 
   function deleteFavourite(id){
 
-
     const favourites = {
       ...state.favourites,
       [id]: null
     }
+    console.log('in delete request')
 
 
     return axios.delete(`/api/favourites/${id}`)
