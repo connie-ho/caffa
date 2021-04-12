@@ -14,7 +14,6 @@ export default function SearchList(props) {
   const reviews = state.reviews;
   const {results} = props;
 
-  
   const options = {
     isCaseSensitive: false,
     includeScore: true,

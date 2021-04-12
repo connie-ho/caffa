@@ -48,7 +48,7 @@ export default function Coffee(props) {
           coffeeId={coffeeId}
         />
         <AddReview 
-          coffeeId={coffeeId}
+          coffee={coffee}
         />
       </>)
     }

@@ -18,14 +18,14 @@ export default function Stars(props) {
           value={value}
           precision={0.5}
           onChange={(event, newValue) => {
-            setValue(newValue);
+            setValue(prev => newValue);
           }}
           onChangeActive={(event, newHover) => {
-            setHover(newHover);
+            setHover(prev => newHover);
           }}  
           onClick={()=>{handleClickOpen(value)}}    
         />
-        {value !== null && <Box ml={2}>{hover !== -1 ? hover : null}</Box>}
+        {/* {value !== null && <Box ml={2}>{hover !== -1 ? hover : null}</Box>} */}
       </Box>
     </div>
   );

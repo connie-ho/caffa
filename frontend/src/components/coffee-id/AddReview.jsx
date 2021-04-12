@@ -12,7 +12,8 @@ import ReviewContext from '../../contexts/ReviewContext';
 
 export default function AddReview(props) {
 
-  const {coffeeId} = props;
+  const {coffee} = props;
+
 
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState(0)
@@ -20,10 +21,9 @@ export default function AddReview(props) {
   const {addReview} = useContext(ReviewContext);
 
   const handleClickOpen = (value) => {
-    console.log('in click handler')
-    console.log(value)
+
     if(open){
-      setValue(value)
+      setValue(prev => value)
     } else {
       setOpen(true);
     }
@@ -43,12 +43,12 @@ export default function AddReview(props) {
       <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
         <DialogTitle id="form-dialog-title">Your review</DialogTitle>
         <DialogContent>
+          <DialogContentText>
+            You're rating {coffee.name}
+          </DialogContentText>
           <Stars 
           handleClickOpen={handleClickOpen}
         />
-          <DialogContentText>
-            You're rating the ____ 
-          </DialogContentText>
           <TextField
             autoFocus
             margin="dense"
@@ -70,7 +70,7 @@ export default function AddReview(props) {
               rating:value,
               description,
               user_id: 2,
-              coffee_id: coffeeId
+              coffee_id: coffee.id
             })
             handleClose()
           }} 
