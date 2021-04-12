@@ -1,16 +1,17 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
+import ReviewContext from '../../contexts/ReviewContext';
 import Rating from '@material-ui/lab/Rating';
 import Box from '@material-ui/core/Box';
 
 export default function Stars(props) {
-  const [value, setValue] = useState(0);
+  const {value, setValue} = useContext(ReviewContext);
+
   const [hover, setHover] = useState(value)
   const {handleClickOpen} = props;
 
   return (
     <div>
       <Box  component="fieldset" mb={3} borderColor="transparent">
-        <h1>How did you like this Coffee?</h1>
         <Rating
           name="size-large"
           size="large"

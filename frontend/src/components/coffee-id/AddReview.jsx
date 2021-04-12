@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
@@ -7,15 +7,21 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Stars from './Stars';
+import ReviewContext from '../../contexts/ReviewContext';
 
 
 export default function FormDialog() {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
+  const [value, setValue] = useState(0)
 
   const handleClickOpen = (value) => {
     console.log('in click handler')
     console.log(value)
-    setOpen(true);
+    if(open){
+      setValue(value)
+    } else {
+      setOpen(true);
+    }
   };
 
   const handleClose = () => {
@@ -23,13 +29,18 @@ export default function FormDialog() {
   };
 
   return (
+    <ReviewContext.Provider value={{value, setValue}}>
     <div>
+      <h1>How did you like this Coffee?</h1>
       <Stars 
         handleClickOpen={handleClickOpen}
       />
       <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
         <DialogTitle id="form-dialog-title">Subscribe</DialogTitle>
         <DialogContent>
+          <Stars 
+          handleClickOpen={handleClickOpen}
+        />
           <DialogContentText>
             To subscribe to this website, please enter your email address here. We will send updates
             occasionally.
@@ -53,5 +64,6 @@ export default function FormDialog() {
         </DialogActions>
       </Dialog>
     </div>
+    </ReviewContext.Provider>
   );
 }
