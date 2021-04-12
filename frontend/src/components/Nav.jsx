@@ -1,4 +1,5 @@
-import React, {useContext} from 'react';
+import React, {useContext, useState, useCookies} from 'react';
+import UserContext from '../contexts/UserContext';
 import {Link} from 'react-router-dom';
 
 import { fade, makeStyles } from '@material-ui/core/styles';
@@ -15,7 +16,6 @@ import MoreIcon from '@material-ui/icons/MoreVert';
 import LocalCafeIcon from '@material-ui/icons/LocalCafe';
 import CameraAltIcon from '@material-ui/icons/CameraAlt';
 import FormDialog from './image-search/Dialog';
-import { UserContext } from '../contexts/UserContext';
 import Login from './Login';
 
 const useStyles = makeStyles((theme) => ({
@@ -82,13 +82,20 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Nav() {
+
+export default function Nav(props) {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
   const [modalOpen, setModalOpen] = React.useState(false)
+  const {user} = useContext(UserContext);
+
+  const {logoutHandler} = props
+
+  console.log("In Nav Component: ", user)
+
 
   const handleProfileMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
@@ -128,7 +135,7 @@ function Nav() {
         <MenuItem onClick={handleMenuClose}>My account</MenuItem>
         <MenuItem onClick={handleMenuClose}>Upload</MenuItem>
         <MenuItem onClick={handleMenuClose}>
-          <Link to="/login">Login</Link>
+          {user ? <Link to="/login">Login</Link> : <Link to="/logout">Logout</Link>}
         </MenuItem>
       </Menu>
   );
@@ -239,11 +246,20 @@ function Nav() {
           </div>
           
           <div>
+            {user ? 
+          <Link to="/">
+            <Typography className={classes.title} variant="h6" noWrap onClick={logoutHandler}>
+              Logout
+            </Typography>
+          </Link>
+          :
           <Link to="/login">
             <Typography className={classes.title} variant="h6" noWrap>
               Login
             </Typography>
           </Link>
+            }
+
           </div>
 
         </Toolbar>
@@ -254,5 +270,3 @@ function Nav() {
     </div>
   );
 }
-
-export default Nav;
