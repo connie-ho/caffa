@@ -1,4 +1,4 @@
-import React, {useContext, useState, useCookies} from 'react';
+import React, {useContext} from 'react';
 import UserContext from '../contexts/UserContext';
 import {Link} from 'react-router-dom';
 
@@ -131,11 +131,14 @@ export default function Nav(props) {
         open={isMenuOpen}
         onClose={handleMenuClose}
       >
-        <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-        <MenuItem onClick={handleMenuClose}>My account</MenuItem>
-        <MenuItem onClick={handleMenuClose}>Upload</MenuItem>
         <MenuItem onClick={handleMenuClose}>
-          {user ? <Link to="/login">Login</Link> : <Link to="/logout">Logout</Link>}
+          { user ? <Link to="/account">My Account</Link> : null }
+        </MenuItem>
+        <MenuItem onClick={handleMenuClose}>
+          { user ? <Link to="/account">Favourited Coffee</Link> : null }
+        </MenuItem>
+        <MenuItem onClick={handleMenuClose}>
+          {user ? <Link onClick={logoutHandler}>Logout</Link> : <Link to="/login">Login</Link>}
         </MenuItem>
       </Menu>
   );
@@ -229,7 +232,7 @@ export default function Nav(props) {
               onClick={handleProfileMenuOpen}
               color="inherit"
             >
-              <AccountCircle />
+              { user ? <AccountCircle /> : null }
             </IconButton>
            
           </div>
