@@ -6,15 +6,11 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import Stars from './Stars';
-
 
 export default function FormDialog() {
   const [open, setOpen] = React.useState(false);
 
-  const handleClickOpen = (value) => {
-    console.log('in click handler')
-    console.log(value)
+  const handleClickOpen = () => {
     setOpen(true);
   };
 
@@ -24,9 +20,9 @@ export default function FormDialog() {
 
   return (
     <div>
-      <Stars 
-        handleClickOpen={handleClickOpen}
-      />
+      <Button variant="outlined" color="primary" onClick={handleClickOpen}>
+        Open form dialog
+      </Button>
       <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
         <DialogTitle id="form-dialog-title">Subscribe</DialogTitle>
         <DialogContent>

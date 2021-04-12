@@ -22,7 +22,6 @@ router.post("/", (req, res) => {
 
 // Delete a favourite
 router.delete("/:id", (req, res) => {
-  console.log(req.params)
   deleteFavourite(req.params.id)
     .then((data) => res.status(200).json(data))
     .catch((err) => res.status(500).json({ error: err.message }));
