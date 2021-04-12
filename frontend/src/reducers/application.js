@@ -22,7 +22,7 @@ export default function reducer(state, action) {
     case SET_COFFEE:
       return {
         ...state,
-        coffees: action.coffee
+        coffees: {...state.coffees, [action.coffee.id]:action.coffee}
       }
     
 

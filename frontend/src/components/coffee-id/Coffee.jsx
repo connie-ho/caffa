@@ -28,7 +28,7 @@ export default function Coffee(props) {
   const avgRating = avgRatingForCoffee(coffeeReviews);
   const coffeeFavourites = getFavouritesForCoffee(Object.values(favourites), coffeeId);
 
-
+  console.log('testing this state',state)
   return (
     <div>
     {coffee && (

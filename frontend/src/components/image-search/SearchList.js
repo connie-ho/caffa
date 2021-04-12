@@ -13,6 +13,7 @@ export default function SearchList(props) {
   const coffees = Object.values(state.coffees);
   const reviews = state.reviews;
   const {results, addCoffee} = props;
+  const searchObject = results.textArray[0]
 
   const options = {
     isCaseSensitive: false,
@@ -22,7 +23,7 @@ export default function SearchList(props) {
     findAllMatches: false,
     minMatchCharLength: 1,
     location: 0,
-    threshold: 0.8,
+    threshold: 0.7,
     distance: 100,
     useExtendedSearch: false,
     ignoreLocation: false,
@@ -36,11 +37,15 @@ export default function SearchList(props) {
   const fuse = new Fuse(coffees, options)
 
   const searchResult = () => { 
-    if(results.textArray[0]){
+    if(searchObject){
 
-      const strippedString = results.textArray[0]
-     
-      const Results = fuse.search(strippedString, {limit: 3})
+      const strippedWords = ["coffee","decaf","organic","espresso","usda","roast","roasted"]
+      const wordsToReplace= new RegExp("\\b"+strippedWords.join('|')+"\\b","gi")
+      const string = searchObject.replace(/\n/g, " ").replace(/[.,\/#!$%\^&\*;°•':{}=\-_`~()]/g,"").replace(wordsToReplace, '').toLowerCase()
+
+
+      console.log('stripped', string)
+      const Results = fuse.search(string, {limit: 5}) 
     
       if (Results.length !== 0) { 
       return Results.map(coffee => {
