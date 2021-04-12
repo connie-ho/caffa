@@ -1,11 +1,7 @@
-<<<<<<< HEAD
 import React, { useEffect, useState, useContext } from 'react';
 import {useHistory} from 'react-router-dom';
 import UserContext from '../contexts/UserContext';
 
-=======
-import React, { useState } from 'react';
->>>>>>> dc10e7e5cebb8f42953ebca2442682abc6a9dea1
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
