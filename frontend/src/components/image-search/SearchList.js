@@ -1,4 +1,4 @@
-import {React, useContext} from 'react';
+import {React, useContext, useEffect, useState} from 'react';
 import Fuse from 'fuse.js'
 import {getReviewsForCoffee, avgRatingForCoffee} from '../../helpers/selectors';
 import CoffeeListItem from '../coffees/CoffeeListItem';
@@ -12,7 +12,16 @@ export default function SearchList(props) {
   const {state} = useContext(DataContext);
   const coffees = Object.values(state.coffees);
   const reviews = state.reviews;
-  const {addCoffee} = props;
+  const {addCoffee, results} = props;
+  const [storedUrl, setStoredURL] = useState('')
+  const [storedArray, setStoredArray] = useState([])
+
+  useEffect(() => {
+    setStoredURL(localStorage.getItem("url") || '' )
+    setStoredArray(localStorage.getItem("textarray") || [])
+ 
+  },[results.url])
+
 
   const options = {
     isCaseSensitive: false,
@@ -33,13 +42,10 @@ export default function SearchList(props) {
     ]
   };
 
-  const storedUrl = (localStorage.getItem("url") || '' )
-
   const fuse = new Fuse(coffees, options)
 
   const searchResult = () => { 
 
-    const storedArray =(localStorage.getItem("textarray") || [])
     let searchTerm = ''
     if (storedArray) {
       searchTerm = storedArray[0]
