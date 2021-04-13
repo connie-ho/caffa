@@ -7,7 +7,7 @@ import CoffeeListItem from './coffees/CoffeeListItem.jsx';
 import {getReviewsForCoffee, avgRatingForCoffee} from '../helpers/selectors';
 
 export default function Home(props) {
-  const [homeCoffees, setHomeCoffees] = useState(null);
+  const [homeCoffees, setHomeCoffees] = useState({});
 
   useEffect(() => {
     console.log("getMostFavourited in App.jsx")
@@ -21,7 +21,8 @@ export default function Home(props) {
       })
   }, []);
 
-  console.log("homeCoffees in Home frontend", homeCoffees)
+  console.log("homeCoffees in Home frontend", typeof homeCoffees)
+  
 
   const {state} = useContext(DataContext);
 

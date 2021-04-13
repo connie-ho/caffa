@@ -1,14 +1,18 @@
 import {useState, useContext} from 'react';
+
 import FavouriteContext from '../../contexts/FavouriteContext';
+import UserContext from '../../contexts/UserContext';
 import {calcFavourites} from '../../helpers/selectors';
+
+import NotLoggedIn from '../NotLoggedIn';
+
 import IconButton from '@material-ui/core/IconButton';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 
+
 export default function Details(props) {
   
-  const {addFavourite, deleteFavourite} = useContext(FavouriteContext);
-
   const {
     coffee, 
     reviews, 
@@ -16,22 +20,32 @@ export default function Details(props) {
     favourites, 
     isLiked} = props;
 
-  const user_id = 2 // temporary
+  // user logic
+  const {user, openLogin, setOpenLogin} = useContext(UserContext);
+  // const userId = user? user.id : null; 
+  
+  // add/delete favourites logic
+  const {addFavourite, deleteFavourite} = useContext(FavouriteContext);
 
-  const [fav, setFav] = useState(isLiked(favourites, user_id))
+  const [fav, setFav] = useState(isLiked(favourites, user? user.id : null))
   const numFav = calcFavourites(favourites);
 
-  // add/delete favourites logic
   const onClickHandler = (e) => {
     
     e.preventDefault()
 
+    if(!user){
+      setOpenLogin(prev => true);
+      return;
+    }
+
+    console.log('in add favourites click handler')
+    console.log(fav)
     if(fav){  
-      console.log(fav)
       deleteFavourite(fav)
       setFav(prev => false)
     } else {
-      addFavourite(coffee.id, user_id)
+      addFavourite(coffee.id, user.id)
       .then(res => {
         setFav(prev=>res)
       })
@@ -44,6 +58,9 @@ export default function Details(props) {
 
   return (
     <>
+     <NotLoggedIn
+      
+     />
       <div>
         <aside>
           <img src={coffee.image_url} alt={`${coffee.name}`}/>

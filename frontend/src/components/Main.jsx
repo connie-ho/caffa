@@ -3,6 +3,7 @@ import {useEffect, useState} from 'react';
 
 import Nav from './Nav';
 import Login from './Login';
+import NotLoggedIn from './NotLoggedIn';
 import Home from './Home';
 import CoffeeList from './coffees/CoffeeList';
 import SearchList from './image-search/SearchList';
@@ -16,7 +17,7 @@ import HomeContext from '../contexts/HomeContext';
 
 const Main = (props) => {
 
-  const {addFavourite, addCoffee, deleteFavourite, user, setUser, loginHandler, logoutHandler, homeCoffees, setHomeCoffees, getMostFavouritedCoffees} = props;
+  const {addFavourite, deleteFavourite, addReview, addCoffee, user, setUser, loginHandler, logoutHandler, homeCoffees, setHomeCoffees, getMostFavouritedCoffees} = props;
 
   const [results, setResults] = useState(
     {
@@ -25,6 +26,7 @@ const Main = (props) => {
       
     }
   )
+  
 
   return (
     <div>
@@ -42,18 +44,19 @@ const Main = (props) => {
               <SearchList results={results} addCoffee={addCoffee}/>
             </Route>
           <Route path="/coffees" >
-            <FavouriteContext.Provider value={{addFavourite, deleteFavourite}}>
-              <Coffees />
-            </FavouriteContext.Provider>
+            <ReviewContext.Provider value={{addReview}}>
+              <FavouriteContext.Provider value={{addFavourite, deleteFavourite}}>
+                <Coffees />
+              </FavouriteContext.Provider>
+            </ReviewContext.Provider>
           </Route>
           <Route path="/login" >
-            <Login loginHandler={loginHandler}/>
+            <Login/>
           </Route>
           <Route path="/">
             <HomeContext.Provider homeCoffees={homeCoffees} >
               <Home 
                 getMostFavouritedCoffees={getMostFavouritedCoffees}
-                homeCoffees={homeCoffees}
               />
             </HomeContext.Provider>
           </Route>
