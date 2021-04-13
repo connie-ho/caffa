@@ -50,7 +50,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // // Then pass them to cors:
 // app.use(cors(corsOptions));
-
+// app.use(cors)
 // const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
 const coffeesRouter = require("./routes/coffees");

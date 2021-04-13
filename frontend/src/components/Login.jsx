@@ -58,22 +58,24 @@ export default function Login(props) {
 
   const history = useHistory();
   console.log(history.location.pathname)
-  // console.log(email, password)
+  console.log('mentortest',email, password)
 
   const handleSubmit = (e) => {
     e.preventDefault()
 
-    // console.log('Email', email, 'Password', password)
-    setOpenLogin(prev => false);
-
-    loginHandler(email, password);
+    loginHandler(email, password)
+    .then(() => {
+      if (history.location.pathname !=='/login') {
+        history.go()
+      }
+      else {
+        history.push('/')
+      }
+  
+      setOpenLogin(prev => false);
+    })
     
-    if (history.location.pathname !=='/login') {
-    history.go()
-    }
-    else {
-      history.push('/')
-    }
+    // console.log('Email', email, 'Password', password)
 
     // console.log('Email', email, 'Password', password)
     

@@ -58,9 +58,6 @@ export default function Details(props) {
 
   return (
     <>
-     <NotLoggedIn
-      
-     />
       <div>
         <aside>
           <img src={coffee.image_url} alt={`${coffee.name}`}/>
