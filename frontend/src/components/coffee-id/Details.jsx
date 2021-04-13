@@ -39,8 +39,8 @@ export default function Details(props) {
       return;
     }
 
-    console.log('in add favourites click handler')
-    console.log(fav)
+    // console.log('in add favourites click handler')
+    // console.log(fav)
     if(fav){  
       deleteFavourite(fav)
       setFav(prev => false)
