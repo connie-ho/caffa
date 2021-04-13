@@ -48,14 +48,14 @@ export default function SearchList(props) {
 
     let searchTerm = ''
     if (storedArray) {
-      searchTerm = storedArray[0]
+      searchTerm = storedArray.toString()
     }
 
     if(searchTerm){
 
       const string = stripSearchTerms(searchTerm)
-
-      console.log('stripped', string)
+    
+      console.log('stripped string', string)
       const Results = fuse.search(string, {limit: 5}) 
     
       if (Results.length !== 0) { 
@@ -80,7 +80,7 @@ export default function SearchList(props) {
       )
     }
     return (
-      <p>You haven't searched any coffees yet!</p>
+      <p>An error has occurred in image search, please try again.</p>
     )
   }
 
