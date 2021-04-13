@@ -10,6 +10,7 @@ import {getReviewsForCoffee, avgRatingForCoffee} from '../../helpers/selectors';
 const CoffeeList = (props) => {
 
   const {state} = useContext(DataContext);
+  console.log("COFFEE LIST STATE: ", state)
 
   const coffees = Object.values(state.coffees);
   const reviews = state.reviews;

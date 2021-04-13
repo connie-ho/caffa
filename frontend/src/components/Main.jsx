@@ -13,10 +13,11 @@ import FavouriteContext from '../contexts/FavouriteContext';
 import Image from 'material-ui-image'
 import ReviewContext from '../contexts/ReviewContext';
 import SearchContext from '../contexts/SearchContext';
+import HomeContext from '../contexts/HomeContext';
 
 const Main = (props) => {
 
-  const {addFavourite, deleteFavourite, addReview, addCoffee, user, setUser, loginHandler, logoutHandler} = props;
+  const {addFavourite, deleteFavourite, addReview, addCoffee, user, setUser, loginHandler, logoutHandler, homeCoffees, setHomeCoffees, getMostFavouritedCoffees} = props;
 
   const [results, setResults] = useState(
     {
@@ -53,7 +54,11 @@ const Main = (props) => {
             <Login/>
           </Route>
           <Route path="/">
-            <Home />
+            <HomeContext.Provider homeCoffees={homeCoffees} >
+              <Home 
+                getMostFavouritedCoffees={getMostFavouritedCoffees}
+              />
+            </HomeContext.Provider>
           </Route>
         </Switch>
       </Router>

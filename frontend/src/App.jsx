@@ -14,6 +14,7 @@ function App() {
 
   // user logic
   const [user, setUser] = useState(null);
+  // const [homeCoffees, setHomeCoffees] = useState(null);
 
   // allows us to enable the modal and close anywhere in the app
   const [openLogin, setOpenLogin] = useState(false); 
@@ -34,12 +35,12 @@ function App() {
 
   const loginHandler = (email,password) => {
     console.log("in handle login function")
-    axios.post("/api/users/login", {email: email, password: password})
+    return axios.post("/api/users/login", {email: email, password: password})
       .then(res => {
         setUser(res.data)
       })
       .catch(err => {
-        console.log(err)
+        console.log(err.message)
       })
   }
 
@@ -49,6 +50,18 @@ function App() {
       .post("/api/users/logout")
       .then(res => setUser(res.data))
   }
+
+  // const getMostFavouritedCoffees = () => {
+  //   console.log("getMostFavourited in App.jsx")
+  //   axios
+  //     .get("/api/coffees/popular")
+  //     .then(res => {
+  //       setHomeCoffees(res.data)
+  //     })
+  //     .catch(err => {
+  //       console.log(err.message)
+  //     })
+  // }
 
   // console.log('current user', user)
   const {state, addFavourite, deleteFavourite, addReview, addCoffee} = useApplicationData();
