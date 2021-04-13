@@ -34,7 +34,7 @@ function App() {
 
   const loginHandler = (email,password) => {
     console.log("in handle login function")
-    axios.post("/api/users/login", {email: email, password: password})
+    return axios.post("/api/users/login", {email: email, password: password})
       .then(res => {
         setUser(res.data)
       })

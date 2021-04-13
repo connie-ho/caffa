@@ -8,9 +8,7 @@ import UserContext from "./contexts/UserContext";
  ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <UserContext.Provider>
         <App />
-      </UserContext.Provider>
     </Router>
   </React.StrictMode>,
   document.getElementById("root")
