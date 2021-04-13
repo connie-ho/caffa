@@ -4,20 +4,23 @@ import Button from '@material-ui/core/Button';
 import CoffeeModal from './AddCoffeeModal';
 import { useHistory } from "react-router-dom";
 import UserContext from '../../contexts/UserContext';
+import NotLoggedIn from '../NotLoggedIn';
 
 export default function AddCoffeeButton(props) {
 
   let history = useHistory();
   const {url, addCoffee} = props
-  const user = useContext(UserContext)
+  const {user, openLogin, setOpenLogin} = useContext(UserContext);
   const [modalOpen, setModalOpen] = useState(false)
   console.log('usa',user)
+  
   const handleModalOpen = () => {
-    if (user.user) {
+    if (user) {
     setModalOpen(true);
     }
+    
     else {
-      history.push('/login')
+      setOpenLogin(prev => true)
     }
 
   };
@@ -36,6 +39,7 @@ export default function AddCoffeeButton(props) {
   
   return (
     <div className ={classes.root}>
+      <NotLoggedIn />
       <Button color="primary" onClick={handleModalOpen}>Can't find your coffee? click here to add it. </Button>
       {renderModal}
     </div>
