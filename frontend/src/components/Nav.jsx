@@ -17,6 +17,9 @@ import LocalCafeIcon from '@material-ui/icons/LocalCafe';
 import CameraAltIcon from '@material-ui/icons/CameraAlt';
 import FormDialog from './image-search/Dialog';
 import Login from './Login';
+import SearchBar from './dynamic-search/SearchBar';
+import Autocomplete from "@material-ui/lab/Autocomplete";
+
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -203,14 +206,23 @@ export default function Nav(props) {
             <div className={classes.searchIcon}>
               <SearchIcon />
             </div>
-            <InputBase
+            {/* <Autocomplete
+              id="combo-box-demo"
+              options={top100Films}
+              getOptionLabel={(option) => option.title}
+              style={{ width: 300 }}
+              renderInput={(params) => {
+              const { InputLabelProps, InputProps, ...rest } = params;
+              return <InputBase 
               placeholder="Search…"
               classes={{
                 root: classes.inputRoot,
                 input: classes.inputInput,
               }}
-              inputProps={{ 'aria-label': 'search' }}
-            />
+                {...params.InputProps} {...rest} />;
+              }}
+            /> */}
+            <SearchBar />
           </div>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
@@ -262,7 +274,7 @@ export default function Nav(props) {
             </Typography>
           </Link>
             }
-
+  
           </div>
 
         </Toolbar>
