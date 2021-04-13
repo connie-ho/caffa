@@ -37,6 +37,7 @@ export default function AddCoffeeButton(props) {
   
   return (
     <div className ={classes.root}>
+      <NotLoggedIn />
       <Button color="primary" onClick={handleModalOpen}>Can't find your coffee? click here to add it. </Button>
       {renderModal}
     </div>
