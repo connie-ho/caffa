@@ -17,7 +17,7 @@ function ReviewList({coffeeId}) {
       <ReviewListItem 
         key={review.id}
         review={review}
-        user={users[review.user_id]}
+        reviewUser={users[review.user_id]}
       />
     );
   })

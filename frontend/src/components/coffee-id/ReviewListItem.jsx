@@ -1,4 +1,7 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import UserContext from '../../contexts/UserContext';
+
+
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -26,21 +29,27 @@ const useStyles = makeStyles({
 export default function ReviewListItem(props) {
 
   const classes = useStyles();
-  const {review, user} = props;
+  const {review, reviewUser} = props;
   const dateArr = new Date(review.created_at).toDateString().split(' ');
   const date = `${dateArr[1]} ${dateArr[2]}, ${dateArr[3]}`;
+  const {user} = useContext(UserContext);
 
   return (
     <Card className={classes.root}>
       <CardContent>
        <div>{review.rating} Stars </div>
        <div>{review.description}</div>
-       <div>{user.first_name} {user.last_name}</div>
+       <div>{reviewUser.first_name} {reviewUser.last_name}</div>
        <div>{date}</div>
       </CardContent>
       <CardActions>
-        <Button size="small">Edit</Button>
-        <Button size="small">Delete</Button>
+        {
+          (user.id === review.user_id) ? 
+          (<div>
+            <Button size="small">Edit</Button>
+            <Button size="small">Delete</Button>
+          </div>) : ''
+        }
       </CardActions>
     </Card>
   );
