@@ -15,13 +15,11 @@ export default function AddCoffeeButton(props) {
   console.log('usa',user)
   
   const handleModalOpen = () => {
-    if (user) {
-    setModalOpen(true);
-    }
-    
-    else {
+    if (!user) {
       setOpenLogin(prev => true)
+      return;
     }
+    setModalOpen(true);
 
   };
 
@@ -42,6 +40,5 @@ export default function AddCoffeeButton(props) {
       <Button color="primary" onClick={handleModalOpen}>Can't find your coffee? click here to add it. </Button>
       {renderModal}
     </div>
-
   )
 }
