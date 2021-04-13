@@ -44,6 +44,9 @@ export default function FormDialog(props) {
         url,
         textArray: textArray
       })
+      
+      localStorage.setItem("url", url)
+      localStorage.setItem("textarray", textArray)
 
       console.log('completed functions', url, textArray)
       setLoading(false)

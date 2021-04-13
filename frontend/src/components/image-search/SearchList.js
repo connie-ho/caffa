@@ -12,8 +12,7 @@ export default function SearchList(props) {
   const {state} = useContext(DataContext);
   const coffees = Object.values(state.coffees);
   const reviews = state.reviews;
-  const {results, addCoffee} = props;
-  const searchObject = results.textArray[0]
+  const {addCoffee} = props;
 
   const options = {
     isCaseSensitive: false,
@@ -34,12 +33,21 @@ export default function SearchList(props) {
     ]
   };
 
+  const storedUrl = (localStorage.getItem("url") || '' )
+
   const fuse = new Fuse(coffees, options)
 
   const searchResult = () => { 
-    if(searchObject){
 
-      const string = stripSearchTerms(searchObject)
+    const storedArray =(localStorage.getItem("textarray") || [])
+    let searchTerm = ''
+    if (storedArray) {
+      searchTerm = storedArray[0]
+    }
+
+    if(searchTerm){
+
+      const string = stripSearchTerms(searchTerm)
 
       console.log('stripped', string)
       const Results = fuse.search(string, {limit: 5}) 
@@ -74,7 +82,7 @@ export default function SearchList(props) {
   <div>
     <h2>Your Search Results</h2>
     {searchResult()}
-    {results.url && <AddCoffeeButton url={results.url} addCoffee={addCoffee} />}
+    {storedUrl && <AddCoffeeButton url={storedUrl} addCoffee={addCoffee} />}
   </div>
   )  
 }

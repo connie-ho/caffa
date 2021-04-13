@@ -50,22 +50,33 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Login(props) {
+
   const classes = useStyles();
   const {loginHandler, setOpenLogin} = useContext(UserContext);
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
   const history = useHistory();
-  console.log(history)
+  console.log(history.location.pathname)
   // console.log(email, password)
 
   const handleSubmit = (e) => {
     e.preventDefault()
 
-    setOpenLogin(prev => false);
-    history.go()
     // console.log('Email', email, 'Password', password)
-    loginHandler(email, password)
+    setOpenLogin(prev => false);
+
+    loginHandler(email, password);
+    
+    if (history.location.pathname !=='/login') {
+    history.go()
+    }
+    else {
+      history.push('/')
+    }
+
+    // console.log('Email', email, 'Password', password)
+    
   }
 
   return (
@@ -125,9 +136,6 @@ export default function Login(props) {
               </Link>
             </Grid>
             <Grid item>
-              <Link href="#" variant="body2">
-                {"Don't have an account? Sign Up"}
-              </Link>
             </Grid>
           </Grid>
         </form>
