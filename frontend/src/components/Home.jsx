@@ -4,6 +4,7 @@ import axios from 'axios';
 
 import DataContext from '../contexts/DataContext.js';
 import CoffeeListItem from './coffees/CoffeeListItem.jsx';
+import Carousel from './Carousel/CarouselSlide.jsx';
 import {getReviewsForCoffee, avgRatingForCoffee} from '../helpers/selectors';
 
 export default function Home(props) {
@@ -21,7 +22,7 @@ export default function Home(props) {
       })
   }, []);
 
-  console.log("homeCoffees in Home frontend", typeof homeCoffees)
+  // console.log("homeCoffees in Home frontend", typeof homeCoffees)
   
 
   const {state} = useContext(DataContext);
@@ -54,6 +55,8 @@ export default function Home(props) {
 
           <h1>Top Picks (Most Favourited)</h1>
             {coffeeList}
+
+        <Carousel/>
 
     </div>
   )
