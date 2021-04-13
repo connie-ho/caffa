@@ -9,6 +9,7 @@ export default function SearchBar(props) {
   
   const {state} = useContext(DataContext);
   const coffees = Object.values(state.coffees)
+  const [autoCompleteOpen, setAutoCompleteOpen] = useState(false)
 
   const useStyles = makeStyles((theme) => ({ 
     inputRoot: {
@@ -36,6 +37,21 @@ export default function SearchBar(props) {
     freeSolo
     getOptionLabel={(option) => option.name }
     style={{ width: 600 }}
+    //set autocomplete to only open on input
+    open={autoCompleteOpen}
+    onInputChange={(event, value, reason) => {
+      switch(reason) {
+        case 'input':
+          setAutoCompleteOpen(!!value);
+          break;
+        case 'reset':
+        case 'clear':
+          setAutoCompleteOpen(false);
+          break;
+        default:
+          console.log(reason);
+      };        
+    }}
     noOptionsText="We can't find your coffee!"
     renderInput={(params) => {
     const { InputLabelProps, InputProps, ...rest } = params;
@@ -51,7 +67,7 @@ export default function SearchBar(props) {
       return(
         <>
          <span
-            style={{ cursor: "pointer" }}
+            style={{ cursor: "pointer", backgroundColor:'transparent' }}
             onClick={() => {
               window.location.href = `/coffees/${option.id}`
             }}>
