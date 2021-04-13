@@ -10,9 +10,9 @@ import reducer, {
 function useApplicationData(){
 
   const [state, dispatch] = useReducer(reducer, {
-    users: [],
-    coffees: [],
-    reviews: [],
+    users: {},
+    coffees: {},
+    reviews: {},
     favourites: {}
   });
 
@@ -26,8 +26,13 @@ function useApplicationData(){
       axios.get("/api/favourites"),
     ])
     .then(all=>{
-      const users = [...all[0].data];
+      // const users = [...all[0].data];
 
+      // copy users into an object
+      const users = {}
+      for(const user of all[0].data){
+        users[user.id] = user;
+      }
 
       // copy coffeess into an object
       const coffees = {}

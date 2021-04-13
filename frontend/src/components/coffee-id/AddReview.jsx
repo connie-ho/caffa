@@ -8,6 +8,7 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Stars from './Stars';
 import ReviewContext from '../../contexts/ReviewContext';
+import UserContext from '../../contexts/UserContext';
 
 
 export default function AddReview(props) {
@@ -19,7 +20,16 @@ export default function AddReview(props) {
   const [description, setDescription] = useState('') 
   const {addReview} = useContext(ReviewContext);
 
+
+  // user logic
+  const {user, openLogin, setOpenLogin} = useContext(UserContext);
+
   const handleClickOpen = (value) => {
+
+    if(!user){
+      setOpenLogin(prev => true);
+      return;
+    }
 
     if(open){
       setValue(prev => value)
@@ -68,7 +78,7 @@ export default function AddReview(props) {
             onClick={()=>{addReview({
               rating:value,
               description,
-              user_id: 2,
+              user_id: user.id,
               coffee_id: coffee.id
             })
             handleClose()
