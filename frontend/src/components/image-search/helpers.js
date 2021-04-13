@@ -36,7 +36,7 @@ export async function googleImageDetection(url) {
   let responseJson = await response.json();
   console.log(responseJson)
   
-  if (!responseJson) {
+  if (!responseJson.responses[0]) {
     return
   }
 
