@@ -7,6 +7,7 @@ function ReviewList({coffeeId}) {
   
   const {state} = useContext(DataContext);
   const reviews = state.reviews;
+  const users = state.users;
   const coffeeReviews = getReviewsForCoffee(Object.values(reviews), coffeeId);
   
 
@@ -16,6 +17,7 @@ function ReviewList({coffeeId}) {
       <ReviewListItem 
         key={review.id}
         review={review}
+        user={users[review.user_id]}
       />
     );
   })

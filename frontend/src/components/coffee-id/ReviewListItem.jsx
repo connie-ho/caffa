@@ -26,15 +26,17 @@ const useStyles = makeStyles({
 export default function ReviewListItem(props) {
 
   const classes = useStyles();
-  const {review} = props;
+  const {review, user} = props;
+  const dateArr = new Date(review.created_at).toDateString().split(' ');
+  const date = `${dateArr[1]} ${dateArr[2]}, ${dateArr[3]}`;
 
   return (
     <Card className={classes.root}>
       <CardContent>
        <div>{review.rating} Stars </div>
        <div>{review.description}</div>
-       <div>User: {review.user_id}</div>
-       <div>{review.created_at}</div>
+       <div>{user.first_name} {user.last_name}</div>
+       <div>{date}</div>
       </CardContent>
       <CardActions>
         <Button size="small">Edit</Button>
