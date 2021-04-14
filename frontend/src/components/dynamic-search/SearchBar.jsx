@@ -84,7 +84,11 @@ export default function SearchBar(props) {
             style={{ cursor: "pointer", backgroundColor:'transparent' }}
             onClick={() => {
               window.location.href = `/coffees/${option.id}`
-            }}> 
+            }}
+            onKeyDown={() => {
+              window.location.href = `/coffees/${option.id}`
+            }}>
+    
             <img src= {option.image_url} height={100} width={100} />
             <p>{option.name}</p>
         </span>

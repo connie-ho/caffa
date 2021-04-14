@@ -75,12 +75,16 @@ export default function SearchList(props) {
       }
       return (
         <>
+        <Grid item xs={12} sm={6} lg={4}>
         <p>There were no matches!</p>
+        </Grid>
         </>
       )
     }
     return (
+      <Grid item xs={12} sm={6} lg={4}>
       <p>An error has occurred in image search, please try again.</p>
+      </Grid>
     )
   }
 
