@@ -5,7 +5,7 @@ import CoffeeListItem from '../coffees/CoffeeListItem';
 import {stripSearchTerms} from './helpers.js'
 import DataContext from '../../contexts/DataContext';
 import AddCoffeeButton from '../add-coffee/AddCoffeeButton';
-
+import { Grid } from "@material-ui/core";
 
 export default function SearchList(props) {
   
@@ -63,13 +63,13 @@ export default function SearchList(props) {
         const coffeeReviews = getReviewsForCoffee(Object.values(reviews),coffee.item.id)
         const avgRating = avgRatingForCoffee(coffeeReviews);
         return (
-          <>
+        <Grid item xs={12} sm={6} lg={4}>
           <CoffeeListItem
             key={coffee.item.id}
             coffee={coffee.item}
             avgRating={avgRating}
           />
-          </>
+        </Grid>
         );
       })
       }
@@ -85,10 +85,18 @@ export default function SearchList(props) {
   }
 
   return(
-  <div>
+  <Grid item container direction="row" >
+ 
+    <Grid item xs={0} sm={2} />
+    <Grid item xs={12} sm={8} >
     <h2>Your Search Results</h2>
-    {searchResult()}
-    {storedUrl && <AddCoffeeButton url={storedUrl} addCoffee={addCoffee} />}
-  </div>
+      <Grid container spacing="4">
+      {searchResult()}
+      </Grid>
+      <br></br>
+      {storedUrl && <AddCoffeeButton url={storedUrl} addCoffee={addCoffee} />} 
+    </Grid>
+    <Grid item xs={0} sm={2} />
+  </Grid>
   )  
 }

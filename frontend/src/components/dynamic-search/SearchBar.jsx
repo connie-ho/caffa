@@ -10,7 +10,7 @@ export default function SearchBar(props) {
   const {state} = useContext(DataContext);
   const coffees = Object.values(state.coffees)
   const [autoCompleteOpen, setAutoCompleteOpen] = useState(false)
-
+  const [value,setValue] = useState('')
   const useStyles = makeStyles((theme) => ({ 
     inputRoot: {
       color: 'inherit',
@@ -34,7 +34,6 @@ export default function SearchBar(props) {
     <Autocomplete
     id="Search Bar"
     options={coffees}
-    freeSolo
     getOptionLabel={(option) => option.name }
     style={{ width: 600 }}
     //set autocomplete to only open on input
@@ -52,11 +51,17 @@ export default function SearchBar(props) {
           console.log(reason);
       };        
     }}
-    noOptionsText="We can't find your coffee!"
+    onBlur={() => {setAutoCompleteOpen(false)}}
+    onFocus={() => { if (value) {
+      setAutoCompleteOpen(true)
+    }}}
+    noOptionsText="We can't find your coffee! Try our image search!"
     renderInput={(params) => {
     const { InputLabelProps, InputProps, ...rest } = params;
     return <InputBase 
     placeholder="Search…"
+    value={value}
+    setValue={(e) => {setValue(e.current.value)}}
     classes={{
       root: classes.inputRoot,
       input: classes.inputInput,
