@@ -72,7 +72,7 @@ export default function ReviewListItem(props) {
       </CardContent>
       <CardActions>
         {
-          (user.id === review.user_id) ? 
+          (user && user.id === review.user_id) ? 
           (<div>
             <Button 
               size="small"

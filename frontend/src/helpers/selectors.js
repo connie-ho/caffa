@@ -69,6 +69,22 @@ export function calcFavourites(favourites){
     }
   }
   return num;
+}
 
+// pass in filtered reviews array for that coffee
+export function isReviewed(reviews, userId){
+
+  if(!userId){
+    return false;
+  }
+
+  for(const review of reviews){
+    if(Number(review.user_id) === Number(userId)){
+      console.log('returning true')
+      return true;
+    }
+  }
+
+  return false;
 
 }

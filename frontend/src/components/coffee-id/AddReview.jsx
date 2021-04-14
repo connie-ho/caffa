@@ -43,6 +43,7 @@ export default function AddReview(props) {
 
   const handleCloseReviewForm = () => {
     setOpenReviewForm(false);
+    setRating(0);
   };
 
   const handleAddReview = () => {

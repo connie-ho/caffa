@@ -1,18 +1,16 @@
 import {useParams} from 'react-router-dom';
-import {useContext, useState} from 'react';
+import {useContext, useState, useEffect} from 'react';
 import DataContext from '../../contexts/DataContext';
+import UserContext from '../../contexts/UserContext';
 import Details from './Details';
 import ReviewList from './ReviewList';
 import AddReview from './AddReview';
-import {getReviewsForCoffee, avgRatingForCoffee, getFavouritesForCoffee, isLiked} from '../../helpers/selectors';
+import {getReviewsForCoffee, avgRatingForCoffee, getFavouritesForCoffee, isLiked, isReviewed} from '../../helpers/selectors';
 
 export default function Coffee(props) {
   const params = useParams();
   const coffeeId = Number(params.id);
   const {addFavourite, deleteFavourite} = props;
-
-  // temporary userId
-  const user_id = 2;
 
  // get all data 
  const {state} = useContext(DataContext);
@@ -29,6 +27,16 @@ export default function Coffee(props) {
   const avgRating = avgRatingForCoffee(coffeeReviews);
   const coffeeFavourites = getFavouritesForCoffee(Object.values(favourites), coffeeId);
 
+  // check if coffee is already reviewed by user
+  const {user} = useContext(UserContext);
+  const userId = user? user.id: null
+  const [reviewed, setReviewed] = useState(false)
+
+  useEffect(()=>{
+    setReviewed(prev => isReviewed(coffeeReviews, userId))
+  }, [coffeeReviews, userId])
+  
+  // console.log(reviewed)
   // review form logic
   const [openReviewForm, setOpenReviewForm] = useState(false);
 
@@ -53,11 +61,13 @@ export default function Coffee(props) {
           openReviewForm={openReviewForm}
           setOpenReviewForm={setOpenReviewForm}
           />
-        <AddReview 
-          coffee={coffee}
-          openReviewForm={openReviewForm}
-          setOpenReviewForm={setOpenReviewForm}
-        />
+          {!reviewed && 
+            <AddReview 
+            coffee={coffee}
+            openReviewForm={openReviewForm}
+            setOpenReviewForm={setOpenReviewForm}
+            />
+          }
       </>)
     }
     </div>
