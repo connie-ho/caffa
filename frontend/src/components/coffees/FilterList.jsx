@@ -27,7 +27,7 @@ export default function FilterList() {
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography className={classes.heading}>Accordion 1</Typography>
+          <Typography className={classes.heading}>Grain</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
