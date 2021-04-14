@@ -1,8 +1,12 @@
-import {useState} from 'react';
+import {useState, useContext} from 'react';
 import {Route, Switch} from 'react-router-dom';
+
+import DataContext from '../../contexts/DataContext';
 import FilterList from './FilterList';
 import CoffeeList from './CoffeeList';
 import Coffee from '../coffee-id/Coffee';
+
+import {getFilteredCoffees} from '../../helpers/selectors';
 
 // styles
 import './Coffees.scss';
@@ -15,31 +19,54 @@ const categories = {
   },
   'grain_species': {
     name: 'Grain Species',
-    items: [{id: 1, type:'Arabica'}, {id: 2, type: 'Robusta'}]},
+    items: {1: {id: 1, type:'Arabica'}, 2: {id: 2, type: 'Robusta'}}},
   'acidity': {
     name: 'Acidity',
-    items: [{id: 3, type:'Low'}, {id: 4, type:'Low-Medium'}, {id: 5, type:'Medium'}, {id: 6, type:'Medium-High'}, {id: 7, type:'High'}]
+    items: {3: {id: 3, type:'Low'}, 4: {id: 4, type:'Low-Medium'}, 5: {id: 5, type:'Medium'}, 6:{id: 6, type:'Medium-High'}, 7:{id: 7, type:'High'}}
   },
   'roast': {
     name: 'Roast',
-    items: [{id: 8, type:'Light'}, {id: 9, type: 'Medium'},{id: 10, type: 'Dark'}]
+    items: {8:{id: 8, type:'Light'}, 9:{id: 9, type: 'Medium'}, 10:{id: 10, type: 'Dark'}}
   },
   'rating': {
     name: 'Rating',
-    items: [{id: 11, type:1}, {id: 12, type:2}, {id: 13, type:3}, {id: 14, type:4}, {id: 15, type:5}]
+    items: {11: {id: 11, type:1}, 12: {id: 12, type:2}, 13: {id: 13, type:3}, 14: {id: 14, type:4}, 15: {id: 15, type:5}}
   }
 }
 
-const handleFilters = (filters, category)=>{
-  console.log(filters);
-  console.log(category);
-}
-
-
 function Coffees(props) {
+  
+  const {state} = useContext(DataContext);
+  const coffees = Object.values(state.coffees);
+  const reviews = state.reviews;
+  
   // FilterArray to apply to coffees
-  const [filters, setFilters] = useState([])
-  console.log(filters)
+  const [filterItems, setFilterItems] = useState([])
+  const [filterCat, setFilterCat] = useState({
+    'region': [],
+    'grain_species': [],
+    'acidity': [],
+    'roast': [],
+    'rating': []
+  })
+  const [filteredCoffees, setFilteredCoffees] = useState(coffees)
+
+  const handleFilters = (filters, category)=>{
+    console.log(filters)
+    const newFilterCat = {...filterCat}
+    newFilterCat[category] = filters;
+
+    setFilterCat(newFilterCat)
+    
+    const res = getFilteredCoffees(coffees, categories, newFilterCat)
+    setFilteredCoffees(res)
+
+    console.log(filteredCoffees)
+    // console.log(newFilterCat)
+
+  }
+  
+
   return (
     <div>
     <Switch>
@@ -54,12 +81,14 @@ function Coffees(props) {
             <aside>
               <FilterList 
                 categories={categories}
-                filters={filters}
-                setFilters={setFilters}
+                filterItems={filterItems}
+                setFilterItems={setFilterItems}
                 handleFilters={handleFilters}
               />
             </aside>
-          <CoffeeList/>
+          <CoffeeList
+            coffees={filteredCoffees}
+          />
           </div>
           </>
         </Route>
