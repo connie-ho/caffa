@@ -17,7 +17,18 @@ import HomeContext from '../contexts/HomeContext';
 
 const Main = (props) => {
 
-  const {addFavourite, deleteFavourite, addReview, addCoffee, user, setUser, loginHandler, logoutHandler, homeCoffees, setHomeCoffees, getMostFavouritedCoffees} = props;
+  const {
+    addFavourite, 
+    deleteFavourite, 
+    addReview, 
+    addCoffee, 
+    user, 
+    setUser, 
+    loginHandler, 
+    logoutHandler, 
+    homeCoffees, 
+    setHomeCoffees, 
+    getMostFavouritedCoffees} = props;
 
   const [results, setResults] = useState(
     {
@@ -37,7 +48,7 @@ const Main = (props) => {
           user={user}
         />
       </SearchContext.Provider >
-        <h2>{user ? "I am logged in" : "I am not logged in"}</h2>
+        {/* <h2>{user ? "I am logged in" : "I am not logged in"}</h2> */}
 
         <Switch>
             <Route path="/search">
