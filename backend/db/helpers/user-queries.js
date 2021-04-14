@@ -43,8 +43,8 @@ const addUser = function(params) {
     last_name,
     email,
     password,
-  } = params;
-
+  }= params;
+  
   const text = `
   INSERT into users (first_name, last_name, email, password)
   VALUES($1, $2, $3, $4)
