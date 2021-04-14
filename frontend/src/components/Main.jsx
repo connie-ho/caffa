@@ -14,6 +14,8 @@ import Image from 'material-ui-image'
 import ReviewContext from '../contexts/ReviewContext';
 import SearchContext from '../contexts/SearchContext';
 import HomeContext from '../contexts/HomeContext';
+import Account from './Account';
+
 
 const Main = (props) => {
 
@@ -66,6 +68,11 @@ const Main = (props) => {
                 <Coffees />
               </FavouriteContext.Provider>
             </ReviewContext.Provider>
+          </Route>
+          <Route path="/account" >
+            <Account
+              user={user}
+            />
           </Route>
           <Route path="/login" >
             <Login/>
