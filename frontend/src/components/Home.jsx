@@ -1,61 +1,39 @@
 import {useContext, useEffect, useState} from 'react';
 import {Route, Switch} from 'react-router-dom';
-import axios from 'axios';
 
 import DataContext from '../contexts/DataContext.js';
 import CoffeeListItem from './coffees/CoffeeListItem.jsx';
+import CoffeeList from './coffees/CoffeeList.jsx';
+import Carousel from './Carousel/CarouselSlide.jsx';
+import CoffeeCard from './Top-Picks/CoffeeCard.jsx';
 import {getReviewsForCoffee, avgRatingForCoffee} from '../helpers/selectors';
+import { Grid } from "@material-ui/core";
+import Content from './Top-Picks/Content.jsx'
+import axios from 'axios';
 
-export default function Home(props) {
-  const [homeCoffees, setHomeCoffees] = useState({});
 
-  useEffect(() => {
-    console.log("getMostFavourited in App.jsx")
-    axios
-      .get("/api/coffees/popular")
-      .then(res => {
-        setHomeCoffees(res.data)
-      })
-      .catch(err => {
-        console.log(err.message)
-      })
-  }, []);
-
-  console.log("homeCoffees in Home frontend", typeof homeCoffees)
+const Home = (props) => {
   
-
-  const {state} = useContext(DataContext);
-
-  const coffees = Object.values(homeCoffees);
-  const reviews = state.reviews;
-
-  // Create Coffee List Item
-  const coffeeList = coffees.map(coffee => {
-    const coffeeReviews = getReviewsForCoffee(Object.values(reviews),coffee.id)
-    const avgRating = avgRatingForCoffee(coffeeReviews);
-
-    return (
-      <CoffeeListItem
-        key={coffee.id}
-        coffee={coffee}
-        avgRating={avgRating}
-      />
-    );
-  })
 
   return (
     <div>
         <Route path="/coffees/:id">
-          <CoffeeListItem />
+          <CoffeeCard />
         </Route>
         <Route path="/coffees">
-          <CoffeeListItem />
+          <CoffeeList />
         </Route>
 
+
+        <Route path="/">
           <h1>Top Picks (Most Favourited)</h1>
-            {coffeeList}
+          <Content/>
+          <Carousel/>
+        </Route>
+
 
     </div>
   )
 };
 
+export default Home;
