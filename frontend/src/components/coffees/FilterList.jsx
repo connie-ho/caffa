@@ -19,24 +19,22 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function FilterList() {
+export default function FilterList(props) {
   const classes = useStyles();
 
-  // Define categories to filter for
-  const categories = {
-    Region: [],
-    Acidity: ['Low', 'Low-Medium', 'Medium', 'Medium-High', 'High'],
-    'Grain Species': ['Arabica', 'Robusta'],
-    Roast: ['Light', 'Medium', 'Dark']
-  }
+  const {categories, filters, setFilters, handleFilters} = props;
 
   const categoryList = Object.keys(categories).map((cat,i) => {
     return (
       <FilterListCategory
         key={i}
-        name={cat} 
+        name={categories[cat].name}
+        category={cat} 
         classes={classes}
-        items={categories[cat]}
+        items={categories[cat].items}
+        filters={filters}
+        setFilters={setFilters}
+        handleFilters={handleFilters}
       />
     )
   })

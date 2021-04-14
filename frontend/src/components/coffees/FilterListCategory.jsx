@@ -10,7 +10,15 @@ import ExpandMore from '@material-ui/icons/ExpandMore';
 
 export default function FilterListCategory(props) {
   
-  const {classes, name, items} = props;
+  const {
+    classes, 
+    name, 
+    items, 
+    filters, 
+    setFilters, 
+    handleFilters,
+    category
+  } = props;
   const [open, setOpen] = React.useState(true);
 
   const handleClick = () => {
@@ -20,9 +28,13 @@ export default function FilterListCategory(props) {
   const categoryItems = items.map((item,i) => {
     return(
       <FilterListCategoryItem
-        key={i}
+        key={item.id}
         classes={classes}
         item={item}
+        category={category}
+        filters={filters}
+        setFilters={setFilters}
+        handleFilters={handleFilters}
       />
     )
   })
