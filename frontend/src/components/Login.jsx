@@ -57,8 +57,8 @@ export default function Login(props) {
   const [password, setPassword] = useState('')
 
   const history = useHistory();
-  console.log(history.location.pathname)
-  console.log('mentortest',email, password)
+  // console.log(history.location.pathname)
+  // console.log('mentortest',email, password)
 
   const handleSubmit = (e) => {
     e.preventDefault()

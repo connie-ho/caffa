@@ -35,14 +35,13 @@ export default function EditReview(props) {
       description,
       rating
     }).then(()=>{
-      console.log('editing')
       handleCloseReviewForm()
     })
 
   }
 
   const handleStarClick = () => {
-    setRating()
+    console.log('in EDIT REVIEW')
   }
 
   return (

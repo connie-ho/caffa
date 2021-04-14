@@ -75,6 +75,7 @@ export default function AddReview(props) {
         handleClickOpenReviewForm={handleClickOpenReviewForm}
         handleCloseReviewForm={handleCloseReviewForm}
         handleSubmitReviewForm={handleAddReview}
+        handStarClick={setRating}
       />
     </div>
   );
