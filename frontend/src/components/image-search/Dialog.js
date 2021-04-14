@@ -21,7 +21,7 @@ export default function FormDialog(props) {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const [url, setUrl] = useState(null);
-  const [TextArray, setTextArray] = useState([]);
+  const [textArray, setTextArray] = useState([]);
   const history = useHistory();
 
   useEffect(() => {
@@ -40,7 +40,7 @@ export default function FormDialog(props) {
       setUrl(url)
       setTextArray(textArray)
       
-      setResults({
+      await setResults({
         url,
         textArray: textArray
       })
