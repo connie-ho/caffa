@@ -54,6 +54,10 @@ const _items = [
     },
 ];
 
+console.log("_ITEMS: ", _items)
+// console.log("_ITEMS: ", _items)
+
+
 const length = _items.length;
 _items.push(..._items);
 
@@ -84,8 +88,11 @@ const createItem = (position, idx) => {
     return item;
 };
 
+
 export default function CarouselSlideItem ({pos, idx, activeIdx}) {
-    const item = createItem(pos, idx, activeIdx);
+  const item = createItem(pos, idx, activeIdx);
+  const { homeCoffees } = "here";
+  console.log("COFFEE IN CAROUSELSLIDEITEM:", homeCoffees)
 
     return (
         <li className="carousel__slide-item" style={item.styles}>
