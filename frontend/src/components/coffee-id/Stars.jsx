@@ -1,13 +1,11 @@
-import React, {useState, useContext} from 'react';
-import ReviewContext from '../../contexts/ReviewContext';
+import React, {useState} from 'react';
 import Rating from '@material-ui/lab/Rating';
 import Box from '@material-ui/core/Box';
 
 export default function Stars(props) {
-  const {value, setValue} = useContext(ReviewContext);
 
-  const [hover, setHover] = useState(value)
-  const {handleClickOpen} = props;
+  const {handleStarClick, rating, setRating} = props;
+  const [hover, setHover] = useState(rating);
 
   return (
     <div>
@@ -15,15 +13,15 @@ export default function Stars(props) {
         <Rating
           name="size-large"
           size="large"
-          value={value}
+          value={rating}
           precision={0.5}
-          onChange={(event, newValue) => {
-            setValue(prev => newValue);
+          onChange={(event, newRating) => {
+            setRating(prev => newRating);
           }}
           onChangeActive={(event, newHover) => {
             setHover(prev => newHover);
           }}  
-          onClick={()=>{handleClickOpen(value)}}    
+          onClick={handleStarClick}    
         />
         {/* {value !== null && <Box ml={2}>{hover !== -1 ? hover : null}</Box>} */}
       </Box>

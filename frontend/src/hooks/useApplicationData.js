@@ -120,10 +120,51 @@ function useApplicationData(){
         }
 
         dispatch({type:SET_REVIEW, reviews});
-        console.log('inside add review ost request')
         return res.data.id;
       })
   }
+
+  function deleteReview(id){
+
+    const reviews = {
+      ...state.reviews,
+      [id]: null
+    }
+
+    return axios.delete(`/api/reviews/${id}`)
+      .then(res=>{
+        dispatch({type: SET_REVIEW, reviews})
+      })
+
+  }
+
+  function editReview(params){
+
+    const {description, rating, id} = params;
+
+    const req = {
+      id,
+      description, 
+      rating
+    }
+    console.log('inside edit review request')
+    return axios.patch(`/api/reviews/${id}`, req)
+      .then(res=>{
+
+        const review = {
+          ...res.data
+        }
+
+        const reviews = {
+          ...state.reviews,
+          [id]: review
+        }
+
+        dispatch({type:SET_REVIEW, reviews});
+      })
+  }
+
+
   function addCoffee(formData) {
     return axios.post(`/api/coffees`, formData)
     .then(res => {
@@ -144,7 +185,9 @@ function useApplicationData(){
     addFavourite,
     deleteFavourite,
     addReview,
-    addCoffee
+    editReview,
+    deleteReview,
+    addCoffee,
   };
 
 };

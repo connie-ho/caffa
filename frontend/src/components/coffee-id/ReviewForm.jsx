@@ -7,22 +7,36 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Stars from './Stars';
-import ReviewContext from '../../contexts/ReviewContext';
 
-export default function ReviewForm() {
+export default function ReviewForm(props) {
 
-  const {open} = useContext(ReviewContext);
+
+  const {
+    coffee,
+    rating,
+    setRating,
+    openReviewForm, 
+    setOpenReviewForm, 
+    description,
+    setDescription,
+    handleStarClick,
+    handleCloseReviewForm,
+    handleSubmitReviewForm
+  } = props;
+
 
   return (
     <div>
-      <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
+      <Dialog open={openReviewForm} onClose={handleCloseReviewForm} aria-labelledby="form-dialog-title">
         <DialogTitle id="form-dialog-title">Your review</DialogTitle>
         <DialogContent>
           <DialogContentText>
             You're rating {coffee.name}
           </DialogContentText>
           <Stars 
-          handleClickOpen={handleClickOpen}
+          rating={rating}
+          setRating={setRating}
+          handleStarClick={handleStarClick}
         />
           <TextField
             autoFocus
@@ -37,18 +51,11 @@ export default function ReviewForm() {
           />
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color="primary">
+          <Button onClick={handleCloseReviewForm} color="primary">
             Cancel
           </Button>
           <Button 
-            onClick={()=>{addReview({
-              rating:value,
-              description,
-              user_id: 2,
-              coffee_id: coffee.id
-            })
-            handleClose()
-          }} 
+            onClick={handleSubmitReviewForm} 
             color="primary"   
           >
             Submit
@@ -56,5 +63,5 @@ export default function ReviewForm() {
         </DialogActions>
       </Dialog>
     </div>
-  )
+  );
 }

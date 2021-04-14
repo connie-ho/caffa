@@ -4,7 +4,7 @@ import Stars from './Stars';
 import ReviewContext from '../../contexts/ReviewContext';
 import UserContext from '../../contexts/UserContext';
 
-// from material ui
+// from material UI
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
@@ -14,57 +14,38 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
 
+export default function EditReview(props) {
 
-export default function AddReview(props) {
+  const {
+    openReviewForm, 
+    setOpenReviewForm, 
+    handleCloseReviewForm, 
+    handleClickOpenReviewForm, 
+    coffee, 
+    review} = props;
 
-  const {coffee, openReviewForm, setOpenReviewForm} = props;
+  const {editReview} = useContext(ReviewContext);
+  const [description, setDescription] = useState(review.description) 
+  const [rating, setRating] = useState(review.rating)
 
-  const [rating, setRating] = useState(0)
-  const [description, setDescription] = useState('') 
-  const {addReview} = useContext(ReviewContext);
-
-
-  // user logic
-  const {user, openLogin, setOpenLogin} = useContext(UserContext);
-
-  const handleClickOpenReviewForm = () => {
-
-    if(!user){
-      setOpenLogin(prev => true);
-      return;
-    }
-
-    if(openReviewForm){
-      setRating(prev => rating)
-    } else {
-      setOpenReviewForm(true);
-    }
-  };
-
-  const handleCloseReviewForm = () => {
-    setOpenReviewForm(false);
-    setRating(0);
-  };
-
-  const handleAddReview = () => {
-    addReview({
-      rating,
+  const handleEditReview = (e)=>{
+    e.preventDefault();
+    editReview({
+      id: review.id,
       description,
-      user_id: user.id,
-      coffee_id: coffee.id
+      rating
     }).then(()=>{
       handleCloseReviewForm()
     })
+
+  }
+
+  const handleStarClick = () => {
+    console.log('in EDIT REVIEW')
   }
 
   return (
     <div>
-      <h1>How did you like this Coffee?</h1>
-      <Stars 
-        rating={rating}
-        setRating={setRating}
-        handleStarClick={handleClickOpenReviewForm}
-      />
       <ReviewForm
         coffee={coffee}
         rating={rating}
@@ -75,8 +56,8 @@ export default function AddReview(props) {
         setDescription={setDescription}
         handleClickOpenReviewForm={handleClickOpenReviewForm}
         handleCloseReviewForm={handleCloseReviewForm}
-        handleSubmitReviewForm={handleAddReview}
-        handStarClick={setRating}
+        handleSubmitReviewForm={handleEditReview}
+        handleStarClick={handleStarClick}
       />
     </div>
   );

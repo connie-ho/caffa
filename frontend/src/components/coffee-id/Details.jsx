@@ -1,4 +1,4 @@
-import {useState, useContext} from 'react';
+import {useState, useContext, useEffect} from 'react';
 
 import FavouriteContext from '../../contexts/FavouriteContext';
 import UserContext from '../../contexts/UserContext';
@@ -22,12 +22,17 @@ export default function Details(props) {
 
   // user logic
   const {user, openLogin, setOpenLogin} = useContext(UserContext);
-  // const userId = user? user.id : null; 
+  const userId = user? user.id : null; 
   
   // add/delete favourites logic
   const {addFavourite, deleteFavourite} = useContext(FavouriteContext);
 
-  const [fav, setFav] = useState(isLiked(favourites, user? user.id : null))
+  const [fav, setFav] = useState(isLiked(favourites, userId))
+  
+  useEffect(()=>{
+    setFav(prev => isLiked(favourites, userId))
+  }, [favourites, userId, isLiked])
+  
   const numFav = calcFavourites(favourites);
 
   const onClickHandler = (e) => {
