@@ -185,7 +185,7 @@ export default function Nav(props) {
 
   return (
     <div className={classes.grow}>
-      <AppBar position="static">
+      <AppBar position="static" style={{background: '#FFFFFF'}}>
         <Toolbar>
           <Link to="/">
             <IconButton

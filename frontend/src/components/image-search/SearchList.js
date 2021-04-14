@@ -6,6 +6,7 @@ import {stripSearchTerms} from './helpers.js'
 import DataContext from '../../contexts/DataContext';
 import AddCoffeeButton from '../add-coffee/AddCoffeeButton';
 import { Grid } from "@material-ui/core";
+import Typography from '@material-ui/core/Typography';
 
 export default function SearchList(props) {
   
@@ -76,7 +77,7 @@ export default function SearchList(props) {
       return (
         <>
         <Grid item xs={12} sm={6} lg={4}>
-        <p>There were no matches!</p>
+        <Typography variant="p" Styles={{fontSize:'2em'}}>There were no matches</Typography>
         </Grid>
         </>
       )
@@ -93,12 +94,12 @@ export default function SearchList(props) {
  
     <Grid item xs={0} sm={2} />
     <Grid item xs={12} sm={8} >
-    <h2>Your Search Results</h2>
+    <Typography variant="h1">Your search results</Typography>
       <Grid container spacing="4">
       {searchResult()}
       </Grid>
       <br></br>
-      {storedUrl && <AddCoffeeButton url={storedUrl} addCoffee={addCoffee} />} 
+      {storedUrl && <AddCoffeeButton  url={storedUrl} addCoffee={addCoffee} />} 
     </Grid>
     <Grid item xs={0} sm={2} />
   </Grid>
