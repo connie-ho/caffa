@@ -36,7 +36,6 @@ export default function Coffee(props) {
     setReviewed(prev => isReviewed(coffeeReviews, userId))
   }, [coffeeReviews, userId])
   
-  // console.log(reviewed)
   // review form logic
   const [openReviewForm, setOpenReviewForm] = useState(false);
 
