@@ -3,7 +3,8 @@ const router = express.Router();
 const {
   getUserById,
   getUserByEmail,
-  getUsers
+  getUsers,
+  addUser
 } = require("../db/helpers/user-queries");
 
 router.get("/", (req, res) => {
@@ -59,8 +60,10 @@ router.post('/logout', (req, res) => {
 
 // Register user
 router.post("/register", (req, res) => {
-  const {email, password } = req.body;
-  
+  addUser(req.body)
+  .then((data) => res.status(201).json(data))
+  .catch((err) => res.status(500).json({error: err.message}));
+
 });
 
 // Authenticate user
