@@ -1,4 +1,10 @@
 import React, {useState, useContext, useParams} from 'react';
+import ReviewForm from './ReviewForm';
+import Stars from './Stars';
+import ReviewContext from '../../contexts/ReviewContext';
+import UserContext from '../../contexts/UserContext';
+
+// from material ui
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
@@ -6,17 +12,14 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import Stars from './Stars';
-import ReviewContext from '../../contexts/ReviewContext';
-import UserContext from '../../contexts/UserContext';
+
 
 
 export default function AddReview(props) {
 
-  const {coffee} = props;
+  const {coffee, openReviewForm, setOpenReviewForm} = props;
 
-  const [open, setOpen] = useState(false);
-  const [value, setValue] = useState(0)
+  const [rating, setRating] = useState(0)
   const [description, setDescription] = useState('') 
   const {addReview} = useContext(ReviewContext);
 
@@ -24,72 +27,54 @@ export default function AddReview(props) {
   // user logic
   const {user, openLogin, setOpenLogin} = useContext(UserContext);
 
-  const handleClickOpen = (value) => {
+  const handleClickOpenReviewForm = () => {
 
     if(!user){
       setOpenLogin(prev => true);
       return;
     }
 
-    if(open){
-      setValue(prev => value)
+    if(openReviewForm){
+      setRating(prev => rating)
     } else {
-      setOpen(true);
+      setOpenReviewForm(true);
     }
   };
 
-  const handleClose = () => {
-    setOpen(false);
+  const handleCloseReviewForm = () => {
+    setOpenReviewForm(false);
   };
 
+  const handleAddReview = () => {
+    addReview({
+      rating,
+      description,
+      user_id: user.id,
+      coffee_id: coffee.id
+    })
+    handleCloseReviewForm()
+  }
+
   return (
-    <ReviewContext.Provider value={{value, setValue, open}}>
     <div>
       <h1>How did you like this Coffee?</h1>
       <Stars 
-        handleClickOpen={handleClickOpen}
+        rating={rating}
+        setRating={setRating}
+        handleClickOpen={handleClickOpenReviewForm}
       />
-      <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
-        <DialogTitle id="form-dialog-title">Your review</DialogTitle>
-        <DialogContent>
-          <DialogContentText>
-            You're rating {coffee.name}
-          </DialogContentText>
-          <Stars 
-          handleClickOpen={handleClickOpen}
-        />
-          <TextField
-            autoFocus
-            margin="dense"
-            id="description"
-            name="description"
-            label="Say a few words about this coffee"
-            type="email"
-            fullWidth
-            value={description}
-            onInput={e => setDescription(e.target.value)}
-          />
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose} color="primary">
-            Cancel
-          </Button>
-          <Button 
-            onClick={()=>{addReview({
-              rating:value,
-              description,
-              user_id: user.id,
-              coffee_id: coffee.id
-            })
-            handleClose()
-          }} 
-            color="primary"   
-          >
-            Submit
-          </Button>
-        </DialogActions>
-      </Dialog>
+      <ReviewForm
+        coffee={coffee}
+        rating={rating}
+        setRating={setRating}
+        openReviewForm={openReviewForm}
+        setOpenReviewForm={setOpenReviewForm}
+        description={description}
+        setDescription={setDescription}
+        handleClickOpenReviewForm={handleClickOpenReviewForm}
+        handleCloseReviewForm={handleCloseReviewForm}
+        handleSubmitReviewForm={handleAddReview}
+      />
     </div>
-    </ReviewContext.Provider>
   );
 }

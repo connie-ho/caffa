@@ -41,7 +41,7 @@ const editReview = function (params) {
     text += `rating = $${values.length} `;
   }
 
-  values.push(params.review_id);
+  values.push(params.id);
   text += `WHERE id = $${values.length} RETURNING *`;
 
   return db

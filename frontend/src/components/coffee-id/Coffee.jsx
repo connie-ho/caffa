@@ -1,5 +1,5 @@
 import {useParams} from 'react-router-dom';
-import {useContext} from 'react';
+import {useContext, useState} from 'react';
 import DataContext from '../../contexts/DataContext';
 import Details from './Details';
 import ReviewList from './ReviewList';
@@ -29,7 +29,10 @@ export default function Coffee(props) {
   const avgRating = avgRatingForCoffee(coffeeReviews);
   const coffeeFavourites = getFavouritesForCoffee(Object.values(favourites), coffeeId);
 
-  console.log('testing this state',state)
+  // review form logic
+  const [openReviewForm, setOpenReviewForm] = useState(false);
+
+
   return (
     <div>
     {coffee && (
@@ -46,9 +49,14 @@ export default function Coffee(props) {
         <h1>Community Reviews</h1>
         <ReviewList
           coffeeId={coffeeId}
-        />
+          coffee={coffee}
+          openReviewForm={openReviewForm}
+          setOpenReviewForm={setOpenReviewForm}
+          />
         <AddReview 
           coffee={coffee}
+          openReviewForm={openReviewForm}
+          setOpenReviewForm={setOpenReviewForm}
         />
       </>)
     }

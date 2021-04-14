@@ -11,35 +11,35 @@ import ReviewContext from '../../contexts/ReviewContext';
 import UserContext from '../../contexts/UserContext';
 
 
-export default function EditReview(props) {
+export default function ReviewForm(props) {
 
-  const {open, handleClose, handleClickOpen, id, coffee, review} = props;
-  const {editReview, value, setValue} = useContext(ReviewContext);
-  const [description, setDescription] = useState(review.description) 
 
-  const submitHandler = (e)=>{
-    e.preventDefault();
-    editReview({
-      id,
-      coffee_id: coffee.id,
-      description,
-      rating: value
-    })
-    handleClose()
+  const {
+    coffee,
+    rating,
+    setRating,
+    openReviewForm, 
+    setOpenReviewForm, 
+    description,
+    setDescription,
+    handleClickOpenReviewForm,
+    handleCloseReviewForm,
+    handleSubmitReviewForm
+  } = props;
 
-  }
 
   return (
     <div>
-      <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
+      <Dialog open={openReviewForm} onClose={handleCloseReviewForm} aria-labelledby="form-dialog-title">
         <DialogTitle id="form-dialog-title">Your review</DialogTitle>
         <DialogContent>
           <DialogContentText>
             You're rating {coffee.name}
           </DialogContentText>
           <Stars 
-            handleClickOpen={handleClickOpen}
-            rating={review.rating}
+          rating={rating}
+          setRating={setRating}
+          handleClickOpen={handleClickOpenReviewForm}
         />
           <TextField
             autoFocus
@@ -49,16 +49,16 @@ export default function EditReview(props) {
             label="Say a few words about this coffee"
             type="email"
             fullWidth
-            value={review.description}
+            value={description}
             onInput={e => setDescription(e.target.value)}
           />
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color="primary">
+          <Button onClick={handleCloseReviewForm} color="primary">
             Cancel
           </Button>
           <Button 
-          
+            onClick={handleSubmitReviewForm} 
             color="primary"   
           >
             Submit

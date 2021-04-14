@@ -120,7 +120,6 @@ function useApplicationData(){
         }
 
         dispatch({type:SET_REVIEW, reviews});
-        console.log('inside add review ost request')
         return res.data.id;
       })
   }
@@ -137,6 +136,35 @@ function useApplicationData(){
         dispatch({type: SET_REVIEW, reviews})
       })
 
+  }
+
+  function editReview(params){
+
+    const {coffee_id, user_id, description, rating, id} = params;
+
+    const req = {
+      id,
+      coffee_id,
+      user_id,
+      description, 
+      rating
+    }
+
+    return axios.patch(`/api/reviews/${id}`, req)
+      .then(res=>{
+
+        const review = {
+          ...res.data
+        }
+
+        const reviews = {
+          ...state.reviews,
+          [id]: review
+        }
+
+        dispatch({type:SET_REVIEW, reviews});
+        // console.log('inside add review ost request')
+      })
   }
 
 
@@ -160,8 +188,9 @@ function useApplicationData(){
     addFavourite,
     deleteFavourite,
     addReview,
+    editReview,
+    deleteReview,
     addCoffee,
-    deleteReview
   };
 
 };

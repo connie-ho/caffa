@@ -69,6 +69,7 @@ function App() {
     addFavourite, 
     deleteFavourite, 
     addReview,
+    editReview,
     deleteReview, 
     addCoffee} = useApplicationData();
 
@@ -83,6 +84,7 @@ function App() {
             addFavourite={addFavourite}
             deleteFavourite={deleteFavourite}
             addReview={addReview}
+            editReview={editReview}
             deleteReview={deleteReview}
             addCoffee={addCoffee}
             loginHandler={loginHandler}

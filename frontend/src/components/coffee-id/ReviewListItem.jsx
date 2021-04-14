@@ -3,6 +3,7 @@ import UserContext from '../../contexts/UserContext';
 import ReviewContext from '../../contexts/ReviewContext';
 
 import DeleteReview from './DeleteReview';
+import EditReview from './EditReview';
 
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
@@ -31,7 +32,7 @@ const useStyles = makeStyles({
 export default function ReviewListItem(props) {
 
   const classes = useStyles();
-  const {review, reviewUser} = props;
+  const {review, reviewUser, coffee} = props;
 
   // formatting date
   const dateArr = new Date(review.created_at).toDateString().split(' ');
@@ -39,9 +40,10 @@ export default function ReviewListItem(props) {
   
   const {user} = useContext(UserContext);
   
-  // define delete functionality
-  const {deleteReview} = useContext(ReviewContext);
+  // define edit and delete functionality
+  const {editReview, deleteReview} = useContext(ReviewContext);
   const [openDelete, setOpenDelete] = useState(false);
+  const [openEdit, setOpenEdit] = useState(false);
   
   const handleClickOpenDelete = () => {
     setOpenDelete(true);
@@ -49,6 +51,14 @@ export default function ReviewListItem(props) {
 
   const handleCloseDelete = () => {
     setOpenDelete(false);
+  };
+
+  const handleClickOpenEdit = () => {
+    setOpenEdit(true);
+  };
+
+  const handleCloseEdit = () => {
+    setOpenEdit(false);
   };
 
   return (
@@ -64,7 +74,10 @@ export default function ReviewListItem(props) {
         {
           (user.id === review.user_id) ? 
           (<div>
-            <Button size="small">Edit</Button>
+            <Button 
+              size="small"
+              onClick={handleClickOpenEdit}
+            >Edit</Button>
             <Button 
               size="small"
               onClick={handleClickOpenDelete}
@@ -78,6 +91,14 @@ export default function ReviewListItem(props) {
       open={openDelete}
       handleClose={handleCloseDelete}
       handleClickOpen={handleClickOpenDelete}
+    />
+     <EditReview
+      id={review.id}
+      coffee={coffee}
+      review={review}
+      open={openEdit}
+      handleClose={handleCloseEdit}
+      handleClickOpen={handleClickOpenEdit}
     />
     </>
   );
