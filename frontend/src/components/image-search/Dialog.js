@@ -97,14 +97,14 @@ export default function FormDialog(props) {
         <DialogTitle id="form-dialog-title">Image Upload</DialogTitle>
         <DialogContent className={classes.content}>
           <UploadForm file={file} setFile={setFile} error={error} setError={setError} loading={loading}/>
-          {loading && <CircularProgress style={{position: 'center'}} /> }  
+          {loading && <CircularProgress color="secondary" style={{position: 'center'}} /> }  
         </DialogContent>
 
         <DialogActions classes = {{root: classes.centreAlignDialogActions }}>
-          <Button onClick={handleClose} color="primary">
+          <Button onClick={handleClose} color="secondary">
             Cancel
           </Button>
-          <Button onClick={() => {uploadAndSearch(file)}} color="primary">
+          <Button onClick={() => {uploadAndSearch(file)}} color="secondary">
             Search
           </Button>
         </DialogActions>
