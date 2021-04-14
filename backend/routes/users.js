@@ -59,7 +59,8 @@ router.post('/logout', (req, res) => {
 
 // Register user
 router.post("/register", (req, res) => {
-  res.send("ok")
+  const {email, password } = req.body;
+  
 });
 
 // Authenticate user
