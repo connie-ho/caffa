@@ -77,7 +77,7 @@ export default function SearchList(props) {
       return (
         <>
         <Grid item xs={12} sm={6} lg={4}>
-        <p>There were no matches!</p>
+        <Typography variant="p" Styles={{fontSize:'2em'}}>There were no matches</Typography>
         </Grid>
         </>
       )

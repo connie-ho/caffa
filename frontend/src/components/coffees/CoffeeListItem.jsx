@@ -69,7 +69,7 @@ function CoffeeListItem(props) {
         </CardContent>
       </CardActionArea>
       <CardActions>
-          <Button size="small" color="secondary">
+          <Button size="small" color="primary">
           <Link to={`/coffees/${coffee.id}`}>Details</Link>
           </Button>
       </CardActions>

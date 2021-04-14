@@ -11,10 +11,10 @@ let theme = createMuiTheme({
   palette: {
     type: 'light',
     primary: {
-      main: '#ffffff',
+      main: '#f5c757',
     },
     secondary: {
-      main: '#f7bc2c',
+      main: '#646264',
     },
     text: {
       primary: 'rgba(0,0,0,0.87)',

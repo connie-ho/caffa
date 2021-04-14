@@ -134,7 +134,7 @@ export default function Login(props) {
           <Grid container>
             <Grid item xs>
               <Link href="#" variant="body2">
-                Forgot password?
+                Don't have a profile? Click here to register!
               </Link>
             </Grid>
             <Grid item>
