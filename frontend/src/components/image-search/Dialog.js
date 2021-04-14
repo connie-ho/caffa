@@ -82,7 +82,10 @@ export default function FormDialog(props) {
       overflow:'auto', maxHeight: '500px', height:375, width:400, alignItems: 'center'
     },
     content: {
-      overflow:'auto', height:300, width:300, alignItems: 'center', border:"1px dotted black"
+      overflow:'auto', display:'flex', flexDirection:'column', justifyContent:'space-between', height:300, width:300, alignItems: 'center', border:"1px dotted black"
+    },
+    loading: {
+      transform: `translate(0em, 0rem)`
     }
   })
   
@@ -93,9 +96,10 @@ export default function FormDialog(props) {
       <Dialog classes={{ paper: classes.paper }} open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
         <DialogTitle id="form-dialog-title">Image Upload</DialogTitle>
         <DialogContent className={classes.content}>
-          <UploadForm file={file} setFile={setFile} error={error} setError={setError}/>  
+          <UploadForm file={file} setFile={setFile} error={error} setError={setError} loading={loading}/>
+          {loading && <CircularProgress style={{position: 'center'}} /> }  
         </DialogContent>
-        {loading && <CircularProgress style={{position: 'center'}} /> }
+
         <DialogActions classes = {{root: classes.centreAlignDialogActions }}>
           <Button onClick={handleClose} color="primary">
             Cancel

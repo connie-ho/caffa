@@ -5,7 +5,7 @@ import { makeStyles } from '@material-ui/styles'
 
 
 const UploadForm = (props) =>  {
-  const {file, setFile, error, setError} = props
+  const {file, setFile, error, setError, loading} = props
   
   const useClasses = makeStyles(() => ({
     AddHoverColor: {
@@ -52,8 +52,8 @@ const UploadForm = (props) =>  {
       </div>
       }
       { error && <div className='error'>{ error }</div>}
+      
       </label>
-
     </form>
 
   )
