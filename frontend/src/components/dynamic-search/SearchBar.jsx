@@ -75,10 +75,8 @@ export default function SearchBar(props) {
             style={{ cursor: "pointer", backgroundColor:'transparent' }}
             onClick={() => {
               window.location.href = `/coffees/${option.id}`
-            }}>
-            <IconButton color="secondary">
+            }}> 
             <img src= {option.image_url} height={100} width={100} />
-            </IconButton>
             {option.name}
         </span>
         </>
