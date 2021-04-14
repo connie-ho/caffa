@@ -17,11 +17,22 @@ import { useHistory } from "react-router-dom";
 
 
 const useStyles = makeStyles((theme) => ({
-  formControl: {
+  root: {
   },
   selectEmpty: {
     marginTop: theme.spacing(2),
   },
+  title: {
+    fontSize: '1px'
+  },
+  form: {
+    margin: '0'
+  },
+  imageLabel:{
+    color: '#000000',
+    fontSize:'1em',
+
+  }
 }));
 
 export default function CoffeeModal(props) {
@@ -90,11 +101,10 @@ export default function CoffeeModal(props) {
   }
 
   return (
-    <div>
-      <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
-        <DialogTitle id="form-dialog-title">Add Your Coffee</DialogTitle>
-        <form className={classes.root} noValidate autoComplete="off" onSubmit={handleSubmit}>
-        <DialogContent>
+      <Dialog fullWidth maxWidth="sm" open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
+        <DialogTitle className={classes.title} id="form-dialog-title">Add Your Coffee</DialogTitle>
+        <form className={classes.form} noValidate autoComplete="off" onSubmit={handleSubmit}>
+        <DialogContent maxWidth="sm" fullWidth>
           <DialogContentText>
             Please fill in the fields below to add your coffee.
           </DialogContentText>
@@ -219,7 +229,7 @@ export default function CoffeeModal(props) {
             </FormControl>
           </Grid>
           <Grid item >
-          <InputLabel id="coffee-image">Coffee Image</InputLabel>
+          <br></br>
             <Image
               src={url}
             />
@@ -236,7 +246,6 @@ export default function CoffeeModal(props) {
         </DialogActions>
         </form>
       </Dialog>
-    </div>
 
   );
 }

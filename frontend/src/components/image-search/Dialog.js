@@ -78,23 +78,28 @@ export default function FormDialog(props) {
     centreAlignDialogActions: {
       justifyContent: 'center'
     },
-    paper: { overflow:'auto', height: '50vh', alignItems: 'center'}
+    paper: { 
+      overflow:'auto', maxHeight: '500px', height:375, width:400, alignItems: 'center'
+    },
+    content: {
+      overflow:'auto', display:'flex', flexDirection:'column', justifyContent:'space-between', height:300, width:300, alignItems: 'center', border:"1px dotted black"
+    },
+    loading: {
+      transform: `translate(0em, 0rem)`
+    }
   })
   
   const classes = useStyles()
 
   return (
     <div>
-      <Dialog classes={{ paper: classes.paper }} fullWidth={true} fullHeight={true} maxHeight={'lg'}
-  maxWidth={'sm'} open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
+      <Dialog classes={{ paper: classes.paper }} open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
         <DialogTitle id="form-dialog-title">Image Upload</DialogTitle>
-        <DialogContent>
-          <DialogContentText>
-            Please upload your image here
-          </DialogContentText>
-          <UploadForm file={file} setFile={setFile} error={error} setError={setError}/>  
+        <DialogContent className={classes.content}>
+          <UploadForm file={file} setFile={setFile} error={error} setError={setError} loading={loading}/>
+          {loading && <CircularProgress style={{position: 'center'}} /> }  
         </DialogContent>
-        {loading && <CircularProgress style={{position: 'center'}} /> }
+
         <DialogActions classes = {{root: classes.centreAlignDialogActions }}>
           <Button onClick={handleClose} color="primary">
             Cancel

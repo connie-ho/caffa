@@ -44,7 +44,6 @@ const useStyles = makeStyles((theme) => ({
     },
     marginRight: theme.spacing(2),
     marginLeft: 0,
-    width: '100%',
     [theme.breakpoints.up('sm')]: {
       marginLeft: theme.spacing(3),
       width: 'auto',
@@ -171,10 +170,10 @@ export default function Nav(props) {
           <AccountCircle />
         </IconButton>
       </MenuItem>
-      <MenuItem onClick={handleProfileMenuOpen}>
+      <MenuItem onClick={handleModalOpen}>
         <IconButton
-          aria-label="account of current user"
-          aria-controls="primary-search-account-menu"
+          aria-label="image-search"
+          aria-controls="image-search"
           aria-haspopup="true"
           color="inherit"
         >
@@ -207,22 +206,6 @@ export default function Nav(props) {
             <div className={classes.searchIcon}>
               <SearchIcon />
             </div>
-            {/* <Autocomplete
-              id="combo-box-demo"
-              options={top100Films}
-              getOptionLabel={(option) => option.title}
-              style={{ width: 300 }}
-              renderInput={(params) => {
-              const { InputLabelProps, InputProps, ...rest } = params;
-              return <InputBase 
-              placeholder="Search…"
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput,
-              }}
-                {...params.InputProps} {...rest} />;
-              }}
-            /> */}
             <SearchBar />
           </div>
           <div className={classes.grow} />

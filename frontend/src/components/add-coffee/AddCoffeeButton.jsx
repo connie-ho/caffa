@@ -31,6 +31,9 @@ export default function AddCoffeeButton(props) {
         margin: theme.spacing(1),
       }
     },
+    button: {
+      paddingLeft:'0px'
+    }
   }));
   
   const classes = useStyles();
@@ -38,7 +41,7 @@ export default function AddCoffeeButton(props) {
   return (
     <>
       <NotLoggedIn />
-      <Button color="primary" onClick={handleModalOpen}>Can't find your coffee? click here to add it. </Button>
+      <Button color="primary" classNames={classes.button} onClick={handleModalOpen}>Can't find your coffee? click here to add it. </Button>
       {renderModal}
     </>
   )
