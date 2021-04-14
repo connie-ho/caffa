@@ -29,17 +29,17 @@ export default function AddCoffeeButton(props) {
     root: {
       '& > *': {
         margin: theme.spacing(1),
-      },
+      }
     },
   }));
   
   const classes = useStyles();
   
   return (
-    <div className ={classes.root}>
+    <>
       <NotLoggedIn />
       <Button color="primary" onClick={handleModalOpen}>Can't find your coffee? click here to add it. </Button>
       {renderModal}
-    </div>
+    </>
   )
 }

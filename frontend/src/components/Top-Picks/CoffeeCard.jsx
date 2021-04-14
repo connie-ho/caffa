@@ -12,29 +12,17 @@ import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: 500,
+    maxWidth: 300,
+    maxHeight: 500
   },
   media: {
-    height: 300,
-    width: 300,
-    marginLeft:"auto",
-    marginRight:"auto"
+    height: 200,
 
   },
-  cardContent: {
-    maxWidth:600
-  },
-  description: {
-    overflow: "hidden",
-    display: "-webkit-box",
-    WebkitLineClamp: 2,
-    WebkitBoxOrient: "vertical"
-  }
 });
 
-function CoffeeListItem(props) {
+const CoffeeCard = (props) => {
   const classes = useStyles();
-  // const params = useParams();
   const {coffee} = props;
   let {avgRating} = props;
 
@@ -45,37 +33,37 @@ function CoffeeListItem(props) {
   }
 
   return (
+    <Link to={`/coffees/${coffee.id}`}>
     <Card className={classes.root}>
-      <Link to={`/coffees/${coffee.id}`}>
       <CardActionArea>
         <CardMedia
           className={classes.media}
           image={coffee.image_url}
           title="Contemplative Reptile"
         />
-        <CardContent className={classes.cardContent}>
+        <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
             {coffee.name}
           </Typography>
-          <Typography gutterBottom variant="h5" component="h3">
+          <Typography gutterBottom variant="h5" component="h4">
             {coffee.region}
           </Typography>
           <Typography gutterBottom variant="h5" component="h4">
             {avgRating}
           </Typography>
-          <Typography variant="body2" color="textSecondary" component="p" className={classes.description}>
+          <Typography variant="body2" color="textSecondary" component="p">
             {coffee.description}
           </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
           <Button size="small" color="primary">
-          <Link to={`/coffees/${coffee.id}`}>Details</Link>
+            Details
           </Button>
       </CardActions>
-      </Link>
     </Card>
+    </Link>
   );
 }
 
-export default CoffeeListItem;
+export default CoffeeCard;
