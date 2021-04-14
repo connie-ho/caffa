@@ -1,6 +1,8 @@
-import React, {useContext} from 'react';
+import React, {useContext, useState} from 'react';
 import UserContext from '../../contexts/UserContext';
+import ReviewContext from '../../contexts/ReviewContext';
 
+import DeleteReview from './DeleteReview';
 
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
@@ -30,11 +32,27 @@ export default function ReviewListItem(props) {
 
   const classes = useStyles();
   const {review, reviewUser} = props;
+
+  // formatting date
   const dateArr = new Date(review.created_at).toDateString().split(' ');
   const date = `${dateArr[1]} ${dateArr[2]}, ${dateArr[3]}`;
+  
   const {user} = useContext(UserContext);
+  
+  // define delete functionality
+  const {deleteReview} = useContext(ReviewContext);
+  const [openDelete, setOpenDelete] = useState(false);
+  
+  const handleClickOpenDelete = () => {
+    setOpenDelete(true);
+  };
+
+  const handleCloseDelete = () => {
+    setOpenDelete(false);
+  };
 
   return (
+    <>
     <Card className={classes.root}>
       <CardContent>
        <div>{review.rating} Stars </div>
@@ -47,10 +65,20 @@ export default function ReviewListItem(props) {
           (user.id === review.user_id) ? 
           (<div>
             <Button size="small">Edit</Button>
-            <Button size="small">Delete</Button>
+            <Button 
+              size="small"
+              onClick={handleClickOpenDelete}
+            >Delete</Button>
           </div>) : ''
         }
       </CardActions>
     </Card>
+    <DeleteReview
+      id={review.id}
+      open={openDelete}
+      handleClose={handleCloseDelete}
+      handleClickOpen={handleClickOpenDelete}
+    />
+    </>
   );
 }

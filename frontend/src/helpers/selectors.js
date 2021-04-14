@@ -4,7 +4,7 @@ export function getReviewsForCoffee(reviews, coffeeId){
 
   for (const review of reviews){
 
-    if (Number(review.coffee_id) === Number(coffeeId)){
+    if (review && Number(review.coffee_id) === Number(coffeeId)){
       res.push(review);
     }
   }

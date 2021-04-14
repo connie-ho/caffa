@@ -124,6 +124,22 @@ function useApplicationData(){
         return res.data.id;
       })
   }
+
+  function deleteReview(id){
+
+    const reviews = {
+      ...state.reviews,
+      [id]: null
+    }
+
+    return axios.delete(`/api/reviews/${id}`)
+      .then(res=>{
+        dispatch({type: SET_REVIEW, reviews})
+      })
+
+  }
+
+
   function addCoffee(formData) {
     return axios.post(`/api/coffees`, formData)
     .then(res => {
@@ -144,7 +160,8 @@ function useApplicationData(){
     addFavourite,
     deleteFavourite,
     addReview,
-    addCoffee
+    addCoffee,
+    deleteReview
   };
 
 };

@@ -20,7 +20,8 @@ const Main = (props) => {
   const {
     addFavourite, 
     deleteFavourite, 
-    addReview, 
+    addReview,
+    deleteReview, 
     addCoffee, 
     user, 
     setUser, 
@@ -55,7 +56,7 @@ const Main = (props) => {
               <SearchList results={results} setResults={setResults} addCoffee={addCoffee}/>
             </Route>
           <Route path="/coffees" >
-            <ReviewContext.Provider value={{addReview}}>
+            <ReviewContext.Provider value={{addReview, deleteReview}}>
               <FavouriteContext.Provider value={{addFavourite, deleteFavourite}}>
                 <Coffees />
               </FavouriteContext.Provider>
