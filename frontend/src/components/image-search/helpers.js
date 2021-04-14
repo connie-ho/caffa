@@ -2,8 +2,9 @@ import axios from "axios";
 
 
 export function stripSearchTerms(searchObject) {
-  const strippedWords = ["coffee","decaf","organic","espresso","usda","roast","roasted"]
+  const strippedWords = ["coffee","decaf","organic","usda","roast","roasted"]
   const wordsToReplace= new RegExp("\\b"+strippedWords.join('|')+"\\b","gi")
+
   return searchObject.replace(/\n/g, " ").replace(/[.,\/#!$%\^&\*;°•':{}=\-_`~()]/g,"").replace(wordsToReplace, '').toLowerCase()
 }
 
@@ -34,15 +35,19 @@ export async function googleImageDetection(url) {
   );
   
   let responseJson = await response.json();
-  console.log(responseJson)
+  console.log('obj', responseJson)
   
-  if (!responseJson.responses[0]) {
-    return
+  if (!responseJson.responses[0].textAnnotations) {
+    console.log('error occurred in image search')
+    return []
   }
-
+  
+  else {
   let finalArray = responseJson.responses[0].textAnnotations.map(function(obj) {
     return obj.description
   })
   
+  
   return finalArray
+}
 }
