@@ -19,6 +19,7 @@ import FormDialog from './image-search/Dialog';
 import Login from './Login';
 import SearchBar from './dynamic-search/SearchBar';
 import Autocomplete from "@material-ui/lab/Autocomplete";
+import MainLayout from './my-account/MainLayout.jsx';
 
 
 const useStyles = makeStyles((theme) => ({
