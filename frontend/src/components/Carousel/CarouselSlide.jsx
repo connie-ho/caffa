@@ -121,7 +121,6 @@ export default function Carousel() {
                               idx={i}
                               pos={pos}
                               activeIdx={activeIdx}
-                              coffee={homeCoffees}
                           />
                       ))}
                   </ul>
