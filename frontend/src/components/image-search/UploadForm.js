@@ -11,11 +11,12 @@ const UploadForm = (props) =>  {
     AddHoverColor: {
       "&:hover": {
         background: 'white',
-        color: '#4791db'
+        color: '#f7bc2c'
       }
     },
     transform: {
-      transform: `translate(0px, 10rem)`
+      transform: `translate(0px, 10rem)`,
+      color: '#3d3a3a'
     }
   }))
 
@@ -43,7 +44,7 @@ const UploadForm = (props) =>  {
     <form>
       <label className='file-upload'>
        {!tempURL && (<><input type="file" accept="image/*" capture onChange={changeHandler} /> 
-       <AddCircleOutlineOutlinedIcon className ={classes.transform} classes={{ root: classes.AddHoverColor }} fontSize='large'/></>)}
+       <AddCircleOutlineOutlinedIcon color="primary" className ={classes.transform} classes={{ root: classes.AddHoverColor }} fontSize='large'/></>)}
        { file &&  
       <div className="output">
         { tempURL && (<>
