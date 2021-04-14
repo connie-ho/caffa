@@ -24,6 +24,15 @@ export default function SearchBar(props) {
       [theme.breakpoints.up('md')]: {
         width: '20ch',
       }
+    },
+    autoComplete:{
+      [theme.breakpoints.up('xs')]: {
+        width: '60ch'
+      },
+      [theme.breakpoints.up('sm')]: {
+        width: '70ch'
+      },
+
     }
   }))
 
@@ -34,8 +43,8 @@ export default function SearchBar(props) {
     <Autocomplete
     id="Search Bar"
     options={coffees}
+    className={classes.autoComplete}
     getOptionLabel={(option) => option.name }
-    style={{ width: 600 }}
     //set autocomplete to only open on input
     open={autoCompleteOpen}
     onInputChange={(event, value, reason) => {
@@ -48,7 +57,7 @@ export default function SearchBar(props) {
           setAutoCompleteOpen(false);
           break;
         default:
-          console.log(reason);
+          break;
       };        
     }}
     onBlur={() => {setAutoCompleteOpen(false)}}
@@ -75,11 +84,9 @@ export default function SearchBar(props) {
             style={{ cursor: "pointer", backgroundColor:'transparent' }}
             onClick={() => {
               window.location.href = `/coffees/${option.id}`
-            }}>
-            <IconButton color="secondary">
+            }}> 
             <img src= {option.image_url} height={100} width={100} />
-            </IconButton>
-            {option.name}
+            <p>{option.name}</p>
         </span>
         </>
       )
