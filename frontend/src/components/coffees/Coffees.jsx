@@ -1,9 +1,10 @@
 import {Route, Switch} from 'react-router-dom';
-import {useContext, useState} from 'react';
-import DataContext from '../../contexts/DataContext';
 import FilterList from './FilterList';
 import CoffeeList from './CoffeeList';
 import Coffee from '../coffee-id/Coffee';
+
+// styles
+import './Coffees.scss';
 
 function Coffees(props) {
 
@@ -15,11 +16,14 @@ function Coffees(props) {
         </Route>
         <Route path="/coffees">
           <>
-          <h1>All Coffees</h1>
+          <div
+            className="coffees-page"
+          >
             <aside>
               <FilterList/>
             </aside>
           <CoffeeList/>
+          </div>
           </>
         </Route>
       </Switch>

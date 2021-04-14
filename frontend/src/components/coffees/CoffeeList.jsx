@@ -13,7 +13,6 @@ import { Grid } from "@material-ui/core";
 const CoffeeList = (props) => {
 
   const {state} = useContext(DataContext);
-  console.log("COFFEE LIST STATE: ", state)
 
   const coffees = Object.values(state.coffees);
   const reviews = state.reviews;
@@ -46,9 +45,6 @@ const CoffeeList = (props) => {
       </Grid>
     );
   })
-  // const addCoffeeArray = Object.keys(props.coffees).map( coffee => {
-  //   return props.coffees[coffee]
-  // })
 
   return (
     <div>
@@ -66,7 +62,6 @@ const CoffeeList = (props) => {
                 {coffeeList}
               </Grid>
             </Grid>
-            <Grid item xs={0} sm={2} />
           </Grid>
           <Pagination 
             coffeesPerPage={coffeesPerPage}

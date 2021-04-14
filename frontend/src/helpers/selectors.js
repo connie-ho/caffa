@@ -80,11 +80,21 @@ export function isReviewed(reviews, userId){
 
   for(const review of reviews){
     if(Number(review.user_id) === Number(userId)){
-      console.log('returning true')
       return true;
     }
   }
 
   return false;
+
+}
+
+// get values of coffee characteristics in all items
+export function charValues(characteristics) {
+
+  const res = {};
+
+  for(const char of characteristics){
+    res[char] = char;
+  }
 
 }
