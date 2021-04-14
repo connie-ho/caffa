@@ -140,16 +140,14 @@ function useApplicationData(){
 
   function editReview(params){
 
-    const {coffee_id, user_id, description, rating, id} = params;
+    const {description, rating, id} = params;
 
     const req = {
       id,
-      coffee_id,
-      user_id,
       description, 
       rating
     }
-
+    console.log('inside edit review request')
     return axios.patch(`/api/reviews/${id}`, req)
       .then(res=>{
 
@@ -163,7 +161,6 @@ function useApplicationData(){
         }
 
         dispatch({type:SET_REVIEW, reviews});
-        // console.log('inside add review ost request')
       })
   }
 

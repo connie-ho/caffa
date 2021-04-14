@@ -51,8 +51,9 @@ export default function AddReview(props) {
       description,
       user_id: user.id,
       coffee_id: coffee.id
+    }).then(()=>{
+      handleCloseReviewForm()
     })
-    handleCloseReviewForm()
   }
 
   return (
@@ -61,7 +62,7 @@ export default function AddReview(props) {
       <Stars 
         rating={rating}
         setRating={setRating}
-        handleClickOpen={handleClickOpenReviewForm}
+        handleStarClick={handleClickOpenReviewForm}
       />
       <ReviewForm
         coffee={coffee}

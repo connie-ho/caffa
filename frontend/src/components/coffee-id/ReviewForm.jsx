@@ -7,9 +7,6 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Stars from './Stars';
-import ReviewContext from '../../contexts/ReviewContext';
-import UserContext from '../../contexts/UserContext';
-
 
 export default function ReviewForm(props) {
 
@@ -22,7 +19,7 @@ export default function ReviewForm(props) {
     setOpenReviewForm, 
     description,
     setDescription,
-    handleClickOpenReviewForm,
+    handleStarClick,
     handleCloseReviewForm,
     handleSubmitReviewForm
   } = props;
@@ -39,7 +36,7 @@ export default function ReviewForm(props) {
           <Stars 
           rating={rating}
           setRating={setRating}
-          handleClickOpen={handleClickOpenReviewForm}
+          handleStarClick={handleStarClick}
         />
           <TextField
             autoFocus

@@ -1,11 +1,10 @@
 import React, {useState, useContext} from 'react';
-import ReviewContext from '../../contexts/ReviewContext';
 import Rating from '@material-ui/lab/Rating';
 import Box from '@material-ui/core/Box';
 
 export default function Stars(props) {
 
-  const {handleClickOpen, rating, setRating} = props;
+  const {handleStarClick, rating, setRating} = props;
   const [hover, setHover] = useState(rating);
 
   return (
@@ -22,7 +21,7 @@ export default function Stars(props) {
           onChangeActive={(event, newHover) => {
             setHover(prev => newHover);
           }}  
-          onClick={handleClickOpen}    
+          onClick={handleStarClick}    
         />
         {/* {value !== null && <Box ml={2}>{hover !== -1 ? hover : null}</Box>} */}
       </Box>

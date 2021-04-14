@@ -43,7 +43,7 @@ export default function ReviewListItem(props) {
   // define edit and delete functionality
   const {editReview, deleteReview} = useContext(ReviewContext);
   const [openDelete, setOpenDelete] = useState(false);
-  const [openEdit, setOpenEdit] = useState(false);
+  const [openReviewForm, setOpenReviewForm] = useState(false);
   
   const handleClickOpenDelete = () => {
     setOpenDelete(true);
@@ -53,12 +53,12 @@ export default function ReviewListItem(props) {
     setOpenDelete(false);
   };
 
-  const handleClickOpenEdit = () => {
-    setOpenEdit(true);
+  const handleClickOpenReviewForm = () => {
+    setOpenReviewForm(true);
   };
 
-  const handleCloseEdit = () => {
-    setOpenEdit(false);
+  const handleCloseReviewForm = () => {
+    setOpenReviewForm(false);
   };
 
   return (
@@ -76,7 +76,7 @@ export default function ReviewListItem(props) {
           (<div>
             <Button 
               size="small"
-              onClick={handleClickOpenEdit}
+              onClick={handleClickOpenReviewForm}
             >Edit</Button>
             <Button 
               size="small"
@@ -93,12 +93,12 @@ export default function ReviewListItem(props) {
       handleClickOpen={handleClickOpenDelete}
     />
      <EditReview
-      id={review.id}
       coffee={coffee}
       review={review}
-      open={openEdit}
-      handleClose={handleCloseEdit}
-      handleClickOpen={handleClickOpenEdit}
+      openReviewForm={openReviewForm}
+      setOpenReviewForm={setOpenReviewForm}
+      handleCloseReviewForm={handleCloseReviewForm}
+      handleClickOpenReviewForm={handleClickOpenReviewForm}
     />
     </>
   );
