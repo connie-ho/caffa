@@ -15,7 +15,6 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import CameraAltIcon from '@material-ui/icons/CameraAlt';
 import FormDialog from './image-search/Dialog';
-import Login from './Login';
 import SearchBar from './dynamic-search/SearchBar';
 
 import headIcon from "../images/Caffa2.png"
@@ -27,6 +26,9 @@ const useStyles = makeStyles((theme) => ({
   },
   menuButton: {
     marginRight: theme.spacing(2),
+  },
+  appBar: {
+    zIndex: theme.zIndex.drawer + 1,
   },
   title: {
     display: 'none',
@@ -185,7 +187,9 @@ export default function Nav(props) {
 
   return (
     <div className={classes.grow}>
-      <AppBar position="fixed" style={{background: '#FFFFFF'}}>
+
+      <AppBar position="fixed" className={classes.appBar} style={{background: '#FFFFFF'}}>
+
         <Toolbar>
           <Link to="/">
             <Icon
