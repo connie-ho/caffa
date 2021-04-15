@@ -16,9 +16,9 @@ const CarouselTest = (props) => {
   const breakPoints = [
     { width: 550, itemsToShow: 1, itemsToScroll: 1, pagination: false },
     { width: 850, itemsToShow: 2, itemsToScroll: 2, },
-    { width: 1150, itemsToShow: 3, itemsToScroll: 3 },
-    { width: 1450, itemsToShow: 3, itemsToScroll: 3 },
-    { width: 1750, itemsToShow: 3, itemsToScroll: 3 },
+    { width: 1150, itemsToShow: 4, itemsToScroll: 2 },
+    { width: 1450, itemsToShow: 4, itemsToScroll: 2 },
+    { width: 1750, itemsToShow: 4, itemsToScroll: 2 },
 ]
   const CoffeeList = coffees.map(coffee => {
     const coffeeReviews = getReviewsForCoffee(Object.values(reviews),coffee.id)
@@ -35,7 +35,7 @@ const CarouselTest = (props) => {
   })
 
   return (
-    <Carousel itemPadding={[50, 30]} breakPoints={breakPoints} enableAutoPlay autoPlaySpeed={1500}>
+    <Carousel itemPadding={[50, 30]} breakPoints={breakPoints} enableAutoPlay autoPlaySpeed={5000}>
       {CoffeeList}
     </Carousel>
   )

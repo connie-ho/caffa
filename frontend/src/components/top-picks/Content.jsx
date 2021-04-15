@@ -36,7 +36,8 @@ const Content = (props) => {
     <Grid item container direction="row" >
       <Grid item xs={0} sm={2} />
       <Grid item xs={12} sm={8} fullWidth >
-        <Typography variant='h2'>Top favorites</Typography>
+        <Typography variant='h2' gutterBottom>Top favorites</Typography>
+        <Typography variant='h4'>Only the best of the best! Chosen by you.</Typography>
       {/* <Grid container spacing="4">
         {coffeeList}
       </Grid> */}
