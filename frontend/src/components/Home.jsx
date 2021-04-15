@@ -6,7 +6,7 @@ import Carousel from './Carousel/CarouselSlide.jsx';
 import {getReviewsForCoffee, avgRatingForCoffee} from '../helpers/selectors';
 import { Grid } from "@material-ui/core";
 import Content from './top-picks/Content.jsx'
-
+import HeroComponent from './home/HeroComponent.jsx'
 
 const Home = (props) => {
   
@@ -22,10 +22,16 @@ const Home = (props) => {
 
 
         <Route path="/">
-          <h1>Top Picks (Most Favourited)</h1>
+        <Grid container direction='column' spacing={6}>
+          <HeroComponent />
+          <Grid item xs={12}></Grid>
+          <Grid item xs={12}></Grid>            
           <Content/>
+
           {/* <Carousel/> */}
+          </Grid>
         </Route>
+        
 
 
     </div>
