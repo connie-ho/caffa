@@ -8,6 +8,8 @@ const {
 } = require("../db/helpers/coffee-queries");
 
 router.get("/", (req, res) => {
+  console.log('get coffees route')
+  console.log(req.params)
   getCoffees()
     .then((data) => res.status(200).json(data))
     .catch((err) => res.status(500).json({ error: err.message }));
@@ -29,13 +31,6 @@ router.get("/:id", (req, res) => {
 });
 
 router.post("/", (req, res) => {
-  // uncomment when user routes are done
-  // const userId = req.session.user_id;
-
-  // if (!userId) {
-  //   res.send('Not logged in!');
-  //   return;
-  // }
 
   addCoffee(req.body)
     .then((data) => res.status(201).json(data))

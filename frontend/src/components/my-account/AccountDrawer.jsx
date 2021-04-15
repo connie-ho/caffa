@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Account() {
+export default function AccountDrawer() {
   const classes = useStyles();
 
   return (
@@ -55,23 +55,12 @@ export default function Account() {
         <Toolbar />
         <div className={classes.drawerContainer}>
           <List>
-            {['My Profile', 'Saved Coffees'].map((text, index) => (
-              <ListItem button key={text}>
+            {['My Account', 'Saved Coffees', 'Settings'].map((item, index) => (
+              <ListItem button key={item}>
                 <ListItemIcon>
                   {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
                 </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItem>
-            ))}
-          </List>
-          <Divider />
-          <List>
-            {['Settings'].map((text) => (
-              <ListItem button key={text}>
-                <ListItemIcon>
-                  <InboxIcon />
-                </ListItemIcon>
-                <ListItemText primary={text} />
+                <ListItemText primary={item} />
               </ListItem>
             ))}
           </List>
@@ -79,17 +68,6 @@ export default function Account() {
       </Drawer>
       <main className={classes.content}>
         <Toolbar />
-        <Typography paragraph>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-          consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem donec massa
-          sapien faucibus et molestie ac.
-        </Typography>
-        <Typography paragraph>
-          Consequat mauris nunc congue nisi vitae suscipit. Fringilla est ullamcorper
-          eget nulla facilisi etiam dignissim diam. Pulvinar elementum integer enim
-          neque volutpat ac tincidunt. Ornare suspendisse sed nisi lacus sed viverra
-          tellus. Purus sit ame.
-        </Typography>
       </main>
     </div>
   );

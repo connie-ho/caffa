@@ -80,11 +80,60 @@ export function isReviewed(reviews, userId){
 
   for(const review of reviews){
     if(Number(review.user_id) === Number(userId)){
-      console.log('returning true')
       return true;
     }
   }
 
   return false;
+
+}
+
+// get values of coffee characteristics in all items
+export function charValues(characteristics) {
+
+  const res = {};
+
+  for(const char of characteristics){
+    res[char] = char;
+  }
+
+}
+
+
+// get filtered coffees
+// filterCategories are all the possible categories the user can use to filter
+// filterObj are all the filters the user has chosen
+export function getFilteredCoffees(allCoffees, filterCategories, filterObj){
+
+  const res = [];
+
+  if(!allCoffees.length){
+    return res;
+  }
+
+  for(const coffee of allCoffees){
+    // category are things like region, acidity, roast etc ...
+    for(const category in filterObj){
+      // item is a number that maps to the items in filtercategories
+      for(const item of filterObj[category]){
+        if(coffee[category] === filterCategories[category]['items'][item]['type']){
+          res.push(coffee)
+        }
+      }
+    }
+  }
+
+  return res;
+}
+
+export function hasFilters(filterObj){
+  
+  for(const filter of Object.values(filterObj)){
+    if(!filter.length){
+      return false;
+    }
+  }
+
+  return true;
 
 }

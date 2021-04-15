@@ -70,9 +70,7 @@ const Main = (props) => {
             </ReviewContext.Provider>
           </Route>
           <Route path="/account" >
-            <Account
-              user={user}
-            />
+            <Account />
           </Route>
           <Route path="/login" >
             <Login/>
