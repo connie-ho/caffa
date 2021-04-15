@@ -8,6 +8,7 @@ import {
 import AccountDrawer from './my-account/AccountDrawer';
 import AccountProfile from './my-account/AccountProfile';
 import AccountSettings from './my-account/AccountSettings';
+import AccountFavourites from './my-account/AccountSettings';
 
 
 export default function Account() {
@@ -52,8 +53,11 @@ export default function Account() {
       </Box>
 
       <Switch>
-        <Route path="/" exact>
+        <Route path="/account" exact>
           <Account />
+        </Route>
+        <Route path="/account/favourites">
+          <AccountFavourites />
         </Route>
         <Route path="/account/settings">
           <AccountSettings />
