@@ -6,6 +6,15 @@ import {stripSearchTerms} from './helpers.js'
 import DataContext from '../../contexts/DataContext';
 import AddCoffeeButton from '../add-coffee/AddCoffeeButton';
 import { Grid } from "@material-ui/core";
+import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles({
+  header: {
+    padding:'1em',
+    paddingLeft:'0px'
+  }
+})
 
 export default function SearchList(props) {
   
@@ -15,7 +24,8 @@ export default function SearchList(props) {
   const {addCoffee, results} = props;
   const [storedUrl, setStoredURL] = useState('')
   const [storedArray, setStoredArray] = useState([])
-
+  const classes = useStyles()
+  
   useEffect(() => {
     setStoredURL(localStorage.getItem("url") || '' )
     setStoredArray(localStorage.getItem("textarray") || [])
@@ -75,12 +85,16 @@ export default function SearchList(props) {
       }
       return (
         <>
-        <p>There were no matches!</p>
+        <Grid item xs={12} >
+        <Typography variant="p" style={{fontSize:'5em'}}>There were no matches!</Typography>
+        </Grid>
         </>
       )
     }
     return (
-      <p>An error has occurred in image search, please try again.</p>
+      <Grid item xs={12}>
+      <Typography variant="p" style={{fontSize:'5em'}}>An error has occurred in image search, please try again.</Typography>
+      </Grid>
     )
   }
 
@@ -89,12 +103,12 @@ export default function SearchList(props) {
  
     <Grid item xs={0} sm={2} />
     <Grid item xs={12} sm={8} >
-    <h2>Your Search Results</h2>
-      <Grid container spacing="4">
+    <Typography variant="h1" className={classes.header}>Your search results</Typography>
+      <Grid container spacing="5">
       {searchResult()}
       </Grid>
       <br></br>
-      {storedUrl && <AddCoffeeButton url={storedUrl} addCoffee={addCoffee} />} 
+      {storedUrl && <AddCoffeeButton  url={storedUrl} addCoffee={addCoffee} />} 
     </Grid>
     <Grid item xs={0} sm={2} />
   </Grid>

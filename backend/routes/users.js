@@ -3,7 +3,8 @@ const router = express.Router();
 const {
   getUserById,
   getUserByEmail,
-  getUsers
+  getUsers,
+  addUser
 } = require("../db/helpers/user-queries");
 
 router.get("/", (req, res) => {
@@ -59,7 +60,24 @@ router.post('/logout', (req, res) => {
 
 // Register user
 router.post("/register", (req, res) => {
-  res.send("ok")
+ 
+  const {email} = req.body
+  getUserByEmail(email)
+  .then(user => {
+    if(!user) {
+      addUser(req.body)
+        .then(user => {
+          console.log('in register', user)
+          req.session.user_id = user.id; 
+          res.send({first_name: user.first_name, last_name:user.last_name, email: user.email, id: user.id})
+      })
+    }
+    else {
+      res.status(400).json({ error: 'User already exists' })
+    }
+  })
+  .catch((err) => res.status(500).json({error: err.message}))
+
 });
 
 // Authenticate user

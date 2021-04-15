@@ -5,17 +5,18 @@ import { makeStyles } from '@material-ui/styles'
 
 
 const UploadForm = (props) =>  {
-  const {file, setFile, error, setError} = props
+  const {file, setFile, error, setError, loading} = props
   
   const useClasses = makeStyles(() => ({
     AddHoverColor: {
       "&:hover": {
         background: 'white',
-        color: '#4791db'
+        color: '#f7bc2c'
       }
     },
     transform: {
-      transform: `translate(0px, 10rem)`
+      transform: `translate(0px, 6rem)`,
+      color: '#3d3a3a'
     }
   }))
 
@@ -43,7 +44,7 @@ const UploadForm = (props) =>  {
     <form>
       <label className='file-upload'>
        {!tempURL && (<><input type="file" accept="image/*" capture onChange={changeHandler} /> 
-       <AddCircleOutlineOutlinedIcon className ={classes.transform} classes={{ root: classes.AddHoverColor }} fontSize='large'/></>)}
+       <AddCircleOutlineOutlinedIcon color="primary" className ={classes.transform} classes={{ root: classes.AddHoverColor }} fontSize='large'/></>)}
        { file &&  
       <div className="output">
         { tempURL && (<>
@@ -52,8 +53,8 @@ const UploadForm = (props) =>  {
       </div>
       }
       { error && <div className='error'>{ error }</div>}
+      
       </label>
-
     </form>
 
   )

@@ -5,6 +5,7 @@ import { makeStyles } from '@material-ui/core';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
+import Typography from '@material-ui/core/Typography';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import UploadForm from './UploadForm';
@@ -79,10 +80,18 @@ export default function FormDialog(props) {
       justifyContent: 'center'
     },
     paper: { 
-      overflow:'auto', maxHeight: '500px', height:375, width:400, alignItems: 'center'
+      overflow:'auto', maxHeight: '500px', height:400, width:400, alignItems: 'center'
     },
     content: {
-      overflow:'auto', height:300, width:300, alignItems: 'center', border:"1px dotted black"
+      overflow:'auto', display:'flex', flexDirection:'column', justifyContent:'space-between', height:300, width:300, alignItems: 'center', border:"1px dotted black"
+    },
+    loading: {
+      transform: `translate(0em, 0rem)`
+    },
+    dialogTitle: {
+      root: {
+        fontSize:'2em'  
+      } 
     }
   })
   
@@ -91,16 +100,19 @@ export default function FormDialog(props) {
   return (
     <div>
       <Dialog classes={{ paper: classes.paper }} open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
-        <DialogTitle id="form-dialog-title">Image Upload</DialogTitle>
+        <DialogTitle id="form-dialog-title">
+          <Typography variant="h6" style={{fontSize: '1.5em'}} > Image Upload </Typography>
+        </DialogTitle>
         <DialogContent className={classes.content}>
-          <UploadForm file={file} setFile={setFile} error={error} setError={setError}/>  
+          <UploadForm file={file} setFile={setFile} error={error} setError={setError} loading={loading}/>
+          {loading && <CircularProgress color="primary" style={{position: 'center'}} /> }  
         </DialogContent>
-        {loading && <CircularProgress style={{position: 'center'}} /> }
+
         <DialogActions classes = {{root: classes.centreAlignDialogActions }}>
-          <Button onClick={handleClose} color="primary">
+          <Button onClick={handleClose} style={{fontSize: '1.0em'}} color="primary">
             Cancel
           </Button>
-          <Button onClick={() => {uploadAndSearch(file)}} color="primary">
+          <Button onClick={() => {uploadAndSearch(file)}} style={{fontSize: '1.0em'}} color="primary">
             Search
           </Button>
         </DialogActions>
