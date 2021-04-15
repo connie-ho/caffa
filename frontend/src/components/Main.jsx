@@ -73,12 +73,6 @@ const Main = (props) => {
           <Route path="/account" >
             <Account />
           </Route>
-          <Route path="/favourites" >
-            <AccountFavourites />
-          </Route>
-          <Route path="/settings" >
-            <AccountSettings />
-          </Route>
           <Route path="/login" >
             <Login/>
           </Route>

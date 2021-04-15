@@ -98,7 +98,7 @@ export default function Account(props) {
         <div className={classes.drawerContainer}>
           <List>
 
-              <ListItemLink onClick={handleAccountClick}>
+              <ListItemLink href="/account">
                 <ListItemIcon>
                   <AccountCircleIcon />
                 </ListItemIcon>
@@ -124,19 +124,20 @@ export default function Account(props) {
       </Drawer>
       
         <Switch>
-        <Route path="/account" exact>
-          <AccountProfile />
-        </Route>
         <Route path="/account/favourites">
           <AccountFavourites />
         </Route>
         <Route path="/account/settings">
           <AccountSettings />
         </Route>
+        <Route path="/account" exact>
+          <AccountProfile />
+        </Route>
+      </Switch>
       <main className={classes.content}>
         <Toolbar />
+        <h2>Account Toolbar</h2>
       </main>
-      </Switch>
     </div>
   );
 }
