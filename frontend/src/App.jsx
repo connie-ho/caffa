@@ -44,6 +44,18 @@ function App() {
       })
   }
 
+  const registerHandler = (firstName, lastName, email, password) => {
+    return axios.post("/api/users/register", {first_name: firstName, last_name: lastName, email: email, password: password })
+    .then(res => {
+      console.log(res)
+      setUser(res.data)
+      return 'ok'
+    })
+    .catch(err => {
+      return 'bad'
+    })
+  }
+
   const logoutHandler = () => {
     // console.log("in App.jsx logoutHandler")
     axios
@@ -75,7 +87,7 @@ function App() {
 
   return (
     <div className="App">
-      <UserContext.Provider value={{user, loginHandler, openLogin, setOpenLogin}}>
+      <UserContext.Provider value={{user, loginHandler, openLogin, setOpenLogin, registerHandler}}>
         <NotLoggedIn 
           handleLoginClose={handleLoginClose}
         />

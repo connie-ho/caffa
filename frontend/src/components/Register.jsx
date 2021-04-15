@@ -1,13 +1,10 @@
 import React, { useEffect, useState, useContext } from 'react';
 import {useHistory} from 'react-router-dom';
 import UserContext from '../contexts/UserContext';
-
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
@@ -15,6 +12,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+
 
 function Copyright() {
   return (
@@ -52,33 +50,28 @@ const useStyles = makeStyles((theme) => ({
 export default function Login(props) {
 
   const classes = useStyles();
-  const {loginHandler, setOpenLogin} = useContext(UserContext);
+  const [firstName, setFirstName] = useState('')
+  const [lastName, setLastName] = useState('')
   const [email, setEmail] = useState('')
+  const[error, setError] = useState('')
   const [password, setPassword] = useState('')
-
+  const {registerHandler} = useContext(UserContext);
   const history = useHistory();
   // console.log(history.location.pathname)
   // console.log('mentortest',email, password)
 
+
   const handleSubmit = (e) => {
     e.preventDefault()
-
-    loginHandler(email, password)
-    .then(() => {
-      if (history.location.pathname !=='/login') {
-        history.go()
-      }
-      else {
-        history.push('/')
-      }
-
-      setOpenLogin(prev => false);
+    console.log(firstName,lastName,email,password)
+    registerHandler(firstName, lastName, email, password)
+    .then((data) => {
+        if(data ==='ok') {
+          return history.push('/')
+        }
+      setError('Email already exists')
     })
-    
-    // console.log('Email', email, 'Password', password)
-
-    // console.log('Email', email, 'Password', password)
-    
+     
   }
 
   return (
@@ -89,9 +82,35 @@ export default function Login(props) {
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Sign in
+          Register
         </Typography>
         <form className={classes.form} onSubmit={handleSubmit} >
+          <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            id="first name"
+            label="first name"
+            name="firstName"
+            autoComplete="first name"
+            autoFocus
+            value={firstName}
+            onInput={ e=>setFirstName(e.target.value)}
+          />
+          <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            id="last name"
+            label="Last Name"
+            name="last name"
+            autoComplete="last name"
+            autoFocus
+            value={lastName}
+            onInput={ e=>setLastName(e.target.value)}
+          />
           <TextField
             variant="outlined"
             margin="normal"
@@ -104,6 +123,7 @@ export default function Login(props) {
             autoFocus
             value={email}
             onInput={ e=>setEmail(e.target.value)}
+            {...(error && {error: true, helperText: error}) }
           />
           <TextField
             variant="outlined"
@@ -118,10 +138,6 @@ export default function Login(props) {
             value={password}
             onInput={ e=>setPassword(e.target.value)}
           />
-          <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
-            label="Remember me"
-          />
           <Button
             type="submit"
             fullWidth
@@ -132,11 +148,6 @@ export default function Login(props) {
             Sign In
           </Button>
           <Grid container>
-            <Grid item xs>
-              <Link href="/register">
-                Don't have a profile? Click here to register!
-              </Link>
-            </Grid>
             <Grid item>
             </Grid>
           </Grid>

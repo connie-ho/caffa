@@ -36,6 +36,28 @@ const getUserByEmail = function (email) {
     .catch((err) => err);
 };
 
+const addUser = function(params) {
+
+  const {
+    first_name,
+    last_name,
+    email,
+    password,
+  }= params;
+  
+  const text = `
+  INSERT into users (first_name, last_name, email, password)
+  VALUES($1, $2, $3, $4)
+  RETURNING *;`;
+
+  const values = [first_name, last_name, email, password]
+  return db
+  .query(text, values)
+  .then((data) => data.rows[0])
+  .catch((err) => console.error(this, "query failed", err.stack));
+
+}
+
 // const addUser = (firstName, lastName, email, password) => {
 //     const query = {
 //         text: `INSERT INTO users (first_name, last_name, email, password) VALUES ($1, $2, $3, $4) RETURNING *` ,
@@ -64,5 +86,6 @@ const getUserByEmail = function (email) {
 module.exports = {
     getUserById,
     getUserByEmail,
-    getUsers
+    getUsers,
+    addUser
 };
