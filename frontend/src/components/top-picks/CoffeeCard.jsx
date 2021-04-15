@@ -12,13 +12,24 @@ import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: 300,
-    maxHeight: 500
+    maxWidth: 500,
   },
   media: {
-    height: 200,
+    height: 300,
+    width: 300,
+    marginLeft:"auto",
+    marginRight:"auto"
 
   },
+  cardContent: {
+    maxWidth:600
+  },
+  description: {
+    overflow: "hidden",
+    display: "-webkit-box",
+    WebkitLineClamp: 2,
+    WebkitBoxOrient: "vertical"
+  }
 });
 
 const CoffeeCard = (props) => {
@@ -33,36 +44,36 @@ const CoffeeCard = (props) => {
   }
 
   return (
-    <Link to={`/coffees/${coffee.id}`}>
     <Card className={classes.root}>
+      <Link to={`/coffees/${coffee.id}`}>
       <CardActionArea>
         <CardMedia
           className={classes.media}
           image={coffee.image_url}
           title="Contemplative Reptile"
         />
-        <CardContent>
+        <CardContent className={classes.cardContent}>
           <Typography gutterBottom variant="h5" component="h2">
             {coffee.name}
           </Typography>
-          <Typography gutterBottom variant="h5" component="h4">
+          <Typography gutterBottom variant="h5" component="h3">
             {coffee.region}
           </Typography>
           <Typography gutterBottom variant="h5" component="h4">
             {avgRating}
           </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
+          <Typography variant="body2" color="textSecondary" component="p" className={classes.description}>
             {coffee.description}
           </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
           <Button size="small" color="primary">
-            Details
+          <Link to={`/coffees/${coffee.id}`}>Details</Link>
           </Button>
       </CardActions>
-    </Card>
     </Link>
+  </Card>
   );
 }
 

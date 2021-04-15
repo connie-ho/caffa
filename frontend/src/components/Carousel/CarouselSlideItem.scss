@@ -1,35 +1,11 @@
 $slide-count: 5;
 $slide-width: 30rem;
 
-html {
-  box-sizing: border-box;
-  font-size: 10px;
-  @media (max-width: 425px) {
-    font-size: 8px;
-  }
-}
-
-body {
-  font-size: 1.5rem;
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
 *,
 *:before,
 *:after {
   -webkit-box-sizing: border-box;
   box-sizing: inherit;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
 }
 
 .carousel__wrap {

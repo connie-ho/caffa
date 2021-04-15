@@ -28,7 +28,7 @@ const Home = (props) => {
         <Route path="/">
           <h1>Top Picks (Most Favourited)</h1>
           <Content/>
-          <Carousel/>
+          {/* <Carousel/> */}
         </Route>
 
 
