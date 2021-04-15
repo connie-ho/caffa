@@ -25,8 +25,8 @@ export default function Account() {
       >
         <Container maxWidth="lg">
           <Grid
-            direction="row"
             container
+            direction="row"
             spacing={3}
           >
             <Grid
@@ -43,9 +43,9 @@ export default function Account() {
               md={6}
               xs={12}
             >
+              <AccountProfile />
             </Grid>
 
-              <AccountProfile />
             
             
           </Grid>
