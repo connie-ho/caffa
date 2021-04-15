@@ -42,7 +42,7 @@ ___
 <br>  
 
 # Frontend routes (views)
-The frontend views do NOT fetch data. the react components that conditionally render are responsible for making axios requests to fetch data from the api.
+The react components that conditionally render are responsible for making axios requests to fetch data from the api.
 
 - / - Home Page
 - /login - Login Page

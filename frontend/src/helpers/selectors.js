@@ -137,3 +137,13 @@ export function hasFilters(filterObj){
   return true;
 
 }
+
+
+export function getUserFavourites(userId, favourites) {
+
+  for (const favourite of favourites) {
+    if (favourite.user_id === userId) {
+      console.log(favourite.user_id);
+    }
+  }
+}
