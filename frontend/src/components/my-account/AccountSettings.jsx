@@ -25,7 +25,7 @@ const states = [
   }
 ];
 
-const AccountUpdate = (props) => {
+const AccountSettings = (props) => {
   const [values, setValues] = useState({
     firstName: 'Katarina',
     lastName: 'Smith',
@@ -183,4 +183,4 @@ const AccountUpdate = (props) => {
   );
 };
 
-export default AccountUpdate;
+export default AccountSettings;

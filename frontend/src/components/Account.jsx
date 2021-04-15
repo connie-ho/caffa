@@ -1,4 +1,5 @@
 import { Helmet } from 'react-helmet';
+import {Route, Switch} from 'react-router-dom';
 import {
   Box,
   Container,
@@ -6,7 +7,8 @@ import {
 } from '@material-ui/core';
 import AccountDrawer from './my-account/AccountDrawer';
 import AccountProfile from './my-account/AccountProfile';
-// import UserContext from '../contexts/UserContext';
+import AccountSettings from './my-account/AccountSettings';
+import AccountFavourites from './my-account/AccountSettings';
 
 
 export default function Account() {
@@ -43,16 +45,24 @@ export default function Account() {
               md={6}
               xs={12}
             >
-              
-
-              <AccountProfile />
-            </Grid>
-
             
+            </Grid>
             
           </Grid>
         </Container>
       </Box>
+
+      <Switch>
+        <Route path="/account" exact>
+          <Account />
+        </Route>
+        <Route path="/account/favourites">
+          <AccountFavourites />
+        </Route>
+        <Route path="/account/settings">
+          <AccountSettings />
+        </Route>
+      </Switch>
     </>
   );
 };
