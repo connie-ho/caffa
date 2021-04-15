@@ -3,6 +3,7 @@ import UserContext from '../contexts/UserContext';
 import {Link} from 'react-router-dom';
 
 import { fade, makeStyles } from '@material-ui/core/styles';
+import { Icon } from "@material-ui/core"
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
@@ -16,6 +17,7 @@ import CameraAltIcon from '@material-ui/icons/CameraAlt';
 import FormDialog from './image-search/Dialog';
 import Login from './Login';
 import SearchBar from './dynamic-search/SearchBar';
+
 import headIcon from "../images/Caffa2.png"
 import Paper from '@material-ui/core/Paper'
 
@@ -80,6 +82,7 @@ const useStyles = makeStyles((theme) => ({
       display: 'none',
     },
   },
+  toolbar: theme.mixins.toolbar
 }));
 
 
@@ -185,14 +188,16 @@ export default function Nav(props) {
       <AppBar position="fixed" style={{background: '#FFFFFF'}}>
         <Toolbar>
           <Link to="/">
-            <IconButton
+            <Icon
               edge="start"
               className={classes.menuButton}
               color="inherit"
               aria-label="open drawer"
+              size='small'
               >
-              <LocalCafeIcon />
-            </IconButton>
+
+              <img src={headIcon} width="60" height="50"  /> 
+            </Icon>
           </Link>
           <Link to="/coffees">
             <Typography className={classes.title} variant="h6" noWrap>
@@ -263,6 +268,9 @@ export default function Nav(props) {
       {renderMobileMenu}
       {renderMenu}
       {renderModal}
+      <Paper>
+        <div className={classes.toolbar} />
+      </Paper>
     </div>
   );
 }

@@ -13,7 +13,7 @@ import bean from '../../images/31080.png'
 const useStyles = makeStyles({
   root: {
     maxWidth: 500,
-    maxHeight: 500,
+    height: 475,
     borderRadius:'2%',
     transition: "transform 0.15s ease-in-out",
     "&:hover": { transform: "scale3d(1.05, 1.05, 1)" },
