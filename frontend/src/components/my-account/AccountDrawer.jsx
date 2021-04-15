@@ -55,23 +55,12 @@ export default function AccountDrawer() {
         <Toolbar />
         <div className={classes.drawerContainer}>
           <List>
-            {['My Profile', 'Saved Coffees'].map((text, index) => (
-              <ListItem button key={text}>
+            {['My Account', 'Saved Coffees', 'Settings'].map((item, index) => (
+              <ListItem button key={item}>
                 <ListItemIcon>
                   {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
                 </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItem>
-            ))}
-          </List>
-          <Divider />
-          <List>
-            {['Settings'].map((text) => (
-              <ListItem button key={text}>
-                <ListItemIcon>
-                  <InboxIcon />
-                </ListItemIcon>
-                <ListItemText primary={text} />
+                <ListItemText primary={item} />
               </ListItem>
             ))}
           </List>
