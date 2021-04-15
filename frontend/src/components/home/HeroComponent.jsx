@@ -8,7 +8,7 @@ import Typography from '@material-ui/core/Typography';
 const useStyles = makeStyles((theme) => ({
   container:{
     display: 'flex',
-    height: '80vh',
+    height: '100vh',
     width: '100%',
     flexDirection: 'column',
     alignItems: 'center',
@@ -17,30 +17,35 @@ const useStyles = makeStyles((theme) => ({
   },
   imageContainer: {
     position: 'relative',
-    height: '80vh',
-    width: '100%',
     backgroundSize: 'contain',
     backgroundRepeat: 'no-repeat',
     overflow: 'hidden'
   },
   image :{
+    display:'block',
     objectFit: 'cover',
     width: '100%',
     maxHeight: '100%',
   },
   title: {
+    display: 'inline-block',
     position: 'absolute',
     top: '38%',
+    margin: '10,10',
     color: 'white',
     textAlign: 'center',
-    right:'43%',
+    height: '0',
+    right:'44%',
+    zIndex:1,
   },
   subtitle: {
+    display: 'inline-block',
     position: 'absolute',
-    top: '50%',
+    top: '0',
     color: 'white',
     textAlign: 'center',
-    right:'45%',
+    right:'50%',
+    fontSize:'15px'
   },
 }));
 
@@ -53,16 +58,19 @@ const useStyles = makeStyles((theme) => ({
     justify="center"
     alignItems="center"
     className={classes.container}>
-      <Grid item xs={12} className={classes.imageContainer}>
+      <Grid item xs={12} container className={classes.imageContainer}>
         <img src= {heroImage} className = {classes.image}  />
-      </Grid>
-      
-      <Grid item xs container direction ='column'>
-        <Grid item xs={12}>
+        <Grid item>
         <Typography variant='h1' className={classes.title}>CAFFA</Typography>
         <Typography variant='p' className={classes.subtitle}>Bringing energy to your mornings</Typography>
         </Grid>
       </Grid>
+      {/* <Grid item xs container direction ='column'>
+        <Grid item xs={12}>
+        <Typography variant='h1' className={classes.title}>CAFFA</Typography>
+        <Typography variant='p' className={classes.subtitle}>Bringing energy to your mornings</Typography>
+        </Grid> */}
+      {/* </Grid> */}
     </Grid>
   )
 }
