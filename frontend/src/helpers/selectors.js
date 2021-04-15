@@ -123,8 +123,15 @@ export function getFilteredCoffees(allCoffees, filterCategories, filterObj){
     }
   }
 
-  console.log('RESULT OBJECT' + res)
-  
   return res;
 }
 
+export function hasFilters(filterObj){
+  
+  for(const filter of Object.values(filterObj)){
+    if(!filter.length){
+      return false
+    }
+  }
+
+}

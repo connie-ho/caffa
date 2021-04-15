@@ -6,7 +6,7 @@ import FilterList from './FilterList';
 import CoffeeList from './CoffeeList';
 import Coffee from '../coffee-id/Coffee';
 
-import {getFilteredCoffees} from '../../helpers/selectors';
+import {getFilteredCoffees, hasFilters} from '../../helpers/selectors';
 
 // styles
 import './Coffees.scss';
@@ -15,7 +15,7 @@ import './Coffees.scss';
 const categories = {
   'region': {
     name: 'Region',
-    items: [] // get helper function to define this
+    items: [] // get helper function to define this later
   },
   'grain_species': {
     name: 'Grain Species',
@@ -27,10 +27,6 @@ const categories = {
   'roast': {
     name: 'Roast',
     items: {8:{id: 8, type:'Light'}, 9:{id: 9, type: 'Medium'}, 10:{id: 10, type: 'Dark'}}
-  },
-  'rating': {
-    name: 'Rating',
-    items: {11: {id: 11, type:1}, 12: {id: 12, type:2}, 13: {id: 13, type:3}, 14: {id: 14, type:4}, 15: {id: 15, type:5}}
   }
 }
 
@@ -47,16 +43,22 @@ function Coffees(props) {
     'grain_species': [],
     'acidity': [],
     'roast': [],
-    'rating': []
   })
   const [filteredCoffees, setFilteredCoffees] = useState(coffees)
-
-  // Always set coffees when the entire data set changes
 
   const handleFilters = (filters)=>{
     const res = getFilteredCoffees(coffees, categories, filters)
     setFilteredCoffees(prev => res)
   }
+
+  // this makes sure if there are no filters, all coffees are displayed
+  useEffect(()=>{
+
+    if(!hasFilters(filterCat)){
+      setFilteredCoffees(prev => coffees)
+    }
+
+  },[filterCat, coffees])
   
 
   return (
