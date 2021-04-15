@@ -92,15 +92,14 @@ function Coffees(props) {
         return 0;
       }
 
-      if(sortOption === 'Name: Z - A'){
-        if(a.name.toLowerCase() < b.name.toLowerCase()) {
-          return 1
-        }
-        if(a.name.toLowerCase() > b.name.toLowerCase()) {
-          return -1 
-        }
-        return 0;
+      if(sortOption === 'Rating: Low to High'){
+        return a.avg_rating - b.avg_rating
       }
+
+      if(sortOption === 'Rating: High to Low'){
+        return b.avg_rating - a.avg_rating
+      }
+
     })
 
     setFilteredCoffees(prev => [...newFilteredCoffees])
