@@ -137,3 +137,8 @@ export function hasFilters(filterObj){
   return true;
 
 }
+
+
+export function coffee_sort(){
+  return;
+}

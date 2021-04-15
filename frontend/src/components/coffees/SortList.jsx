@@ -1,12 +1,15 @@
-import React from 'react';
+import {useState} from 'react';
+import SortListItem from './SortListItem';
+
 import { makeStyles } from '@material-ui/core/styles';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import List from '@material-ui/core/List';
-import FilterListCategory from './FilterListCategory';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: 200,
+    width: '100%',
+    maxWidth: 360,
     backgroundColor: theme.palette.background.paper,
   },
   nested: {
@@ -14,44 +17,37 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function FilterList(props) {
+export default function SortList(props) {
+  
+  const {sortOptions} = props;
+  
   const classes = useStyles();
+  const [open, setOpen] = useState(true);
 
-  const {
-    categories, 
-    filters, 
-    setFilters,
-    handleFilters} = props;
+  const handleClick = () => {
+    setOpen(!open);
+  };
 
-  const categoryList = Object.keys(categories).map((cat,i) => {
+  const sortList = Object.keys(sortOptions).map(option => {
     return (
-      <FilterListCategory
-        key={i}
-        name={categories[cat].name}
-        category={cat} 
-        classes={classes}
-        items={Object.values(categories[cat].items)}
-        filters={filters}
-        setFilters={setFilters}
-        handleFilters={handleFilters}
-      />
-    )
+    <SortListItem 
+      key={option}
+      name={sortOptions[option]}
+    />)
   })
 
   return (
-
     <List
       component="nav"
       aria-labelledby="nested-list-subheader"
       subheader={
         <ListSubheader component="div" id="nested-list-subheader">
-          Filter By
+          Sort By
         </ListSubheader>
       }
       className={classes.root}
     >
-       {categoryList}
+      {sortList}
     </List>
-      
   );
 }

@@ -2,11 +2,12 @@ import {useState, useContext, useEffect} from 'react';
 import {Route, Switch} from 'react-router-dom';
 
 import DataContext from '../../contexts/DataContext';
-import FilterList from './FilterList';
-import CoffeeList from './CoffeeList';
 import Coffee from '../coffee-id/Coffee';
+import CoffeeList from './CoffeeList';
+import FilterList from './FilterList';
+import SortList from './SortList';
 
-import {getFilteredCoffees, hasFilters} from '../../helpers/selectors';
+import {getFilteredCoffees} from '../../helpers/selectors';
 
 // styles
 import './Coffees.scss';
@@ -30,6 +31,14 @@ const categories = {
   }
 }
 
+// Define sorting choices
+const sortOptions = {
+  1: 'Name: A - Z',
+  2: 'Name: Z - A',
+  3: 'Rating: Low to High',
+  4: 'Rating: High to Low',
+}
+
 function Coffees(props) {
   
   const {state} = useContext(DataContext);
@@ -43,7 +52,7 @@ function Coffees(props) {
     'acidity': [],
     'roast': [],
   })
-  const [filteredCoffees, setFilteredCoffees] = useState(coffees)
+  const [filteredCoffees, setFilteredCoffees] = useState([])
 
   // makes sure all coffees are displayed on initial render
   useEffect(()=>{
@@ -54,11 +63,7 @@ function Coffees(props) {
 
   const handleFilters = (filters)=>{
     const res = getFilteredCoffees(coffees, categories, filters)
-    if(!res.length){
-      setFilteredCoffees(prev => coffees)
-    }else {
-      setFilteredCoffees(prev => res)
-    }
+    setFilteredCoffees(prev => res)
   }
 
   return (
@@ -73,6 +78,9 @@ function Coffees(props) {
             className="coffees-page"
           >
             <aside>
+              <SortList
+                sortOptions={sortOptions}
+                />
               <FilterList 
                 categories={categories}
                 filters={filters}
