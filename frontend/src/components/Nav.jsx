@@ -16,7 +16,6 @@ import MoreIcon from '@material-ui/icons/MoreVert';
 import CameraAltIcon from '@material-ui/icons/CameraAlt';
 import FormDialog from './image-search/Dialog';
 import SearchBar from './dynamic-search/SearchBar';
-
 import headIcon from "../images/Caffa2.png"
 import Paper from '@material-ui/core/Paper'
 
