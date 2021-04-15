@@ -4,8 +4,8 @@ import {
   Container,
   Grid
 } from '@material-ui/core';
+import AccountDrawer from './my-account/account/AccountDrawer';
 import AccountProfile from './my-account/account/AccountProfile';
-import AccountProfileDetails from './my-account/account/AccountProfileDetails';
 // import UserContext from '../contexts/UserContext';
 
 
@@ -25,6 +25,7 @@ export default function Account() {
       >
         <Container maxWidth="lg">
           <Grid
+            direction="row"
             container
             spacing={3}
           >
@@ -34,7 +35,7 @@ export default function Account() {
               md={6}
               xs={12}
             >
-              <AccountProfile />
+              <AccountDrawer />
             </Grid>
             <Grid
               item
@@ -42,8 +43,11 @@ export default function Account() {
               md={6}
               xs={12}
             >
-              <AccountProfileDetails />
             </Grid>
+
+              <AccountProfile />
+            
+            
           </Grid>
         </Container>
       </Box>
