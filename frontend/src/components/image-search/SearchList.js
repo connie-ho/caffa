@@ -12,7 +12,8 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles({
   header: {
     padding:'1em',
-    paddingLeft:'0px'
+    paddingLeft:'0px',
+    fontSize:'3.5em'
   }
 })
 
