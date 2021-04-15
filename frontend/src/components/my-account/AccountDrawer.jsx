@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
@@ -10,8 +11,9 @@ import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import SettingsIcon from '@material-ui/icons/Settings';
 
 const drawerWidth = 240;
 
@@ -39,6 +41,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+function ListItemLink(props) {
+  return <ListItem button component="a" {...props} />;
+}
+
 export default function AccountDrawer() {
   const classes = useStyles();
 
@@ -55,14 +61,28 @@ export default function AccountDrawer() {
         <Toolbar />
         <div className={classes.drawerContainer}>
           <List>
-            {['My Account', 'Saved Coffees', 'Settings'].map((item, index) => (
-              <ListItem button key={item}>
+
+              <ListItemLink href="/account">
                 <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                  <AccountCircleIcon />
                 </ListItemIcon>
-                <ListItemText primary={item} />
-              </ListItem>
-            ))}
+                <ListItemText primary={"My Account"} />
+              </ListItemLink>
+
+              <ListItemLink href="/account/favourites">
+                <ListItemIcon>
+                  <FavoriteIcon />
+                </ListItemIcon>
+                <ListItemText primary={"Favourites"} />
+              </ListItemLink>
+
+              <ListItemLink href="/account/settings">
+                <ListItemIcon>
+                  <SettingsIcon />
+                </ListItemIcon>
+                <ListItemText primary={"Settings"} />
+              </ListItemLink>
+
           </List>
         </div>
       </Drawer>
