@@ -18,7 +18,6 @@ import CameraAltIcon from '@material-ui/icons/CameraAlt';
 import FormDialog from './image-search/Dialog';
 import SearchBar from './dynamic-search/SearchBar';
 import Autocomplete from "@material-ui/lab/Autocomplete";
-import MainLayout from './my-account/MainLayout.jsx';
 
 
 const useStyles = makeStyles((theme) => ({

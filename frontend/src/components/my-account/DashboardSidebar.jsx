@@ -146,13 +146,11 @@ const DashboardSidebar = ({ onMobileClose, openMobile }) => {
           gutterBottom
           variant="h4"
         >
-          Need more?
         </Typography>
         <Typography
           align="center"
           variant="body2"
         >
-          Upgrade to PRO version and access 20 more screens
         </Typography>
         <Box
           sx={{
@@ -167,7 +165,6 @@ const DashboardSidebar = ({ onMobileClose, openMobile }) => {
             href="https://react-material-kit.devias.io"
             variant="contained"
           >
-            See PRO version
           </Button>
         </Box>
       </Box>

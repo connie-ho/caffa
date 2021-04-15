@@ -1,9 +1,9 @@
 $slide-count: 5;
 $slide-width: 30rem;
 
-*,
-*:before,
-*:after {
+
+:before,
+:after {
   -webkit-box-sizing: border-box;
   box-sizing: inherit;
 }
