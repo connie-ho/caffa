@@ -3,24 +3,13 @@ import DataContext from '../../contexts/DataContext.js';
 import CoffeeListItem from '../coffees/CoffeeListItem.jsx';
 import {getReviewsForCoffee, avgRatingForCoffee} from '../../helpers/selectors';
 import { Grid } from "@material-ui/core";
-import axios from 'axios';
+import CarouselTest from '../Carousel/CarouselTest.jsx';
+
 import Typography from '@material-ui/core/Typography';
 
-const Content = () => {
-  const [homeCoffees, setHomeCoffees] = useState({});
+const Content = (props) => {
+  const {homeCoffees, setHomeCoffees} = props
 
-
-  useEffect(() => {
-    console.log("getMostFavourited in App.jsx")
-    axios
-      .get("/api/coffees/popular")
-      .then(res => {
-        setHomeCoffees(res.data)
-      })
-      .catch(err => {
-        console.log(err.message)
-      })
-  }, []);
 
   const {state} = useContext(DataContext);
 
@@ -47,10 +36,12 @@ const Content = () => {
     <Grid item container direction="row" >
       <Grid item xs={0} sm={2} />
       <Grid item xs={12} sm={8} fullWidth >
-        <Typography variant='h1'>Top favorites</Typography>
-      <Grid container spacing="4">
+        <Typography variant='h2'>Top favorites</Typography>
+      {/* <Grid container spacing="4">
         {coffeeList}
-      </Grid>
+      </Grid> */}
+      <CarouselTest homeCoffees={homeCoffees} > </CarouselTest>
+      <Grid item xs={0} sm={2} />
       </Grid>
     </Grid>
   )

@@ -8,7 +8,7 @@ import Typography from '@material-ui/core/Typography';
 const useStyles = makeStyles((theme) => ({
   container:{
     display: 'flex',
-    height: '100vh',
+    height: '80vh',
     width: '100%',
     flexDirection: 'column',
     alignItems: 'center',
