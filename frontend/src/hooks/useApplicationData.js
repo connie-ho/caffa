@@ -26,7 +26,6 @@ function useApplicationData(){
       axios.get("/api/favourites"),
     ])
     .then(all=>{
-      // const users = [...all[0].data];
 
       // copy users into an object
       const users = {}
@@ -51,7 +50,6 @@ function useApplicationData(){
       for(const fav of all[3].data){
         favourites[fav.id] = fav;
       }
-
 
       dispatch({type: SET_APPLICATION_DATA, users, coffees, reviews, favourites});
     })

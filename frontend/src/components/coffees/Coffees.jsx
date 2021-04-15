@@ -74,8 +74,6 @@ function Coffees(props) {
       return;
     }
 
-    console.log(filteredCoffees)
-
     const newFilteredCoffees = filteredCoffees.sort((a, b) => {
       
       if(sortOption === 'Recommended'){
