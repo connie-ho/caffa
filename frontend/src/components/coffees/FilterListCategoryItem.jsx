@@ -8,10 +8,8 @@ export default function FilterListCategory(props) {
   const {
     classes, 
     item, 
-    filterItems, 
-    setFilterItems,
-    filterCat, 
-    setFilterCat, 
+    filters, 
+    setFilters,
     handleFilters,
     category
   } = props;
@@ -20,8 +18,8 @@ export default function FilterListCategory(props) {
 
   const handleChange = (event, value) => {
 
-    const currIndex = filterCat[category].indexOf(value) //checks if filter is already applied
-    const newCategory = [...filterCat[category]]; // initalize new state
+    const currIndex = filters[category].indexOf(value) //checks if filter is already applied
+    const newCategory = [...filters[category]]; // initalize new state
 
     if (currIndex === -1){
       newCategory.push(value) // if not already in array, add
@@ -29,14 +27,14 @@ export default function FilterListCategory(props) {
       newCategory.splice(currIndex, 1) // remove if in the array
     }
 
-    const newFilterCat = {
-      ...filterCat, 
+    const newFilter = {
+      ...filters, 
       [category]: newCategory
     }
 
-    setFilterCat(prev => newFilterCat)
+    setFilters(prev => newFilter)
     setChecked(event.target.checked);
-    handleFilters(newFilterCat);
+    handleFilters(newFilter);
   };
   return (
     <ListItem button className={classes.nested}>

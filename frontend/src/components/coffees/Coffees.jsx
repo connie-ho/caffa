@@ -37,8 +37,7 @@ function Coffees(props) {
   const reviews = state.reviews;
   
   // FilterArray to apply to coffees
-  const [filterItems, setFilterItems] = useState([])
-  const [filterCat, setFilterCat] = useState({
+  const [filters, setFilters] = useState({
     'region': [],
     'grain_species': [],
     'acidity': [],
@@ -46,20 +45,21 @@ function Coffees(props) {
   })
   const [filteredCoffees, setFilteredCoffees] = useState(coffees)
 
+  // makes sure all coffees are displayed on initial render
+  useEffect(()=>{
+    if(!filteredCoffees.length){
+      setFilteredCoffees(prev=>coffees)
+    }
+  }, [filteredCoffees, coffees])
+
   const handleFilters = (filters)=>{
     const res = getFilteredCoffees(coffees, categories, filters)
-    setFilteredCoffees(prev => res)
-  }
-
-  // this makes sure if there are no filters, all coffees are displayed
-  useEffect(()=>{
-
-    if(!hasFilters(filterCat)){
+    if(!res.length){
       setFilteredCoffees(prev => coffees)
+    }else {
+      setFilteredCoffees(prev => res)
     }
-
-  },[filterCat, coffees])
-  
+  }
 
   return (
     <div>
@@ -75,10 +75,8 @@ function Coffees(props) {
             <aside>
               <FilterList 
                 categories={categories}
-                filterItems={filterItems}
-                setFilterItems={setFilterItems}
-                filterCat={filterCat}
-                setFilterCat={setFilterCat}
+                filters={filters}
+                setFilters={setFilters}
                 handleFilters={handleFilters}
               />
             </aside>

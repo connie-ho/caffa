@@ -130,8 +130,10 @@ export function hasFilters(filterObj){
   
   for(const filter of Object.values(filterObj)){
     if(!filter.length){
-      return false
+      return false;
     }
   }
+
+  return true;
 
 }

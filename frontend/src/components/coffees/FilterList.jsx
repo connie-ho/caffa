@@ -19,10 +19,8 @@ export default function FilterList(props) {
 
   const {
     categories, 
-    filterItems, 
-    setFilterItems, 
-    filterCat, 
-    setFilterCat,
+    filters, 
+    setFilters,
     handleFilters} = props;
 
   const categoryList = Object.keys(categories).map((cat,i) => {
@@ -33,10 +31,8 @@ export default function FilterList(props) {
         category={cat} 
         classes={classes}
         items={Object.values(categories[cat].items)}
-        filterItems={filterItems}
-        setFilterItems={setFilterItems}
-        filterCat={filterCat}
-        setFilterCat={setFilterCat}
+        filters={filters}
+        setFilters={setFilters}
         handleFilters={handleFilters}
       />
     )
