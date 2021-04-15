@@ -2,8 +2,8 @@ $slide-count: 5;
 $slide-width: 30rem;
 
 
-:before,
-:after {
+.carousel :before,
+.carousel :after {
   -webkit-box-sizing: border-box;
   box-sizing: inherit;
 }

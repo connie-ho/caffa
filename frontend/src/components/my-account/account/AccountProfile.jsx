@@ -66,7 +66,7 @@ export default function Account() {
           </List>
           <Divider />
           <List>
-            {['Settings'].map((text, index) => (
+            {['Settings'].map((text) => (
               <ListItem button key={text}>
                 <ListItemIcon>
                   <InboxIcon />

@@ -1,8 +1,6 @@
 import {useContext, useEffect, useState} from 'react';
-import {Route, Switch} from 'react-router-dom';
-
 import DataContext from '../../contexts/DataContext.js';
-import CoffeeCard from './CoffeeCard.jsx';
+import CoffeeListItem from '../coffees/CoffeeListItem.jsx';
 import {getReviewsForCoffee, avgRatingForCoffee} from '../../helpers/selectors';
 import { Grid } from "@material-ui/core";
 import axios from 'axios';
@@ -22,9 +20,6 @@ const Content = () => {
       })
   }, []);
 
-  // console.log("homeCoffees in Home frontend", typeof homeCoffees)
-  
-
   const {state} = useContext(DataContext);
 
   const coffees = Object.values(homeCoffees);
@@ -37,7 +32,7 @@ const Content = () => {
 
     return (
       <Grid item xs={4}>
-        <CoffeeCard
+        <CoffeeListItem
           key={coffee.id}
           coffee={coffee}
           avgRating={avgRating}
@@ -45,8 +40,6 @@ const Content = () => {
       </Grid>
     );
   })
-
-
 
   return (
     <Grid container>
