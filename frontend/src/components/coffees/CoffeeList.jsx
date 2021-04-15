@@ -35,7 +35,6 @@ const CoffeeList = (props) => {
     const avgRating = avgRatingForCoffee(coffeeReviews);
 
     return (
-
       <Grid item xs={12} sm={6} lg={4}>
         <CoffeeListItem
           key={coffee.id}
@@ -45,6 +44,8 @@ const CoffeeList = (props) => {
       </Grid>
     );
   })
+
+  console.log(coffeeList)
 
   return (
     <div>

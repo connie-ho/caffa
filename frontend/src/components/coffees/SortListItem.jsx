@@ -1,16 +1,21 @@
-import React from 'react';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-
+import Radio from '@material-ui/core/Radio';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 export default function SortListItem(props) {
 
-  const {key, name} = props;
+  const {
+    key, 
+    name, 
+  } = props;
+
+  
 
   return (
-      <ListItem button>
-        <ListItemText primary={name} />
-      </ListItem>
+    <FormControlLabel 
+      value={name} 
+      control={<Radio />} 
+      label={name}
+    />
   )
 
 }

@@ -33,10 +33,11 @@ const categories = {
 
 // Define sorting choices
 const sortOptions = {
-  1: 'Name: A - Z',
-  2: 'Name: Z - A',
-  3: 'Rating: Low to High',
-  4: 'Rating: High to Low',
+  1: 'Recommended',
+  2: 'Name: A - Z',
+  3: 'Name: Z - A',
+  4: 'Rating: Low to High',
+  5: 'Rating: High to Low',
 }
 
 function Coffees(props) {
@@ -63,7 +64,49 @@ function Coffees(props) {
 
   const handleFilters = (filters)=>{
     const res = getFilteredCoffees(coffees, categories, filters)
-    setFilteredCoffees(prev => res)
+    setFilteredCoffees(prev => [...res])
+  }
+
+  // sorts coffees by key
+  const handleSort = (sortOption)=>{
+
+    if(!sortOption || !filteredCoffees.length){
+      return;
+    }
+
+    console.log(filteredCoffees)
+
+    const newFilteredCoffees = filteredCoffees.sort((a, b) => {
+      
+      if(sortOption === 'Recommended'){
+        return a.id - b.id
+      }
+      
+      if(sortOption === 'Name: A - Z'){
+        if(a.name.toLowerCase() < b.name.toLowerCase()) {
+          return -1 
+        }
+
+        if(a.name.toLowerCase() > b.name.toLowerCase()) {
+          return 1 
+        }
+
+        return 0;
+      }
+
+      if(sortOption === 'Name: Z - A'){
+        if(a.name.toLowerCase() < b.name.toLowerCase()) {
+          return 1
+        }
+        if(a.name.toLowerCase() > b.name.toLowerCase()) {
+          return -1 
+        }
+        return 0;
+      }
+    })
+
+    setFilteredCoffees(prev => [...newFilteredCoffees])
+
   }
 
   return (
@@ -80,6 +123,7 @@ function Coffees(props) {
             <aside>
               <SortList
                 sortOptions={sortOptions}
+                handleSort={handleSort}
                 />
               <FilterList 
                 categories={categories}

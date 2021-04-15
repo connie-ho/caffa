@@ -1,6 +1,8 @@
 import {useState} from 'react';
 import SortListItem from './SortListItem';
 
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormControl from '@material-ui/core/FormControl';
 import { makeStyles } from '@material-ui/core/styles';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import List from '@material-ui/core/List';
@@ -19,13 +21,18 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SortList(props) {
   
-  const {sortOptions} = props;
+  const {
+    sortOptions,
+    handleSort
+  } = props;
   
   const classes = useStyles();
-  const [open, setOpen] = useState(true);
 
-  const handleClick = () => {
-    setOpen(!open);
+  const [sortOption, setSortOption] = useState(1);
+
+  const handleChange = (event, sortOption) => {
+    handleSort(sortOption)
+    setSortOption(event.target.value);
   };
 
   const sortList = Object.keys(sortOptions).map(option => {
@@ -33,6 +40,7 @@ export default function SortList(props) {
     <SortListItem 
       key={option}
       name={sortOptions[option]}
+      // handleSort={handleSort}
     />)
   })
 
@@ -47,7 +55,11 @@ export default function SortList(props) {
       }
       className={classes.root}
     >
-      {sortList}
+      <FormControl component="fieldset">
+        <RadioGroup aria-label="sorting" name="sorting1" value={sortOption} onChange={handleChange}>
+          {sortList}
+        </RadioGroup>
+    </FormControl>
     </List>
   );
 }
