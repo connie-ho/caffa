@@ -7,7 +7,6 @@ import {
 import AccountProfile from './my-account/account/AccountProfile';
 import AccountProfileDetails from './my-account/account/AccountProfileDetails';
 // import UserContext from '../contexts/UserContext';
-import DashboardSidebar from './my-account/DashboardSidebar';
 
 
 export default function Account() {
@@ -25,7 +24,6 @@ export default function Account() {
         }}
       >
         <Container maxWidth="lg">
-          <DashboardSidebar />
           <Grid
             container
             spacing={3}
