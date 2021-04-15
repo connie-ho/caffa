@@ -27,6 +27,9 @@ const useStyles = makeStyles((theme) => ({
   menuButton: {
     marginRight: theme.spacing(2),
   },
+  appBar: {
+    zIndex: theme.zIndex.drawer + 1,
+  },
   title: {
     display: 'none',
     [theme.breakpoints.up('sm')]: {
@@ -183,7 +186,7 @@ export default function Nav(props) {
 
   return (
     <div className={classes.grow}>
-      <AppBar position="static" style={{background: '#FFFFFF'}}>
+      <AppBar position="fixed" className={classes.appBar} style={{background: '#FFFFFF'}}>
         <Toolbar>
           <Link to="/">
             <IconButton
