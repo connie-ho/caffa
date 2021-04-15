@@ -16,7 +16,6 @@ import MoreIcon from '@material-ui/icons/MoreVert';
 import LocalCafeIcon from '@material-ui/icons/LocalCafe';
 import CameraAltIcon from '@material-ui/icons/CameraAlt';
 import FormDialog from './image-search/Dialog';
-import Login from './Login';
 import SearchBar from './dynamic-search/SearchBar';
 import Autocomplete from "@material-ui/lab/Autocomplete";
 
@@ -27,6 +26,9 @@ const useStyles = makeStyles((theme) => ({
   },
   menuButton: {
     marginRight: theme.spacing(2),
+  },
+  appBar: {
+    zIndex: theme.zIndex.drawer + 1,
   },
   title: {
     display: 'none',
@@ -184,7 +186,7 @@ export default function Nav(props) {
 
   return (
     <div className={classes.grow}>
-      <AppBar position="static" style={{background: '#FFFFFF'}}>
+      <AppBar position="fixed" className={classes.appBar} style={{background: '#FFFFFF'}}>
         <Toolbar>
           <Link to="/">
             <IconButton
