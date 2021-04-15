@@ -15,7 +15,6 @@ const CoffeeList = (props) => {
   const {state} = useContext(DataContext);
 
   const {coffees} = props;
-  console.log(coffees)
   const reviews = state.reviews;
 
   // Pagination Logic

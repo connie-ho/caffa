@@ -16,6 +16,8 @@ export default function FilterListCategory(props) {
     items, 
     filterItems, 
     setFilterItems, 
+    filterCat, 
+    setFilterCat,
     handleFilters,
     category
   } = props;
@@ -34,6 +36,8 @@ export default function FilterListCategory(props) {
         category={category}
         filterItems={filterItems}
         setFilterItems={setFilterItems}
+        filterCat={filterCat}
+        setFilterCat={setFilterCat}
         handleFilters={handleFilters}
       />
     )

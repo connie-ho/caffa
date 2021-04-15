@@ -1,4 +1,4 @@
-import {useState, useContext} from 'react';
+import {useState, useContext, useEffect} from 'react';
 import {Route, Switch} from 'react-router-dom';
 
 import DataContext from '../../contexts/DataContext';
@@ -51,19 +51,11 @@ function Coffees(props) {
   })
   const [filteredCoffees, setFilteredCoffees] = useState(coffees)
 
-  const handleFilters = (filters, category)=>{
-    console.log(filters)
-    const newFilterCat = {...filterCat}
-    newFilterCat[category] = filters;
+  // Always set coffees when the entire data set changes
 
-    setFilterCat(newFilterCat)
-    
-    const res = getFilteredCoffees(coffees, categories, newFilterCat)
-    setFilteredCoffees(res)
-
-    console.log(filteredCoffees)
-    // console.log(newFilterCat)
-
+  const handleFilters = (filters)=>{
+    const res = getFilteredCoffees(coffees, categories, filters)
+    setFilteredCoffees(prev => res)
   }
   
 
@@ -83,6 +75,8 @@ function Coffees(props) {
                 categories={categories}
                 filterItems={filterItems}
                 setFilterItems={setFilterItems}
+                filterCat={filterCat}
+                setFilterCat={setFilterCat}
                 handleFilters={handleFilters}
               />
             </aside>
