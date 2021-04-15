@@ -41,7 +41,7 @@ export default function AddCoffeeButton(props) {
   return (
     <>
       <NotLoggedIn />
-      <Button color="primary" classNames={classes.button} onClick={handleModalOpen}>Can't find your coffee? click here to add it. </Button>
+      <Button color="primary" size="large" style={{ fontSize: '2em' }} classNames={classes.button} onClick={handleModalOpen}>Can't find your coffee? click here to add it. </Button>
       {renderModal}
     </>
   )
