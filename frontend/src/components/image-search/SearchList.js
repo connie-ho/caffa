@@ -104,7 +104,7 @@ export default function SearchList(props) {
     <Grid item xs={0} sm={2} />
     <Grid item xs={12} sm={8} >
     <Typography variant="h1" className={classes.header}>Your search results</Typography>
-      <Grid container spacing="4">
+      <Grid container spacing="5">
       {searchResult()}
       </Grid>
       <br></br>
