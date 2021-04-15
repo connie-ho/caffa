@@ -43,7 +43,7 @@ export default function AccountFavourites() {
         <Paper className={classes.control}>
           <Grid container>
             <Grid item>
-              <FormLabel>spacing</FormLabel>
+              <FormLabel>SPACING</FormLabel>
               <RadioGroup
                 name="spacing"
                 aria-label="spacing"

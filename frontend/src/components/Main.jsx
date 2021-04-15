@@ -15,6 +15,8 @@ import ReviewContext from '../contexts/ReviewContext';
 import SearchContext from '../contexts/SearchContext';
 import HomeContext from '../contexts/HomeContext';
 import Account from './Account';
+import AccountFavourites from './my-account/AccountFavourites';
+import AccountSettings from './my-account/AccountSettings';
 import Register from './Register'
 
 const Main = (props) => {
@@ -71,6 +73,12 @@ const Main = (props) => {
           </Route>
           <Route path="/account" >
             <Account />
+          </Route>
+          <Route path="/favourites" >
+            <AccountFavourites />
+          </Route>
+          <Route path="/settings" >
+            <AccountSettings />
           </Route>
           <Route path="/login" >
             <Login/>

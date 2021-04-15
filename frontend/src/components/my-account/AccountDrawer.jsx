@@ -62,21 +62,21 @@ export default function AccountDrawer() {
         <div className={classes.drawerContainer}>
           <List>
 
-              <ListItemLink href="/account">
+              <ListItemLink href="/account" exact>
                 <ListItemIcon>
                   <AccountCircleIcon />
                 </ListItemIcon>
                 <ListItemText primary={"My Account"} />
               </ListItemLink>
 
-              <ListItemLink href="/account/favourites">
+              <ListItemLink href="/favourites">
                 <ListItemIcon>
                   <FavoriteIcon />
                 </ListItemIcon>
                 <ListItemText primary={"Favourites"} />
               </ListItemLink>
 
-              <ListItemLink href="/account/settings">
+              <ListItemLink href="/settings">
                 <ListItemIcon>
                   <SettingsIcon />
                 </ListItemIcon>

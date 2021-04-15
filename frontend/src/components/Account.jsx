@@ -45,7 +45,6 @@ export default function Account() {
               md={6}
               xs={12}
             >
-            
             </Grid>
             
           </Grid>
@@ -53,13 +52,10 @@ export default function Account() {
       </Box>
 
       <Switch>
-        <Route path="/account" exact>
-          <Account />
-        </Route>
-        <Route path="/account/favourites">
+        <Route path="/favourites">
           <AccountFavourites />
         </Route>
-        <Route path="/account/settings">
+        <Route path="/settings">
           <AccountSettings />
         </Route>
       </Switch>
