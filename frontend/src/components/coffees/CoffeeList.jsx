@@ -55,8 +55,7 @@ const CoffeeList = (props) => {
 
           <Grid item container direction="row" >
             <Grid item xs={0} sm={2} />
-
-            <Grid item xs={12} sm={8} fullWidth >
+            <Grid item xs={12} sm={8} >
               <h1>All Coffees</h1>
               <Grid container spacing="4">
                 {coffeeList}
