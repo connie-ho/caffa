@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Route, Switch} from 'react-router-dom';
 import { Helmet } from 'react-helmet';
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import UserContext from '../contexts/UserContext';
 import DataContext from '../contexts/DataContext';
 import { Link } from 'react-router-dom';
@@ -53,35 +53,41 @@ export default function Account(props) {
   const classes = useStyles();
   const {state} = useContext(DataContext);
   const {user} = useContext(UserContext);
-  const [view, setView] = useState({
-    'account_view': AccountProfile
-  });
+  const [view, setView] = useState("AccountProfile");
 
   console.log("STATE IN ACCOUNT :", state)
 
-
-  function ListItemLink(props) {
-    return <ListItem button component="a" {...props} />;
-  }
-  
   const handleAccountClick = () => {
     console.log("Account Clicked")
-    setView({AccountProfile})
+    setView("AccountProfile")
   }
   
   const handleFavouritesClick = () => {
+    console.log("Favourites Clicked")
     setView(AccountFavourites)
   }
   
   const handleSettingsClick = () => {
     setView(AccountSettings)
   }
+
+  useEffect(() => {
+    
+
+  })
+
+
+  function ListItemLink(props) {
+    return <ListItem button component="a" {...props} />;
+  }
+  
   
   console.log("USER CONTEXT :", user);
 
 
   return (
-    
+    <div>
+
     <div className={classes.root}>
       <Helmet>
         <title>Account | Caffa</title>
@@ -122,22 +128,25 @@ export default function Account(props) {
           </List>
         </div>
       </Drawer>
-      
-        <Switch>
+
+      <Switch>
+        <Route path="/account" exact>
+          <AccountProfile />
+        </Route>
         <Route path="/account/favourites">
           <AccountFavourites />
         </Route>
         <Route path="/account/settings">
           <AccountSettings />
         </Route>
-        <Route path="/account" exact>
-          <AccountProfile />
-        </Route>
       </Switch>
+
       <main className={classes.content}>
         <Toolbar />
-        <h2>Account Toolbar</h2>
+        <h2>Account Toolbar (account.jsx)</h2>
       </main>
+    </div>
+
     </div>
   );
 }
