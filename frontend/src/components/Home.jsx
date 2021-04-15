@@ -5,7 +5,7 @@ import CoffeeList from './coffees/CoffeeList.jsx';
 import Carousel from './Carousel/CarouselSlide.jsx';
 import {getReviewsForCoffee, avgRatingForCoffee} from '../helpers/selectors';
 import { Grid } from "@material-ui/core";
-import Content from './top-picks/Content.jsx'
+import TopPicks from './coffees/TopPicks.jsx'
 
 
 const Home = (props) => {
@@ -23,7 +23,7 @@ const Home = (props) => {
 
         <Route path="/">
           <h1>Top Picks (Most Favourited)</h1>
-          <Content/>
+          <TopPicks/>
           {/* <Carousel/> */}
         </Route>
 

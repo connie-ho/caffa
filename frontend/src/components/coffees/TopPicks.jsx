@@ -1,11 +1,11 @@
 import {useContext, useEffect, useState} from 'react';
 import DataContext from '../../contexts/DataContext.js';
-import CoffeeListItem from '../coffees/CoffeeListItem.jsx';
+import CoffeeListItem from './CoffeeListItem.jsx';
 import {getReviewsForCoffee, avgRatingForCoffee} from '../../helpers/selectors';
 import { Grid } from "@material-ui/core";
 import axios from 'axios';
 
-const Content = () => {
+const TopPicks = () => {
   const [homeCoffees, setHomeCoffees] = useState({});
 
   useEffect(() => {
@@ -48,4 +48,4 @@ const Content = () => {
   )
 }
 
-export default Content;
+export default TopPicks;

@@ -33,8 +33,7 @@ const Main = (props) => {
     loginHandler, 
     logoutHandler, 
     homeCoffees, 
-    setHomeCoffees, 
-    getMostFavouritedCoffees} = props;
+    setHomeCoffees } = props;
 
   const [results, setResults] = useState(
     {
@@ -87,10 +86,8 @@ const Main = (props) => {
             <Register />
           </Route>
           <Route path="/">
-            <HomeContext.Provider homeCoffees={homeCoffees} >
-              <Home 
-                getMostFavouritedCoffees={getMostFavouritedCoffees}
-              />
+            <HomeContext.Provider>
+              <Home />
             </HomeContext.Provider>
           </Route>
         </Switch>

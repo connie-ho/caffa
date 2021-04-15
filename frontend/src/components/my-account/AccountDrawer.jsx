@@ -69,14 +69,14 @@ export default function AccountDrawer() {
                 <ListItemText primary={"My Account"} />
               </ListItemLink>
 
-              <ListItemLink href="/favourites">
+              <ListItemLink href="/account/favourites">
                 <ListItemIcon>
                   <FavoriteIcon />
                 </ListItemIcon>
                 <ListItemText primary={"Favourites"} />
               </ListItemLink>
 
-              <ListItemLink href="/settings">
+              <ListItemLink href="/account/settings">
                 <ListItemIcon>
                   <SettingsIcon />
                 </ListItemIcon>

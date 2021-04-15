@@ -1,5 +1,6 @@
 import { Helmet } from 'react-helmet';
 import {Route, Switch} from 'react-router-dom';
+import { useState } from 'react';
 import {
   Box,
   Container,
@@ -12,53 +13,23 @@ import AccountFavourites from './my-account/AccountSettings';
 
 
 export default function Account() {
+  const [page, setPage] = useState();
 
   return (
     <>
       <Helmet>
         <title>Account | Caffa</title>
       </Helmet>
-      <Box
-        sx={{
-          backgroundColor: 'background.default',
-          minHeight: '100%',
-          py: 3
-        }}
-      >
-        <Container maxWidth="lg">
-          <Grid
-            container
-            direction="row"
-            spacing={3}
-          >
-            <Grid
-              item
-              lg={4}
-              md={6}
-              xs={12}
-            >
-              <AccountDrawer />
-            </Grid>
-            <Grid
-              item
-              lg={8}
-              md={6}
-              xs={12}
-            >
-            </Grid>
-            
-          </Grid>
-        </Container>
-      </Box>
-
+        <AccountDrawer />
       <Switch>
-        <Route path="/favourites">
+        <Route>
           <AccountFavourites />
         </Route>
-        <Route path="/settings">
+        <Route>
           <AccountSettings />
         </Route>
       </Switch>
+
     </>
   );
 };
