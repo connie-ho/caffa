@@ -7,12 +7,14 @@ import Pagination from './Pagination';
 
 import {getReviewsForCoffee, avgRatingForCoffee} from '../../helpers/selectors';
 
+// external styles
+import { Grid } from "@material-ui/core";
+
 const CoffeeList = (props) => {
 
   const {state} = useContext(DataContext);
-  console.log("COFFEE LIST STATE: ", state)
 
-  const coffees = Object.values(state.coffees);
+  const {coffees} = props;
   const reviews = state.reviews;
 
   // Pagination Logic
@@ -33,16 +35,16 @@ const CoffeeList = (props) => {
     const avgRating = avgRatingForCoffee(coffeeReviews);
 
     return (
-      <CoffeeListItem
-        key={coffee.id}
-        coffee={coffee}
-        avgRating={avgRating}
-      />
+
+      <Grid item xs={12} sm={6} lg={4}>
+        <CoffeeListItem
+          key={coffee.id}
+          coffee={coffee}
+          avgRating={avgRating}
+        />
+      </Grid>
     );
   })
-  // const addCoffeeArray = Object.keys(props.coffees).map( coffee => {
-  //   return props.coffees[coffee]
-  // })
 
   return (
     <div>
@@ -50,8 +52,17 @@ const CoffeeList = (props) => {
         <Route path="/coffees/:id">
         </Route>
         <Route path="/coffees">
-          <h1>All Coffees</h1>
-          {coffeeList}
+
+          <Grid item container direction="row" >
+            <Grid item xs={0} sm={2} />
+
+            <Grid item xs={12} sm={8} >
+              <h1>All Coffees</h1>
+              <Grid container spacing="4">
+                {coffeeList}
+              </Grid>
+            </Grid>
+          </Grid>
           <Pagination 
             coffeesPerPage={coffeesPerPage}
             totalCoffees={coffees.length}
