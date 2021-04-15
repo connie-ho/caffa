@@ -1,69 +1,50 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
-import FormLabel from '@material-ui/core/FormLabel';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import Radio from '@material-ui/core/Radio';
-import Paper from '@material-ui/core/Paper';
+import {useContext, useEffect, useState} from 'react';
+import DataContext from '../../contexts/DataContext.js';
+import CoffeeListItem from '../coffees/CoffeeListItem.jsx';
+import {getReviewsForCoffee, avgRatingForCoffee} from '../../helpers/selectors';
+import { Grid } from "@material-ui/core";
+import axios from 'axios';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
-  paper: {
-    height: 140,
-    width: 100,
-  },
-  control: {
-    padding: theme.spacing(2),
-  },
-}));
+const AccountFavourites = () => {
+  const [favourites, setFavourites] = useState({});
 
-export default function AccountFavourites() {
-  const [spacing, setSpacing] = React.useState(2);
-  const classes = useStyles();
+  useEffect(() => {
+    axios
+      .get("/api/coffees/popular")
+      .then(res => {
+        setFavourites(res.data)
+      })
+      .catch(err => {
+        console.log(err.message)
+      })
+  }, []);
 
-  const handleChange = (event) => {
-    setSpacing(Number(event.target.value));
-  };
+  const {state} = useContext(DataContext);
+
+  const coffees = Object.values(favourites);
+  const reviews = state.reviews;
+
+  // Create Coffee List Item
+    const coffeeList = coffees.map(coffee => {
+    const coffeeReviews = getReviewsForCoffee(Object.values(reviews),coffee.id)
+    const avgRating = avgRatingForCoffee(coffeeReviews);
+
+    return (
+      <Grid item xs={4}>
+        <CoffeeListItem
+          key={coffee.id}
+          coffee={coffee}
+          avgRating={avgRating}
+        />
+      </Grid>
+    );
+  })
 
   return (
-    <Grid container className={classes.root} spacing={2}>
-      <Grid item xs={12}>
-        <Grid container justify="center" spacing={spacing}>
-          {[0, 1, 2].map((value) => (
-            <Grid key={value} item>
-              <Paper className={classes.paper} />
-            </Grid>
-          ))}
-        </Grid>
-      </Grid>
-      <Grid item xs={12}>
-        <Paper className={classes.control}>
-          <Grid container>
-            <Grid item>
-              <FormLabel>SPACING</FormLabel>
-              <RadioGroup
-                name="spacing"
-                aria-label="spacing"
-                value={spacing.toString()}
-                onChange={handleChange}
-                row
-              >
-                {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((value) => (
-                  <FormControlLabel
-                    key={value}
-                    value={value.toString()}
-                    control={<Radio />}
-                    label={value.toString()}
-                  />
-                ))}
-              </RadioGroup>
-            </Grid>
-          </Grid>
-        </Paper>
-      </Grid>
+    <Grid container>
+        {coffeeList}
     </Grid>
-  );
+  )
 }
+
+export default AccountFavourites;

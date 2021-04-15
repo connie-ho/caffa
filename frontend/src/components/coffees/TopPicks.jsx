@@ -9,7 +9,6 @@ const TopPicks = () => {
   const [homeCoffees, setHomeCoffees] = useState({});
 
   useEffect(() => {
-    console.log("getMostFavourited in App.jsx")
     axios
       .get("/api/coffees/popular")
       .then(res => {
