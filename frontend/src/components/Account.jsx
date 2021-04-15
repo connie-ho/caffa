@@ -54,7 +54,7 @@ export default function Account(props) {
   const {state} = useContext(DataContext);
   const {user} = useContext(UserContext);
   const [view, setView] = useState({
-    accountview: "AccountProfile"
+    'account_view': AccountProfile
   });
 
   console.log("STATE IN ACCOUNT :", state)
@@ -82,19 +82,18 @@ export default function Account(props) {
 
   return (
     
-
     <div className={classes.root}>
       <Helmet>
         <title>Account | Caffa</title>
       </Helmet>
-      <CssBaseline />
+
       <Drawer
         className={classes.drawer}
         variant="permanent"
         classes={{
           paper: classes.drawerPaper,
         }}
-      >
+        >
         <Toolbar />
         <div className={classes.drawerContainer}>
           <List>
@@ -124,20 +123,20 @@ export default function Account(props) {
         </div>
       </Drawer>
       
-      <Switch>
-        <Route>
+        <Switch>
+        <Route path="/account" exact>
           <AccountProfile />
         </Route>
-        <Route>
+        <Route path="/account/favourites">
           <AccountFavourites />
         </Route>
-        <Route>
+        <Route path="/account/settings">
           <AccountSettings />
         </Route>
-      </Switch>
       <main className={classes.content}>
         <Toolbar />
       </main>
+      </Switch>
     </div>
   );
 }

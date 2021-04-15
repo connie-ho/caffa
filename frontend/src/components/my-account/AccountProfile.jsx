@@ -4,7 +4,7 @@ export default function AccountProfile() {
   
   return (
     <div>
-      <h1>Hello from account profile</h1>
+      <h1>My Account</h1>
     </div>
   )
 
