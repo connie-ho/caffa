@@ -3,6 +3,7 @@ import {Route, Switch} from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { useState, useContext } from 'react';
 import UserContext from '../contexts/UserContext';
+import DataContext from '../contexts/DataContext';
 import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
@@ -49,9 +50,15 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Account(props) {
-  const {user} = useContext(UserContext);
-  const [view, setView] = useState(AccountProfile);
   const classes = useStyles();
+  const {state} = useContext(DataContext);
+  const {user} = useContext(UserContext);
+  const [view, setView] = useState({
+    accountview: "AccountProfile"
+  });
+
+  console.log("STATE IN ACCOUNT :", state)
+
 
   function ListItemLink(props) {
     return <ListItem button component="a" {...props} />;
@@ -59,7 +66,7 @@ export default function Account(props) {
   
   const handleAccountClick = () => {
     console.log("Account Clicked")
-    setView(AccountProfile)
+    setView({AccountProfile})
   }
   
   const handleFavouritesClick = () => {
