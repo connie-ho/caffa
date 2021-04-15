@@ -5,7 +5,7 @@ import UserContext from '../../contexts/UserContext';
 import Details from './Details';
 import ReviewList from './ReviewList';
 import AddReview from './AddReview';
-import {getReviewsForCoffee, avgRatingForCoffee, getFavouritesForCoffee, isLiked, isReviewed} from '../../helpers/selectors';
+import {getReviewsForCoffee, getFavouritesForCoffee, isLiked, isReviewed} from '../../helpers/selectors';
 
 export default function Coffee(props) {
   const params = useParams();
@@ -24,7 +24,6 @@ export default function Coffee(props) {
 
   // filter for coffee reviews & favourites
   const coffeeReviews = getReviewsForCoffee(Object.values(reviews), coffeeId);
-  const avgRating = avgRatingForCoffee(coffeeReviews);
   const coffeeFavourites = getFavouritesForCoffee(Object.values(favourites), coffeeId);
 
   // check if coffee is already reviewed by user
@@ -48,7 +47,6 @@ export default function Coffee(props) {
           coffee={coffee}
           reviews={coffeeReviews}
           favourites={coffeeFavourites}
-          avgRating={avgRating}
           addFavourite={addFavourite}
           deleteFavourite={deleteFavourite}
           isLiked={isLiked}

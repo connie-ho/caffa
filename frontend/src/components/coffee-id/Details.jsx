@@ -16,7 +16,6 @@ export default function Details(props) {
   const {
     coffee, 
     reviews, 
-    avgRating, 
     favourites, 
     isLiked} = props;
 
@@ -68,8 +67,12 @@ export default function Details(props) {
         <div>
           <h2>{coffee.brand}</h2>
           <h1>{coffee.name}</h1>
-          <h1>{avgRating} {avgRating=== 1? 'Star' : 'Stars'}</h1>
+          {!coffee.avg_rating && <h1>No Reviews Yet!</h1>}
+          {coffee.avg_rating &&
+          (<>
+          <h1>{coffee.avg_rating} {coffee.avg_rating === 1? 'Star' : 'Stars'} </h1>
           <h2>{reviews.length} {reviews.length === 1 ? 'Rating' : 'Ratings'} </h2>
+          </>)}
           <p>{coffee.description}</p>
           <div>
             <IconButton 
