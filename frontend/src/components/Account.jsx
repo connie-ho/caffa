@@ -55,7 +55,6 @@ export default function Account(props) {
   const {user} = useContext(UserContext);
 
   console.log("STATE IN ACCOUNT :", state)
-
   console.log("USER CONTEXT :", user);
 
 
@@ -109,10 +108,18 @@ export default function Account(props) {
       
         <Switch>
         <Route path="/account/favourites">
-          <AccountFavourites />
+          <AccountFavourites 
+            limit={0}
+          />
         </Route>
         <Route path="/account/settings">
           <AccountSettings />
+        </Route>
+        <Route path="/account">
+          <AccountProfile />
+          <AccountFavourites
+            limit={3}
+          />
         </Route>
       </Switch>
       <main className={classes.content}>

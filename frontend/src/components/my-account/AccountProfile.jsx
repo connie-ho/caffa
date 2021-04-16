@@ -7,7 +7,6 @@ export default function AccountProfile() {
     
     <div>
       <h1>My Account</h1>
-        <AccountFavourites />
     </div>
   )
 
