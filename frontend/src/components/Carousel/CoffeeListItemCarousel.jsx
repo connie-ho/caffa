@@ -20,7 +20,7 @@ const useStyles = makeStyles({
     "&:hover": { transform: "scale3d(1.05, 1.05, 1)" },
   },
   media: {
-    height: 300,
+    height: 250,
     width: '100%',
 
   },
