@@ -1,16 +1,15 @@
 import {useContext, useEffect, useState} from 'react';
 import DataContext from '../../contexts/DataContext.js';
-import CoffeeListItem from '../coffees/CoffeeListItem.jsx';
+import CoffeeListItem from './CoffeeListItem.jsx';
 import {getReviewsForCoffee, avgRatingForCoffee} from '../../helpers/selectors';
 import { Grid } from "@material-ui/core";
+import axios from 'axios';
 import CarouselTest from '../Carousel/CarouselTest.jsx';
-
 import Typography from '@material-ui/core/Typography';
 
-const Content = (props) => {
+
+const TopPicks = (props) => {
   const {homeCoffees, setHomeCoffees} = props
-
-
   const {state} = useContext(DataContext);
 
   const coffees = Object.values(homeCoffees);
@@ -48,4 +47,4 @@ const Content = (props) => {
   )
 }
 
-export default Content;
+export default TopPicks;

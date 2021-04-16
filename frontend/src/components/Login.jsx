@@ -58,7 +58,6 @@ export default function Login(props) {
 
   const history = useHistory();
   // console.log(history.location.pathname)
-  // console.log('mentortest',email, password)
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -74,11 +73,7 @@ export default function Login(props) {
 
       setOpenLogin(prev => false);
     })
-    
     // console.log('Email', email, 'Password', password)
-
-    // console.log('Email', email, 'Password', password)
-    
   }
 
   return (
