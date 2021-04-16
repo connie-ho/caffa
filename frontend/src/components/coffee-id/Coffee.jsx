@@ -6,6 +6,8 @@ import Details from './Details';
 import ReviewList from './ReviewList';
 import AddReview from './AddReview';
 import {getReviewsForCoffee, getFavouritesForCoffee, isLiked, isReviewed} from '../../helpers/selectors';
+import classes from './Coffee.module.scss';
+
 
 export default function Coffee(props) {
   const params = useParams();
@@ -40,7 +42,7 @@ export default function Coffee(props) {
 
 
   return (
-    <div>
+    <div className={classes['coffee-page']}>
     {coffee && (
       <>
         <Details 
