@@ -2,7 +2,9 @@ const db = require("../");
 
 const getCoffees = function () {
   const text = `
-  SELECT * FROM coffees
+  SELECT coffees.*, ROUND(AVG(reviews.rating),1) AS avg_rating FROM coffees 
+  LEFT OUTER JOIN reviews ON coffees.id = reviews.coffee_id
+  GROUP BY coffees.id
   `;
 
   return db

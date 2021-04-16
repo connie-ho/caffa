@@ -38,12 +38,6 @@ function CoffeeListItem(props) {
   const classes = useStyles();
   // const params = useParams();
   const {coffee} = props;
-  let {avgRating} = props;
-
-  if (!avgRating) {
-    avgRating = 'No Ratings Yet!'
-  } else {
-  }
 
   return (
     <Card className={classes.root} variant='outlined'>
@@ -60,7 +54,7 @@ function CoffeeListItem(props) {
             {coffee.name}
           </Typography>
           <Typography gutterBottom variant="subtitle1" style={{ fontSize:'1.0em', padding:'10 10', color:'#646264'}} component="h3">
-            {coffee.region} | {avgRating} {!isNaN(avgRating) && <img src={bean} style={{ height:'15px', width:'15px'}} /> }
+            {coffee.region} | {coffee.avg_rating? coffee.avg_rating: 'No Ratings Yet!'} {coffee.avg_rating && <img src={bean} style={{ height:'15px', width:'15px'}} /> }
           </Typography>
         </CardContent>
       </CardActionArea>

@@ -18,10 +18,10 @@ import {
 const AccountSettings = (props) => {
   const {user} = useContext(UserContext);
   const [values, setValues] = useState({
-    first_name: user.first_name,
-    last_name: user.last_name,
-    email: user.email
-  });
+    first_name: user ? user.first_name : "",
+    last_name: user ? user.last_name : "",
+    email: user ? user.email : ""
+  })
 
   console.log("USER IN SETTINGS: ", user)
 

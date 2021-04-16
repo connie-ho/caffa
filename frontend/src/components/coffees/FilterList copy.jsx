@@ -45,7 +45,7 @@ export default function FilterList(props) {
       aria-labelledby="nested-list-subheader"
       subheader={
         <ListSubheader component="div" id="nested-list-subheader">
-          Filter By
+          Filters
         </ListSubheader>
       }
       className={classes.root}

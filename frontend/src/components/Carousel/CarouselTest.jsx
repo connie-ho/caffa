@@ -15,7 +15,7 @@ const CarouselTest = (props) => {
   console.log(coffees)
   const breakPoints = [
     { width: 550, itemsToShow: 1, itemsToScroll: 1, pagination: false },
-    { width: 850, itemsToShow: 2, itemsToScroll: 2, },
+    { width: 850, itemsToShow: 4, itemsToScroll: 2, },
     { width: 1150, itemsToShow: 4, itemsToScroll: 2 },
     { width: 1450, itemsToShow: 4, itemsToScroll: 2 },
     { width: 1750, itemsToShow: 4, itemsToScroll: 2 },
