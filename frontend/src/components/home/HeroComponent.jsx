@@ -6,6 +6,7 @@ import Typography from '@material-ui/core/Typography';
 
 
 const useStyles = makeStyles((theme) => ({
+  
   container:{
     display: 'flex',
     height: '100vh',
@@ -30,6 +31,18 @@ const useStyles = makeStyles((theme) => ({
   title: {
     display: 'inline-block',
     position: 'absolute',
+    top: '65%',
+    margin: '10,10',
+    color: 'Black',
+    textAlign: 'center',
+    height: '0',
+    right:'57%',
+    zIndex:1,
+
+    [theme.breakpoints.up('md')]: {
+    
+    display: 'inline-block',
+    position: 'absolute',
     top: '60%',
     margin: '10,10',
     color: 'Black',
@@ -37,24 +50,25 @@ const useStyles = makeStyles((theme) => ({
     height: '0',
     right:'69%',
     zIndex:1,
+  }
   },
   subtitle: {
     display: 'inline-block',
     position: 'absolute',
     top: '73%',
     color: 'black',
-    textAlign: 'center',
-    right:'52%',
-    fontSize:'30px'
-  },
-  subtitle2: {
+    right:'-5%',
+    fontSize:'25px',
+    width:'100vw',
+    [theme.breakpoints.up('md')]:{
     display: 'inline-block',
     position: 'absolute',
-    top: '85%',
+    top: '73%',
     color: 'black',
     textAlign: 'center',
-    right:'23%',
+    right:'16.5%',
     fontSize:'30px'
+    }
   },
 }));
 
