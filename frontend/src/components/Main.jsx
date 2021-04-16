@@ -69,14 +69,8 @@ const Main = (props) => {
               </FavouriteContext.Provider>
             </ReviewContext.Provider>
           </Route>
-          <Route path="/account" exact>
+          <Route path="/account">
             <Account />
-          </Route>
-          <Route path="/account/favourites">
-            <AccountFavourites />
-          </Route>
-          <Route path="/account/settings">
-            <AccountSettings />
           </Route>
           <Route path="/login" >
             <Login/>

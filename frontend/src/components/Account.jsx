@@ -21,7 +21,7 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import SettingsIcon from '@material-ui/icons/Settings';
 import AccountProfile from './my-account/AccountProfile';
 import AccountSettings from './my-account/AccountSettings';
-import AccountFavourites from './my-account/AccountSettings';
+import AccountFavourites from './my-account/AccountFavourites';
 
 const drawerWidth = 240;
 
@@ -53,41 +53,18 @@ export default function Account(props) {
   const classes = useStyles();
   const {state} = useContext(DataContext);
   const {user} = useContext(UserContext);
-  const [view, setView] = useState("AccountProfile");
 
   console.log("STATE IN ACCOUNT :", state)
-
-  const handleAccountClick = () => {
-    console.log("Account Clicked")
-    setView("AccountProfile")
-  }
-  
-  const handleFavouritesClick = () => {
-    console.log("Favourites Clicked")
-    setView(AccountFavourites)
-  }
-  
-  const handleSettingsClick = () => {
-    setView(AccountSettings)
-  }
-
-  useEffect(() => {
-    
-
-  })
+  console.log("USER CONTEXT :", user);
 
 
   function ListItemLink(props) {
     return <ListItem button component="a" {...props} />;
   }
   
-  
-  console.log("USER CONTEXT :", user);
-
 
   return (
-    <div>
-
+    
     <div className={classes.root}>
       <Helmet>
         <title>Account | Caffa</title>
@@ -128,25 +105,27 @@ export default function Account(props) {
           </List>
         </div>
       </Drawer>
-
-      <Switch>
-        <Route path="/account" exact>
-          <AccountProfile />
-        </Route>
+      
+        <Switch>
         <Route path="/account/favourites">
-          <AccountFavourites />
+          <AccountFavourites 
+            limit={0}
+          />
         </Route>
         <Route path="/account/settings">
           <AccountSettings />
         </Route>
+        <Route path="/account">
+          <AccountProfile />
+          <AccountFavourites
+            limit={3}
+          />
+        </Route>
       </Switch>
-
       <main className={classes.content}>
         <Toolbar />
-        <h2>Account Toolbar (account.jsx)</h2>
+        <h2>Account Toolbar</h2>
       </main>
-    </div>
-
     </div>
   );
 }
