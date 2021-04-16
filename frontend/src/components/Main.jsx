@@ -1,16 +1,13 @@
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import {useEffect, useState} from 'react';
+import {useState, useContext} from 'react';
 import { Grid } from "@material-ui/core";
 import Nav from './Nav';
 import Login from './Login';
-import NotLoggedIn from './NotLoggedIn';
 import Home from './Home';
-import CoffeeList from './coffees/CoffeeList';
 import SearchList from './image-search/SearchList';
 import Coffees from './coffees/Coffees';
-import UserContext from '../contexts/UserContext';
+import DataContext from '../contexts/DataContext';
 import FavouriteContext from '../contexts/FavouriteContext';
-import Image from 'material-ui-image'
 import ReviewContext from '../contexts/ReviewContext';
 import SearchContext from '../contexts/SearchContext';
 import HomeContext from '../contexts/HomeContext';
@@ -41,6 +38,8 @@ const Main = (props) => {
       
     }
   )
+
+  const {state} = useContext(DataContext);
   
 
   return (

@@ -36,8 +36,9 @@ export default function FilterListCategory(props) {
     setChecked(event.target.checked);
     handleFilters(newFilter);
   };
+  
   return (
-    <ListItem button className={classes.nested}>
+    <ListItem button>
       <Checkbox
         checked={checked}
         onChange={(e)=> {handleChange(e,item.id)}}

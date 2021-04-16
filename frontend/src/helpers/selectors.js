@@ -126,14 +126,45 @@ export function getFilteredCoffees(allCoffees, filterCategories, filterObj){
   return res;
 }
 
-export function hasFilters(filterObj){
+// checks if there are any filters selected
+export function hasSelectedFilters(filters){
   
-  for(const filter of Object.values(filterObj)){
-    if(!filter.length){
-      return false;
+  for(const filter of Object.values(filters)){
+    if(filter.length){
+      return true;
     }
   }
 
-  return true;
+  return false;
+}
+
+
+export function getRegions(coffees){
+
+  const res = {};
+
+  for(const coffee of coffees){
+    res[coffee.region] = coffee.region
+  }
+
+  return Object.values(res);
 
 }
+
+// format regions so that it is filterable
+export function formatRegions(regions, i){
+
+  const res = {}
+
+  let currIndex = i;
+  for(const region of regions){
+    res[currIndex] = {
+        id: currIndex,
+        type: region
+      }
+    currIndex += 1;
+  }
+
+  return res;
+}
+
