@@ -139,8 +139,6 @@ export default function RegionSearch(props) {
     handleFilters(newFilter);
   };
   
-  console.log(value)
-
   return (
     <NoSsr>
       <div>

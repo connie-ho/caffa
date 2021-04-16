@@ -126,16 +126,16 @@ export function getFilteredCoffees(allCoffees, filterCategories, filterObj){
   return res;
 }
 
-export function hasFilters(filterObj){
+// checks if there are any filters selected
+export function hasSelectedFilters(filters){
   
-  for(const filter of Object.values(filterObj)){
-    if(!filter.length){
-      return false;
+  for(const filter of Object.values(filters)){
+    if(filter.length){
+      return true;
     }
   }
 
-  return true;
-
+  return false;
 }
 
 
@@ -165,9 +165,6 @@ export function formatRegions(regions, i){
     currIndex += 1;
   }
 
-  console.log(res)
-  
   return res;
-
-
 }
+

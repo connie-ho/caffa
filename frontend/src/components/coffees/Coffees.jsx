@@ -7,7 +7,7 @@ import CoffeeList from './CoffeeList';
 import FilterList from './FilterList';
 import SortList from './SortList';
 
-import {formatRegions, getFilteredCoffees, getRegions} from '../../helpers/selectors';
+import {formatRegions, getFilteredCoffees, getRegions, hasSelectedFilters} from '../../helpers/selectors';
 
 // styles
 import './Coffees.scss';
@@ -52,19 +52,20 @@ function Coffees(props) {
     'acidity': [],
     'roast': [],
   })
-  const [filteredCoffees, setFilteredCoffees] = useState([])
-
-  // makes sure all coffees are displayed on initial render
-  useEffect(()=>{
-    if(!filteredCoffees.length){
-      setFilteredCoffees(prev=>coffees)
-    }
-  }, [filteredCoffees, coffees])
+  const [filteredCoffees, setFilteredCoffees] = useState([...coffees])
+  const [hasFilters, setHasFilters] = useState(hasSelectedFilters(filters))
 
   const handleFilters = (filters)=>{
-    console.log(filters)
     const res = getFilteredCoffees(coffees, categories, filters)
     setFilteredCoffees(prev => [...res])
+
+    // if there are no filters selected, display all
+    const newHasFilters = hasSelectedFilters(filters);
+    if(!newHasFilters){
+      setFilteredCoffees(prev => coffees)
+    }
+
+    setHasFilters(prev => newHasFilters)
   }
 
   // sorts coffees by key
@@ -141,9 +142,9 @@ function Coffees(props) {
                 handleFilters={handleFilters}
               />
             </aside>
-          <CoffeeList
-            coffees={filteredCoffees}
-          />
+              <CoffeeList
+                coffees={filteredCoffees}
+              />
           </div>
           </>
         </Route>

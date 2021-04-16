@@ -28,7 +28,7 @@ export default function SortList(props) {
   
   const classes = useStyles();
 
-  const [sortOption, setSortOption] = useState(1);
+  const [sortOption, setSortOption] = useState('Recommended');
 
   const handleChange = (event, sortOption) => {
     handleSort(sortOption)
@@ -40,7 +40,6 @@ export default function SortList(props) {
     <SortListItem 
       key={option}
       name={sortOptions[option]}
-      // handleSort={handleSort}
     />)
   })
 
