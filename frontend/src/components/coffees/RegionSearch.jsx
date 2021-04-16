@@ -101,7 +101,6 @@ export default function RegionSearch(props) {
     regions
   } = props; 
   const category = 'region';
-  console.log(regions)
   
   const {
     getRootProps,
@@ -121,15 +120,13 @@ export default function RegionSearch(props) {
     getOptionLabel: (option) => option.type,
   });
 
-  const [selectedRegions, setSelectedRegions] = useState(value);
-
-  const handleChange = (event, option) => {
+  const handleChange = (event, optionId) => {
     
-    const currIndex = filters[category].indexOf(option) //checks if filter is already applied
-    const newCategory = value; // initalize new state
+    const currIndex = filters[category].indexOf(optionId) //checks if filter is already applied
+    const newCategory = [...filters[category]]; // initalize new state
 
     if (currIndex === -1){
-      newCategory.push(option) // if not already in array, add
+      newCategory.push(optionId) // if not already in array, add
     } else {
       newCategory.splice(currIndex, 1) // remove if in the array
     }
@@ -142,6 +139,7 @@ export default function RegionSearch(props) {
     handleFilters(newFilter);
   };
   
+  console.log(value)
 
   return (
     <NoSsr>
