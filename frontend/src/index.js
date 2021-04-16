@@ -30,16 +30,17 @@ let theme = createMuiTheme({
       fontFamily: 'Playfair Display'
     },
     h3: {
-      fontFamily: 'Playfair Display'
+      fontFamily: 'Roboto'
     },
     h4: {
-      fontFamily: 'Playfair Display'
+      fontFamily: 'Roboto',
+      color: '#646264'
     },
     h5: {
-      fontFamily: 'Playfair Display'
+      fontFamily: 'Roboto'
     },
     h6: {
-      fontFamily: 'Playfair Display'
+      fontFamily: 'Roboto'
     },
   },
 })

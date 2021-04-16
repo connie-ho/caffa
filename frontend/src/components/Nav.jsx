@@ -135,15 +135,21 @@ export default function Nav(props) {
         open={isMenuOpen}
         onClose={handleMenuClose}
       >
+        { user &&
         <MenuItem onClick={handleMenuClose}>
-          { user ? <Link to="/account">My Account</Link> : null }
+          <Link to="/account">My Account</Link>
         </MenuItem>
+        }
+        { user &&
         <MenuItem onClick={handleMenuClose}>
-          { user ? <Link to="/account/favourites">Favourites</Link> : null }
+          <Link to="/account/favourites">Favourited Coffee</Link> 
         </MenuItem>
+        }
+        { user &&
         <MenuItem onClick={handleMenuClose}>
-          { user ? <Link to="/account/settings">Settings</Link> : null }
+          <Link to="/account/settings">Settings</Link> 
         </MenuItem>
+        }
         <MenuItem onClick={handleMenuClose}>
           {user ? <Link onClick={logoutHandler}>Logout</Link> : <Link to="/login">Login</Link>}
         </MenuItem>
