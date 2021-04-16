@@ -1,14 +1,15 @@
-import React from 'react';
+import {React, useEffect} from 'react';
 import Grid from '@material-ui/core/Grid';
-import heroImage from '../../images/heroComponent2.jpg'
+import heroImage from '../../images/heroComponent3.png'
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 
 
 const useStyles = makeStyles((theme) => ({
+  
   container:{
     display: 'flex',
-    height: '80vh',
+    height: '100vh',
     width: '100%',
     flexDirection: 'column',
     alignItems: 'center',
@@ -30,22 +31,44 @@ const useStyles = makeStyles((theme) => ({
   title: {
     display: 'inline-block',
     position: 'absolute',
-    top: '38%',
+    top: '65%',
     margin: '10,10',
-    color: 'white',
+    color: 'Black',
     textAlign: 'center',
     height: '0',
-    right:'44%',
+    right:'57%',
     zIndex:1,
+
+    [theme.breakpoints.up('md')]: {
+    
+    display: 'inline-block',
+    position: 'absolute',
+    top: '60%',
+    margin: '10,10',
+    color: 'Black',
+    textAlign: 'center',
+    height: '0',
+    right:'69%',
+    zIndex:1,
+  }
   },
   subtitle: {
     display: 'inline-block',
     position: 'absolute',
-    top: '0',
-    color: 'white',
+    top: '73%',
+    color: 'black',
+    right:'-5%',
+    fontSize:'25px',
+    width:'100vw',
+    [theme.breakpoints.up('md')]:{
+    display: 'inline-block',
+    position: 'absolute',
+    top: '73%',
+    color: 'black',
     textAlign: 'center',
-    right:'50%',
-    fontSize:'15px'
+    right:'16.5%',
+    fontSize:'30px'
+    }
   },
 }));
 
@@ -61,16 +84,10 @@ const useStyles = makeStyles((theme) => ({
       <Grid item xs={12} container className={classes.imageContainer}>
         <img src= {heroImage} className = {classes.image}  />
         <Grid item>
-        <Typography variant='h1' className={classes.title}>CAFFA</Typography>
-        <Typography variant='p' className={classes.subtitle}>Bringing energy to your mornings</Typography>
+        <Typography variant='h1' className={classes.title}>Caffa</Typography>
+        <Typography variant='h2' className={classes.subtitle}>Bringing you energy whenever, wherever.</Typography>
         </Grid>
       </Grid>
-      {/* <Grid item xs container direction ='column'>
-        <Grid item xs={12}>
-        <Typography variant='h1' className={classes.title}>CAFFA</Typography>
-        <Typography variant='p' className={classes.subtitle}>Bringing energy to your mornings</Typography>
-        </Grid> */}
-      {/* </Grid> */}
     </Grid>
   )
-}
+} <Grid item xs={12}></Grid>

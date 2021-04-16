@@ -9,7 +9,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import bean from '../../images/31080.png'
+import bean from '../../../images/31080.png'
 const useStyles = makeStyles({
   root: {
     maxWidth: 500,
