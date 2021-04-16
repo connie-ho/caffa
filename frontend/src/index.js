@@ -20,6 +20,9 @@ let theme = createMuiTheme({
       primary: 'rgba(0,0,0,0.87)',
       secondary: 'rgba(61,58,58,0.54)',
     },
+    background: {
+      default: '#ffffff',
+    },
   },
   typography: {
     fontFamily: 'Roboto',
