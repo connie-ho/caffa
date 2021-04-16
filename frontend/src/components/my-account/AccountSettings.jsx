@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import UserContext from '../../contexts/UserContext';
 
 
@@ -18,10 +18,19 @@ import {
 const AccountSettings = (props) => {
   const {user} = useContext(UserContext);
   const [values, setValues] = useState({
-    first_name: user ? user.first_name : "",
-    last_name: user ? user.last_name : "",
-    email: user ? user.email : ""
+    first_name: '',
+    last_name: '',
+    email: ''
   })
+
+  useEffect(()=>{
+    setValues(prev => ({
+      ...prev,
+    first_name: user? user.first_name : '',
+    last_name: user? user.last_name : '',
+    email: user? user.email : ''
+  }))
+  },[user])
 
   console.log("USER IN SETTINGS: ", user)
 
