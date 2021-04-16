@@ -15,7 +15,7 @@ import Account from './Account';
 import AccountFavourites from './my-account/AccountFavourites';
 import AccountSettings from './my-account/AccountSettings';
 import Register from './Register'
-
+import Footer from './Footer'
 const Main = (props) => {
 
   const {
@@ -85,6 +85,7 @@ const Main = (props) => {
           </Route>
         </Switch>
       </Router>
+        <Footer/>
     </Grid>
   )
 };

@@ -41,7 +41,6 @@ const Home = (props) => {
           <Grid item xs={12}></Grid>
           <Grid item xs={12}></Grid>            
           <TopPicks homeCoffees={homeCoffees} setHomeCoffees={setHomeCoffees}/>
-          {/* <CarouselTest homeCoffees={homeCoffees} > </CarouselTest> */}
           </Grid>
         </Route>
         

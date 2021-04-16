@@ -33,6 +33,14 @@ const useStyles = makeStyles((theme) => ({
     display: 'none',
     [theme.breakpoints.up('sm')]: {
       display: 'block',
+      marginLeft:20
+    },
+  },
+  allCoffee: {
+    display: 'flex',
+    [theme.breakpoints.up('sm')]: {
+      display: 'block',
+      marginLeft:20
     },
   },
   search: {
@@ -212,7 +220,7 @@ export default function Nav(props) {
             </Icon>
           </Link>
           <Link to="/coffees">
-            <Typography className={classes.title} variant="h6" noWrap>
+            <Typography className={classes.allCoffee} variant="h6" noWrap>
               Coffees
             </Typography>
           </Link>
@@ -234,16 +242,9 @@ export default function Nav(props) {
             >
               <CameraAltIcon />
             </IconButton>
-            <IconButton
-              edge="end"
-              aria-label="account of current user"
-              aria-controls={menuId}
-              aria-haspopup="true"
-              onClick={handleProfileMenuOpen}
-              color="inherit"
-            >
+
               { user ? <AccountCircle /> : null }
-            </IconButton>
+
            
           </div>
           <div className={classes.sectionMobile}>
