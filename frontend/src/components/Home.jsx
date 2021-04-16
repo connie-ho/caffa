@@ -1,14 +1,28 @@
-import {useContext, useEffect, useState} from 'react';
-import {Route, Switch} from 'react-router-dom';
+import { useEffect, useState} from 'react';
+import {Route} from 'react-router-dom';
 import CoffeeListItem from './coffees/CoffeeListItem.jsx';
 import CoffeeList from './coffees/CoffeeList.jsx';
-import Carousel from './Carousel/CarouselSlide.jsx';
-import {getReviewsForCoffee, avgRatingForCoffee} from '../helpers/selectors';
 import { Grid } from "@material-ui/core";
 import Content from './top-picks/Content.jsx'
-
+import HeroComponent from './home/HeroComponent.jsx'
+import axios from 'axios';
 
 const Home = (props) => {
+
+  const [homeCoffees, setHomeCoffees] = useState({});
+
+
+  useEffect(() => {
+    console.log("getMostFavourited in App.jsx")
+    axios
+      .get("/api/coffees/popular")
+      .then(res => {
+        setHomeCoffees(res.data)
+      })
+      .catch(err => {
+        console.log(err.message)
+      })
+  }, []);
   
 
   return (
@@ -22,10 +36,15 @@ const Home = (props) => {
 
 
         <Route path="/">
-          <h1>Top Picks (Most Favourited)</h1>
-          <Content/>
-          {/* <Carousel/> */}
+        <Grid container direction='column' spacing={6}>
+          <HeroComponent />
+          <Grid item xs={12}></Grid>
+          <Grid item xs={12}></Grid>            
+          <Content homeCoffees={homeCoffees} setHomeCoffees={setHomeCoffees}/>
+          {/* <CarouselTest homeCoffees={homeCoffees} > </CarouselTest> */}
+          </Grid>
         </Route>
+        
 
 
     </div>
