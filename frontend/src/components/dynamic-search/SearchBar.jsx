@@ -27,7 +27,7 @@ export default function SearchBar(props) {
     },
     autoComplete:{
       [theme.breakpoints.up('xs')]: {
-        width: '60ch'
+        width: '30ch'
       },
       [theme.breakpoints.up('sm')]: {
         width: '70ch'

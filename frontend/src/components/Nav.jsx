@@ -16,7 +16,6 @@ import MoreIcon from '@material-ui/icons/MoreVert';
 import CameraAltIcon from '@material-ui/icons/CameraAlt';
 import FormDialog from './image-search/Dialog';
 import SearchBar from './dynamic-search/SearchBar';
-
 import headIcon from "../images/Caffa2.png"
 import Paper from '@material-ui/core/Paper'
 
@@ -136,12 +135,16 @@ export default function Nav(props) {
         open={isMenuOpen}
         onClose={handleMenuClose}
       >
+        { user &&
         <MenuItem onClick={handleMenuClose}>
-          { user ? <Link to="/account">My Account</Link> : null }
+          <Link to="/account">My Account</Link>
         </MenuItem>
+        }
+        { user &&
         <MenuItem onClick={handleMenuClose}>
-          { user ? <Link to="/account">Favourited Coffee</Link> : null }
+          <Link to="/account">Favourited Coffee</Link> 
         </MenuItem>
+        }
         <MenuItem onClick={handleMenuClose}>
           {user ? <Link onClick={logoutHandler}>Logout</Link> : <Link to="/login">Login</Link>}
         </MenuItem>
