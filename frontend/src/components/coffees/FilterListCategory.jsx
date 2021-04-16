@@ -1,5 +1,6 @@
 import React from 'react';
 import FilterListCategoryItem from './FilterListCategoryItem';
+import RegionSearch from './RegionSearch';
 
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -26,6 +27,7 @@ export default function FilterListCategory(props) {
   };
 
   const categoryItems = items.map((item,i) => {
+
     return(
       <FilterListCategoryItem
         key={item.id}
@@ -38,7 +40,6 @@ export default function FilterListCategory(props) {
       />
     )
   })
-
  
   return (
     <>
@@ -48,7 +49,18 @@ export default function FilterListCategory(props) {
       </ListItem>
       <Collapse in={open} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
-          {categoryItems}
+          {name !== 'Region' && categoryItems}
+          {
+            name === 'Region' && (
+                <ListItem button>
+                  <RegionSearch
+                    regions={Object.values(items)} 
+                    filters={filters}
+                    setFilters={setFilters}
+                    handleFilters={handleFilters}
+                  />
+                </ListItem>
+              )}
         </List>
       </Collapse>
     </>

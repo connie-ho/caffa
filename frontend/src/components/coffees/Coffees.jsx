@@ -7,45 +7,44 @@ import CoffeeList from './CoffeeList';
 import FilterList from './FilterList';
 import SortList from './SortList';
 
-import {getFilteredCoffees} from '../../helpers/selectors';
+import {formatRegions, getFilteredCoffees, getRegions} from '../../helpers/selectors';
 
 // styles
 import './Coffees.scss';
 
-// Define categories to filter for
-const categories = {
-  'region': {
-    name: 'Region',
-    items: [] // get helper function to define this later
-  },
-  'grain_species': {
-    name: 'Grain Species',
-    items: {1: {id: 1, type:'Arabica'}, 2: {id: 2, type: 'Robusta'}}},
-  'acidity': {
-    name: 'Acidity',
-    items: {3: {id: 3, type:'Low'}, 4: {id: 4, type:'Low-Medium'}, 5: {id: 5, type:'Medium'}, 6:{id: 6, type:'Medium-High'}, 7:{id: 7, type:'High'}}
-  },
-  'roast': {
-    name: 'Roast',
-    items: {8:{id: 8, type:'Light'}, 9:{id: 9, type: 'Medium'}, 10:{id: 10, type: 'Dark'}}
-  }
-}
-
-// Define sorting choices
-const sortOptions = {
-  1: 'Recommended',
-  2: 'Name: A - Z',
-  3: 'Name: Z - A',
-  4: 'Rating: Low to High',
-  5: 'Rating: High to Low',
-}
-
 function Coffees(props) {
   
   const {state} = useContext(DataContext);
+  const regions = Object.values(state.regions);
+
+  // Define categories to filter for
+  const categories = {
+    'grain_species': {
+      name: 'Grain Species',
+      items: {1: {id: 1, type:'Arabica'}, 2: {id: 2, type: 'Robusta'}}},
+      'acidity': {
+        name: 'Acidity',
+        items: {3: {id: 3, type:'Low'}, 4: {id: 4, type:'Low-Medium'}, 5: {id: 5, type:'Medium'}, 6:{id: 6, type:'Medium-High'}, 7:{id: 7, type:'High'}}
+      },
+      'roast': {
+        name: 'Roast',
+        items: {8:{id: 8, type:'Light'}, 9:{id: 9, type: 'Medium'}, 10:{id: 10, type: 'Dark'}}
+      },
+      'region': {
+        name: 'Region',
+        items: formatRegions(regions, 11) // get helper function to define this later
+      },
+  }
+  // Define sorting choices
+  const sortOptions = {
+    1: 'Recommended',
+    2: 'Name: A - Z',
+    3: 'Name: Z - A',
+    4: 'Rating: Low to High',
+    5: 'Rating: High to Low',
+  }
   const coffees = Object.values(state.coffees);
-  const reviews = state.reviews;
-  
+
   // FilterArray to apply to coffees
   const [filters, setFilters] = useState({
     'region': [],
@@ -63,6 +62,7 @@ function Coffees(props) {
   }, [filteredCoffees, coffees])
 
   const handleFilters = (filters)=>{
+    console.log(filters)
     const res = getFilteredCoffees(coffees, categories, filters)
     setFilteredCoffees(prev => [...res])
   }
@@ -87,6 +87,18 @@ function Coffees(props) {
 
         if(a.name.toLowerCase() > b.name.toLowerCase()) {
           return 1 
+        }
+
+        return 0;
+      }
+
+      if(sortOption === 'Name: Z - A'){
+        if(a.name.toLowerCase() < b.name.toLowerCase()) {
+          return 1 
+        }
+
+        if(a.name.toLowerCase() > b.name.toLowerCase()) {
+          return -1 
         }
 
         return 0;

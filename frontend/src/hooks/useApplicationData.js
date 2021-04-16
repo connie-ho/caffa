@@ -6,6 +6,7 @@ import reducer, {
   SET_REVIEW,
   SET_COFFEE
 } from "../reducers/application";
+import {getRegions} from '../helpers/selectors';
 
 function useApplicationData(){
 
@@ -13,7 +14,8 @@ function useApplicationData(){
     users: {},
     coffees: {},
     reviews: {},
-    favourites: {}
+    favourites: {},
+    regions: {}
   });
 
 
@@ -51,7 +53,9 @@ function useApplicationData(){
         favourites[fav.id] = fav;
       }
 
-      dispatch({type: SET_APPLICATION_DATA, users, coffees, reviews, favourites});
+      const regions = getRegions(Object.values(coffees));
+
+      dispatch({type: SET_APPLICATION_DATA, users, coffees, reviews, favourites, regions});
     })
   }, []);
 

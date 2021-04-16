@@ -139,6 +139,35 @@ export function hasFilters(filterObj){
 }
 
 
-export function coffee_sort(){
-  return;
+export function getRegions(coffees){
+
+  const res = {};
+
+  for(const coffee of coffees){
+    res[coffee.region] = coffee.region
+  }
+
+  return Object.values(res);
+
+}
+
+// format regions so that it is filterable
+export function formatRegions(regions, i){
+
+  const res = {}
+
+  let currIndex = i;
+  for(const region of regions){
+    res[currIndex] = {
+        id: currIndex,
+        type: region
+      }
+    currIndex += 1;
+  }
+
+  console.log(res)
+  
+  return res;
+
+
 }
