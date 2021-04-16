@@ -3,7 +3,7 @@ import {Route} from 'react-router-dom';
 import CoffeeListItem from './coffees/CoffeeListItem.jsx';
 import CoffeeList from './coffees/CoffeeList.jsx';
 import { Grid } from "@material-ui/core";
-import Content from './top-picks/Content.jsx'
+import TopPicks from './coffees/TopPicks.jsx'
 import HeroComponent from './home/HeroComponent.jsx'
 import axios from 'axios';
 
@@ -40,7 +40,7 @@ const Home = (props) => {
           <HeroComponent />
           <Grid item xs={12}></Grid>
           <Grid item xs={12}></Grid>            
-          <Content homeCoffees={homeCoffees} setHomeCoffees={setHomeCoffees}/>
+          <TopPicks homeCoffees={homeCoffees} setHomeCoffees={setHomeCoffees}/>
           {/* <CarouselTest homeCoffees={homeCoffees} > </CarouselTest> */}
           </Grid>
         </Route>

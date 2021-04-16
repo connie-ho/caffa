@@ -12,6 +12,8 @@ import ReviewContext from '../contexts/ReviewContext';
 import SearchContext from '../contexts/SearchContext';
 import HomeContext from '../contexts/HomeContext';
 import Account from './Account';
+import AccountFavourites from './my-account/AccountFavourites';
+import AccountSettings from './my-account/AccountSettings';
 import Register from './Register'
 
 const Main = (props) => {
@@ -28,8 +30,7 @@ const Main = (props) => {
     loginHandler, 
     logoutHandler, 
     homeCoffees, 
-    setHomeCoffees, 
-    getMostFavouritedCoffees} = props;
+    setHomeCoffees } = props;
 
   const [results, setResults] = useState(
     {
@@ -68,8 +69,14 @@ const Main = (props) => {
               </FavouriteContext.Provider>
             </ReviewContext.Provider>
           </Route>
-          <Route path="/account" >
+          <Route path="/account" exact>
             <Account />
+          </Route>
+          <Route path="/account/favourites">
+            <AccountFavourites />
+          </Route>
+          <Route path="/account/settings">
+            <AccountSettings />
           </Route>
           <Route path="/login" >
             <Login/>
@@ -78,10 +85,8 @@ const Main = (props) => {
             <Register />
           </Route>
           <Route path="/">
-            <HomeContext.Provider homeCoffees={homeCoffees} >
-              <Home 
-                getMostFavouritedCoffees={getMostFavouritedCoffees}
-              />
+            <HomeContext.Provider>
+              <Home />
             </HomeContext.Provider>
           </Route>
         </Switch>
