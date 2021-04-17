@@ -2,6 +2,7 @@
 require('dotenv').config();
 const PORT       = process.env.PORT || 8080;
 const ENV        = process.env.ENV || "development";
+
 // const cors = require('cors');
 const express = require("express");
 const path = require("path");
@@ -56,12 +57,14 @@ const usersRouter = require("./routes/users");
 const coffeesRouter = require("./routes/coffees");
 const favouritesRouter = require("./routes/favourites");
 const reviewsRouter = require("./routes/reviews");
+const cafeRouter = require("./routes/cafes");
 
 // app.use("/api/", indexRouter);
 app.use("/api/users", usersRouter);
 app.use("/api/coffees", coffeesRouter);
 app.use("/api/favourites", favouritesRouter);
 app.use("/api/reviews", reviewsRouter);
+app.use("/api/cafes", cafeRouter);
 
 app.use(logger("dev"));
 app.use(express.json());
