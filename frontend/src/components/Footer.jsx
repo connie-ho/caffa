@@ -29,7 +29,7 @@ export default function Footer() {
            © 2021
           </Typography>
         </Grid>
-        <Grid container xs={12} sm={2} display='flex' direction='column' alignContent='center' justify='flex-start' alignItems='center'> 
+        <Grid container xs={12} sm={2} display='flex' direction='column' alignContent='center' justify='flex-start' > 
           <Typography variant="body1" color="inherit">
                Company
           </Typography>
@@ -37,7 +37,7 @@ export default function Footer() {
                About us
           </Typography>
         </Grid>
-        <Grid container xs={12} sm={2} display='flex' direction='column' alignContent='center' justify='flex-start' alignItems='center'> 
+        <Grid container xs={12} sm={2} display='flex' direction='column' alignContent='center' justify='flex-start'> 
           <Typography variant="body1" color="inherit">
                Further Information
           </Typography>
@@ -45,7 +45,7 @@ export default function Footer() {
                Terms and conditions
           </Typography>
           <Typography variant="caption" color="secondary">
-               Private Policy
+               Private policy
           </Typography>
         </Grid>
         <Grid container xs={12} sm={2} display='flex' direction='column' alignContent='center' justify='flex-start'> 
