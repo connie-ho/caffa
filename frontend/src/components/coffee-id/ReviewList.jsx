@@ -1,7 +1,9 @@
-import ReviewListItem from './ReviewListItem';
 import {useContext} from 'react';
+import ReviewListItem from './ReviewListItem';
 import DataContext from '../../contexts/DataContext';
 import {getReviewsForCoffee} from '../../helpers/selectors';
+
+import classes from './Coffee.module.scss';
 
 function ReviewList(props) {
   const {coffee} = props;
@@ -25,6 +27,7 @@ function ReviewList(props) {
 
   return (
     <div>
+      <h1>Community Reviews</h1>
       {reviewList}
     </div>
   )

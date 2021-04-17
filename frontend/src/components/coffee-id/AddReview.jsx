@@ -1,19 +1,24 @@
-import React, {useState, useContext, useParams} from 'react';
+import React, {useState, useContext} from 'react';
 import ReviewForm from './ReviewForm';
 import Stars from './Stars';
 import ReviewContext from '../../contexts/ReviewContext';
 import UserContext from '../../contexts/UserContext';
 
-// from material ui
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
+import { makeStyles } from "@material-ui/core/styles";
+import Card from "@material-ui/core/Card";
+import CardContent from "@material-ui/core/CardContent";
 
-
+const useStyles = makeStyles({
+  root: {
+    minWidth: 275
+  },
+  title: {
+    fontSize: 14
+  },
+  pos: {
+    marginBottom: 12
+  }
+});
 
 export default function AddReview(props) {
 
@@ -57,14 +62,17 @@ export default function AddReview(props) {
     })
   }
 
+  const classes = useStyles();
+
   return (
-    <div>
-      <h1>How did you like this Coffee?</h1>
+    <Card className={classes.root}>
+      <CardContent>
+      <h3>How did you like this Coffee?</h3>
       <Stars 
         rating={rating}
         setRating={setRating}
         handleStarClick={handleClickOpenReviewForm}
-      />
+        />
       <ReviewForm
         coffee={coffee}
         rating={rating}
@@ -77,7 +85,8 @@ export default function AddReview(props) {
         handleCloseReviewForm={handleCloseReviewForm}
         handleSubmitReviewForm={handleAddReview}
         handStarClick={setRating}
-      />
-    </div>
+        />
+      </CardContent>
+    </Card>
   );
 }
