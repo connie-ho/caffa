@@ -13,7 +13,7 @@ import bean from '../../../images/31080.png'
 const useStyles = makeStyles({
   root: {
     maxWidth: 500,
-    height: 500,
+    height: 525,
     borderRadius:'2%',
     transition: "transform 0.15s ease-in-out",
     "&:hover": { 
@@ -21,12 +21,13 @@ const useStyles = makeStyles({
     background: 'transparent'},
   },
   media: {
-    objectFit: 'cover',
+    objectFit: 'contain',
     width: '100%',
-    height: 350
+    height: 400
     
   },
   cardContent: {
+    height: 400,
   },
   description: {
     overflow: "hidden",
@@ -34,13 +35,6 @@ const useStyles = makeStyles({
     WebkitLineClamp: 3,
     WebkitBoxOrient: "vertical"
   },
-  actionArea: {
-      height: '100%',
-      "&:hover $focusHighlight": {
-      opacity: 0
-    },
-    focusHighlight: {}
-  }
 });
 
 function CoffeeListItemCarousel(props) {
@@ -56,8 +50,7 @@ function CoffeeListItemCarousel(props) {
 
   return (
     <Card className={classes.root} variant='outlined'>
-    <CardActionArea classes={{root: classes.actionArea,
-    focusHighlight: classes.focusHighlight}}>
+    <CardActionArea >
     <Link to={`/coffees/${coffee.id}`}>
       
       <CardMedia
