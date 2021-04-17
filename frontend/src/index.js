@@ -58,6 +58,14 @@ let theme = createMuiTheme({
   },
   overrides: {
     // Style sheet name ⚛️
+    MuiOutlinedInput: {
+      root: {
+        '& $notchedOutline': {
+          borderColor: '#646264',
+          borderWidth: 0.5,
+        },
+      }
+    },
     MuiButton: {
       outlinedPrimary: {
         color: '#646264',

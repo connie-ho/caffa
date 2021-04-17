@@ -42,8 +42,7 @@ export default function Coffee(props) {
 
 
   return (
-    <div className={classes['coffee-page']}>
-    {coffee && (
+    {...(coffee && (
       <>
         <Details 
           coffee={coffee}
@@ -72,7 +71,6 @@ export default function Coffee(props) {
           </div>
         </div>
       </>)
-    }
-    </div>
+    )}
   )
 }
