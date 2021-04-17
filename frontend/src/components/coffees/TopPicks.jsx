@@ -22,7 +22,7 @@ const TopPicks = (props) => {
   const reviews = state.reviews;
 
   return (
-    <Grid item container direction="row" >
+    <Grid container direction="row" >
       <Grid item xs={0} sm={2} />
       <Grid item xs={12} sm={8} fullWidth >
         <div data-aos="fade">

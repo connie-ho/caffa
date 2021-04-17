@@ -15,11 +15,10 @@ const CoffeeCarousel = (props) => {
   const coffees = Object.values(homeCoffees)
   console.log(coffees)
   const breakPoints = [
-    { width: 550, itemsToShow: 1, itemsToScroll: 1, pagination: false },
-    { width: 850, itemsToShow: 4, itemsToScroll: 2, pagination: true },
-    { width: 1150, itemsToShow: 4, itemsToScroll: 2 },
-    { width: 1450, itemsToShow: 4, itemsToScroll: 2 },
-    { width: 1750, itemsToShow: 4, itemsToScroll: 2 },
+    { width: 1, itemsToShow: 1, itemsToScroll: 1, pagination: false },
+    { width: 500, itemsToShow: 2, itemsToScroll: 1, pagination: true },
+    { width: 700, itemsToShow: 3, itemsToScroll: 3, pagination: true},
+    { width: 1450, itemsToShow: 4, itemsToScroll: 2, pagination: true }
 ]
   const FavoritesCoffeeList = coffees.map(coffee => {
     const coffeeReviews = getReviewsForCoffee(Object.values(reviews),coffee.id)
@@ -55,14 +54,14 @@ const CoffeeCarousel = (props) => {
 
   if (type === 'favorite') {
   return (
-    <Carousel itemPadding={[50, 30]} breakPoints={breakPoints} enableAutoPlay autoPlaySpeed={5000}>
+    <Carousel itemPadding={[30, 10]} breakPoints={breakPoints} >
       {FavoritesCoffeeList}
     </Carousel>
   )
   }
   else if (type === 'rating') {
     return (
-      <Carousel itemPadding={[50, 30]} breakPoints={breakPoints} enableAutoPlay autoPlaySpeed={5000}>
+      <Carousel itemPadding={[30, 10]} breakPoints={breakPoints} >
       {SlicedCoffeeList}
     </Carousel>
     )

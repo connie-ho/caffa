@@ -36,7 +36,7 @@ const Home = (props) => {
 
 
         <Route path="/">
-        <Grid container direction='column' spacing={6}>
+        <Grid container direction='column' >
           <HeroComponent />
           <Grid item xs={12}></Grid>
           <Grid item xs={12}></Grid>            
