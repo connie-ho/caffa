@@ -11,7 +11,7 @@ let theme = createMuiTheme({
   palette: {
     type: 'light',
     primary: {
-      main: '#e0ad49',
+      main: '#FCE4A2',
     },
     secondary: {
       main: '#646264',
@@ -46,7 +46,20 @@ let theme = createMuiTheme({
       fontFamily: 'Roboto'
     },
   },
-})
+  overrides: {
+    // Style sheet name ⚛️
+    MuiButton: {
+      outlinedPrimary: {
+        color: '#646264',
+        border: '2px solid #FCE4A2',
+        borderRadius: '1rem',
+        "&:hover": {
+          border: '3px solid #FCE4A2'
+        },
+      }
+    },
+  },
+});
 
 theme = responsiveFontSizes(theme)
 

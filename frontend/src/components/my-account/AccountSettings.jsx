@@ -131,7 +131,7 @@ const AccountSettings = (props) => {
         >
           <Button
             color="primary"
-            variant="contained"
+            variant="outlined"
           >
             Save details
           </Button>
