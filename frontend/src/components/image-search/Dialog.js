@@ -80,7 +80,7 @@ export default function FormDialog(props) {
       justifyContent: 'center'
     },
     paper: { 
-      overflow:'auto', maxHeight: '500px', height:400, width:400, alignItems: 'center'
+      overflow:'auto', maxHeight: '700px', height:450, width:400, alignItems: 'center'
     },
     content: {
       overflow:'auto', display:'flex', flexDirection:'column', justifyContent:'space-between', height:300, width:300, alignItems: 'center', border:"1px dotted black"

@@ -34,6 +34,14 @@ const useStyles = makeStyles((theme) => ({
   },
   dialogAction: {
     justifyContent:'center'
+  },
+  image: {
+    width:'400px !important',
+    height:'400px !important',
+    objectFit:'contain !important',
+    display:'flex',
+    paddingTop:'1em',
+    paddingBottom:'1em'
   }
 }));
 
@@ -230,9 +238,9 @@ export default function CoffeeModal(props) {
             </Select>
             </FormControl>
           </Grid>
-          <Grid item >
+          <Grid container justify='center' alignItems='center' >
           <br></br>
-            <Image
+            <img className={classes.image}
               src={url}
             />
           </Grid>
