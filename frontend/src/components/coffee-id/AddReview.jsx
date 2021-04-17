@@ -8,15 +8,16 @@ import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 
+// import classes from './Coffee.module.scss';
+
 const useStyles = makeStyles({
   root: {
-    minWidth: 275
-  },
-  title: {
-    fontSize: 14
-  },
-  pos: {
-    marginBottom: 12
+    height: 200,
+    marginLeft: '1rem',
+    flex: 1,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 });
 
@@ -65,7 +66,9 @@ export default function AddReview(props) {
   const classes = useStyles();
 
   return (
-    <Card className={classes.root}>
+    <Card 
+      className={classes.root}
+    >
       <CardContent>
       <h3>How did you like this Coffee?</h3>
       <Stars 

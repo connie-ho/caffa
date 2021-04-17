@@ -113,6 +113,15 @@ $sectionPadding: 5rem 10rem;
 
 }
 
+.coffee-review-heading {
+  padding: $sectionPadding;
+  padding-bottom: 0;
+  font-family: $primaryFontFamily;
+  font-size: 2rem;
+  font-weight: 600;
+
+}
+
 .coffee-review-section {
   padding: $sectionPadding;
   padding-top: 0;
@@ -120,9 +129,15 @@ $sectionPadding: 5rem 10rem;
   justify-content: space-between;
 
 
-  h1 {
-    font-family: $primaryFontFamily;
-    font-size: 2rem;
-    font-weight: 600;
-  }
+  
 }
+
+.coffee-review-list {
+  flex: 2;
+}
+
+.coffee-review-stars {
+  display: flex;
+  justify-content: center;
+}
+

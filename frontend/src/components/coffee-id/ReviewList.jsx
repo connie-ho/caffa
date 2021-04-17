@@ -26,8 +26,7 @@ function ReviewList(props) {
 
 
   return (
-    <div>
-      <h1>Community Reviews</h1>
+    <div className={classes['coffee-review-list']}>
       {reviewList}
     </div>
   )
