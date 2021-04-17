@@ -73,6 +73,10 @@ function App() {
       .then(res => setUser(res.data))
   }
 
+  const getUserReviews = () => {
+    
+  }
+
 
   const {
     state, 

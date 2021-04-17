@@ -105,6 +105,22 @@ const editUser = function(params) {
 
 // }
 
+// const getUserReviews = function (userId) {
+//   const text = `
+//   SELECT reviews.* 
+//   FROM reviews 
+//   INNER JOIN favourites ON favourites.coffee_id = coffees.id 
+//   JOIN users ON users.id = favourites.user_id 
+//   WHERE users.id = $1 
+//   GROUP BY coffees.id;`
+//   const values = [coffeeId];
+
+//   return db
+//     .query(text, values)
+//     .then((data) => data.rows)
+//     .catch((err) => console.error(this, "query failed", err.stack));
+// };
+
 module.exports = {
     getUserById,
     getUserByEmail,
