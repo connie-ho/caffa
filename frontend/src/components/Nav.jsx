@@ -243,8 +243,16 @@ export default function Nav(props) {
               <CameraAltIcon />
             </IconButton>
 
+            <IconButton
+              edge="end"
+              aria-label="account of current user"
+              aria-controls={menuId}
+              aria-haspopup="true"
+              onClick={handleProfileMenuOpen}
+              color="inherit"
+            >
               { user ? <AccountCircle /> : null }
-
+              </IconButton>
            
           </div>
           <div className={classes.sectionMobile}>
@@ -259,22 +267,6 @@ export default function Nav(props) {
             </IconButton>
           </div>
           
-          <div>
-            {user ? 
-          <Link to="/">
-            <Typography className={classes.title} variant="h6" noWrap onClick={logoutHandler}>
-              Logout
-            </Typography>
-          </Link>
-          :
-          <Link to="/login">
-            <Typography className={classes.title} variant="h6" noWrap>
-              Login
-            </Typography>
-          </Link>
-            }
-  
-          </div>
 
         </Toolbar>
       </AppBar>
