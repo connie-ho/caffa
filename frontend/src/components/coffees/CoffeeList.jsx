@@ -13,7 +13,7 @@ const CoffeeList = (props) => {
 
   // Pagination Logic
   const[currentPage, setCurrentPage] = useState(1);
-  const[coffeesPerPage, setCoffeesPerPage] = useState(6);
+  const[coffeesPerPage, setCoffeesPerPage] = useState(9);
   
   const indexOfLastCoffee = currentPage * coffeesPerPage;
   const indexOfFirstCoffee = indexOfLastCoffee - coffeesPerPage;

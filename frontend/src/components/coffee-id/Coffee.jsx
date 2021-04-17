@@ -42,7 +42,8 @@ export default function Coffee(props) {
 
 
   return (
-    {...(coffee && (
+    <div>
+    {coffee && (
       <>
         <Details 
           coffee={coffee}
@@ -71,6 +72,7 @@ export default function Coffee(props) {
           </div>
         </div>
       </>)
-    )}
+      }
+    </div>
   )
 }
