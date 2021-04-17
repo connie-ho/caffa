@@ -9,6 +9,7 @@ $sectionPadding: 5rem 10rem;
 .coffee-details-section {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   align-items: center;
   padding: $sectionPadding;
   background-color: rgb(255,247,245);
@@ -128,8 +129,6 @@ $sectionPadding: 5rem 10rem;
   display: flex;
   justify-content: space-between;
 
-
-  
 }
 
 .coffee-review-list {
@@ -141,3 +140,10 @@ $sectionPadding: 5rem 10rem;
   justify-content: center;
 }
 
+.coffee-review-user-info {
+  display: flex;
+}
+
+.coffee-review-date {
+  color: $secondaryFontColor;
+}

@@ -10,22 +10,32 @@ import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
+
+import bean from '../../images/31080.png';
 
 const useStyles = makeStyles({
   root: {
     minWidth: 400,
+    border: '0px solid',
+    borderRadius: '1rem',
+    fontSize: '1.25em',
+    marginBottom: '1em'
   },
-  bullet: {
-    display: 'inline-block',
-    margin: '0 2px',
-    transform: 'scale(0.8)',
+  image:{
+    width: '2em',
+    height: '2em',
+    border: '0px solid',
+    borderRadius: '50%',
+    marginRight: '0.5em'
   },
-  title: {
-    fontSize: 14,
+  userInfo:{
+    display: 'flex',
+    alignItems: 'center',
+    fontWeight: 600
   },
-  pos: {
-    marginBottom: 12,
-  },
+
+
 });
 
 export default function ReviewListItem(props) {
@@ -59,16 +69,30 @@ export default function ReviewListItem(props) {
   const handleCloseReviewForm = () => {
     setOpenReviewForm(false);
   };
-  console.log(reviewUser)
+
   return (
     <>
     <Card className={classes.root}>
       <CardContent>
-       <div>{review.rating} Stars </div>
-       <div>{review.description}</div>
-       <div>{reviewUser.first_name} {reviewUser.last_name}</div>
-       <img src={reviewUser.avatar_url} alt={reviewUser.first_name} />
-       <div>{date}</div>
+       <div>
+         {review.rating} 
+        <img src={bean} style={{ height:'15px', width:'15px'}}/> 
+       </div>
+       <div>
+         {review.description}
+       </div>
+       <div className={classes.userInfo}>
+        <img 
+          src={reviewUser.avatar_url} 
+          alt={reviewUser.first_name}
+          className={classes.image} 
+          />
+        <div>{reviewUser.first_name} {reviewUser.last_name}</div>
+      </div>
+      <Typography variant="body2" color="textSecondary">
+      {date}
+      </Typography>
+
       </CardContent>
       <CardActions>
         {
