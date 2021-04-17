@@ -109,10 +109,10 @@ export default function FormDialog(props) {
         </DialogContent>
 
         <DialogActions classes = {{root: classes.centreAlignDialogActions }}>
-          <Button variant="outlined" onClick={handleClose} style={{fontSize: '1.0em'}} color="primary">
+          <Button variant="outlined" onClick={handleClose} style={{fontSize: '1.0em', margin:'0.5rem'}} color="primary">
             Cancel
           </Button>
-          <Button variant="outlined" onClick={() => {uploadAndSearch(file)}} style={{fontSize: '1.0em'}} color="primary">
+          <Button variant="outlined" onClick={() => {uploadAndSearch(file)}} style={{fontSize: '1.0em', margin:'0.5rem'}} color="primary">
             Search
           </Button>
         </DialogActions>

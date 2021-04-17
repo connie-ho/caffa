@@ -51,6 +51,11 @@ let theme = createMuiTheme({
       fontFamily: 'Roboto'
     },
   },
+  props: {
+    MuiButtonBase: {
+      disableRipple: true 
+    }
+  },
   overrides: {
     // Style sheet name ⚛️
     MuiButton: {

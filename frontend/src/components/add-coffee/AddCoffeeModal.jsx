@@ -31,7 +31,9 @@ const useStyles = makeStyles((theme) => ({
   imageLabel:{
     color: '#000000',
     fontSize:'1em',
-
+  },
+  dialogAction: {
+    justifyContent:'center'
   }
 }));
 
@@ -236,11 +238,11 @@ export default function CoffeeModal(props) {
           </Grid>
         </Grid>
         </DialogContent>
-        <DialogActions>
-          <Button variant="outlined" color="primary" onClick={handleClose} color="primary">
+        <DialogActions className={classes.dialogAction}>
+          <Button variant="outlined" color="primary" onClick={handleClose}  color="primary">
             Cancel
           </Button>
-          <Button variant="outlined" color="primary" type="submit" color="primary">
+          <Button variant="outlined" color="primary" type="submit" style={{margin:'0.5em'}} color="primary">
             Add
           </Button>
         </DialogActions>
