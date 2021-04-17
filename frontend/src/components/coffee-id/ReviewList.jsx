@@ -28,6 +28,9 @@ function ReviewList(props) {
   return (
     <div className={classes['coffee-review-list']}>
       {reviewList}
+      {!coffeeReviews.length && 
+        <p className={classes['no-reviews']}A>Be the first one to leave a review</p>
+      }
     </div>
   )
 }
