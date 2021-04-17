@@ -74,11 +74,15 @@ export default function ReviewListItem(props) {
         {
           (user && user.id === review.user_id) ? 
           (<div>
-            <Button 
+            <Button
+              variant="outlined"
+              color="primary" 
               size="small"
               onClick={handleClickOpenReviewForm}
             >Edit</Button>
             <Button 
+              variant="outlined"
+              color="primary"
               size="small"
               onClick={handleClickOpenDelete}
             >Delete</Button>

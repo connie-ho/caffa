@@ -18,7 +18,7 @@ const CoffeeCarousel = (props) => {
     { width: 1, itemsToShow: 1, itemsToScroll: 1, pagination: false },
     { width: 500, itemsToShow: 2, itemsToScroll: 1, pagination: true },
     { width: 700, itemsToShow: 3, itemsToScroll: 3, pagination: true},
-    { width: 1450, itemsToShow: 4, itemsToScroll: 2, pagination: true }
+    { width: 900, itemsToShow: 4, itemsToScroll: 2, pagination: true }
 ]
   const FavoritesCoffeeList = coffees.map(coffee => {
     const coffeeReviews = getReviewsForCoffee(Object.values(reviews),coffee.id)

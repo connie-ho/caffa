@@ -13,6 +13,7 @@ const useStyles = makeStyles({
   header: {
     padding:'1em',
     paddingLeft:'0px',
+    fontSize:'3.5em'
   }
 })
 
@@ -101,8 +102,8 @@ export default function SearchList(props) {
   return(
   <Grid item container direction="row" >
  
-    <Grid item xs={0} sm={2} />
-    <Grid item xs={12} sm={8} >
+    <Grid item xs={0} sm={1} />
+    <Grid item xs={12} sm={10} >
     <Typography variant="h2" className={classes.header}>Your search results</Typography>
       <Grid container spacing="5">
       {searchResult()}
@@ -110,7 +111,7 @@ export default function SearchList(props) {
       <br></br>
       {storedUrl && <AddCoffeeButton  url={storedUrl} addCoffee={addCoffee} />} 
     </Grid>
-    <Grid item xs={0} sm={2} />
+    <Grid item xs={0} sm={1} />
   </Grid>
   )  
 }
