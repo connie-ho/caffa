@@ -16,12 +16,19 @@ import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
+
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import SettingsIcon from '@material-ui/icons/Settings';
+import RateReviewIcon from '@material-ui/icons/RateReview';
+
 import AccountProfile from './my-account/AccountProfile';
 import AccountSettings from './my-account/AccountSettings';
 import AccountFavourites from './my-account/AccountFavourites';
+import AccountReviews from './my-account/AccountReviews';
+import {getUserReviews, isLiked, isReviewed} from '../helpers/selectors';
+
+
 
 const drawerWidth = 240;
 
@@ -50,13 +57,40 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Account(props) {
+  const {editUserHandler} = props
   const classes = useStyles();
   const {state} = useContext(DataContext);
   const {user} = useContext(UserContext);
+  const [openReviewForm, setOpenReviewForm] = useState(false);
+  const [values, setValues] = useState({
+    id: '',
+    first_name: '',
+    last_name: '',
+    email: '',
+  })
 
+  useEffect(()=>{
+    setValues(prev => ({
+      ...prev,
+      id: user? user.id : '',
+      first_name: user? user.first_name : '',
+      last_name: user? user.last_name : '',
+      email: user? user.email : '',
+    }))
+  },[user])
+  
+  const coffees = state.coffees;
+  const reviews = state.reviews;
   console.log("STATE IN ACCOUNT :", state)
   console.log("USER CONTEXT :", user);
+  // console.log("USER ID :", userId);
 
+
+  const coffee = coffees[reviews.user_id]
+
+
+  // filter for coffee reviews & favourites
+  const coffeeReviews = getUserReviews(Object.values(reviews), values.id);
 
   function ListItemLink(props) {
     return <ListItem button component="a" {...props} />;
@@ -95,6 +129,13 @@ export default function Account(props) {
                 <ListItemText primary={"Favourites"} />
               </ListItemLink>
 
+              <ListItemLink href="/account/reviews">
+                <ListItemIcon>
+                  <RateReviewIcon />
+                </ListItemIcon>
+                <ListItemText primary={"Reviews"} />
+              </ListItemLink>
+
               <ListItemLink href="/account/settings">
                 <ListItemIcon>
                   <SettingsIcon />
@@ -110,6 +151,14 @@ export default function Account(props) {
         <Route path="/account/favourites">
           <AccountFavourites 
             limit={0}
+          />
+        </Route>
+        <Route path="/account/reviews">
+          <AccountReviews
+            user={user}
+            coffee={coffees}
+            openReviewForm={openReviewForm}
+            setOpenReviewForm={setOpenReviewForm}
           />
         </Route>
         <Route path="/account/settings">

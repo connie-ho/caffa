@@ -65,15 +65,14 @@ const editUser = function(params) {
     first_name,
     last_name,
     email,
-    password,
   } = params;
 
   const text = `
   UPDATE users 
-  SET first_name = $2, last_name = $3, email = $4, password = $5
+  SET first_name = $2, last_name = $3, email = $4
   WHERE id = $1;`;
 
-  const values = [id, first_name, last_name, email, password]
+  const values = [id, first_name, last_name, email]
   return db
   .query(text, values)
   .then((data) => data.rows[0])
@@ -105,6 +104,22 @@ const editUser = function(params) {
 //         .catch(err => err);
 
 // }
+
+// const getUserReviews = function (userId) {
+//   const text = `
+//   SELECT reviews.* 
+//   FROM reviews 
+//   INNER JOIN favourites ON favourites.coffee_id = coffees.id 
+//   JOIN users ON users.id = favourites.user_id 
+//   WHERE users.id = $1 
+//   GROUP BY coffees.id;`
+//   const values = [coffeeId];
+
+//   return db
+//     .query(text, values)
+//     .then((data) => data.rows)
+//     .catch((err) => console.error(this, "query failed", err.stack));
+// };
 
 module.exports = {
     getUserById,

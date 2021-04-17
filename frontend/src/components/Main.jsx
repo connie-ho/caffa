@@ -71,9 +71,13 @@ const Main = (props) => {
             </ReviewContext.Provider>
           </Route>
           <Route path="/account">
+          <ReviewContext.Provider value={{addReview, editReview, deleteReview}}>
+
             <Account 
               editUserHandler={editUserHandler}
             />
+            </ReviewContext.Provider>
+
           </Route>
           <Route path="/login" >
             <Login/>
