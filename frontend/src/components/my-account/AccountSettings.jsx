@@ -16,11 +16,13 @@ import {
 
 
 const AccountSettings = (props) => {
+  const {editUserHandler} = props
   const {user} = useContext(UserContext);
   const [values, setValues] = useState({
     first_name: '',
     last_name: '',
-    email: ''
+    email: '',
+    password: '',
   })
 
   useEffect(()=>{
@@ -28,11 +30,13 @@ const AccountSettings = (props) => {
       ...prev,
     first_name: user? user.first_name : '',
     last_name: user? user.last_name : '',
-    email: user? user.email : ''
+    email: user? user.email : '',
+    password: user? user.password : ''
   }))
   },[user])
 
-  console.log("USER IN SETTINGS: ", user)
+  // console.log("USER IN SETTINGS: ", user)
+  // console.log("PROP IN SETTINGS: ", props)
 
   const handleChange = (event) => {
     setValues({
@@ -41,11 +45,19 @@ const AccountSettings = (props) => {
     });
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    console.log('First Name', values.first_name, 'Last Name', values.last_name, 'Email', values.email, 'Password', values.password)
+
+    // editUserHandler(values.first_name, values.last_name, values.email, values.password)
+  }
+
   return (
     <form
       autoComplete="off"
       noValidate
       {...props}
+      onSubmit={handleSubmit}
     >
       <Card>
         <CardHeader
@@ -111,11 +123,10 @@ const AccountSettings = (props) => {
             >
               <TextField
                 fullWidth
-                label="Phone Number"
-                name="phone"
+                label="Password"
+                name="password"
                 onChange={handleChange}
-                type="number"
-                value={values.phone}
+                value={values.password}
                 variant="outlined"
               />
             </Grid>
@@ -130,8 +141,10 @@ const AccountSettings = (props) => {
           }}
         >
           <Button
+            type="submit"
             color="primary"
             variant="outlined"
+            onSubmit={editUserHandler}
           >
             Save details
           </Button>

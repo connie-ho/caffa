@@ -4,6 +4,7 @@ const {
   getUserById,
   getUserByEmail,
   getUsers,
+  editUser,
   addUser
 } = require("../db/helpers/user-queries");
 
@@ -79,6 +80,24 @@ router.post("/register", (req, res) => {
   .catch((err) => res.status(500).json({error: err.message}))
 
 });
+
+
+// Edit user
+router.post("/edit", (req, res) => {
+  const { first_name, last_name, email, password } = req.body
+  currentUser = req.session.user_id;
+
+  getUserById(id)
+  .then(user => {
+    editUser(req.body)
+      .then(user => {
+        console.log('in edit', user)
+        res.send({first_name: first_name, last_name: last_name, email: email, password: password})
+      })
+    })
+    .catch((err) => res.status(500).json({error: err.message}))
+  });
+
 
 // Authenticate user
 router.post("/authenticate", (req, res) => {

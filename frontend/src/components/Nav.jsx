@@ -242,7 +242,9 @@ export default function Nav(props) {
             >
               <CameraAltIcon />
             </IconButton>
+
             { user &&
+
             <IconButton
               edge="end"
               aria-label="account of current user"
@@ -267,14 +269,10 @@ export default function Nav(props) {
               <MoreIcon />
             </IconButton>
           </div>
-          
+
           <div>
             {user ? 
-          <Link to="/">
-            <Typography className={classes.title} variant="h6" noWrap onClick={logoutHandler}>
-              Logout
-            </Typography>
-          </Link>
+            null
           :
           <Link to="/login">
             <Typography className={classes.title} variant="h6" noWrap>
@@ -282,9 +280,8 @@ export default function Nav(props) {
             </Typography>
           </Link>
             }
-  
           </div>
-
+          
         </Toolbar>
       </AppBar>
       {renderMobileMenu}

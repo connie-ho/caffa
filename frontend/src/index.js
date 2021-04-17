@@ -6,6 +6,11 @@ import './index.scss'
 import UserContext from "./contexts/UserContext";
 import { createMuiTheme, makeStyles, ThemeProvider, responsiveFontSizes } from '@material-ui/core/styles';
 // import * as serviceWorker from "./serviceWorker";
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faFlask, faFire, faDna} from '@fortawesome/free-solid-svg-icons'
+
+library.add(faFlask, faDna, faFire);
+
 
 let theme = createMuiTheme({
   palette: {
