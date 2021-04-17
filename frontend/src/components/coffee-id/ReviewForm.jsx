@@ -45,6 +45,7 @@ export default function ReviewForm(props) {
     handleSubmitReviewForm
   } = props;
 
+  console.log("coffee name:", coffee)
 
   return (
     <div>

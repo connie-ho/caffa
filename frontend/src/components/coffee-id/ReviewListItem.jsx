@@ -68,6 +68,8 @@ export default function ReviewListItem(props) {
   const classes = useStyles();
   const {review, reviewUser, coffee} = props;
 
+  console.log("COFFEE", coffee)
+
   // formatting date
   const dateArr = new Date(review.created_at).toDateString().split(' ');
   const date = `${dateArr[1]} ${dateArr[2]}, ${dateArr[3]}`;

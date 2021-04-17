@@ -11,6 +11,19 @@ export function getReviewsForCoffee(reviews, coffeeId){
   return res;
 }
 
+// returns array of reviews for that coffee
+export function getUserReviews(reviews, userId){
+  const res = [];
+
+  for (const review of reviews){
+
+    if (review && Number(review.user_id) === Number(userId)){
+      res.push(review);
+    }
+  }
+  return res;
+}
+
 // returns avg rating of coffee
 export function avgRatingForCoffee(coffeeReviews){
   

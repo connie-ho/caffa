@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import Rating from '@material-ui/lab/Rating';
-
 import classes from './Coffee.module.scss';
 
 export default function Stars(props) {
@@ -21,7 +20,7 @@ export default function Stars(props) {
         onChangeActive={(event, newHover) => {
           setHover(prev => newHover);
         }}  
-        onClick={handleStarClick}    
+        onClick={handleStarClick}   
         />
         {/* {value !== null && <Box ml={2}>{hover !== -1 ? hover : null}</Box>} */}
     </div>

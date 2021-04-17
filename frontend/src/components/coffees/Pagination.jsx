@@ -1,26 +1,26 @@
-const Pagination = ({coffeesPerPage, totalCoffees, paginate}) => {
+import Pagination from '@material-ui/lab/Pagination';
+
+
+const Paginations = ({coffeesPerPage, totalCoffees, page, setPage}) => {
 
   const pageNumbers = [];
 
   for(let i = 1; i <= Math.ceil(totalCoffees/coffeesPerPage); i ++){
     pageNumbers.push(i);
   }
+  
+  console.log('page numbas', pageNumbers[pageNumbers.length -1])
+
+  const handleChange = (event,value) => {
+    setPage(value)
+  };
 
   return (
-    <nav>
-      <ul>
-        {pageNumbers.map(num => (
-          <li key={num} >
-            <a onClick={()=>paginate(num)} href="#">
-              {num}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </nav>
+
+    <Pagination style={{margin:'1em'}} color="primary" boundaryCount={2} count={pageNumbers[pageNumbers.length-1]} page={page} onChange={handleChange}  />
   );
 
 
 }
 
-export default Pagination;
+export default Paginations;

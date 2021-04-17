@@ -25,6 +25,8 @@ export default function Coffee(props) {
  // filter for specific coffee details
  const coffee = coffees[coffeeId];
 
+ console.log("COFFEE", coffee)
+
   // filter for coffee reviews & favourites
   const coffeeReviews = getReviewsForCoffee(Object.values(reviews), coffeeId);
   const coffeeFavourites = getFavouritesForCoffee(Object.values(favourites), coffeeId);
@@ -41,9 +43,10 @@ export default function Coffee(props) {
   // review form logic
   const [openReviewForm, setOpenReviewForm] = useState(false);
 
+  console.log("coffeeReviews ", coffeeReviews)
 
   return (
-    <div className={classes['coffee-page']}>
+    <div>
     {coffee && (
       <>
         <Details 
@@ -79,7 +82,7 @@ export default function Coffee(props) {
           </div>
         </div>
       </>)
-    }
+      }
     </div>
   )
 }
