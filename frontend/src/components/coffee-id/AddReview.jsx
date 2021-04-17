@@ -10,16 +10,22 @@ import CardContent from "@material-ui/core/CardContent";
 
 // import classes from './Coffee.module.scss';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme)=>({
   root: {
     height: 200,
-    marginLeft: '1rem',
+    marginLeft: '2em',
     flex: 1,
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    border: '0px solid',
+    borderRadius: '1rem',
+    background: 'rgb(255,247,245)',
+    "&:hover": { 
+      transform: "scale3d(1.05, 1.05, 1)", 
+      background: '#e4d3cf'},
   }
-});
+}));
 
 export default function AddReview(props) {
 

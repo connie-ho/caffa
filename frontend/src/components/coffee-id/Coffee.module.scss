@@ -9,9 +9,10 @@ $sectionPadding: 5rem 10rem;
 .coffee-details-section {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   align-items: center;
   padding: $sectionPadding;
-  background-color: rgb(255,247,245);
+  background-color: $secondaryColor;
 }
 
 .coffee-details-img {
@@ -26,14 +27,14 @@ $sectionPadding: 5rem 10rem;
 
 .coffee-details-name {
   font-family: $primaryFontFamily;
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: 500;
   margin: 0;
 }
 
 .coffee-details-brand {
   margin: 0;
-  font-size: 1rem;
+  font-size: 1.5rem;
   color: $secondaryFontColor;
   font-weight: 100;
 }
@@ -44,6 +45,7 @@ $sectionPadding: 5rem 10rem;
   
   h3 {
     font-weight: 300;
+    font-size: 1.1rem;
   }
 
 }
@@ -81,6 +83,7 @@ $sectionPadding: 5rem 10rem;
 
 .coffee-details-description {
   color: $secondaryFontColor;
+  font-size: 1.1rem;
 }
 
 .coffee-like-icon {
@@ -116,10 +119,11 @@ $sectionPadding: 5rem 10rem;
 .coffee-review-heading {
   padding: $sectionPadding;
   padding-bottom: 0;
+  padding-top: 0;
   font-family: $primaryFontFamily;
   font-size: 2rem;
   font-weight: 600;
-
+  margin-top: 0;
 }
 
 .coffee-review-section {
@@ -127,13 +131,15 @@ $sectionPadding: 5rem 10rem;
   padding-top: 0;
   display: flex;
   justify-content: space-between;
-
-
-  
 }
 
 .coffee-review-list {
   flex: 2;
+
+  .no-reviews {
+    font-size: 2em;
+    color: $primaryFontColor
+  }
 }
 
 .coffee-review-stars {
@@ -141,3 +147,14 @@ $sectionPadding: 5rem 10rem;
   justify-content: center;
 }
 
+.coffee-review-user-info {
+  display: flex;
+}
+
+.coffee-review-date {
+  color: $secondaryFontColor;
+}
+
+.coffee-review-rating {
+  background-color: $primaryColor;
+}

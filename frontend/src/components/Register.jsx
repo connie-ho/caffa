@@ -91,7 +91,7 @@ export default function Login(props) {
             required
             fullWidth
             id="first name"
-            label="first name"
+            label="First name"
             name="firstName"
             autoComplete="first name"
             autoFocus
