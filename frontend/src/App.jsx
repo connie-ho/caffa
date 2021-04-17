@@ -44,6 +44,16 @@ function App() {
       })
   }
 
+  const editUserHandler = (first_name, last_name, email, password) => {
+    return axios.post("/api/users/edit", {first_name: first_name, last_name: last_name, email: email, password: password})
+      .then(res => {
+        console.log("EDIT USER RES :", res)
+      })
+      .catch(err => {
+        console.log(err.message)
+      })
+  }
+
   const registerHandler = (firstName, lastName, email, password) => {
     return axios.post("/api/users/register", {first_name: firstName, last_name: lastName, email: email, password: password })
     .then(res => {
@@ -75,7 +85,7 @@ function App() {
 
   return (
     <div className="App">
-      <UserContext.Provider value={{user, loginHandler, openLogin, setOpenLogin, registerHandler}}>
+      <UserContext.Provider value={{user, loginHandler, openLogin, setOpenLogin, registerHandler, editUserHandler}}>
         <NotLoggedIn 
           handleLoginClose={handleLoginClose}
         />

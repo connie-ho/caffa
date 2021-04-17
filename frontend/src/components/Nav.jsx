@@ -269,8 +269,19 @@ export default function Nav(props) {
               <MoreIcon />
             </IconButton>
           </div>
-          
 
+          <div>
+            {user ? 
+            null
+          :
+          <Link to="/login">
+            <Typography className={classes.title} variant="h6" noWrap>
+              Login
+            </Typography>
+          </Link>
+            }
+          </div>
+          
         </Toolbar>
       </AppBar>
       {renderMobileMenu}
