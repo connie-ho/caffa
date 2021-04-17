@@ -16,6 +16,20 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: '30px',
     backgroundColor: '#fff7f5',
     bottom: 0
+  },
+  footerContainer: {
+    display:'flex',
+    flexDirection:'column',
+    alignItems:'center',
+    justifyContent:'center',
+
+    [theme.breakpoints.up('sm')]: {
+    display:'flex',
+    flexDirection:'column',
+    alignItems:'flex-start',
+    alignContent:'center',
+    justifyContent:'flex-start'
+    }
   }
 }))
 
@@ -25,13 +39,13 @@ export default function Footer() {
 
     return (
       <Grid container direction='row' justify='center' className={classes.footer}>
-        <Grid container xs={12} sm={2} display='flex' direction='column' alignContent='center' alignItems='center'> 
+        <Grid container xs={12} sm={3} className={classes.footerContainer}> 
               <img src={headIcon} width="50" height="50"  /> 
           <Typography variant="caption" color="inherit">
            © 2021
           </Typography>
         </Grid>
-        <Grid container xs={12} sm={2} display='flex' direction='column' alignContent='center' justify='flex-start' > 
+        <Grid container xs={12} sm={3} className={classes.footerContainer} > 
           <Typography variant="body1" color="inherit">
                Company
           </Typography>
@@ -39,7 +53,7 @@ export default function Footer() {
                About us
           </Typography>
         </Grid>
-        <Grid container xs={12} sm={2} display='flex' direction='column' alignContent='center' justify='flex-start'> 
+        <Grid container xs={12} sm={3} className={classes.footerContainer}> 
           <Typography variant="body1" color="inherit">
                Further Information
           </Typography>
@@ -50,7 +64,7 @@ export default function Footer() {
                Private policy
           </Typography>
         </Grid>
-        <Grid container xs={12} sm={2} display='flex' direction='column' alignContent='center' justify='flex-start'> 
+        <Grid container xs={12} sm={3} className={classes.footerContainer}> 
           <Typography variant="body1" color="inherit">
                Follow us
           </Typography>

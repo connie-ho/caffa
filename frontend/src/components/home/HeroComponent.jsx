@@ -1,6 +1,6 @@
 import {React, useEffect} from 'react';
 import Grid from '@material-ui/core/Grid';
-import heroImage from '../../images/heroComponent3.png'
+import heroImage from '../../images/heroComponent5.png'
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 
@@ -26,12 +26,13 @@ const useStyles = makeStyles((theme) => ({
     display:'block',
     objectFit: 'cover',
     width: '100%',
-    maxHeight: '100%',
+    maxHeight: '70%',
+    transform:`translate(0em,-6em)`
   },
   title: {
     display: 'inline-block',
     position: 'absolute',
-    top: '65%',
+    top: '55%',
     margin: '10,10',
     color: 'Black',
     textAlign: 'center',
@@ -43,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
     
     display: 'inline-block',
     position: 'absolute',
-    top: '60%',
+    top: '53%',
     margin: '10,10',
     color: 'Black',
     textAlign: 'center',
@@ -55,7 +56,7 @@ const useStyles = makeStyles((theme) => ({
   subtitle: {
     display: 'inline-block',
     position: 'absolute',
-    top: '73%',
+    top: '63%',
     color: 'black',
     right:'-5%',
     fontSize:'25px',
@@ -63,7 +64,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up('md')]:{
     display: 'inline-block',
     position: 'absolute',
-    top: '73%',
+    top: '65%',
     color: 'black',
     textAlign: 'center',
     right:'16.5%',

@@ -31,7 +31,17 @@ const useStyles = makeStyles((theme) => ({
   imageLabel:{
     color: '#000000',
     fontSize:'1em',
-
+  },
+  dialogAction: {
+    justifyContent:'center'
+  },
+  image: {
+    width:'400px !important',
+    height:'400px !important',
+    objectFit:'contain !important',
+    display:'flex',
+    paddingTop:'1em',
+    paddingBottom:'1em'
   }
 }));
 
@@ -228,19 +238,19 @@ export default function CoffeeModal(props) {
             </Select>
             </FormControl>
           </Grid>
-          <Grid item >
+          <Grid container justify='center' alignItems='center' >
           <br></br>
-            <Image
+            <img className={classes.image}
               src={url}
             />
           </Grid>
         </Grid>
         </DialogContent>
-        <DialogActions>
-          <Button variant="outlined" color="primary" onClick={handleClose} color="primary">
+        <DialogActions className={classes.dialogAction}>
+          <Button variant="outlined" color="primary" onClick={handleClose}  color="primary">
             Cancel
           </Button>
-          <Button variant="outlined" color="primary" type="submit" color="primary">
+          <Button variant="outlined" color="primary" type="submit" style={{margin:'0.5em'}} color="primary">
             Add
           </Button>
         </DialogActions>

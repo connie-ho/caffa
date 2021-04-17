@@ -45,7 +45,7 @@ export default function Coffee(props) {
   console.log("coffeeReviews ", coffeeReviews)
 
   return (
-    <div className={classes['coffee-page']}>
+    <div>
     {coffee && (
       <>
         <Details 
@@ -75,7 +75,7 @@ export default function Coffee(props) {
           </div>
         </div>
       </>)
-    }
+      }
     </div>
   )
 }

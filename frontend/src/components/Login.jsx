@@ -81,7 +81,6 @@ export default function Login(props) {
   }
 
   return (
-    <div>
     <Container component="main" maxWidth="xs" className={classes.container}>
       <CssBaseline />
       <div className={classes.paper}>
@@ -143,6 +142,5 @@ export default function Login(props) {
         </form>
       </div>
     </Container>
-    </div>
   );
 }
