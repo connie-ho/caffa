@@ -2,7 +2,7 @@ import {Route, Switch} from 'react-router-dom';
 import {useState} from 'react';
 
 import CoffeeListItem from './CoffeeListItem';
-import Pagination from './Pagination';
+import Paginations from './Pagination';
 
 // external styles
 import { Grid } from "@material-ui/core";
@@ -43,23 +43,27 @@ const CoffeeList = (props) => {
         </Route>
         <Route path="/coffees">
 
-          <Grid item container direction="row" >
+          <Grid item container direction="row" style={{marginTop: '4rem'}} >
             <Grid item xs={0} sm={1} />
             <Grid item xs={12} sm={10} >
               <Grid container spacing="4">
                 {coffeeList}
-              </Grid>
-            </Grid>
-          </Grid>
-          <Pagination 
+                <Grid container xs={12} justify='center'>
+                <Paginations
+            page={currentPage}
+            setPage={setCurrentPage}
             coffeesPerPage={coffeesPerPage}
             totalCoffees={coffees.length}
-            paginate={paginate}
-          />
+                />
+              </Grid>
+            </Grid>
+            </Grid>
+            <Grid item xs={0} sm={1} />
+          </Grid>
         </Route>
       </Switch>
 
-  )
+  ) 
 };
 
 export default CoffeeList;

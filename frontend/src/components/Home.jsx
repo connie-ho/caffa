@@ -38,7 +38,6 @@ const Home = (props) => {
         <Route path="/">
         <Grid container direction='column' >
           <HeroComponent />
-          <Grid item xs={12}></Grid>
           <Grid item xs={12}></Grid>            
           <TopPicks homeCoffees={homeCoffees} setHomeCoffees={setHomeCoffees}/>
           </Grid>
