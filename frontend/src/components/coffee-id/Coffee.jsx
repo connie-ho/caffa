@@ -53,20 +53,23 @@ export default function Coffee(props) {
           deleteFavourite={deleteFavourite}
           isLiked={isLiked}
         />
-        <div className={classes['coffee-review-section']}>
-        <ReviewList
-          coffeeId={coffeeId}
-          coffee={coffee}
-          openReviewForm={openReviewForm}
-          setOpenReviewForm={setOpenReviewForm}
-          />
-          {!reviewed && 
-            <AddReview 
+        <div>
+          <h1 className={classes['coffee-review-heading']}>Community Reviews</h1>
+          <div className={classes['coffee-review-section']}>
+          <ReviewList
+            coffeeId={coffeeId}
             coffee={coffee}
             openReviewForm={openReviewForm}
             setOpenReviewForm={setOpenReviewForm}
             />
-          }
+            {!reviewed && 
+              <AddReview 
+              coffee={coffee}
+              openReviewForm={openReviewForm}
+              setOpenReviewForm={setOpenReviewForm}
+              />
+            }
+          </div>
         </div>
       </>)
     }
