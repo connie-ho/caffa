@@ -16,8 +16,8 @@ const CoffeeCarousel = (props) => {
   console.log(coffees)
   const breakPoints = [
     { width: 1, itemsToShow: 1, itemsToScroll: 1, pagination: false },
-    { width: 400, itemsToShow: 2, itemsToScroll: 1, pagination: true },
-    { width: 600, itemsToShow: 3, itemsToScroll: 3, pagination: true},
+    { width: 500, itemsToShow: 2, itemsToScroll: 1, pagination: true },
+    { width: 700, itemsToShow: 3, itemsToScroll: 3, pagination: true},
     { width: 1450, itemsToShow: 4, itemsToScroll: 2, pagination: true }
 ]
   const FavoritesCoffeeList = coffees.map(coffee => {
