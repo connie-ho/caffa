@@ -91,12 +91,11 @@ $sectionPadding: 5rem 10rem;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  font-size: 1.5rem;
+  font-size: 1rem;
   padding: $sectionPadding;
 
   p {
     margin: 0;
-    font-size: 1em;
   }
 
   .characteristic {
@@ -108,9 +107,22 @@ $sectionPadding: 5rem 10rem;
   
   .icon {
     color: $primaryColor;
-    font-size: 3rem;
+    font-size: 2rem;
     margin: 1rem 0;
   }
 
 }
 
+.coffee-review-section {
+  padding: $sectionPadding;
+  padding-top: 0;
+  display: flex;
+  justify-content: space-between;
+
+
+  h1 {
+    font-family: $primaryFontFamily;
+    font-size: 2rem;
+    font-weight: 600;
+  }
+}

@@ -53,7 +53,7 @@ export default function Coffee(props) {
           deleteFavourite={deleteFavourite}
           isLiked={isLiked}
         />
-        <h1>Community Reviews</h1>
+        <div className={classes['coffee-review-section']}>
         <ReviewList
           coffeeId={coffeeId}
           coffee={coffee}
@@ -67,6 +67,7 @@ export default function Coffee(props) {
             setOpenReviewForm={setOpenReviewForm}
             />
           }
+        </div>
       </>)
     }
     </div>

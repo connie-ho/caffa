@@ -3,7 +3,6 @@ import {useState, useContext, useEffect} from 'react';
 import FavouriteContext from '../../contexts/FavouriteContext';
 import UserContext from '../../contexts/UserContext';
 
-import {makeStyles} from '@material-ui/core/styles'
 import IconButton from '@material-ui/core/IconButton';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
@@ -107,7 +106,7 @@ export default function Details(props) {
       <div className={classes['coffee-characteristic-section']}>
         <div className={classes['characteristic']} >
           <p>Roast</p>
-          <FontAwesomeIcon className={classes['icon']} icon="fire"/>
+          <FontAwesomeIcon className={classes.icon} icon="fire"/>
           {coffee.roast}
         </div>
         <div className={classes['characteristic']}>
