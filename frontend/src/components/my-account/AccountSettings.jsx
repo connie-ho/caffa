@@ -143,7 +143,7 @@ const AccountSettings = (props) => {
           <Button
             type="submit"
             color="primary"
-            variant="contained"
+            variant="outlined"
             onSubmit={editUserHandler}
           >
             Save details

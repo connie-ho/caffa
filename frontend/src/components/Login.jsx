@@ -30,6 +30,10 @@ function Copyright() {
 }
 
 const useStyles = makeStyles((theme) => ({
+  container: {
+    height: '100vh',
+    alignSelf: 'center'
+  },
   paper: {
     marginTop: theme.spacing(8),
     display: 'flex',
@@ -77,7 +81,8 @@ export default function Login(props) {
   }
 
   return (
-    <Container component="main" maxWidth="xs">
+    <div>
+    <Container component="main" maxWidth="xs" className={classes.container}>
       <CssBaseline />
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
@@ -120,7 +125,7 @@ export default function Login(props) {
           <Button
             type="submit"
             fullWidth
-            variant="contained"
+            variant="outlined"
             color="primary"
             className={classes.submit}
           >
@@ -128,7 +133,7 @@ export default function Login(props) {
           </Button>
           <Grid container>
             <Grid item xs>
-              <Link href="/register">
+              <Link href="/register" color="secondary">
                 Don't have a profile? Click here to register!
               </Link>
             </Grid>
@@ -137,9 +142,7 @@ export default function Login(props) {
           </Grid>
         </form>
       </div>
-      <Box mt={8}>
-        <Copyright />
-      </Box>
     </Container>
+    </div>
   );
 }
