@@ -126,7 +126,7 @@ function Coffees(props) {
           <Coffee />
         </Route>
         <Route path="/coffees">
-          <>
+      
           <div
             className="coffees-page"
           >
@@ -146,7 +146,6 @@ function Coffees(props) {
                 coffees={filteredCoffees}
               />
           </div>
-          </>
         </Route>
       </Switch>
     </div>

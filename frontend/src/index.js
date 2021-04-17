@@ -16,7 +16,7 @@ let theme = createMuiTheme({
   palette: {
     type: 'light',
     primary: {
-      main: '#FCE4A2',
+      main: '#F9B403',
     },
     secondary: {
       main: '#646264',
@@ -56,10 +56,12 @@ let theme = createMuiTheme({
     MuiButton: {
       outlinedPrimary: {
         color: '#646264',
-        border: '2px solid #FCE4A2',
+        border: '2px solid #F9B403',
         borderRadius: '1rem',
         "&:hover": {
-          border: '3px solid #FCE4A2'
+          border: '3px solid #F9B403',
+          backgroundColor: '#F9B403',
+          color: 'white'
         },
       }
     },

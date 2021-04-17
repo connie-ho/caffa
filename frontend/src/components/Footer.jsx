@@ -25,13 +25,13 @@ export default function Footer() {
 
     return (
       <Grid container direction='row' justify='center' className={classes.footer}>
-        <Grid container xs={12} sm={2} display='flex' direction='column' alignContent='center' alignItems='center'> 
+        <Grid container xs={12} sm={3} display='flex' direction='column' alignContent='center' alignItems='center'> 
               <img src={headIcon} width="50" height="50"  /> 
           <Typography variant="caption" color="inherit">
            © 2021
           </Typography>
         </Grid>
-        <Grid container xs={12} sm={2} display='flex' direction='column' alignContent='center' justify='flex-start' > 
+        <Grid container xs={12} sm={3} display='flex' direction='column' alignContent='center' justify='flex-start' > 
           <Typography variant="body1" color="inherit">
                Company
           </Typography>
@@ -39,7 +39,7 @@ export default function Footer() {
                About us
           </Typography>
         </Grid>
-        <Grid container xs={12} sm={2} display='flex' direction='column' alignContent='center' justify='flex-start'> 
+        <Grid container xs={12} sm={3} display='flex' direction='column' alignContent='center' justify='flex-start'> 
           <Typography variant="body1" color="inherit">
                Further Information
           </Typography>
@@ -50,7 +50,7 @@ export default function Footer() {
                Private policy
           </Typography>
         </Grid>
-        <Grid container xs={12} sm={2} display='flex' direction='column' alignContent='center' justify='flex-start'> 
+        <Grid container xs={12} sm={3} display='flex' direction='column' alignContent='center' justify='flex-start'> 
           <Typography variant="body1" color="inherit">
                Follow us
           </Typography>
