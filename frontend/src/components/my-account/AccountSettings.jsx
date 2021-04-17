@@ -22,7 +22,6 @@ const AccountSettings = (props) => {
     first_name: '',
     last_name: '',
     email: '',
-    password: '',
   })
 
   useEffect(()=>{
@@ -31,7 +30,6 @@ const AccountSettings = (props) => {
     first_name: user? user.first_name : '',
     last_name: user? user.last_name : '',
     email: user? user.email : '',
-    password: user? user.password : ''
   }))
   },[user])
 
@@ -47,9 +45,8 @@ const AccountSettings = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log('First Name', values.first_name, 'Last Name', values.last_name, 'Email', values.email, 'Password', values.password)
-
-    // editUserHandler(values.first_name, values.last_name, values.email, values.password)
+    console.log('First Name', values.first_name, 'Last Name', values.last_name, 'Email', values.email)
+    editUserHandler(values.first_name, values.last_name, values.email)
   }
 
   return (
@@ -77,7 +74,6 @@ const AccountSettings = (props) => {
             >
               <TextField
                 fullWidth
-                helperText="Please specify the first name"
                 label="First name"
                 name="first_name"
                 onChange={handleChange}
@@ -113,20 +109,6 @@ const AccountSettings = (props) => {
                 onChange={handleChange}
                 required
                 value={values.email}
-                variant="outlined"
-              />
-            </Grid>
-            <Grid
-              item
-              md={6}
-              xs={12}
-            >
-              <TextField
-                fullWidth
-                label="Password"
-                name="password"
-                onChange={handleChange}
-                value={values.password}
                 variant="outlined"
               />
             </Grid>
