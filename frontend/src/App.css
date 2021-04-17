@@ -2,3 +2,10 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
+*{
+  -ms-overflow-style: none;
+}
+::-webkit-scrollbar {
+  display: none;
+}
