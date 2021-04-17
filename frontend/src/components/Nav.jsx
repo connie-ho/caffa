@@ -252,7 +252,7 @@ export default function Nav(props) {
               color="inherit"
             >
               { user ? <AccountCircle /> : null }
-              </IconButton>
+            </IconButton>
            
           </div>
           <div className={classes.sectionMobile}>
