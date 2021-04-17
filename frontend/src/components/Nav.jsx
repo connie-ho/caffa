@@ -243,6 +243,8 @@ export default function Nav(props) {
               <CameraAltIcon />
             </IconButton>
 
+            { user &&
+
             <IconButton
               edge="end"
               aria-label="account of current user"
@@ -251,8 +253,9 @@ export default function Nav(props) {
               onClick={handleProfileMenuOpen}
               color="inherit"
             >
-              { user ? <AccountCircle /> : null }
-            </IconButton>
+               <AccountCircle /> 
+              </IconButton>
+               }
            
           </div>
           <div className={classes.sectionMobile}>

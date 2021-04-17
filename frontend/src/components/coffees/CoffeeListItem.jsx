@@ -13,24 +13,33 @@ import bean from '../../images/31080.png'
 const useStyles = makeStyles({
   root: {
     maxWidth: 500,
-    height: 475,
+    height: 500,
     borderRadius:'2%',
     transition: "transform 0.15s ease-in-out",
-    "&:hover": { transform: "scale3d(1.05, 1.05, 1)" },
+    "&:hover": { 
+    transform: "scale3d(1.05, 1.05, 1)", 
+    background: 'transparent'},
   },
   media: {
+    objectFit: 'cover',
     height: 350,
     width: '100%',
-
+    
   },
   cardContent: {
-    maxHeight: 125,
   },
   description: {
     overflow: "hidden",
     display: "-webkit-box",
     WebkitLineClamp: 3,
     WebkitBoxOrient: "vertical"
+  },
+  actionArea: {
+      height: '100%',
+      "&:hover $focusHighlight": {
+      opacity: 0
+    },
+    focusHighlight: {}
   }
 });
 
@@ -41,8 +50,9 @@ function CoffeeListItem(props) {
 
   return (
     <Card className={classes.root} variant='outlined'>
+      <CardActionArea classes={{root: classes.actionArea,
+      focusHighlight: classes.focusHighlight}}>
       <Link to={`/coffees/${coffee.id}`}>
-      <CardActionArea>
         
         <CardMedia
           className={classes.media}
@@ -57,8 +67,8 @@ function CoffeeListItem(props) {
             {coffee.region} | {coffee.avg_rating? coffee.avg_rating: 'No Ratings Yet!'} {coffee.avg_rating && <img src={bean} style={{ height:'15px', width:'15px'}} /> }
           </Typography>
         </CardContent>
-      </CardActionArea>
       </Link>
+      </CardActionArea>
     </Card>
   );
 }
