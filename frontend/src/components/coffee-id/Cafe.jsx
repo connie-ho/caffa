@@ -64,8 +64,10 @@ function Cafe(props) {
         </CardContent>
     </Card>
     <MapContainer 
+      name={cafeData.name}
       latitude={cafeData.coordinates.latitude}
       longitude={cafeData.coordinates.longitude}
+      distance={Math.round(cafeData.distance/1000 * 10) / 10}
     />
     </>
 
