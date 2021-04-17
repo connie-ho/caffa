@@ -63,7 +63,10 @@ function Cafe(props) {
          </Link>
         </CardContent>
     </Card>
-    <MapContainer />
+    <MapContainer 
+      latitude={cafeData.coordinates.latitude}
+      longitude={cafeData.coordinates.longitude}
+    />
     </>
 
   )
