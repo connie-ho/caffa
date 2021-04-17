@@ -23,8 +23,8 @@ const TopPicks = (props) => {
 
   return (
     <Grid container direction="row" >
-      <Grid item xs={0} sm={2} />
-      <Grid item xs={12} sm={8} fullWidth >
+      <Grid item xs={0} sm={1} />
+      <Grid item xs={12} sm={10} fullWidth >
         <div data-aos="fade">
         <Typography variant='h2' gutterBottom>Top favorites</Typography>
         <Typography variant='h4'>Only the best of the best! Chosen by you.</Typography>
@@ -36,7 +36,7 @@ const TopPicks = (props) => {
       <CoffeeCarousel homeCoffees={homeCoffees} type='rating' > </CoffeeCarousel>
         </div>
       </Grid>
-      <Grid item xs={0} sm={2} />
+      <Grid item xs={0} sm={1} />
     </Grid>
   )
 }

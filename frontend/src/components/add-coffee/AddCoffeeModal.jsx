@@ -237,10 +237,10 @@ export default function CoffeeModal(props) {
         </Grid>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color="primary">
+          <Button variant="outlined" color="primary" onClick={handleClose} color="primary">
             Cancel
           </Button>
-          <Button type="submit" color="primary">
+          <Button variant="outlined" color="primary" type="submit" color="primary">
             Add
           </Button>
         </DialogActions>

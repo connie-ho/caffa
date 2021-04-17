@@ -51,10 +51,11 @@ export default function ReviewForm(props) {
           />
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleCloseReviewForm} color="primary">
+          <Button variant="outlined" onClick={handleCloseReviewForm} color="primary">
             Cancel
           </Button>
           <Button 
+            variant="outlined"
             onClick={handleSubmitReviewForm} 
             color="primary"   
           >

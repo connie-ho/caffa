@@ -29,10 +29,10 @@ export default function DeleteReview(props) {
       >
         <DialogTitle id="alert-dialog-title">{"Are you sure you want to delete this review?"}</DialogTitle>
         <DialogActions>
-          <Button onClick={handleClose} color="primary">
+          <Button variant="outlined" onClick={handleClose} color="primary">
             Cancel
           </Button>
-          <Button onClick={submitHandler} color="primary" autoFocus>
+          <Button  variant="outlined" onClick={submitHandler} color="primary" autoFocus>
             Confirm
           </Button>
         </DialogActions>
