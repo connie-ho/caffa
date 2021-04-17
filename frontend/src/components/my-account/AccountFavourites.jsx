@@ -23,18 +23,25 @@ export default function AccountFavourites(props) {
   }, []);
   
   const {limit} = props;
+  console.log("LIMIT :", props)
+  console.log("FAVOURITES :", favourites)
 
   // some function that allows you to slice the favourites arr
-  //const slicedFav = favourites.slice(limit) // what is the slice arguments???
-
+  
+  // console.log("SLICED FAV :", slicedFav)
+  
   const {state} = useContext(DataContext);
-
+  
   const coffees = Object.values(favourites);
   const reviews = state.reviews;
+  const slicedFav = coffees.slice(limit) // what is the slice arguments???
+
+  
+  console.log("slicedFav", slicedFav)
 
   // Create Coffee List Item
   // pass in slicedFav instead of coffees
-    const coffeeList = coffees.map(coffee => {
+    const coffeeList = slicedFav.map(coffee => {
     const coffeeReviews = getReviewsForCoffee(Object.values(reviews),coffee.id)
     const avgRating = avgRatingForCoffee(coffeeReviews);
 
@@ -59,4 +66,5 @@ export default function AccountFavourites(props) {
     {/* {render see more button if limit does not equal 0} */}
       </GridListTile>
   )
+
 }
