@@ -24,8 +24,6 @@ function ReviewList(props) {
     );
   })
 
-  console.log("reviewList", reviewList)
-
   return (
     <div className={classes['coffee-review-list']}>
       {reviewList}

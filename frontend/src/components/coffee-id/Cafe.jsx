@@ -3,6 +3,7 @@ import axios from 'axios';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import Link from '@material-ui/core/Link';
+import MapContainer from './MapContainer';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
@@ -28,12 +29,8 @@ function Cafe(props) {
 
     const getCafeData = async () => {
 
-      const params={
-        query: coffee.brand
-      }
-
       const query = coffee.brand.toLowerCase().split(' ').join('+')
-      const cafeDetails = await axios.get(`/api/cafes/`, {params})
+      const cafeDetails = await axios.get(`/api/cafes/?brand=${query}`)
       setCafeData((prev)=>(cafeDetails.data))
     }
 
@@ -46,24 +43,28 @@ function Cafe(props) {
 
   return (
     cafeData && 
-    <Link href={cafeData.url}>
-    <Card className={classes.root}>
-      <CardMedia
-        className={classes.media}
-        image={cafeData.image_url}
-        title={cafeData.name}
-        />
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="h2">
-          {cafeData.name}
-        </Typography>
-        <Typography variant="body2" color="textSecondary" component="p">
-          {cafeData.location.city}
-          {cafeData.rating}
-        </Typography>
-      </CardContent>
-  </Card>
-    </Link>
+    <>
+      <Card className={classes.root}>
+        <CardMedia
+          className={classes.media}
+          image={cafeData.image_url}
+          title={cafeData.name}
+          />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="h2">
+            {cafeData.name}
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
+            {cafeData.location.city}
+            {cafeData.rating}
+          </Typography>
+        <Link href={cafeData.url}>
+          See More On Yelp
+         </Link>
+        </CardContent>
+    </Card>
+    <MapContainer />
+    </>
 
   )
 }
