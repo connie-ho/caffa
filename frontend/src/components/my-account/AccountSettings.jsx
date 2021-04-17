@@ -1,6 +1,6 @@
 import { useState, useContext, useEffect } from 'react';
 import UserContext from '../../contexts/UserContext';
-
+import { makeStyles } from '@material-ui/core/styles';
 
 import {
   Box,
@@ -16,7 +16,7 @@ import {
 
 
 const AccountSettings = (props) => {
-  const {editUserHandler} = props
+  const {editUserHandler, classes} = props
   const {user} = useContext(UserContext);
   const [values, setValues] = useState({
     first_name: '',
@@ -61,7 +61,6 @@ const AccountSettings = (props) => {
           subheader="The information can be edited"
           title="Profile"
         />
-        <Divider />
         <CardContent>
           <Grid
             container
@@ -69,7 +68,6 @@ const AccountSettings = (props) => {
           >
             <Grid
               item
-              md={6}
               xs={12}
             >
               <TextField
@@ -84,7 +82,6 @@ const AccountSettings = (props) => {
             </Grid>
             <Grid
               item
-              md={6}
               xs={12}
             >
               <TextField
@@ -99,7 +96,6 @@ const AccountSettings = (props) => {
             </Grid>
             <Grid
               item
-              md={6}
               xs={12}
             >
               <TextField
@@ -114,15 +110,11 @@ const AccountSettings = (props) => {
             </Grid>
           </Grid>
         </CardContent>
-        <Divider />
         <Box
-          sx={{
-            display: 'flex',
-            justifyContent: 'flex-end',
-            p: 2
-          }}
+          m={2}
         >
           <Button
+            className={classes.settingsButton}
             type="submit"
             color="primary"
             variant="outlined"
