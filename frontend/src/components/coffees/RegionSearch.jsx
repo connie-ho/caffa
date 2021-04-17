@@ -147,12 +147,14 @@ export default function RegionSearch(props) {
             ref={setAnchorEl} 
             className={focused ? 'focused' : ''}
             >
+              <div style={{maxHeight:'6rem', overflow:'auto'}}>
             {value.map((option, index) => (
               <Tag 
                 onClick={(e)=>{handleChange(e,option.id)}}
                 label={option.type} {...getTagProps({ index })} 
               />
               ))}
+              </div>
             <input 
             {...getInputProps()} 
             />
