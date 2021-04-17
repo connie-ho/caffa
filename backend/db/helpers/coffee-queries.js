@@ -2,7 +2,9 @@ const db = require("../");
 
 const getCoffees = function () {
   const text = `
-  SELECT * FROM coffees
+  SELECT coffees.*, ROUND(AVG(reviews.rating),1) AS avg_rating FROM coffees 
+  LEFT OUTER JOIN reviews ON coffees.id = reviews.coffee_id
+  GROUP BY coffees.id
   `;
 
   return db
@@ -13,7 +15,7 @@ const getCoffees = function () {
 
 const getMostFavouritedCoffees = function () {
   const text = `
-  SELECT coffees.* FROM coffees INNER JOIN favourites ON favourites.coffee_id = coffees.id GROUP BY coffees.id;`;
+  SELECT coffees.* FROM coffees INNER JOIN favourites ON favourites.coffee_id = coffees.id GROUP BY coffees.id LIMIT 6;`;
 
   return db
     .query(text)

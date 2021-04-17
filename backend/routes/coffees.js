@@ -29,13 +29,6 @@ router.get("/:id", (req, res) => {
 });
 
 router.post("/", (req, res) => {
-  // uncomment when user routes are done
-  // const userId = req.session.user_id;
-
-  // if (!userId) {
-  //   res.send('Not logged in!');
-  //   return;
-  // }
 
   addCoffee(req.body)
     .then((data) => res.status(201).json(data))

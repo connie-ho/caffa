@@ -11,7 +11,8 @@ export default function reducer(state, action) {
         coffees: action.coffees,
         reviews: action.reviews,
         favourites: action.favourites,
-        users: action.users
+        users: action.users,
+        regions: action.regions
       }
       
     case SET_FAVOURITE:

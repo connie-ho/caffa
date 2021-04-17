@@ -1,19 +1,15 @@
 import {Route, Switch} from 'react-router-dom';
-import {useContext,useState} from 'react';
+import {useState} from 'react';
 
-import DataContext from '../../contexts/DataContext';
 import CoffeeListItem from './CoffeeListItem';
 import Pagination from './Pagination';
 
-import {getReviewsForCoffee, avgRatingForCoffee} from '../../helpers/selectors';
+// external styles
+import { Grid } from "@material-ui/core";
 
 const CoffeeList = (props) => {
 
-  const {state} = useContext(DataContext);
-  console.log("COFFEE LIST STATE: ", state)
-
-  const coffees = Object.values(state.coffees);
-  const reviews = state.reviews;
+  const {coffees} = props;
 
   // Pagination Logic
   const[currentPage, setCurrentPage] = useState(1);
@@ -29,29 +25,32 @@ const CoffeeList = (props) => {
 
   // Create Coffee List Item
   const coffeeList = currentCoffees.map(coffee => {
-    const coffeeReviews = getReviewsForCoffee(Object.values(reviews),coffee.id)
-    const avgRating = avgRatingForCoffee(coffeeReviews);
 
     return (
-      <CoffeeListItem
-        key={coffee.id}
-        coffee={coffee}
-        avgRating={avgRating}
-      />
+      <Grid item xs={12} sm={6} lg={4}>
+        <CoffeeListItem
+          key={coffee.id}
+          coffee={coffee}
+        />
+      </Grid>
     );
   })
-  // const addCoffeeArray = Object.keys(props.coffees).map( coffee => {
-  //   return props.coffees[coffee]
-  // })
 
   return (
-    <div>
+
       <Switch>
         <Route path="/coffees/:id">
         </Route>
         <Route path="/coffees">
-          <h1>All Coffees</h1>
-          {coffeeList}
+
+          <Grid item container direction="row" >
+            <Grid item xs={0} sm={2} />
+            <Grid item xs={12} sm={8} >
+              <Grid container spacing="4">
+                {coffeeList}
+              </Grid>
+            </Grid>
+          </Grid>
           <Pagination 
             coffeesPerPage={coffeesPerPage}
             totalCoffees={coffees.length}
@@ -59,7 +58,7 @@ const CoffeeList = (props) => {
           />
         </Route>
       </Switch>
-    </div>
+
   )
 };
 

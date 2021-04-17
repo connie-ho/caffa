@@ -20,6 +20,9 @@ let theme = createMuiTheme({
       primary: 'rgba(0,0,0,0.87)',
       secondary: 'rgba(61,58,58,0.54)',
     },
+    background: {
+      default: '#ffffff',
+    },
   },
   typography: {
     fontFamily: 'Roboto',
@@ -30,16 +33,17 @@ let theme = createMuiTheme({
       fontFamily: 'Playfair Display'
     },
     h3: {
-      fontFamily: 'Playfair Display'
+      fontFamily: 'Roboto'
     },
     h4: {
-      fontFamily: 'Playfair Display'
+      fontFamily: 'Roboto',
+      color: '#646264'
     },
     h5: {
-      fontFamily: 'Playfair Display'
+      fontFamily: 'Roboto'
     },
     h6: {
-      fontFamily: 'Playfair Display'
+      fontFamily: 'Roboto'
     },
   },
 })

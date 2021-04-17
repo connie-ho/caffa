@@ -15,7 +15,7 @@ const UploadForm = (props) =>  {
       }
     },
     transform: {
-      transform: `translate(0px, 10rem)`,
+      transform: `translate(0px, 6rem)`,
       color: '#3d3a3a'
     }
   }))

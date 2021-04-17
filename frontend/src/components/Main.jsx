@@ -1,22 +1,21 @@
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import {useEffect, useState} from 'react';
+import {useState, useContext} from 'react';
 import { Grid } from "@material-ui/core";
 import Nav from './Nav';
 import Login from './Login';
-import NotLoggedIn from './NotLoggedIn';
 import Home from './Home';
-import CoffeeList from './coffees/CoffeeList';
 import SearchList from './image-search/SearchList';
 import Coffees from './coffees/Coffees';
-import UserContext from '../contexts/UserContext';
+import DataContext from '../contexts/DataContext';
 import FavouriteContext from '../contexts/FavouriteContext';
-import Image from 'material-ui-image'
 import ReviewContext from '../contexts/ReviewContext';
 import SearchContext from '../contexts/SearchContext';
 import HomeContext from '../contexts/HomeContext';
 import Account from './Account';
+import AccountFavourites from './my-account/AccountFavourites';
+import AccountSettings from './my-account/AccountSettings';
 import Register from './Register'
-
+import Footer from './Footer'
 const Main = (props) => {
 
   const {
@@ -31,8 +30,7 @@ const Main = (props) => {
     loginHandler, 
     logoutHandler, 
     homeCoffees, 
-    setHomeCoffees, 
-    getMostFavouritedCoffees} = props;
+    setHomeCoffees } = props;
 
   const [results, setResults] = useState(
     {
@@ -41,6 +39,8 @@ const Main = (props) => {
       
     }
   )
+
+  const {state} = useContext(DataContext);
   
 
   return (
@@ -69,10 +69,8 @@ const Main = (props) => {
               </FavouriteContext.Provider>
             </ReviewContext.Provider>
           </Route>
-          <Route path="/account" >
-            <Account
-              user={user}
-            />
+          <Route path="/account">
+            <Account />
           </Route>
           <Route path="/login" >
             <Login/>
@@ -81,14 +79,13 @@ const Main = (props) => {
             <Register />
           </Route>
           <Route path="/">
-            <HomeContext.Provider homeCoffees={homeCoffees} >
-              <Home 
-                getMostFavouritedCoffees={getMostFavouritedCoffees}
-              />
+            <HomeContext.Provider>
+              <Home />
             </HomeContext.Provider>
           </Route>
         </Switch>
       </Router>
+        <Footer/>
     </Grid>
   )
 };

@@ -12,7 +12,7 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles({
   header: {
     padding:'1em',
-    paddingLeft:'0px'
+    paddingLeft:'0px',
   }
 })
 
@@ -93,7 +93,7 @@ export default function SearchList(props) {
     }
     return (
       <Grid item xs={12}>
-      <Typography variant="p" style={{fontSize:'5em'}}>An error has occurred in image search, please try again.</Typography>
+      <Typography variant="p" style={{fontSize:'2em'}}>An error has occurred in image search, please try again.</Typography>
       </Grid>
     )
   }
@@ -103,8 +103,8 @@ export default function SearchList(props) {
  
     <Grid item xs={0} sm={2} />
     <Grid item xs={12} sm={8} >
-    <Typography variant="h1" className={classes.header}>Your search results</Typography>
-      <Grid container spacing="4">
+    <Typography variant="h2" className={classes.header}>Your search results</Typography>
+      <Grid container spacing="5">
       {searchResult()}
       </Grid>
       <br></br>

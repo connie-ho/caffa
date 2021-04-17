@@ -6,6 +6,7 @@ import reducer, {
   SET_REVIEW,
   SET_COFFEE
 } from "../reducers/application";
+import {getRegions} from '../helpers/selectors';
 
 function useApplicationData(){
 
@@ -13,7 +14,8 @@ function useApplicationData(){
     users: {},
     coffees: {},
     reviews: {},
-    favourites: {}
+    favourites: {},
+    regions: {}
   });
 
 
@@ -26,7 +28,6 @@ function useApplicationData(){
       axios.get("/api/favourites"),
     ])
     .then(all=>{
-      // const users = [...all[0].data];
 
       // copy users into an object
       const users = {}
@@ -52,8 +53,9 @@ function useApplicationData(){
         favourites[fav.id] = fav;
       }
 
+      const regions = getRegions(Object.values(coffees));
 
-      dispatch({type: SET_APPLICATION_DATA, users, coffees, reviews, favourites});
+      dispatch({type: SET_APPLICATION_DATA, users, coffees, reviews, favourites, regions});
     })
   }, []);
 
