@@ -58,6 +58,29 @@ const addUser = function(params) {
 
 }
 
+const editUser = function(params) {
+
+  const {
+    id,
+    first_name,
+    last_name,
+    email,
+    password,
+  } = params;
+
+  const text = `
+  UPDATE users 
+  SET first_name = $2, last_name = $3, email = $4, password = $5
+  WHERE id = $1;`;
+
+  const values = [id, first_name, last_name, email, password]
+  return db
+  .query(text, values)
+  .then((data) => data.rows[0])
+  .catch((err) => console.error(this, "query failed", err.stack));
+  
+}
+
 // const addUser = (firstName, lastName, email, password) => {
 //     const query = {
 //         text: `INSERT INTO users (first_name, last_name, email, password) VALUES ($1, $2, $3, $4) RETURNING *` ,
@@ -87,5 +110,6 @@ module.exports = {
     getUserById,
     getUserByEmail,
     getUsers,
+    editUser,
     addUser
 };

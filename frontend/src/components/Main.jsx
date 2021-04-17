@@ -27,6 +27,7 @@ const Main = (props) => {
     addCoffee, 
     user, 
     setUser, 
+    editUserHandler,
     loginHandler, 
     logoutHandler, 
     homeCoffees, 
@@ -70,7 +71,9 @@ const Main = (props) => {
             </ReviewContext.Provider>
           </Route>
           <Route path="/account">
-            <Account />
+            <Account 
+              editUserHandler={editUserHandler}
+            />
           </Route>
           <Route path="/login" >
             <Login/>
