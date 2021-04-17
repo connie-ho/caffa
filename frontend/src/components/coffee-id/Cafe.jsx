@@ -1,23 +1,31 @@
 import {useEffect, useState} from 'react';
 import axios from 'axios';
-import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import Link from '@material-ui/core/Link';
 import MapContainer from './MapContainer';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
+
+
 
 const useStyles = makeStyles({
+  section: {
+    display: 'flex',
+    flexDirection:'row',
+    padding: '5rem 10rem',
+    paddingTop: 0
+  },
   root: {
-    maxWidth: 345,
+    minWidth: '40%',
+    marginRight: '1em',
   },
   media: {
-    height: 140,
+    height: 300,
   },
+  map: {
+  }
 });
 
 function Cafe(props) {
@@ -43,7 +51,7 @@ function Cafe(props) {
 
   return (
     cafeData && 
-    <>
+    <div className={classes.section}>
       <Card className={classes.root}>
         <CardMedia
           className={classes.media}
@@ -55,21 +63,21 @@ function Cafe(props) {
             {cafeData.name}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            {cafeData.location.city}
-            {cafeData.rating}
+            Rating: {cafeData.rating}
           </Typography>
         <Link href={cafeData.url}>
-          See More On Yelp
+          See More Details On Yelp
          </Link>
         </CardContent>
     </Card>
-    <MapContainer 
+    <MapContainer
+      className={classes.map} 
       name={cafeData.name}
       latitude={cafeData.coordinates.latitude}
       longitude={cafeData.coordinates.longitude}
       distance={Math.round(cafeData.distance/1000 * 10) / 10}
     />
-    </>
+    </div>
 
   )
 }

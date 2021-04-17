@@ -2,8 +2,6 @@
 
 $sectionPadding: 5rem 10rem;
 
-
-
 .coffee-details-section {
   display: flex;
   flex-direction: row;
@@ -155,4 +153,9 @@ $sectionPadding: 5rem 10rem;
 
 .coffee-review-rating {
   background-color: $primaryColor;
+}
+
+.coffee-cafe-section{
+  padding: $sectionPadding;
+  padding-top: 0;
 }

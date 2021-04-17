@@ -22,7 +22,6 @@ function MapContainer (props) {
   ];
   
   const mapStyles = {        
-    height: "100vh",
     width: "100%"
   };
   
