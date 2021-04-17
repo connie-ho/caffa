@@ -3,6 +3,7 @@ import {useContext, useState, useEffect} from 'react';
 import DataContext from '../../contexts/DataContext';
 import UserContext from '../../contexts/UserContext';
 import Details from './Details';
+import Cafe from './Cafe';
 import ReviewList from './ReviewList';
 import AddReview from './AddReview';
 import {getReviewsForCoffee, getFavouritesForCoffee, isLiked, isReviewed} from '../../helpers/selectors';
@@ -53,6 +54,12 @@ export default function Coffee(props) {
           deleteFavourite={deleteFavourite}
           isLiked={isLiked}
         />
+        <div>
+          <h1 className={classes['coffee-review-heading']}>Featured Cafe for this Coffee</h1>
+          <Cafe 
+            coffee={coffee}
+          />
+          </div>
         <div>
           <h1 className={classes['coffee-review-heading']}>Community Reviews</h1>
           <div className={classes['coffee-review-section']}>
