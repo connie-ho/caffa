@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {Route, Switch} from 'react-router-dom';
+import { Grid } from "@material-ui/core";
 import { Helmet } from 'react-helmet';
 import { useState, useContext, useEffect } from 'react';
 import UserContext from '../contexts/UserContext';
@@ -27,14 +28,14 @@ import AccountSettings from './my-account/AccountSettings';
 import AccountFavourites from './my-account/AccountFavourites';
 import AccountReviews from './my-account/AccountReviews';
 import {getUserReviews, isLiked, isReviewed} from '../helpers/selectors';
-
-
+import { flexbox } from '@material-ui/system';
 
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    display: 'flex',
+    padding: '5rem 20rem',
+    display: 'block',
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
@@ -162,7 +163,9 @@ export default function Account(props) {
           />
         </Route>
         <Route path="/account/settings">
-          <AccountSettings />
+          <AccountSettings
+            classes={classes}
+          />
         </Route>
         <Route path="/account">
           <AccountProfile />
@@ -171,10 +174,8 @@ export default function Account(props) {
           />
         </Route>
       </Switch>
-      <main className={classes.content}>
-        <Toolbar />
-        <h2>Account Toolbar</h2>
-      </main>
+      
+      
     </div>
   );
 }
