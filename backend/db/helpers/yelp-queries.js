@@ -12,10 +12,10 @@ const fetchCoordsByIP = function(ip) {
   return axios.get(`https://freegeoip.app/json/${ip}`);
 };
 
-const fetchBusinessDetailsCountry = function(term, location) {
+const fetchBusinessDetailsCit = function(term, location) {
   const searchRequest = {
     term: term,
-    location: location.country_name || 'Canada',
+    location: location.city || 'Vancouver',
     categories: 'coffee,coffeeroasteries,cafes',
     limit: 1,
   };
@@ -24,17 +24,17 @@ const fetchBusinessDetailsCountry = function(term, location) {
     .then(res => {
       
       if (!res.jsonBody.businesses.length) {
-        return fetchBusinessDetailsCity('cafe', location);
+        return fetchBusinessDetailsCountry('cafe', location);
       }
       return res.jsonBody.businesses[0];
 
     });
 };
 
-const fetchBusinessDetailsCity = function(term, location) {
+const fetchBusinessDetailsCountry = function(term, location) {
   const searchRequest = {
     term: term,
-    location: location.city || 'Vancouver',
+    location: location.country_name || 'Canada',
     categories: 'coffee,coffeeroasteries,cafes',
     limit: 1,
   };
@@ -48,7 +48,7 @@ const getCafeData = function(query) {
   return fetchMyIP()
     .then(res=> fetchCoordsByIP(res.data.ip))
     .then(res => res.data)
-    .then(res => fetchBusinessDetailsCountry(query, res));
+    .then(res => fetchBusinessDetailsCit(query, res));
 };
 
 module.exports = {
