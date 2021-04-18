@@ -42,9 +42,10 @@ export default function Coffee(props) {
   const [openReviewForm, setOpenReviewForm] = useState(false);
 
   return (
-    <div>
+    <div >
     {coffee && (
       <>
+
         <Details 
           coffee={coffee}
           reviews={coffeeReviews}
@@ -53,13 +54,13 @@ export default function Coffee(props) {
           deleteFavourite={deleteFavourite}
           isLiked={isLiked}
         />
-        <div>
+         <div className={classes['coffee-cafe-section']}>
           <h1 className={classes['coffee-review-heading']}>Featured Cafe for this Coffee</h1>
           <Cafe 
             coffee={coffee}
           />
-          </div>
-        <div>
+        </div>
+        <div className={classes['coffee-review-wrapper']}>
           <h1 className={classes['coffee-review-heading']}>Community Reviews</h1>
           <div className={classes['coffee-review-section']}>
           <ReviewList

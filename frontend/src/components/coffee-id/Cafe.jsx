@@ -14,17 +14,21 @@ const useStyles = makeStyles({
   section: {
     display: 'flex',
     flexDirection:'row',
-    padding: '5rem 10rem',
     paddingTop: 0
   },
   root: {
     minWidth: '40%',
+    padding: '1.5em',
     marginRight: '1em',
+    border: '1px solid transparent',
+    borderRadius: '1em',
   },
   media: {
     height: 300,
   },
-  map: {
+  img: {
+    padding: 0,
+    margin: 0
   }
 });
 
@@ -54,7 +58,10 @@ function Cafe(props) {
     <div className={classes.section}>
       <Card className={classes.root}>
         <CardMedia
-          className={classes.media}
+          classes={{
+            img: classes.img, 
+            root: classes.media
+          }}
           image={cafeData.image_url}
           title={cafeData.name}
           />
@@ -75,7 +82,7 @@ function Cafe(props) {
       name={cafeData.name}
       latitude={cafeData.coordinates.latitude}
       longitude={cafeData.coordinates.longitude}
-      distance={Math.round(cafeData.distance/1000 * 10) / 10}
+      distance={Math.round(cafeData.distance * 10) / 10}
     />
     </div>
 
