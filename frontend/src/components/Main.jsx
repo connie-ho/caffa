@@ -1,4 +1,4 @@
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch, useLocation} from 'react-router-dom';
 import {useState, useContext} from 'react';
 import { Grid } from "@material-ui/core";
 import Nav from './Nav';
@@ -31,7 +31,8 @@ const Main = (props) => {
     loginHandler, 
     logoutHandler, 
     homeCoffees, 
-    setHomeCoffees } = props;
+    setHomeCoffees,
+     } = props;
 
   const [results, setResults] = useState(
     {
@@ -42,7 +43,7 @@ const Main = (props) => {
   )
 
   const {state} = useContext(DataContext);
-  
+
 
   return (
     <Grid container direction="column">
@@ -58,6 +59,16 @@ const Main = (props) => {
         {/* <h2>{user ? "I am logged in" : "I am not logged in"}</h2> */}
 
         <Switch>
+          <Route path="/account">
+          <ReviewContext.Provider value={{addReview, editReview, deleteReview}}>
+
+            <Account 
+              editUserHandler={editUserHandler}
+            />
+            </ReviewContext.Provider>
+
+          </Route>
+          <>
             <Route path="/search">
             <Grid item>
               <SearchList results={results} setResults={setResults} addCoffee={addCoffee}/>
@@ -70,29 +81,21 @@ const Main = (props) => {
               </FavouriteContext.Provider>
             </ReviewContext.Provider>
           </Route>
-          <Route path="/account">
-          <ReviewContext.Provider value={{addReview, editReview, deleteReview}}>
-
-            <Account 
-              editUserHandler={editUserHandler}
-            />
-            </ReviewContext.Provider>
-
-          </Route>
           <Route path="/login" >
             <Login/>
           </Route>
           <Route path="/register" >
             <Register />
           </Route>
-          <Route path="/">
+          <Route path="/" exact>
             <HomeContext.Provider>
               <Home />
             </HomeContext.Provider>
           </Route>
+          <Footer/>
+          </>
         </Switch>
       </Router>
-        <Footer/>
     </Grid>
   )
 };
