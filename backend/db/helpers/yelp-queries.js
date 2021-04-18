@@ -15,7 +15,7 @@ const fetchCoordsByIP = function(ip) {
 const fetchBusinessDetailsCountry = function(term, location) {
   const searchRequest = {
     term: term,
-    location: location.country_name || 'Canada',
+    location: location.city || 'Vancouver',
     categories: 'coffee,coffeeroasteries,cafes',
     limit: 1,
   };
