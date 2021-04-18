@@ -11,8 +11,8 @@ import bean from '../../images/31080.png'
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: 400,
-    height: 525,
+    width: 300,
+    height: 400,
     borderRadius:'2%',
     transition: "transform 0.15s ease-in-out",
     "&:hover": { 
@@ -20,13 +20,12 @@ const useStyles = makeStyles({
     background: 'transparent'},
   },
   media: {
-    objectFit: 'contain',
-    height: 400,
-    width: '100%',
+    height: 275,
+    backgroundSize: 'contain'
     
   },
   cardContent: {
-    height: 400,
+    height: 175,
   },
   description: {
     overflow: "hidden",
