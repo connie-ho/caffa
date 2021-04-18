@@ -1,6 +1,9 @@
 import { useState, useContext, useEffect } from 'react';
 import UserContext from '../../contexts/UserContext';
 import { makeStyles } from '@material-ui/core/styles';
+import AccountAvatar from './AccountAvatar';
+import Typography from '@material-ui/core/Typography';
+
 
 import {
   Box,
@@ -19,6 +22,7 @@ const AccountSettings = (props) => {
   const {editUserHandler, classes} = props
   const {user} = useContext(UserContext);
   const [values, setValues] = useState({
+    avatar_url: '',
     first_name: '',
     last_name: '',
     email: '',
@@ -27,6 +31,7 @@ const AccountSettings = (props) => {
   useEffect(()=>{
     setValues(prev => ({
       ...prev,
+    avatar_url: '',
     first_name: user? user.first_name : '',
     last_name: user? user.last_name : '',
     email: user? user.email : '',
@@ -57,6 +62,7 @@ const AccountSettings = (props) => {
       onSubmit={handleSubmit}
     >
       <Card>
+        <AccountAvatar avatar={values.avatar_url} firstName={values.first_name}/>
         <CardHeader
           subheader="The information can be edited"
           title="Profile"
