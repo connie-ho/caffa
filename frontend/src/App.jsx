@@ -6,7 +6,6 @@ import "./App.css";
 
 import DataContext from './contexts/DataContext';
 import UserContext from './contexts/UserContext';
-import FavouriteContext from './contexts/DataContext';
 
 import useApplicationData from './hooks/useApplicationData';
 
@@ -29,12 +28,11 @@ function App() {
         setUser(res.data)
       )
       .catch( res => {
-        console.log('w/e')
+        console.log('there was an error authenticating')
       })
     }, []);
 
   const loginHandler = (email,password) => {
-    console.log("in handle login function")
     return axios.post("/api/users/login", {email: email, password: password})
       .then(res => {
         setUser(res.data)
@@ -47,7 +45,6 @@ function App() {
   const editUserHandler = (first_name, last_name, email, password) => {
     return axios.post("/api/users/edit", {first_name: first_name, last_name: last_name, email: email, password: password})
       .then(res => {
-        console.log("EDIT USER RES :", res)
       })
       .catch(err => {
         console.log(err.message)
@@ -67,7 +64,6 @@ function App() {
   }
 
   const logoutHandler = () => {
-    // console.log("in App.jsx logoutHandler")
     axios
       .post("/api/users/logout")
       .then(res => setUser(res.data))

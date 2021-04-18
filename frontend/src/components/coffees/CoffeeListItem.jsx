@@ -8,9 +8,10 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import bean from '../../images/31080.png'
+
 const useStyles = makeStyles({
   root: {
-    maxWidth: 500,
+    maxWidth: 400,
     height: 525,
     borderRadius:'2%',
     transition: "transform 0.15s ease-in-out",
@@ -48,10 +49,12 @@ function CoffeeListItem(props) {
         <CardMedia
           className={classes.media}
           image={coffee.image_url}
-          title="Contemplative Reptile"
         />
         <CardContent className={classes.cardContent}>
-          <Typography variant="h6" style={{ fontSize:'1.3rem'  }} component="h2">
+        <Typography variant="h6" style={{ fontSize:'1rem'  }} component="h6">
+            {coffee.brand}
+          </Typography>
+          <Typography variant="h2" style={{ fontSize:'1.3rem'  }} component="h2">
             {coffee.name}
           </Typography>
           <Typography gutterBottom variant="subtitle1" style={{ fontSize:'1.0em', padding:'10 10', color:'#646264'}} component="h3">
