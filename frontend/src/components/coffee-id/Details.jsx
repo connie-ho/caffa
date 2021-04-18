@@ -62,6 +62,7 @@ export default function Details(props) {
 
   return (
     <>
+    <div className={classes['coffee-details-wrapper']}>
       <div
         className={classes['coffee-details-section']}
       >
@@ -101,6 +102,7 @@ export default function Details(props) {
             {numFav} {numFav === 1? 'like':'likes'}
           </div>
         </div>
+      </div>
       </div>
 
       <div className={classes['coffee-characteristic-section']}>

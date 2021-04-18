@@ -1,10 +1,16 @@
 @import '../../variables';
 
-$sectionPadding: 5rem 10rem;
+$sectionPadding: 5em 0em 5em;
+$maxWidth: 1080px;
 
 
+.coffee-details-wrapper{
+  background-color: $secondaryColor;
+}
 
 .coffee-details-section {
+  max-width: $maxWidth;
+  margin: 0 auto;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -89,11 +95,13 @@ $sectionPadding: 5rem 10rem;
 }
 
 .coffee-characteristic-section{
+  margin: 0 auto;
+  max-width: $maxWidth;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   font-size: 1rem;
-  padding: $sectionPadding;
+  padding: 5em 5em 0em;
 
   p {
     margin: 0;
@@ -114,10 +122,16 @@ $sectionPadding: 5rem 10rem;
 
 }
 
+.coffee-review-wrapper {
+  max-width: $maxWidth;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
 .coffee-review-heading {
-  padding: $sectionPadding;
-  padding-bottom: 0;
-  padding-top: 0;
+  max-width: $maxWidth;
+  padding-top: 3em;
   font-family: $primaryFontFamily;
   font-size: 2rem;
   font-weight: 600;
@@ -125,10 +139,11 @@ $sectionPadding: 5rem 10rem;
 }
 
 .coffee-review-section {
-  padding: $sectionPadding;
+  max-width: $maxWidth;
   padding-top: 0;
   display: flex;
   justify-content: space-between;
+
 }
 
 .coffee-review-list {
@@ -155,4 +170,14 @@ $sectionPadding: 5rem 10rem;
 
 .coffee-review-rating {
   background-color: $primaryColor;
+}
+
+.coffee-cafe-section{
+  max-width: $maxWidth;
+  margin: 0 auto;
+  padding: $sectionPadding
+  
+  h1{
+    padding: 0;
+  }
 }

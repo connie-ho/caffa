@@ -1,14 +1,18 @@
 INSERT INTO coffees (name, description, region, roast, brand, acidity, grain_species, image_url)
 VALUES
 
-('Lush', 'One 907g (2lb) bag of Ethical Bean Fair Trade Organic Lush Medium Dark Roast whole bean coffee
-Certified organic coffee is grown free from harmful chemicals and pesticides
-Fair trade certification ensures farmers and their families receive a fair price for their coffee
-A classic medium roast with elegant acidity highlighting a nuanced, medium bodied cup
-Resealable bag with pull-ab zip closure for long-lasting freshness', 'Guatemala', 'Dark', 'Ethical Bean Coffee', 'Medium to High', 'Arabica', 'http://cdn.shopify.com/s/files/1/0059/2772/products/lush-wb_grande.jpg?v=1594355879'), 
+('Alasitas Java Coco Natural - Espresso','The Java variety originates from Ethiopia and has a wonderful and complex flavour profile that is super unique to its variety. The Rodriguez family produces beautiful and delicious Javas and we are so happy to have these coffees in our collection.','Yungas', 'Dark', 'Monogram Coffee', 'Low', 'Robusta','https://cdn.shopify.com/s/files/1/0702/0489/products/ALASITAS_Espresso_352x544.png?v=1614378824'),
 
-('Decaf', 'A very undecaf decaf. Gobs of body, intriguing chocolate character.
-Gobs of body, intriguing chocolate character. Dynamite as drip, scintillating as espresso.', 'Guatemala', 'Dark', 'Ethical Bean Coffee', 'Medium to High', 'Arabica', 'https://cdn.shopify.com/s/files/1/0059/2772/products/decaf-ground_600x600.jpg?v=1594355882'), 
+('God Father Espresso', 
+'Smooth and Rich, Notes of Milk Chocolate and Caramel. This is a rock solid coffee which preforms well as straight espresso, as well as in larger 16oz milk drinks.',
+'Brazil',
+'Dark',
+'Analog Coffee',
+'High',
+'Robusta',
+'https://cdn.shopify.com/s/files/1/1521/8648/products/godfathernewwhite_grande.jpg?v=1563287995'),
+
+('Kick Ass', 'Sweet, smoky, audacious. This remarkable blend of beans is the spirit of Kicking Horse Coffee, and a bold invitation to wake up and kick ass with us', 'Indonesia', 'Dark','Kicking Horse', 'Low', 'Arabica', 'https://m.media-amazon.com/images/I/61gK0Dyq0rL._AC_SL1500_.jpg'),
 
 ('Sweet Espresso', 'A stand-up straight shot. Marries beautifully with milk.
 Multidimensional and dripping with crema.', 'Guatemala', 'Medium', 'Ethical Bean Coffee', 'Medium to High', 'Arabica', 'https://cdn.shopify.com/s/files/1/0059/2772/products/sweet-wb_600x600.jpg?v=1594355881'), 
@@ -31,7 +35,6 @@ Ommm. Serenity now. Medium body, nutty aroma and a sweet brightness. Stirring me
 
 ('Smart Ass', 'Cheeky, bright, precocious. A bright, chocolatey concoction for the smart-thinking, deep-drinking, good-at-their-game-in-the-morning crowd', 'Africa', 'Medium', 'Kicking Horse', 'Medium', 'Arabica', 'https://images-na.ssl-images-amazon.com/images/I/61FAldq1gsL._AC_SL1500_.jpg'),
 
-('Kick Ass', 'Sweet, smoky, audacious. This remarkable blend of beans is the spirit of Kicking Horse Coffee, and a bold invitation to wake up and kick ass with us', 'Indonesia', 'Dark','Kicking Horse', 'Low', 'Arabica', 'https://m.media-amazon.com/images/I/61gK0Dyq0rL._AC_SL1500_.jpg'),
 
 ('Half Ass', 'On your mark... get set... take it easy! This blend is the full taste of our Kick Ass coffee, with just half the caffeine.', 'Indonesia',  'Dark', 'Kicking Horse','Low','Arabica', 'https://m.media-amazon.com/images/I/61oqnUvxXIL._AC_SL1500_.jpg'),
 
@@ -40,7 +43,6 @@ Ommm. Serenity now. Medium body, nutty aroma and a sweet brightness. Stirring me
 ('Gold Origins Sumatra Instant','NESCAFÉ Gold origins Sumatra coffee (95 g) is a full-bodied profile with a smoky, earthy flavour underpinned by subtle notes of caramel and nut','Indonesia','Medium','Nescafe','Medium','Arabica','https://m.media-amazon.com/images/I/813s1iOsRwL._AC_SL1500_.jpg'),
 
 
-('Alasitas Java Coco Natural - Espresso','The Java variety originates from Ethiopia and has a wonderful and complex flavour profile that is super unique to its variety. The Rodriguez family produces beautiful and delicious Javas and we are so happy to have these coffees in our collection.','Yungas', 'Dark', 'Monogram Coffee', 'Low', 'Robusta','https://cdn.shopify.com/s/files/1/0702/0489/products/ALASITAS_Espresso_352x544.png?v=1614378824'),
 
 ('Desta Gola - Espresso','Desta Gola is part of Royal Coffee’s “Single Farmer Lots Program”, a program designed to separate single farmer lots from the larger cooperative blends sold through the Ethiopian Commodity Exchange. Through yearly visits and regular communication, Royal works with the farmers to ensure they follow strict farm management and post-harvest protocols. This has resulted in increasing cup quality and higher returns for these producers year after year.','Ethiopia','Dark','Monogram Coffee','Medium','Robusta','https://cdn.shopify.com/s/files/1/0702/0489/products/DESTAGOLA_Espresso1_576x896.png?v=1616523601'),
 
@@ -55,14 +57,15 @@ Ommm. Serenity now. Medium body, nutty aroma and a sweet brightness. Stirring me
   'Arabica',
   'https://cdn.shopify.com/s/files/1/0702/0489/products/ALASITAS_Filter_576x928.png?v=1614284629'),
 
-('God Father Espresso', 
-'Smooth and Rich, Notes of Milk Chocolate and Caramel. This is a rock solid coffee which preforms well as straight espresso, as well as in larger 16oz milk drinks.',
-'Brazil',
-'Dark',
-'Analog Coffee',
-'High',
-'Robusta',
-'https://cdn.shopify.com/s/files/1/1521/8648/products/godfathernewwhite_grande.jpg?v=1563287995'),
+
+('Lush', 'One 907g (2lb) bag of Ethical Bean Fair Trade Organic Lush Medium Dark Roast whole bean coffee
+Certified organic coffee is grown free from harmful chemicals and pesticides
+Fair trade certification ensures farmers and their families receive a fair price for their coffee
+A classic medium roast with elegant acidity highlighting a nuanced, medium bodied cup
+Resealable bag with pull-ab zip closure for long-lasting freshness', 'Guatemala', 'Dark', 'Ethical Bean Coffee', 'Medium to High', 'Arabica', 'http://cdn.shopify.com/s/files/1/0059/2772/products/lush-wb_grande.jpg?v=1594355879'), 
+
+('Decaf', 'A very undecaf decaf. Gobs of body, intriguing chocolate character.
+Gobs of body, intriguing chocolate character. Dynamite as drip, scintillating as espresso.', 'Guatemala', 'Dark', 'Ethical Bean Coffee', 'Medium to High', 'Arabica', 'https://cdn.shopify.com/s/files/1/0059/2772/products/decaf-ground_600x600.jpg?v=1594355882'), 
 
 ('Mambo #5',
  'Delicate and lush, with notes of red wine and mixed berry. This java originates from the El Salvadar and is a local favorite.',

@@ -3,6 +3,7 @@ import {useContext, useState, useEffect} from 'react';
 import DataContext from '../../contexts/DataContext';
 import UserContext from '../../contexts/UserContext';
 import Details from './Details';
+import Cafe from './Cafe';
 import ReviewList from './ReviewList';
 import AddReview from './AddReview';
 import {getReviewsForCoffee, getFavouritesForCoffee, isLiked, isReviewed} from '../../helpers/selectors';
@@ -24,8 +25,6 @@ export default function Coffee(props) {
  // filter for specific coffee details
  const coffee = coffees[coffeeId];
 
- console.log("COFFEE", coffee)
-
   // filter for coffee reviews & favourites
   const coffeeReviews = getReviewsForCoffee(Object.values(reviews), coffeeId);
   const coffeeFavourites = getFavouritesForCoffee(Object.values(favourites), coffeeId);
@@ -42,12 +41,11 @@ export default function Coffee(props) {
   // review form logic
   const [openReviewForm, setOpenReviewForm] = useState(false);
 
-  console.log("coffeeReviews ", coffeeReviews)
-
   return (
-    <div>
+    <div >
     {coffee && (
       <>
+
         <Details 
           coffee={coffee}
           reviews={coffeeReviews}
@@ -56,7 +54,13 @@ export default function Coffee(props) {
           deleteFavourite={deleteFavourite}
           isLiked={isLiked}
         />
-        <div>
+         <div className={classes['coffee-cafe-section']}>
+          <h1 className={classes['coffee-review-heading']}>Featured Cafe for this Coffee</h1>
+          <Cafe 
+            coffee={coffee}
+          />
+        </div>
+        <div className={classes['coffee-review-wrapper']}>
           <h1 className={classes['coffee-review-heading']}>Community Reviews</h1>
           <div className={classes['coffee-review-section']}>
           <ReviewList
