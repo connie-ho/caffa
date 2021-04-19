@@ -16,6 +16,9 @@ function AccountReviews(props) {
   const reviews = state.reviews;
   const users = state.users;
 
+  console.log("COFFEE IN ACCOUNT: ", Object.values(coffee))
+  const accountCoffee = Object.values(coffee)
+
   const [values, setValues] = useState({
     id: '',
     first_name: '',
@@ -47,19 +50,23 @@ function AccountReviews(props) {
   const reviewList = coffeeReviews.map(review => {
 
     return (
-      <div>
+      <Grid container className={classes.reviewItemSection}>
         <img 
           class={classes.media}
           src={coffee[review.id].image_url}
           alt={`${coffee[review.id].name}`}
-        />
+          />
+          {/* <h2>{coffee[review.id].name}</h2> */}
+      <Grid item xs={8} className={classes.reviewCard}>
         <ReviewListItem 
+        
         key={review.id}
         review={review}
         reviewUser={users[review.user_id]}
-        coffee={coffee}
+        coffee={accountCoffee}
         />
-      </div>
+      </Grid>
+      </Grid>
     );
   })
 

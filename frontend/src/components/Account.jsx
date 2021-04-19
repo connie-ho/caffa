@@ -34,6 +34,7 @@ const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    flexGrow: 2,
     display: 'flex',
   },
   appBar: {
@@ -50,6 +51,15 @@ const useStyles = makeStyles((theme) => ({
   drawerContainer: {
     overflow: 'auto',
   },
+  reviewItemWrapper: {
+    
+  },
+  reviewItemSection: {
+    padding: '2rem 2rem 2rem',
+  },
+  reviewCard: {
+    padding: '0rem 3rem',
+  },
   content: {
     flexGrow: 1,
     minHeight: 'calc(100vh - 70px)',
@@ -62,6 +72,7 @@ const useStyles = makeStyles((theme) => ({
   },
   media: {
     height: 275,
+    width: 180,
     backgroundSize: 'contain'
     
   },
@@ -72,7 +83,7 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'center',
     marginRight: '100px',
   }
-  
+
   },
   subtitle: {
     marginTop: '30px',
