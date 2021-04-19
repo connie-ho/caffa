@@ -31,8 +31,8 @@ function Copyright() {
 
 const useStyles = makeStyles((theme) => ({
   container: {
-    height: '100vh',
-    alignSelf: 'center'
+    alignSelf: 'center',
+    minHeight:'90vh'
   },
   paper: {
     marginTop: theme.spacing(8),

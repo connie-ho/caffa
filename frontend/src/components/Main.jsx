@@ -46,7 +46,7 @@ const Main = (props) => {
 
 
   return (
-    <Grid container direction="column">
+    <Grid container direction="column" style={{position:'relative'}}>
       <SearchContext.Provider value={{results, setResults}}>
         <Grid item>
           <Nav 
