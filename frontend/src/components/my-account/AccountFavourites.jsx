@@ -3,7 +3,10 @@ import DataContext from '../../contexts/DataContext.js';
 import CoffeeListItem from '../coffees/CoffeeListItem.jsx';
 import {getReviewsForCoffee, avgRatingForCoffee, getUserFavourites} from '../../helpers/selectors';
 import { Grid, GridListTile } from "@material-ui/core";
+import Typography from '@material-ui/core/Typography';
 import axios from 'axios';
+
+
 
 export default function AccountFavourites(props) {
   const [favourites, setFavourites] = useState({});
@@ -23,6 +26,7 @@ export default function AccountFavourites(props) {
   }, []);
   
   const {limit} = props;
+  const {classes} = props;
   console.log("LIMIT :", props)
   console.log("FAVOURITES :", favourites)
 
@@ -46,7 +50,6 @@ export default function AccountFavourites(props) {
     const avgRating = avgRatingForCoffee(coffeeReviews);
 
     return (
-
       <Grid item xs={4}>
         <CoffeeListItem
           key={coffee.id}
@@ -59,8 +62,10 @@ export default function AccountFavourites(props) {
   
   return (
     <GridListTile>
-      <h1>My Favourites</h1>
-    <Grid container>
+      <Grid item xs={3} className={classes.subtitle}>
+        <Typography variant='h2'>Favourites</Typography>
+      </Grid>
+    <Grid container spacing={10}>
         {coffeeList}
     </Grid>
     {/* {render see more button if limit does not equal 0} */}
