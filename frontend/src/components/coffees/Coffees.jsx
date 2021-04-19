@@ -7,10 +7,10 @@ import CoffeeList from './CoffeeList';
 import FilterList from './FilterList';
 import SortList from './SortList';
 
-import {formatRegions, getFilteredCoffees, getRegions, hasSelectedFilters} from '../../helpers/selectors';
+import {formatRegions, getFilteredCoffees, hasSelectedFilters} from '../../helpers/selectors';
 
 // styles
-import './Coffees.scss';
+import classes from './Coffees.module.scss';
 
 function Coffees(props) {
   
@@ -132,7 +132,7 @@ function Coffees(props) {
         <Route path="/coffees">
       
           <div
-            className="coffees-page"
+            className={classes["coffees-page"]}
           >
             <aside>
               <SortList
