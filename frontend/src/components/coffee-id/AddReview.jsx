@@ -13,7 +13,7 @@ import CardContent from "@material-ui/core/CardContent";
 const useStyles = makeStyles((theme)=>({
   root: {
     height: 200,
-    marginLeft: '2em',
+    padding: '2em',
     flex: 1,
     display: 'flex',
     justifyContent: 'center',
@@ -24,6 +24,9 @@ const useStyles = makeStyles((theme)=>({
     "&:hover": { 
       transform: "scale3d(1.05, 1.05, 1)", 
       background: '#e4d3cf'},
+    [theme.breakpoints.down('sm')]: {
+      margin: '0 0 1em 0'
+    },
   }
 }));
 

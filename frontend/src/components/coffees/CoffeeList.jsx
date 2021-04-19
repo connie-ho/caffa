@@ -27,7 +27,7 @@ const CoffeeList = (props) => {
   const coffeeList = currentCoffees.map(coffee => {
 
     return (
-      <Grid item xs={12} sm={6} lg={4}>
+      <Grid item xs={12} sm={4} lg={3}>
         <CoffeeListItem
           key={coffee.id}
           coffee={coffee}
@@ -43,17 +43,17 @@ const CoffeeList = (props) => {
         </Route>
         <Route path="/coffees">
 
-          <Grid item container direction="row" style={{marginTop: '4rem'}} >
+          <Grid item container direction="row" style={{marginTop: '5rem'}} >
             <Grid item xs={0} sm={1} />
             <Grid item xs={12} sm={10} >
-              <Grid container spacing="4">
+              <Grid container spacing="4" >
                 {coffeeList}
                 <Grid container xs={12} justify='center'>
                 <Paginations
-            page={currentPage}
-            setPage={setCurrentPage}
-            coffeesPerPage={coffeesPerPage}
-            totalCoffees={coffees.length}
+                  page={currentPage}
+                  setPage={setCurrentPage}
+                  coffeesPerPage={coffeesPerPage}
+                  totalCoffees={coffees.length}
                 />
               </Grid>
             </Grid>

@@ -11,6 +11,7 @@ import bean from '../../images/31080.png'
 
 const useStyles = makeStyles((theme)=>({
   root: {
+    margin: '0 auto',
     width: 300,
     height: 400,
     borderTop: `1px solid rgb(238,238,238)`,

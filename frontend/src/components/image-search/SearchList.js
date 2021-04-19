@@ -74,7 +74,7 @@ export default function SearchList(props) {
         const coffeeReviews = getReviewsForCoffee(Object.values(reviews),coffee.item.id)
         const avgRating = avgRatingForCoffee(coffeeReviews);
         return (
-        <Grid item xs={12} sm={6} lg={4}>
+        <Grid item xs={12} sm={4} lg={3}>
           <CoffeeListItem
             key={coffee.item.id}
             coffee={coffee.item}
@@ -100,7 +100,7 @@ export default function SearchList(props) {
   }
 
   return(
-  <Grid item container direction="row" >
+  <Grid container direction="row" >
  
     <Grid item xs={0} sm={1} />
     <Grid item xs={12} sm={10} >

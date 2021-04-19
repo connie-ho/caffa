@@ -42,8 +42,6 @@ const Main = (props) => {
     }
   )
 
-  const {state} = useContext(DataContext);
-
 
   return (
     <Grid container direction="column" style={{position:'relative'}}>
@@ -69,7 +67,7 @@ const Main = (props) => {
           </Route>
           <>
             <Route path="/search">
-            <Grid item>
+            <Grid item style={{minHeight:'80vh'}}>
               <SearchList results={results} setResults={setResults} addCoffee={addCoffee}/>
             </Grid>
             </Route>
