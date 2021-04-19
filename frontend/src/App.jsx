@@ -3,7 +3,7 @@ import Main from './components/Main';
 import NotLoggedIn from './components/NotLoggedIn'
 import axios from 'axios';
 import "./App.css";
-
+import {BrowserRouter as Router} from "react-router-dom";
 import DataContext from './contexts/DataContext';
 import UserContext from './contexts/UserContext';
 
@@ -84,6 +84,7 @@ function App() {
     addCoffee} = useApplicationData();
 
   return (
+    <Router>
     <div className="App">
       <UserContext.Provider value={{user, loginHandler, openLogin, setOpenLogin, registerHandler, editUserHandler}}>
         <NotLoggedIn 
@@ -105,6 +106,7 @@ function App() {
         </DataContext.Provider>
       </UserContext.Provider>
     </div>
+    </Router>
   );
 }
 

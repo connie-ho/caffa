@@ -26,6 +26,9 @@ export default function SearchBar(props) {
       }
     },
     autoComplete:{
+      border: '1px solid #d3d3d3',
+      borderRadius:'2rem',
+      
       [theme.breakpoints.up('xs')]: {
         width: '25ch'
       },
@@ -75,7 +78,10 @@ export default function SearchBar(props) {
       root: classes.inputRoot,
       input: classes.inputInput,
     }}
-      {...params.InputProps} {...rest} />;
+      {...params.InputProps} {...rest}
+    InputProps={{
+      root:classes.inputbaseRoot
+    }} />;
     }}
     renderOption={option => {
       return(
@@ -90,7 +96,7 @@ export default function SearchBar(props) {
             }}>
     
             <img src= {option.image_url} height={100} width={100} />
-            <p>{option.name}</p>
+            <p> {option.name} </p>
         </span>
         </>
       )
