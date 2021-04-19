@@ -50,7 +50,7 @@ const TopPicks = (props) => {
       </Grid>
 
         <div data-aos="fade"  data-aos-once="true">
-        <Typography variant='h2' gutterBottom>Top favorites</Typography>
+        <Typography variant='h2' gutterBottom>Top Favorites</Typography>
         <Typography variant='h4'>Only the best of the best! Chosen by you.</Typography>
       <CoffeeCarousel homeCoffees={homeCoffees} type='favorite' > </CoffeeCarousel>
         </div>

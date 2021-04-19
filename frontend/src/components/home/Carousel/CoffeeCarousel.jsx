@@ -17,6 +17,7 @@ const CoffeeCarousel = (props) => {
   const breakPoints = [
     { width: 1, itemsToShow: 1, itemsToScroll: 1, pagination: false },
     { width: 500, itemsToShow: 2, itemsToScroll: 1, pagination: true },
+    { width: 1000, itemsToShow: 3, itemsToScroll: 1, pagination: true },
     { width: 1300, itemsToShow: 4, itemsToScroll: 2, pagination: true},
     { width: 1600, itemsToShow: 5, itemsToScroll: 2, pagination: true }
 ]
