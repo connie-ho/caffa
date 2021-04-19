@@ -56,6 +56,11 @@ const useStyles = makeStyles((theme) => ({
     minHeight: 'calc(100vh - 70px)',
     position: 'relative'
   },
+  accountContent: {
+    flexDirection: 'column',
+    marginTop: '30px',
+    marginLeft: '50px',
+  },
 }));
 
 export default function Account(props) {
@@ -151,29 +156,44 @@ export default function Account(props) {
       <main className={classes.content}>
         <Switch>
         <Route path="/account/favourites">
-          <AccountFavourites 
-            limit={0}
-            className={classes.content}
-          />
+          <Grid container className={classes.accountContent}>
+            <AccountFavourites 
+              limit={0}
+              className={classes.content}
+            />
+          </Grid>
         </Route>
         <Route path="/account/reviews">
+          <Grid container className={classes.accountContent}>
+            <AccountReviews
+              user={user}
+              coffee={coffees}
+              openReviewForm={openReviewForm}
+              setOpenReviewForm={setOpenReviewForm}
+            />
+          </Grid>
+        </Route>
+        <Route path="/account/settings">
+          <Grid container className={classes.accountContent}>
+            <AccountSettings
+              classes={classes}
+            />
+          </Grid>
+        </Route>
+        <Route path="/account">
+          <Grid container className={classes.accountContent}>
+          <AccountProfile />
+          <AccountFavourites
+            limit={3}
+          />
           <AccountReviews
             user={user}
             coffee={coffees}
             openReviewForm={openReviewForm}
             setOpenReviewForm={setOpenReviewForm}
-          />
-        </Route>
-        <Route path="/account/settings">
-          <AccountSettings
-            classes={classes}
-          />
-        </Route>
-        <Route path="/account">
-          <AccountProfile />
-          <AccountFavourites
             limit={3}
           />
+          </Grid>
         </Route>
       </Switch>
       <Footer />

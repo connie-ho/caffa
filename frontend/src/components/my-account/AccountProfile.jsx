@@ -6,7 +6,7 @@ export default function AccountProfile() {
   return (
     
     <div>
-      <h1>My Account</h1>
+      <h1>My Caffa</h1>
     </div>
   )
 
