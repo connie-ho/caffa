@@ -61,7 +61,7 @@ let theme = createMuiTheme({
     MuiOutlinedInput: {
       root: {
         '& $notchedOutline': {
-          borderColor: '#646264',
+          borderColor: '#d3d3d3',
           borderWidth: 0.5,
         },
       }
