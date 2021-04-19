@@ -33,11 +33,12 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   menuButton: {
-    width: '10rem',
-    fontSize: '1.25rem',
+    width: '8rem',
+    fontSize: '1rem',
     margin: '0 auto',
+    textDecoration: 'underline',
     color: theme.palette.text.secondary,
-    borderRadius: 0,
+    borderRadius: '1rem',
     [theme.breakpoints.up('sm')]: {
       display: 'none',
     },
