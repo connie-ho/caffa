@@ -33,7 +33,7 @@ export default function SearchBar(props) {
         width: '25ch'
       },
       [theme.breakpoints.up('sm')]: {
-        width: '70ch'
+        width: '90ch'
       },
 
     }
@@ -47,7 +47,7 @@ export default function SearchBar(props) {
     id="Search Bar"
     options={coffees}
     className={classes.autoComplete}
-    getOptionLabel={(option) => option.name }
+    getOptionLabel={(option) => `${option.brand} ${option.name}` }
     //set autocomplete to only open on input
     open={autoCompleteOpen}
     onInputChange={(event, value, reason) => {
@@ -94,9 +94,13 @@ export default function SearchBar(props) {
             onKeyDown={() => {
               window.location.href = `/coffees/${option.id}`
             }}>
-    
-            <img src= {option.image_url} height={100} width={100} />
-            <p> {option.name} </p>
+            <div style={{display:'flex', flexDirection:'row'}}>
+            <img src= {option.image_url} height={100} width={100} style={{marginRight:'1em'}} />
+            <div style={{display: 'flex', flexDirection:'column', justifyContent:'space-around'}}>
+              <p>{option.brand}</p>
+              <p style={{marginTop:'-10px'}}>{option.name}</p>
+             </div>
+            </div>
         </span>
         </>
       )

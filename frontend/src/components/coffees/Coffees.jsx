@@ -144,7 +144,7 @@ function Coffees(props) {
               setFilters={setFilters}
               handleFilters={handleFilters}
             />
-            <div>
+            <div style={{width:'100%', display: 'flex', flexDirection: 'column', minHeight:'90vh'}}>
             <CoffeeList
               coffees={filteredCoffees}
             />

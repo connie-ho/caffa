@@ -43,7 +43,7 @@ const CoffeeList = (props) => {
         </Route>
         <Route path="/coffees">
 
-          <Grid item container direction="row" style={{marginTop: '5rem'}} >
+          <Grid item container direction="row" style={{marginTop: '5rem', minHeight:'80vh'}} >
             <Grid item xs={0} sm={1} />
             <Grid item xs={12} sm={10} >
               <Grid container spacing="0" >
