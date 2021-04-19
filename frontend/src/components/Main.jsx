@@ -42,8 +42,6 @@ const Main = (props) => {
     }
   )
 
-  const {state} = useContext(DataContext);
-
 
   return (
     <Grid container direction="column" style={{position:'relative'}}>

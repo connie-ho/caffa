@@ -10,12 +10,14 @@ import List from '@material-ui/core/List';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: '100%',
-    maxWidth: 360,
-    backgroundColor: theme.palette.background.paper,
+    marginTop: '0.5em',
+    width: 250,
   },
   nested: {
     paddingLeft: theme.spacing(4),
+  },
+  subheader: {
+    fontSize: '1.25rem'
   },
 }));
 
@@ -48,14 +50,18 @@ export default function SortList(props) {
       component="nav"
       aria-labelledby="nested-list-subheader"
       subheader={
-        <ListSubheader component="div" id="nested-list-subheader">
+        <ListSubheader component="div" id="nested-list-subheader" className={classes.subheader}>
           Sort By
         </ListSubheader>
       }
       className={classes.root}
     >
       <FormControl component="fieldset">
-        <RadioGroup aria-label="sorting" name="sorting1" value={sortOption} onChange={handleChange}>
+        <RadioGroup 
+        className={classes.radio}
+        aria-label="sorting" 
+        name="sorting1" value={sortOption} 
+        onChange={handleChange}>
           {sortList}
         </RadioGroup>
     </FormControl>

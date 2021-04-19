@@ -1,12 +1,11 @@
 /* eslint-disable no-use-before-define */
-import React, {useContext, useEffect, useState} from 'react';
-import DataContext from '../../contexts/DataContext'
-
 import useAutocomplete from '@material-ui/lab/useAutocomplete';
 import NoSsr from '@material-ui/core/NoSsr';
 import CheckIcon from '@material-ui/icons/Check';
 import CloseIcon from '@material-ui/icons/Close';
 import styled from 'styled-components';
+
+import classes from './Coffees.module.scss';
 
 const Tag = styled(({ label, onDelete, ...props }) => (
   <div {...props}>
@@ -15,10 +14,12 @@ const Tag = styled(({ label, onDelete, ...props }) => (
   </div>
 ))`
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  height: 24px;
+  font-size: 1rem;
+  height: 1.5rem;
   margin: 2px;
-  line-height: 22px;
+  line-height: 1.2rem;
   background-color: #fafafa;
   border: 1px solid #e8e8e8;
   border-radius: 2px;
@@ -39,16 +40,17 @@ const Tag = styled(({ label, onDelete, ...props }) => (
   }
 
   & svg {
-    font-size: 12px;
+    font-size: 1.25rem;
     cursor: pointer;
     padding: 4px;
   }
 `;
 
 const Listbox = styled('ul')`
-  width: 300px;
+  width: 200px;
   margin: 2px 0 0;
   padding: 0;
+  font-size: 1rem;
   position: absolute;
   list-style: none;
   background-color: #fff;
@@ -91,8 +93,6 @@ const Listbox = styled('ul')`
 `;
 
 export default function RegionSearch(props) {
-
-  const {state} = useContext(DataContext);
 
   const {
     filters, 
@@ -147,6 +147,10 @@ export default function RegionSearch(props) {
             ref={setAnchorEl} 
             className={focused ? 'focused' : ''}
             >
+                <input 
+                  className={classes['region-search-input']}
+                {...getInputProps()} 
+                />
               <div style={{maxHeight:'6rem', overflow:'auto'}}>
             {value.map((option, index) => (
               <Tag 
@@ -155,9 +159,6 @@ export default function RegionSearch(props) {
               />
               ))}
               </div>
-            <input 
-            {...getInputProps()} 
-            />
           </div>
         </div>
         {groupedOptions.length > 0 ? (

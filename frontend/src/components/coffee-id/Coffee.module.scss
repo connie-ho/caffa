@@ -1,6 +1,6 @@
 @import '../../variables';
 
-$sectionPadding: 5em 5em 5em;
+$sectionPadding: 2rem 2rem 2rem;
 $maxWidth: 1080px;
 
 
@@ -21,9 +21,8 @@ $maxWidth: 1080px;
 
 .coffee-details-img {
   // width: 20em;
-  height: 30em;
-  margin: 0;
-  margin-right: 5rem;
+  height: 20rem;
+  margin-right: 5em;
   border: 0px solid white;
   border-radius: 1rem;
 }
@@ -31,7 +30,7 @@ $maxWidth: 1080px;
 
 .coffee-details-name {
   font-family: $primaryFontFamily;
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 500;
   margin: 0;
 }
@@ -149,6 +148,7 @@ $maxWidth: 1080px;
 
 .coffee-review-list {
   flex: 2;
+  margin-right: 2em;
 
   .no-reviews {
     font-size: 2em;
@@ -180,6 +180,23 @@ $maxWidth: 1080px;
   
 }
 
-// @media only screen (max-width:1024px) {
+@media only screen and (max-width:600px) {
   
-// }
+  .coffee-details-section {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .coffee-details-img {
+    margin: 0 auto 2em;
+  }
+
+  .coffee-review-section {
+    flex-direction: column-reverse;
+  }
+
+  .coffee-review-list {
+    margin-right: 0;
+  }
+}

@@ -22,7 +22,8 @@ function MapContainer (props) {
   ];
   
   const mapStyles = {        
-    width: "100%"
+    width: "100%",
+    flex: 1
   };
   
   const defaultCenter = {

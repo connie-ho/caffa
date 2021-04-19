@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme=>({
     border: '0px solid',
     borderRadius: '1rem',
     fontSize: '1.25em',
-    marginBottom: '2em',
+    marginBottom: '1em',
     background: 'rgb(255,247,245)',
     "&:hover": { 
       transform: "scale3d(1.05, 1.05, 1)", 
