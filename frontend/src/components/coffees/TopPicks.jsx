@@ -39,6 +39,9 @@ const TopPicks = (props) => {
           <Typography variant='h4'>Only the best of the best! Chosen by you.</Typography>
           <CoffeeCarousel homeCoffees={homeCoffees} type='favorite' > </CoffeeCarousel>
         </div>
+        <br></br>
+        <br></br>
+        <br></br>
         <div data-aos="fade"  data-aos-once="true">
           <Grid container direction='column'>
             <Typography variant='h2' gutterBottom>Editor Picks</Typography>
@@ -56,6 +59,9 @@ const TopPicks = (props) => {
             </Grid>
           </Grid>
       </div>
+      <br></br>
+      <br></br>
+      <br></br>
         <div data-aos="fade" data-aos-offset="650"  data-aos-once="true">
         <Typography variant='h2' gutterBottom>Top Reviewed</Typography>
         <Typography variant='h4'>The latest and greatest.</Typography>
