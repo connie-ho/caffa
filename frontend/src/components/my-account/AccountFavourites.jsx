@@ -22,7 +22,7 @@ export default function AccountFavourites(props) {
     })
   }, []);
   
-  const {limit} = props;
+  const {limit, className} = props;
   console.log("LIMIT :", props)
   console.log("FAVOURITES :", favourites)
 
@@ -58,11 +58,13 @@ export default function AccountFavourites(props) {
   })
   
   return (
-    <GridListTile>
+    <Grid container direction='column'>
       <h1>My Favourites</h1>
+      <Grid container direction='row'>
         {coffeeList}
+      </Grid>
     {/* {render see more button if limit does not equal 0} */}
-      </GridListTile>
+    </Grid>
   )
 
 }

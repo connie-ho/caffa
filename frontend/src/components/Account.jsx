@@ -109,7 +109,8 @@ export default function Account(props) {
         <title>Account | Caffa</title>
       </Helmet>
     
-    <Grid container>
+    <Grid container classes={{
+        accountDrawer: classes.accountDrawer}}>
       <Grid item xs={2}>
       <Drawer
         variant="permanent"
