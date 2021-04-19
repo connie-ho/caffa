@@ -50,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(3),
   },
   textField: {
-    width: '50ch',
+    width: '100%',
   },
   container: {
     alignSelf: 'center',

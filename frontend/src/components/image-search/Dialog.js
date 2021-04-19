@@ -101,7 +101,7 @@ export default function FormDialog(props) {
     <div>
       <Dialog classes={{ paper: classes.paper }} open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
         <DialogTitle id="form-dialog-title">
-          <Typography variant="h6" style={{fontSize: '1.5em'}} > Image Upload </Typography>
+          <Typography variant="h6" style={{fontSize: '1.5em'}} > Image Search </Typography>
         </DialogTitle>
         <DialogContent className={classes.content}>
           <UploadForm file={file} setFile={setFile} error={error} setError={setError} loading={loading}/>
