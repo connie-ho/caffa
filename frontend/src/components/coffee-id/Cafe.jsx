@@ -8,15 +8,19 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
-
-
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme)=>({
   section: {
     display: 'flex',
     flexDirection:'row',
     paddingTop: 0,
+    [theme.breakpoints.down('sm')]: {
+      flexDirection: 'column',
+      margin: '0 auto'
+    },
+
   },
   root: {
+    flex: 1,
     minWidth: '40%',
     padding: '1.5em',
     marginRight: '1em',
@@ -30,7 +34,7 @@ const useStyles = makeStyles({
     padding: 0,
     margin: 0
   }
-});
+}));
 
 function Cafe(props) {
 
@@ -50,7 +54,6 @@ function Cafe(props) {
 
   }, [coffee])
 
-  console.log(cafeData)
   const classes = useStyles();
 
   return (
@@ -76,14 +79,14 @@ function Cafe(props) {
           See More Details On Yelp
          </Link>
         </CardContent>
-    </Card>
-    <MapContainer
-      className={classes.map} 
-      name={cafeData.name}
-      latitude={cafeData.coordinates.latitude}
-      longitude={cafeData.coordinates.longitude}
-      distance={Math.round(cafeData.distance * 10) / 10}
-    />
+     </Card>
+      <MapContainer
+        className={classes.map} 
+        name={cafeData.name}
+        latitude={cafeData.coordinates.latitude}
+        longitude={cafeData.coordinates.longitude}
+        distance={Math.round(cafeData.distance/1000 * 10) / 10}
+      />
     </div>
 
   )
