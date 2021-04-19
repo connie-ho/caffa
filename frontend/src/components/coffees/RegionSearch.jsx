@@ -1,18 +1,8 @@
-import {useState, useEffect} from 'react';
-import useAutocomplete from '@material-ui/lab/useAutocomplete';
-import NoSsr from '@material-ui/core/NoSsr';
-import CheckIcon from '@material-ui/icons/Check';
-import CloseIcon from '@material-ui/icons/Close';
-import styled from 'styled-components';
-import {getRegions} from '../../helpers/selectors';
 import React from 'react';
-import Chip from '@material-ui/core/Chip';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 
-
-import classes from './Coffees.module.scss';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,8 +11,17 @@ const useStyles = makeStyles((theme) => ({
       marginTop: theme.spacing(3),
     },
     maxHeight:'10rem', 
-    overflow:'auto'
+    overflow:'auto',
   },
+  textField: {
+    "& .MuiChip-root": {
+      backgroundColor: theme.palette.primary.main,
+      color: 'white'
+    },
+    "& .MuiSvgIcon-root": {
+      color: 'white'
+    }
+  }
 
 }));
 
@@ -73,6 +72,7 @@ export default function RegionSearch(props) {
         getOptionSelected={(option, value) => option.type === value.type}
         defaultValue={[]}
         filterSelectedOptions={true}
+        onChange={(event, value) => handleChange(event, value)}
         renderInput={(params) => (
           <TextField
           {...params}
@@ -81,7 +81,6 @@ export default function RegionSearch(props) {
           className={classes.textField}
           />
           )}
-        onChange={(event, value) => handleChange(event, value)}
       />
     </div>
   );
