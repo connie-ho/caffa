@@ -6,12 +6,15 @@ import FilterListCategory from './FilterListCategory';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: 200,
-    backgroundColor: theme.palette.background.paper,
+    width: 250,
+    height: '100%',
   },
   nested: {
     paddingLeft: theme.spacing(4),
   },
+  subheader: {
+    fontSize: '1.25rem'
+  }
 }));
 
 export default function FilterList(props) {
@@ -44,7 +47,10 @@ export default function FilterList(props) {
       component="nav"
       aria-labelledby="nested-list-subheader"
       subheader={
-        <ListSubheader component="div" id="nested-list-subheader">
+        <ListSubheader 
+        className={classes.subheader}
+        component="div" 
+        id="nested-list-subheader">
           Filter By
         </ListSubheader>
       }
