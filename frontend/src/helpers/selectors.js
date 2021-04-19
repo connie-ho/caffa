@@ -1,4 +1,4 @@
-// returns array of reviews for that coffee
+/// returns array of reviews for that coffee
 export function getReviewsForCoffee(reviews, coffeeId){
   const res = [];
 
