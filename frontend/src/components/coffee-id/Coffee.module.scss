@@ -1,6 +1,6 @@
 @import '../../variables';
 
-$sectionPadding: 5em 0em 5em;
+$sectionPadding: 5em 5em 5em;
 $maxWidth: 1080px;
 
 
@@ -124,6 +124,8 @@ $maxWidth: 1080px;
 
 .coffee-review-wrapper {
   max-width: $maxWidth;
+  padding: $sectionPadding;
+  padding-top: 0;
   display: flex;
   flex-direction: column;
   margin: 0 auto;
@@ -140,7 +142,6 @@ $maxWidth: 1080px;
 
 .coffee-review-section {
   max-width: $maxWidth;
-  padding-top: 0;
   display: flex;
   justify-content: space-between;
 
@@ -177,7 +178,8 @@ $maxWidth: 1080px;
   margin: 0 auto;
   padding: $sectionPadding
   
-  h1{
-    padding: 0;
-  }
 }
+
+// @media only screen (max-width:1024px) {
+  
+// }
