@@ -40,7 +40,7 @@ const TopPicks = (props) => {
           <CoffeeCarousel homeCoffees={homeCoffees} type='favorite' > </CoffeeCarousel>
         </div>
         <div data-aos="fade"  data-aos-once="true">
-          <Grid container direction='column' style={{margin:'2rem 2rem'}}>
+          <Grid container direction='column'>
             <Typography variant='h2' gutterBottom>Editor Picks</Typography>
             <Typography variant='h4'gutterBottom>What gets us up in the mornings.</Typography>
             <Grid container direction="row">

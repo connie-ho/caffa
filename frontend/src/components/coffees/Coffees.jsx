@@ -7,7 +7,7 @@ import CoffeeList from './CoffeeList';
 import FilterList from './FilterList';
 import SortList from './SortList';
 import SortFilterDrawer from './SortFilterDrawer';
-
+import Footer from '../Footer'
 import {formatRegions, getFilteredCoffees, hasSelectedFilters} from '../../helpers/selectors';
 
 // styles
@@ -129,6 +129,7 @@ function Coffees(props) {
     <Switch>
         <Route path="/coffees/:id">
           <Coffee />
+          <Footer />
         </Route>
         <Route path="/coffees">
       
@@ -138,14 +139,17 @@ function Coffees(props) {
             <SortFilterDrawer
               sortOptions={sortOptions}
               handleSort={handleSort}
-              categories={categories}
+              categories={categories} 
               filters={filters}
               setFilters={setFilters}
               handleFilters={handleFilters}
             />
+            <div>
             <CoffeeList
               coffees={filteredCoffees}
             />
+            <Footer />
+            </div>
           </div>
         </Route>
       </Switch>
