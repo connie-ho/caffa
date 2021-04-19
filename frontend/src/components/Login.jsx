@@ -15,6 +15,15 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import Visibility from '@material-ui/icons/Visibility';
+import VisibilityOff from '@material-ui/icons/VisibilityOff';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import IconButton from '@material-ui/core/IconButton';
+import OutlinedInput from '@material-ui/core/OutlinedInput';
+import InputLabel from '@material-ui/core/InputLabel';
+import FormControl from '@material-ui/core/FormControl';
+import clsx from 'clsx';
+
 
 function Copyright() {
   return (
@@ -30,6 +39,19 @@ function Copyright() {
 }
 
 const useStyles = makeStyles((theme) => ({
+  root: {
+    display: 'flex',
+    flexWrap: 'wrap',
+  },
+  margin: {
+    margin: theme.spacing(1),
+  },
+  withoutLabel: {
+    marginTop: theme.spacing(3),
+  },
+  textField: {
+    width: '50ch',
+  },
   container: {
     alignSelf: 'center',
     minHeight:'90vh'
@@ -59,6 +81,9 @@ export default function Login(props) {
   const {loginHandler, setOpenLogin} = useContext(UserContext);
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [values, setValues] = useState({
+    showPassword: false,
+  });
 
   const history = useHistory();
 
@@ -78,6 +103,14 @@ export default function Login(props) {
     })
     // console.log('Email', email, 'Password', password)
   }
+
+  const handleClickShowPassword = () => {
+    setValues({ ...values, showPassword: !values.showPassword });
+  };
+
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  };
 
   return (
     <Container component="main" maxWidth="xs" className={classes.container}>
@@ -103,19 +136,34 @@ export default function Login(props) {
             value={email}
             onInput={ e=>setEmail(e.target.value)}
           />
-          <TextField
-            variant="outlined"
-            margin="normal"
+           <FormControl className={clsx(classes.textField)} variant="outlined">
+           <InputLabel htmlFor="outlined-adornment-password">Password*</InputLabel>
+          <OutlinedInput
+            id="outlined-adornment-password"
+            label="Password"
             required
             fullWidth
             name="password"
-            label="Password"
-            type="password"
+            type={values.showPassword ? 'text' : 'password'}
             id="password"
             autoComplete="current-password"
             value={password}
             onInput={ e=>setPassword(e.target.value)}
+            endAdornment={
+              <InputAdornment position="end">
+                <IconButton
+                  aria-label="toggle password visibility"
+                  onClick={handleClickShowPassword}
+                  onMouseDown={handleMouseDownPassword}
+                  edge="end"
+                >
+                  {values.showPassword ? <Visibility /> : <VisibilityOff />}
+                </IconButton>
+              </InputAdornment>
+            }
+            labelWidth={70}
           />
+          </FormControl>
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
             label="Remember me"
