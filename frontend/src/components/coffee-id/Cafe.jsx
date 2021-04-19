@@ -14,13 +14,13 @@ const useStyles = makeStyles({
   section: {
     display: 'flex',
     flexDirection:'row',
-    paddingTop: 0
+    paddingTop: 0,
   },
   root: {
     minWidth: '40%',
     padding: '1.5em',
     marginRight: '1em',
-    border: '1px solid transparent',
+    borderTop: '1px solid rgb(238,238,238)',
     borderRadius: '1em',
   },
   media: {

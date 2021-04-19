@@ -8,10 +8,12 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import bean from '../../images/31080.png'
-const useStyles = makeStyles({
+
+const useStyles = makeStyles((theme)=>({
   root: {
-    maxWidth: 500,
-    height: 525,
+    width: 300,
+    height: 400,
+    borderTop: `1px solid rgb(238,238,238)`,
     borderRadius:'2%',
     transition: "transform 0.15s ease-in-out",
     "&:hover": { 
@@ -19,13 +21,12 @@ const useStyles = makeStyles({
     background: 'transparent'},
   },
   media: {
-    objectFit: 'contain',
-    height: 400,
-    width: '100%',
+    height: 275,
+    backgroundSize: 'contain'
     
   },
   cardContent: {
-    height: 400,
+    height: 175,
   },
   description: {
     overflow: "hidden",
@@ -33,7 +34,7 @@ const useStyles = makeStyles({
     WebkitLineClamp: 3,
     WebkitBoxOrient: "vertical"
   },
-});
+}));
 
 function CoffeeListItem(props) {
   const classes = useStyles();
@@ -41,21 +42,26 @@ function CoffeeListItem(props) {
   const {coffee} = props;
 
   return (
-    <Card className={classes.root} variant='outlined'>
+    <Card 
+      raise={true}
+      className={classes.root}
+    >
       <CardActionArea >
       <Link to={`/coffees/${coffee.id}`}>
         
         <CardMedia
           className={classes.media}
           image={coffee.image_url}
-          title="Contemplative Reptile"
         />
         <CardContent className={classes.cardContent}>
-          <Typography variant="h6" style={{ fontSize:'1.3rem'  }} component="h2">
+        <Typography color='secondary' variant="h6" style={{ fontSize:'1rem', fontWeight: 300  }} component="h6">
+            {coffee.brand}
+          </Typography>
+          <Typography variant="h2" style={{ fontSize:'1.3rem'  }} component="h2">
             {coffee.name}
           </Typography>
-          <Typography gutterBottom variant="subtitle1" style={{ fontSize:'1.0em', padding:'10 10', color:'#646264'}} component="h3">
-            {coffee.region} | {coffee.avg_rating? coffee.avg_rating: 'No Ratings Yet!'} {coffee.avg_rating && <img src={bean} style={{ height:'15px', width:'15px'}} /> }
+          <Typography color='secondary' gutterBottom variant="subtitle1" style={{ fontSize:'1.0em', padding:'10 10', color:'#646264'}} component="h3">
+          {coffee.region}, {coffee.avg_rating? coffee.avg_rating: 'No Ratings Yet!'} {coffee.avg_rating && <img src={bean} style={{ height:'15px', width:'15px'}} /> }
           </Typography>
         </CardContent>
       </Link>
