@@ -61,6 +61,20 @@ const useStyles = makeStyles((theme) => ({
     marginTop: '30px',
     marginLeft: '50px',
   },
+  title: {
+    textAlign: 'center',
+
+    [theme.breakpoints.up('md')]: {
+    textAlign: 'center',
+    marginRight: '100px',
+
+
+  }
+  },
+  subtitle: {
+    marginTop: '30px',
+    marginBottom: '30px',
+  }
 }));
 
 export default function Account(props) {
@@ -158,14 +172,15 @@ export default function Account(props) {
         <Route path="/account/favourites">
           <Grid container className={classes.accountContent}>
             <AccountFavourites 
+              classes={classes}
               limit={0}
-              className={classes.content}
             />
           </Grid>
         </Route>
         <Route path="/account/reviews">
           <Grid container className={classes.accountContent}>
             <AccountReviews
+              classes={classes}
               user={user}
               coffee={coffees}
               openReviewForm={openReviewForm}
@@ -181,10 +196,11 @@ export default function Account(props) {
           </Grid>
         </Route>
         <Route path="/account">
-          <Grid container className={classes.accountContent}>
-          <AccountProfile />
+          <Grid container className={classes.accountContent} spacing={-10}>
+          <AccountProfile classes={classes}/>
           <AccountFavourites
             limit={3}
+            classes={classes}
           />
           <AccountReviews
             user={user}
@@ -192,6 +208,7 @@ export default function Account(props) {
             openReviewForm={openReviewForm}
             setOpenReviewForm={setOpenReviewForm}
             limit={3}
+            classes={classes}
           />
           </Grid>
         </Route>

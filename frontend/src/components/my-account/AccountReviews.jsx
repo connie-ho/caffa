@@ -3,11 +3,13 @@ import UserContext from '../../contexts/UserContext';
 import ReviewListItem from '../coffee-id/ReviewListItem';
 import DataContext from '../../contexts/DataContext';
 import {getUserReviews} from '../../helpers/selectors';
-import classes from '../coffee-id/Coffee.module.scss';
+import Typography from '@material-ui/core/Typography';
+import { Grid, GridListTile } from "@material-ui/core";
+
 
 
 function AccountReviews(props) {
-  const {coffee} = props;
+  const {coffee, classes} = props;
   console.log("accountreview coffee: ", props)
   const {user} = useContext(UserContext);
   const {state} = useContext(DataContext);
@@ -51,10 +53,14 @@ function AccountReviews(props) {
   // console.log("review id: ", review.id, "review :", review, "reviewUser :", users[review.user_id], "coffee :", coffee)
 
   return (
-    <div className={classes['coffee-review-list']}>
-      <h1>Recently Reviewed</h1>
+    <div>
+    <Grid item xs={4} className={classes.subtitle}>
+      <Typography variant='h2'>Recently Reviewed</Typography>
+    </Grid>
+    <div>
       {reviewList}
-    </div>
+      </div>
+      </div>
   )
 }
 
