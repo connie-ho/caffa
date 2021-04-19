@@ -12,7 +12,6 @@ import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Toolbar from '@material-ui/core/Toolbar';
 import List from '@material-ui/core/List';
-import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
@@ -56,6 +55,25 @@ const useStyles = makeStyles((theme) => ({
     minHeight: 'calc(100vh - 70px)',
     position: 'relative'
   },
+  accountContent: {
+    flexDirection: 'column',
+    marginTop: '30px',
+    marginLeft: '50px',
+  },
+  title: {
+    textAlign: 'center',
+
+    [theme.breakpoints.up('md')]: {
+    textAlign: 'center',
+    marginRight: '100px',
+
+
+  }
+  },
+  subtitle: {
+    marginTop: '30px',
+    marginBottom: '30px',
+  }
 }));
 
 export default function Account(props) {
@@ -151,29 +169,47 @@ export default function Account(props) {
       <main className={classes.content}>
         <Switch>
         <Route path="/account/favourites">
-          <AccountFavourites 
-            limit={0}
-            className={classes.content}
-          />
+          <Grid container className={classes.accountContent}>
+            <AccountFavourites 
+              classes={classes}
+              limit={0}
+            />
+          </Grid>
         </Route>
         <Route path="/account/reviews">
+          <Grid container className={classes.accountContent}>
+            <AccountReviews
+              classes={classes}
+              user={user}
+              coffee={coffees}
+              openReviewForm={openReviewForm}
+              setOpenReviewForm={setOpenReviewForm}
+            />
+          </Grid>
+        </Route>
+        <Route path="/account/settings">
+          <Grid container className={classes.accountContent}>
+            <AccountSettings
+              classes={classes}
+            />
+          </Grid>
+        </Route>
+        <Route path="/account">
+          <Grid container className={classes.accountContent} spacing={-10}>
+          <AccountProfile classes={classes}/>
+          <AccountFavourites
+            limit={3}
+            classes={classes}
+          />
           <AccountReviews
             user={user}
             coffee={coffees}
             openReviewForm={openReviewForm}
             setOpenReviewForm={setOpenReviewForm}
-          />
-        </Route>
-        <Route path="/account/settings">
-          <AccountSettings
+            limit={3}
             classes={classes}
           />
-        </Route>
-        <Route path="/account">
-          <AccountProfile />
-          <AccountFavourites
-            limit={3}
-          />
+          </Grid>
         </Route>
       </Switch>
       <Footer />
