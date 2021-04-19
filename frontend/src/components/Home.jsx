@@ -26,7 +26,7 @@ const Home = (props) => {
   
 
   return (
-    <div>
+    <>
         <Route path="/coffees/:id">
           <CoffeeListItem />
         </Route>
@@ -42,10 +42,7 @@ const Home = (props) => {
           <TopPicks homeCoffees={homeCoffees} setHomeCoffees={setHomeCoffees}/>
           </Grid>
         </Route>
-        
-
-
-    </div>
+        </>
   )
 };
 

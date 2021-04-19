@@ -29,13 +29,13 @@ import AccountFavourites from './my-account/AccountFavourites';
 import AccountReviews from './my-account/AccountReviews';
 import {getUserReviews, isLiked, isReviewed} from '../helpers/selectors';
 import { flexbox } from '@material-ui/system';
+import Footer from './Footer'
 
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    padding: '5rem 20rem',
-    display: 'block',
+    display: 'flex',
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
@@ -53,7 +53,8 @@ const useStyles = makeStyles((theme) => ({
   },
   content: {
     flexGrow: 1,
-    padding: theme.spacing(3),
+    minHeight: 'calc(100vh - 70px)',
+    position: 'relative'
   },
 }));
 
@@ -147,11 +148,12 @@ export default function Account(props) {
           </List>
         </div>
       </Drawer>
-      
+      <main className={classes.content}>
         <Switch>
         <Route path="/account/favourites">
           <AccountFavourites 
             limit={0}
+            className={classes.content}
           />
         </Route>
         <Route path="/account/reviews">
@@ -174,7 +176,8 @@ export default function Account(props) {
           />
         </Route>
       </Switch>
-      
+      <Footer />
+    </main>
       
     </div>
   );

@@ -6,6 +6,7 @@ import { Grid } from "@material-ui/core";
 import axios from 'axios';
 import Typography from '@material-ui/core/Typography';
 import CoffeeCarousel from '../home/Carousel/CoffeeCarousel.jsx';
+import EditorPick from '../home/EditorsPicks'
 import Aos from "aos";
 import "aos/dist/aos.css"
 
@@ -25,6 +26,8 @@ const TopPicks = (props) => {
     <Grid container direction="row" >
       <Grid item xs={0} sm={1} />
       <Grid item xs={12} sm={10} fullWidth >
+        <Typography variant='h2' gutterBottom>Editor Picks</Typography>
+        <EditorPick />
         <div data-aos="fade"  data-aos-once="true">
         <Typography variant='h2' gutterBottom>Top favorites</Typography>
         <Typography variant='h4'>Only the best of the best! Chosen by you.</Typography>
