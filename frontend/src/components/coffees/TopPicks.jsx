@@ -19,7 +19,7 @@ const TopPicks = (props) => {
   const {homeCoffees, setHomeCoffees} = props
   const {state} = useContext(DataContext);
 
-  const coffees = Object.values(homeCoffees);
+  const coffees = Object.values(state.coffees);
   const reviews = state.reviews;
 
   return (
@@ -27,7 +27,19 @@ const TopPicks = (props) => {
       <Grid item xs={0} sm={1} />
       <Grid item xs={12} sm={10} fullWidth >
         <Typography variant='h2' gutterBottom>Editor Picks</Typography>
-        <EditorPick />
+        <Typography variant='h4'gutterBottom>What gets us up in the mornings.</Typography>
+        <Grid container direction="row" xs={12} >
+          <Grid item xs={12} sm={3}>
+            <EditorPick coffees={coffees}/>
+          </Grid>
+          <Grid item xs={12} sm={3}>
+            <EditorPick coffees={coffees}/>
+          </Grid>
+          <Grid item xs={12} sm={3}>
+            <EditorPick coffees={coffees}/>
+          </Grid>
+        </Grid>
+        
         <div data-aos="fade"  data-aos-once="true">
         <Typography variant='h2' gutterBottom>Top favorites</Typography>
         <Typography variant='h4'>Only the best of the best! Chosen by you.</Typography>
