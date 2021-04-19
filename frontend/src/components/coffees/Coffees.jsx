@@ -6,6 +6,7 @@ import Coffee from '../coffee-id/Coffee';
 import CoffeeList from './CoffeeList';
 import FilterList from './FilterList';
 import SortList from './SortList';
+import SortFilterDrawer from './SortFilterDrawer';
 
 import {formatRegions, getFilteredCoffees, hasSelectedFilters} from '../../helpers/selectors';
 
@@ -134,21 +135,17 @@ function Coffees(props) {
           <div
             className={classes["coffees-page"]}
           >
-            <aside>
-              <SortList
-                sortOptions={sortOptions}
-                handleSort={handleSort}
-                />
-              <FilterList 
-                categories={categories}
-                filters={filters}
-                setFilters={setFilters}
-                handleFilters={handleFilters}
-              />
-            </aside>
-              <CoffeeList
-                coffees={filteredCoffees}
-              />
+            <SortFilterDrawer
+              sortOptions={sortOptions}
+              handleSort={handleSort}
+              categories={categories}
+              filters={filters}
+              setFilters={setFilters}
+              handleFilters={handleFilters}
+            />
+            <CoffeeList
+              coffees={filteredCoffees}
+            />
           </div>
         </Route>
       </Switch>
