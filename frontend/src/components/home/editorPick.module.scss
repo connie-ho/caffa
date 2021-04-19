@@ -9,6 +9,8 @@
   position: relative;
   justify-content: space-between;
   align-items: center;
+  padding-top: 1em;
+  padding-bottom:1em;
 }
 
 .imgover {
@@ -116,4 +118,21 @@
 .editor-pic {
   border-radius: 50%;
   height: 10em;
+}
+
+@media only screen and (max-width:600px) {
+  
+  
+  .editor-coffee-card {
+    display: flex;
+    flex-direction: row;
+    width: 300px;
+    height: 400px;
+    border-radius: 2rem;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1em;
+    padding-bottom:1em;
+  }
 }
