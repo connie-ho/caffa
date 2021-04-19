@@ -52,9 +52,12 @@ function Coffees(props) {
     'acidity': [],
     'roast': [],
   })
-  const [filteredCoffees, setFilteredCoffees] = useState([...coffees])
+  const [filteredCoffees, setFilteredCoffees] = useState(coffees)
   const [hasFilters, setHasFilters] = useState(hasSelectedFilters(filters))
-
+  
+  useEffect(()=>{
+    setFilteredCoffees((prev)=>(Object.values(state.coffees)))
+  },[state.coffees])
 
   const handleFilters = (filters)=>{
     const res = getFilteredCoffees(coffees, categories, filters)
