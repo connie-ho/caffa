@@ -1,6 +1,6 @@
 import {React,useContext} from 'react'
 import Carousel from 'react-elastic-carousel'
-import CoffeeListItemCarousel from './CoffeeListItemCarousel.jsx';
+import CoffeeListItem from './../../coffees/CoffeeListItem'
 import {getReviewsForCoffee, avgRatingForCoffee} from '../../../helpers/selectors';
 import DataContext from '../../../contexts/DataContext';
 import { Grid } from "@material-ui/core";
@@ -17,15 +17,17 @@ const CoffeeCarousel = (props) => {
   const breakPoints = [
     { width: 1, itemsToShow: 1, itemsToScroll: 1, pagination: false },
     { width: 500, itemsToShow: 2, itemsToScroll: 1, pagination: true },
-    { width: 700, itemsToShow: 3, itemsToScroll: 3, pagination: true},
-    { width: 900, itemsToShow: 4, itemsToScroll: 2, pagination: true }
+    { width: 1000, itemsToShow: 3, itemsToScroll: 1, pagination: true },
+    { width: 1300, itemsToShow: 4, itemsToScroll: 2, pagination: true},
+    { width: 1600, itemsToShow: 5, itemsToScroll: 2, pagination: true }
 ]
+  console.log(window)
   const FavoritesCoffeeList = coffees.map(coffee => {
     const coffeeReviews = getReviewsForCoffee(Object.values(reviews),coffee.id)
     const avgRating = avgRatingForCoffee(coffeeReviews);
     return (
-      <Grid item xs={12}>
-      <CoffeeListItemCarousel 
+      <Grid item xs={12} >
+      <CoffeeListItem
         key={coffee.id}
         coffee={coffee}
         avgRating={avgRating}
@@ -43,7 +45,7 @@ const CoffeeCarousel = (props) => {
     const avgRating = avgRatingForCoffee(coffeeReviews);
     return (
       <Grid item xs={12}>
-      <CoffeeListItemCarousel 
+      <CoffeeListItem
         key={coffee.id}
         coffee={coffee}
         avgRating={avgRating}

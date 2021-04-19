@@ -67,7 +67,7 @@ const Main = (props) => {
           </Route>
           <>
             <Route path="/search">
-            <Grid item>
+            <Grid item style={{minHeight:'80vh'}}>
               <SearchList results={results} setResults={setResults} addCoffee={addCoffee}/>
             </Grid>
             </Route>
