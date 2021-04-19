@@ -89,7 +89,6 @@
   font-size: 1.0rem;
   font-weight: 200;
   width: 80%;
-  
 }
 
 .coffee-details-chosen {
@@ -119,10 +118,10 @@
 .editor-pic {
   border-radius: 50%;
   height: 10em;
+
 }
 
 @media only screen and (max-width:600px) {
-  
   
   .editor-coffee-card {
     display: flex;
@@ -136,4 +135,5 @@
     padding-top: 1em;
     padding-bottom:1em;
   }
+
 }

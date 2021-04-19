@@ -26,8 +26,15 @@ export default function Coffee(props) {
  const coffee = coffees[coffeeId];
 
   // filter for coffee reviews & favourites
-  const coffeeReviews = getReviewsForCoffee(Object.values(reviews), coffeeId);
+  const [coffeeReviews, setCoffeeReviews] = useState(getReviewsForCoffee(Object.values(reviews), coffeeId));
+  // const coffeeReviews = getReviewsForCoffee(Object.values(reviews), coffeeId);
   const coffeeFavourites = getFavouritesForCoffee(Object.values(favourites), coffeeId);
+
+  // change state everytime a review is added or deleted
+  useEffect(()=>{
+    setCoffeeReviews(prev => getReviewsForCoffee(Object.values(reviews), coffeeId))
+  }, [reviews, coffeeId])
+
 
   // check if coffee is already reviewed by user
   const {user} = useContext(UserContext);
