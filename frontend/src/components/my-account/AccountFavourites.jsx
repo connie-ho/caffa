@@ -60,9 +60,7 @@ export default function AccountFavourites(props) {
   return (
     <GridListTile>
       <h1>My Favourites</h1>
-    <Grid container>
         {coffeeList}
-    </Grid>
     {/* {render see more button if limit does not equal 0} */}
       </GridListTile>
   )

@@ -52,7 +52,7 @@ function AccountReviews(props) {
 
   return (
     <div className={classes['coffee-review-list']}>
-      <h1>REVIEW LIST</h1>
+      <h1>Recently Reviewed</h1>
       {reviewList}
     </div>
   )

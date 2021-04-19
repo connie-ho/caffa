@@ -36,11 +36,12 @@ const drawerWidth = 240;
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
+    flexDirection: 'column',
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
   },
-  drawer: {
+  accountDrawer: {
     width: drawerWidth,
     flexShrink: 0,
   },
@@ -53,9 +54,11 @@ const useStyles = makeStyles((theme) => ({
   },
   content: {
     flexGrow: 1,
+    flexDirection: 'row',
     minHeight: 'calc(100vh - 70px)',
     position: 'relative'
   },
+  
 }));
 
 export default function Account(props) {
@@ -105,9 +108,10 @@ export default function Account(props) {
       <Helmet>
         <title>Account | Caffa</title>
       </Helmet>
-
+    
+    <Grid container>
+      <Grid item xs={2}>
       <Drawer
-        className={classes.drawer}
         variant="permanent"
         classes={{
           paper: classes.drawerPaper,
@@ -148,6 +152,8 @@ export default function Account(props) {
           </List>
         </div>
       </Drawer>
+      </Grid>
+
       <main className={classes.content}>
         <Switch>
         <Route path="/account/favourites">
@@ -174,10 +180,19 @@ export default function Account(props) {
           <AccountFavourites
             limit={3}
           />
+          <AccountReviews
+            user={user}
+            coffee={coffees}
+            openReviewForm={openReviewForm}
+            setOpenReviewForm={setOpenReviewForm}
+            limit={3}
+          />
         </Route>
       </Switch>
       <Footer />
     </main>
+
+    </Grid>
       
     </div>
   );
