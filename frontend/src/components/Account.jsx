@@ -61,15 +61,19 @@ const useStyles = makeStyles((theme) => ({
     marginTop: '30px',
     marginLeft: '50px',
   },
+  media: {
+    height: 275,
+    backgroundSize: 'contain'
+    
+  },
   title: {
     textAlign: 'center',
 
     [theme.breakpoints.up('md')]: {
     textAlign: 'center',
     marginRight: '100px',
-
-
   }
+  
   },
   subtitle: {
     marginTop: '30px',

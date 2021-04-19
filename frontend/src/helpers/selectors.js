@@ -181,3 +181,18 @@ export function formatRegions(regions, i){
   return res;
 }
 
+
+// Get coffee review images by matching id
+export function getReviewedCoffee(reviews, coffees) {
+
+  const res = [];
+
+  for (const rItem in reviews) {
+    for (const cItem in coffees) {
+      if (reviews[rItem].coffee_id === coffees[cItem].id) {
+        res.push(coffees[cItem]);
+      }
+    }
+  }
+  return res;
+}
