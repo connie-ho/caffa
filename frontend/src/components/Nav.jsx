@@ -27,6 +27,8 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(2),
   },
   appBar: {
+    padding: '0.5 0.5rem',
+    maxWidth: '100%',
     zIndex: theme.zIndex.drawer + 1,
   },
   title: {
@@ -50,10 +52,9 @@ const useStyles = makeStyles((theme) => ({
     '&:hover': {
       backgroundColor: fade(theme.palette.common.white, 0.25),
     },
-    marginRight: theme.spacing(2),
-    marginLeft: 0,
+    marginLeft: theme.spacing(1),
     [theme.breakpoints.up('sm')]: {
-      marginLeft: theme.spacing(3),
+      marginRight: theme.spacing(1),
       width: 'auto',
     },
   },
@@ -91,6 +92,9 @@ const useStyles = makeStyles((theme) => ({
       display: 'none',
     },
   },
+  mobileMenu: {
+    marginRight: theme.spacing(1)
+  },
   toolbar: theme.mixins.toolbar
 }));
 
@@ -105,9 +109,6 @@ export default function Nav(props) {
   const {user} = useContext(UserContext);
 
   const {logoutHandler} = props
-
-  // console.log("In Nav Component: ", user)
-
 
   const handleProfileMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
@@ -129,7 +130,6 @@ export default function Nav(props) {
   const handleMobileMenuOpen = (event) => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
-
 
 
   const menuId = 'primary-search-account-menu';
@@ -169,6 +169,7 @@ export default function Nav(props) {
   const mobileMenuId = 'primary-search-account-menu-mobile';
   const renderMobileMenu = (
     <Menu
+      className={classes.mobileMenu}
       anchorEl={mobileMoreAnchorEl}
       anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
       id={mobileMenuId}
