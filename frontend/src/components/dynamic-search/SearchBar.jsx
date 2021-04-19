@@ -30,7 +30,7 @@ export default function SearchBar(props) {
       borderRadius:'2rem',
       
       [theme.breakpoints.up('xs')]: {
-        width: '25ch'
+        width: '30ch'
       },
       [theme.breakpoints.up('sm')]: {
         width: '90ch'
