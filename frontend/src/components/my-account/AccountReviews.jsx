@@ -2,7 +2,7 @@ import { useState, useContext, useEffect } from 'react';
 import UserContext from '../../contexts/UserContext';
 import ReviewListItem from '../coffee-id/ReviewListItem';
 import DataContext from '../../contexts/DataContext';
-import {getUserReviews} from '../../helpers/selectors';
+import {getUserReviews, getReviewedCoffee, reviewsWithImages} from '../../helpers/selectors';
 import Typography from '@material-ui/core/Typography';
 import { Grid, GridListTile } from "@material-ui/core";
 
@@ -10,11 +10,14 @@ import { Grid, GridListTile } from "@material-ui/core";
 
 function AccountReviews(props) {
   const {coffee, classes} = props;
-  console.log("accountreview coffee: ", props)
+  // console.log("accountreview coffee: ", props)
   const {user} = useContext(UserContext);
   const {state} = useContext(DataContext);
   const reviews = state.reviews;
   const users = state.users;
+
+  console.log("COFFEE IN ACCOUNT: ", Object.values(coffee))
+  const accountCoffee = Object.values(coffee)
 
   const [values, setValues] = useState({
     id: '',
@@ -36,17 +39,34 @@ function AccountReviews(props) {
 
   const coffeeReviews = getUserReviews(Object.values(reviews), values.id).sort((a,b)=> {return new Date(b.created_at) - new Date(a.created_at)});
 
-  console.log("coffee reviews :", coffeeReviews)
+  const reviewedCoffees = getReviewedCoffee(coffeeReviews, Object.values(coffee))
+  console.log("TEST HERE :", reviewedCoffees);
+
+  console.log("coffee reviews :", Object.values(coffeeReviews))
+  console.log("REVIEWED COFFEES :", reviewedCoffees.image_url)
+
 
   // Create Review List Item
   const reviewList = coffeeReviews.map(review => {
+
     return (
-      <ReviewListItem 
-      key={review.id}
-      review={review}
-      reviewUser={users[review.user_id]}
-      coffee={coffee}
-      />
+      <Grid container className={classes.reviewItemSection}>
+        <img 
+          class={classes.media}
+          src={coffee[review.id].image_url}
+          alt={`${coffee[review.id].name}`}
+          />
+          {/* <h2>{coffee[review.id].name}</h2> */}
+      <Grid item xs={8} className={classes.reviewCard}>
+        <ReviewListItem 
+        
+        key={review.id}
+        review={review}
+        reviewUser={users[review.user_id]}
+        coffee={accountCoffee}
+        />
+      </Grid>
+      </Grid>
     );
   })
 
