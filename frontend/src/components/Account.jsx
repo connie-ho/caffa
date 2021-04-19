@@ -53,7 +53,8 @@ const useStyles = makeStyles((theme) => ({
   },
   content: {
     flexGrow: 1,
-    height: '100%'
+    minHeight: 'calc(100vh - 70px)',
+    position: 'relative'
   },
 }));
 

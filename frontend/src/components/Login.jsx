@@ -31,8 +31,8 @@ function Copyright() {
 
 const useStyles = makeStyles((theme) => ({
   container: {
-    height: '100vh',
-    alignSelf: 'center'
+    alignSelf: 'center',
+    minHeight:'90vh'
   },
   paper: {
     marginTop: theme.spacing(8),
@@ -61,7 +61,6 @@ export default function Login(props) {
   const [password, setPassword] = useState('')
 
   const history = useHistory();
-  // console.log(history.location.pathname)
 
   const handleSubmit = (e) => {
     e.preventDefault()

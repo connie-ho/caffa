@@ -15,20 +15,18 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: '30px',
     paddingBottom: '30px',
     backgroundColor: '#fff7f5',
-    bottom: 0
   },
   footerContainer: {
     display:'flex',
     flexDirection:'column',
     alignItems:'center',
     justifyContent:'center',
-
+    
     [theme.breakpoints.up('sm')]: {
     display:'flex',
     flexDirection:'column',
     alignItems:'flex-start',
     alignContent:'center',
-    justifyContent:'flex-start'
     }
   }
 }))

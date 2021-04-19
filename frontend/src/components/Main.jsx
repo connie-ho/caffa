@@ -1,4 +1,4 @@
-import {BrowserRouter as Router, Route, Switch, useLocation} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import {useState, useContext} from 'react';
 import { Grid } from "@material-ui/core";
 import Nav from './Nav';
@@ -46,8 +46,7 @@ const Main = (props) => {
 
 
   return (
-    <Grid container direction="column">
-      <Router>
+    <Grid container direction="column" style={{position:'relative'}}>
       <SearchContext.Provider value={{results, setResults}}>
         <Grid item>
           <Nav 
@@ -95,7 +94,6 @@ const Main = (props) => {
           <Footer/>
           </>
         </Switch>
-      </Router>
     </Grid>
   )
 };
