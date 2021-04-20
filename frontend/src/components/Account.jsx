@@ -46,15 +46,14 @@ const useStyles = makeStyles((theme) => ({
   drawerPaper: {
     width: drawerWidth,
     boxSizing: 'border-box',
+    paddingTop: '30px',
   },
   drawerContainer: {
     overflow: 'auto',
   },
-  reviewItemWrapper: {
-    
-  },
   reviewItemSection: {
     padding: '2rem 2rem 2rem',
+    alignItems: 'center',
   },
   reviewCard: {
     padding: '0rem 3rem',
@@ -69,8 +68,7 @@ const useStyles = makeStyles((theme) => ({
   },
   accountContent: {
     flexDirection: 'column',
-    justifyContent: 'center',
-    padding: '50px',
+    padding: '70px 50px 50px 50px',
     minHeight: '90vh',
   },
   media: {
@@ -229,8 +227,7 @@ export default function Account(props) {
             user={user}
             limit={3}
             classes={classes}
-            titleSize={titleSize.h3}
-            secondClasses={secondClasses}
+            titleSize={titleSize.h4}
           />
           <AccountReviews
             user={user}
@@ -239,8 +236,7 @@ export default function Account(props) {
             setOpenReviewForm={setOpenReviewForm}
             limit={3}
             classes={classes}
-            titleSize={titleSize.h3}
-            secondClasses={secondClasses}
+            titleSize={titleSize.h4}
           />
           </Grid>
         </Route>

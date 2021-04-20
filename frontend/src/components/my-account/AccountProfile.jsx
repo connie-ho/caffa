@@ -1,7 +1,7 @@
 import React from 'react';
 import AccountFavourites from './AccountFavourites';
 import Typography from '@material-ui/core/Typography';
-import { spacing } from '@material-ui/system';
+import { Grid, GridListTile, Link } from "@material-ui/core";
 
 
 export default function AccountProfile(props) {
@@ -10,9 +10,9 @@ export default function AccountProfile(props) {
   
   return (
     
-    <div>
+    <Grid container className={classes.title}>
       <Typography variant='h1'>My Caffa</Typography>
-    </div>
+    </Grid>
   )
 
 

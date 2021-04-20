@@ -72,11 +72,10 @@ function AccountReviews(props) {
     );
   })
 
-  // console.log("review id: ", review.id, "review :", review, "reviewUser :", users[review.user_id], "coffee :", coffee)
 
   return (
     <div>
-    <Grid item xs={4} className={classes.subtitle}>
+    <Grid item xs={6} className={classes.subtitle}>
       <Typography variant={`${titleSize}`}>Recently Reviewed</Typography>
     </Grid>
     <div>
