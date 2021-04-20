@@ -71,7 +71,7 @@ function AccountReviews(props) {
   return (
     <div>
     <Grid item xs={6} className={classes.titleContainer}>
-      <Typography variant={`${titleSize}`}>Recently Reviewed</Typography>
+      <Typography variant={`${titleSize}`}>Recent Reviews</Typography>
       <Grid item xs={6} className={classes.SubTitle}>
         <Typography variant={`${subTitleSize}`} >You left a review on these coffees</Typography>
       </Grid>

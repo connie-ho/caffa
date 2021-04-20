@@ -62,7 +62,7 @@ export default function AccountFavourites(props) {
   return (
     <Grid container>
       <Grid item xs={6} className={classes.titleContainer}>
-        <Typography variant={`${titleSize}`}>Favourites</Typography>
+        <Typography variant={`${titleSize}`}>Recent Favourites</Typography>
         <Grid item xs={6} className={classes.SubTitle}>
           <Typography variant={`${subTitleSize}`} >Your own top picks from Caffa</Typography>
         </Grid>
