@@ -1,7 +1,6 @@
 import React, {useContext} from 'react';
 import UserContext from '../contexts/UserContext';
 import {Link, NavLink} from 'react-router-dom';
-
 import { fade, makeStyles } from '@material-ui/core/styles';
 import { Icon } from "@material-ui/core"
 import AppBar from '@material-ui/core/AppBar';
@@ -28,9 +27,10 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(2),
   },
   appBar: {
-    padding: '0.5 0.5rem',
+    padding: '0.5rem 0.5rem',
     maxWidth: '100%',
     zIndex: theme.zIndex.drawer + 1,
+    alignItems: 'center'
   },
   title: {
     display: 'none',

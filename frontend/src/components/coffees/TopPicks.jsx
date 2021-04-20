@@ -1,11 +1,8 @@
 import {useContext, useEffect, useState} from 'react';
 import DataContext from '../../contexts/DataContext.js';
-
-import CoffeeListItem from './CoffeeListItem.jsx';
-import {getReviewsForCoffee, avgRatingForCoffee} from '../../helpers/selectors';
 import { Grid } from "@material-ui/core";
-import axios from 'axios';
 import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
 import CoffeeCarousel from '../home/Carousel/CoffeeCarousel.jsx';
 import EditorPick from '../home/EditorsPicks'
 import Aos from "aos";
@@ -16,6 +13,18 @@ const kevinDescription = "Not too bitter, not too light. I've found my new go-to
 const justinDescription ="Keep it simple, like I always say!"
 
 const connieDescription ="Super versatile and quick to make. Enjoy it as  vietnamese coffee, or whip it with sugar to make dalgona coffee!"
+const useStyles = makeStyles((theme) => ({
+  header: {
+    fontSize: '2.5rem',
+    margin: '0 0.5em'
+  },
+  subtitle: {
+    fontSize: '1.5rem',
+    margin: '0 1em'
+  }
+
+}))
+
 
 const TopPicks = (props) => {
 
@@ -25,9 +34,7 @@ const TopPicks = (props) => {
 
   const {homeCoffees, setHomeCoffees} = props
   const {state} = useContext(DataContext);
-
-  const coffees = Object.values(state.coffees);
-  const reviews = state.reviews;
+  const classes = useStyles();
 
   return (
     <Grid container direction="row" >
@@ -35,8 +42,8 @@ const TopPicks = (props) => {
       <Grid item xs={12} sm={10} fullWidth >
       <div data-aos="fade"  data-aos-once="true">
           <Grid container direction='column'>
-            <Typography variant='h2' gutterBottom>Editor Picks</Typography>
-            <Typography variant='h4'gutterBottom>What gets us up in the mornings.</Typography>
+            <Typography variant='h2' className={classes.header} gutterBottom>Editor Picks</Typography>
+            <Typography variant='h4' className={classes.subtitle} gutterBottom>What gets us up in the mornings.</Typography>
             <Grid container direction="row">
               <Grid container justify='center' xs={12} sm={6} lg={4} style={{paddingBottom:'1em', paddingTop:'1em'}}>
                 <EditorPick userid={2} description={connieDescription} number={22} img='https://avatars.githubusercontent.com/u/66891817?v=4' />
@@ -54,16 +61,16 @@ const TopPicks = (props) => {
       <br></br>
       <br></br>
         <div data-aos="fade"  data-aos-once="true">
-          <Typography variant='h2' gutterBottom>Top Favorites</Typography>
-          <Typography variant='h4'>Only the best of the best! Chosen by you.</Typography>
+          <Typography variant='h2' className={classes.header} gutterBottom>Top Favorites</Typography>
+          <Typography variant='h4' className={classes.subtitle} >Only the best of the best! Chosen by you.</Typography>
           <CoffeeCarousel homeCoffees={homeCoffees} type='favorite' > </CoffeeCarousel>
         </div>
       <br></br>
       <br></br>
       <br></br>
         <div data-aos="fade" data-aos-offset="650"  data-aos-once="true">
-        <Typography variant='h2' gutterBottom>Top Reviewed</Typography>
-        <Typography variant='h4'>The latest and greatest.</Typography>
+        <Typography variant='h2'className={classes.header} gutterBottom>Top Reviewed</Typography>
+        <Typography variant='h4' className={classes.subtitle} >The latest and greatest! Hottest coffees of all time.</Typography>
       <CoffeeCarousel homeCoffees={homeCoffees} type='rating' > </CoffeeCarousel>
         </div>
       </Grid>

@@ -12,8 +12,8 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles({
   header: {
     padding:'1em',
-    paddingLeft:'0px',
-    fontSize:'3.5em'
+    paddingLeft:'15px',
+    fontSize:'2.5em',
   }
 })
 
@@ -87,7 +87,7 @@ export default function SearchList(props) {
       return (
         <>
         <Grid item xs={12} >
-        <Typography variant="p" style={{fontSize:'5em'}}>There were no matches!</Typography>
+        <Typography variant="p" style={{fontSize:'2em', padding:'0.5em'}}>There were no matches!</Typography>
         </Grid>
         </>
       )
