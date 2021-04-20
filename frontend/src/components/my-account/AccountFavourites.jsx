@@ -61,15 +61,14 @@ export default function AccountFavourites(props) {
   })
   
   return (
-    <GridListTile>
+    <>
       <Grid item xs={3} className={classes.subtitle}>
         <Typography variant='h2'>Favourites</Typography>
       </Grid>
     <Grid container spacing={10}>
         {coffeeList}
     </Grid>
-    {/* {render see more button if limit does not equal 0} */}
-      </GridListTile>
+    </>
   )
 
 }
