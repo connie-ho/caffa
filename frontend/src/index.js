@@ -16,13 +16,13 @@ let theme = createMuiTheme({
   palette: {
     type: 'light',
     primary: {
-      main: '#F9B403',
+      main: '#DEBB63',
     },
     secondary: {
       main: '#646264',
     },
     text: {
-      primary: 'rgba(0,0,0,0.87)',
+      primary: '#252b2d',
       secondary: 'rgba(61,58,58,0.54)',
     },
     background: {

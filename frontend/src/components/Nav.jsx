@@ -233,8 +233,8 @@ export default function Nav(props) {
             </Icon>
           </Link>
           <Link to="/coffees">
-            <Typography className={classes.allCoffee} variant="h6" noWrap>
-              Coffees
+            <Typography className={classes.allCoffee} variant="p" noWrap>
+              COFFEES
             </Typography>
           </Link>
           <div className={classes.search}>
