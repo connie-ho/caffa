@@ -22,7 +22,7 @@ export default function Details(props) {
     isLiked} = props;
 
   // user logic
-  const {user, openLogin, setOpenLogin} = useContext(UserContext);
+  const {user, setOpenLogin} = useContext(UserContext);
   const userId = user? user.id : null; 
   
   // add/delete favourites logic
@@ -84,7 +84,7 @@ export default function Details(props) {
             <div className={classes['coffee-details-rating']}>
               <h1>{coffee.avg_rating} </h1>
               <div>
-                <img src={bean} style={{ height:'15px', width:'15px'}} />
+                <img src={bean} style={{ height:'15px', width:'15px'}} alt="bean"/>
                 <p>{reviews.length} {reviews.length === 1 ? 'Rating' : 'Ratings'} </p>
               </div>
             </div>
@@ -97,7 +97,7 @@ export default function Details(props) {
               aria-label="delete"
               onClick={onClickHandler}>
                 {fav &&  <FavoriteIcon className={classes['coffee-like-icon']}/>} 
-                {!fav &&  <FavoriteBorderIcon/>} 
+                {!fav &&  <FavoriteBorderIcon className={classes['coffee-unlike-icon']}/>} 
             </IconButton>
             {numFav} {numFav === 1? 'like':'likes'}
           </div>

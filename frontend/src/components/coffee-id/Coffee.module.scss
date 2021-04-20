@@ -5,7 +5,7 @@ $maxWidth: 1080px;
 
 
 .coffee-details-wrapper{
-  background-color: $secondaryColor;
+  background-color: $primaryBackgroundColor;
 }
 
 .coffee-details-section {
@@ -16,11 +16,10 @@ $maxWidth: 1080px;
   justify-content: center;
   align-items: center;
   padding: $sectionPadding;
-  background-color: $secondaryColor;
+  color: $primaryFontColor;
 }
 
 .coffee-details-img {
-  // width: 20em;
   height: 20rem;
   margin-right: 5em;
   border: 0px solid white;
@@ -36,10 +35,10 @@ $maxWidth: 1080px;
 }
 
 .coffee-details-brand {
+  color: $secondaryFontColor;
   margin: 0;
   font-size: 1.5rem;
-  color: $secondaryFontColor;
-  font-weight: 100;
+  font-weight: 300;
 }
 
 .coffee-details-region {
@@ -91,6 +90,10 @@ $maxWidth: 1080px;
 
 .coffee-like-icon {
   color: rgb(238,44,77);
+}
+
+.coffee-unlike-icon {
+  color: $primaryFontColor;
 }
 
 .coffee-characteristic-section{
@@ -152,7 +155,7 @@ $maxWidth: 1080px;
 
   .no-reviews {
     font-size: 2em;
-    color: $primaryFontColor
+    color: $primaryBackgroundColor
   }
 }
 
@@ -177,7 +180,11 @@ $maxWidth: 1080px;
   max-width: $maxWidth;
   margin: 0 auto;
   padding: $sectionPadding
-  
+}
+
+
+.map-info {
+  padding: 0 0.5em 0.5em;
 }
 
 @media only screen and (max-width:600px) {

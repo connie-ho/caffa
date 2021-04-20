@@ -25,10 +25,10 @@ const useStyles = makeStyles((theme=>({
     borderRadius: '1rem',
     fontSize: '1.25em',
     marginBottom: '1em',
-    background: '#f9ebd2',
+    backgroundColor: theme.palette.background.secondary,
     "&:hover": { 
       transform: "scale3d(1.05, 1.05, 1)", 
-      background: '#f0cc8f'},
+      background: "#e0d4a7"},
   },
   image:{
     width: '2em',
@@ -101,7 +101,7 @@ export default function ReviewListItem(props) {
       <CardContent>
          <span className={classes.rating}>
           {review.rating} 
-          <img src={bean} style={{ height:'15px', width:'15px', marginLeft: '0.1em'}}/> 
+          <img src={bean} alt="bean" style={{ height:'15px', width:'15px', marginLeft: '0.1em'}}/> 
         </span>
        <div className={classes.description}>
         {review.description}

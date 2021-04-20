@@ -1,10 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
-import { BrowserRouter as Router } from "react-router-dom";
 import './index.scss'
-import UserContext from "./contexts/UserContext";
-import { createMuiTheme, makeStyles, ThemeProvider, responsiveFontSizes } from '@material-ui/core/styles';
+import { createMuiTheme, ThemeProvider, responsiveFontSizes } from '@material-ui/core/styles';
 // import * as serviceWorker from "./serviceWorker";
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faFlask, faFire, faDna} from '@fortawesome/free-solid-svg-icons'
@@ -24,9 +22,11 @@ let theme = createMuiTheme({
     text: {
       primary: '#252b2d',
       secondary: 'rgba(61,58,58,0.54)',
+      light: 'rgb(250, 244, 234)'
     },
     background: {
       default: '#ffffff',
+      secondary: "rgb(249,246,235)"
     },
   },
   typography: {
@@ -69,11 +69,11 @@ let theme = createMuiTheme({
     MuiButton: {
       outlinedPrimary: {
         color: '#646264',
-        border: '2px solid #F9B403',
+        border: '2px solid #DEBB63',
         borderRadius: '1rem',
         "&:hover": {
-          border: '3px solid #F9B403',
-          backgroundColor: '#F9B403',
+          border: '3px solid #DEBB63',
+          backgroundColor: '#DEBB63',
           color: 'white'
         },
       }

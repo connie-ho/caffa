@@ -14,12 +14,14 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: '30px',
     paddingBottom: '30px',
     backgroundColor: '#252B2C',
+    color: theme.palette.text.light
   },
   footerContainer: {
     display:'flex',
     flexDirection:'column',
     alignItems:'center',
     justifyContent:'center',
+    color: theme.palette.text.light,
     
     [theme.breakpoints.up('sm')]: {
     display:'flex',
@@ -46,7 +48,7 @@ export default function Footer() {
           <Typography variant="body1" color="inherit">
                Company
           </Typography>
-          <Typography variant="caption" color="secondary">
+          <Typography variant="caption" color="inherit">
                About us
           </Typography>
         </Grid>
@@ -54,10 +56,10 @@ export default function Footer() {
           <Typography variant="body1" color="inherit">
                Further Information
           </Typography>
-          <Typography variant="caption" color="secondary">
+          <Typography variant="caption" color="inherit">
                Terms and conditions
           </Typography>
-          <Typography variant="caption" color="secondary">
+          <Typography variant="caption" color="inherit">
                Private policy
           </Typography>
         </Grid>

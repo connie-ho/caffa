@@ -1,17 +1,6 @@
-import React, {useState, useContext, useParams} from 'react';
+import React, {useState, useContext} from 'react';
 import ReviewForm from './ReviewForm';
-import Stars from './Stars';
 import ReviewContext from '../../contexts/ReviewContext';
-import UserContext from '../../contexts/UserContext';
-
-// from material UI
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
 
 
 export default function EditReview(props) {
@@ -40,10 +29,6 @@ export default function EditReview(props) {
 
   }
 
-  const handleStarClick = () => {
-    console.log('in EDIT REVIEW')
-  }
-
   return (
     <div>
       <ReviewForm
@@ -57,7 +42,6 @@ export default function EditReview(props) {
         handleClickOpenReviewForm={handleClickOpenReviewForm}
         handleCloseReviewForm={handleCloseReviewForm}
         handleSubmitReviewForm={handleEditReview}
-        handleStarClick={handleStarClick}
       />
     </div>
   );
