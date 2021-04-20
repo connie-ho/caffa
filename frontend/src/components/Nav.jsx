@@ -43,7 +43,8 @@ const useStyles = makeStyles((theme) => ({
     display: 'none',
     [theme.breakpoints.up('sm')]: {
       display: 'block',
-      marginLeft:0
+      marginLeft:0,
+      marginRight:'2em'
     },
   },
   search: {
@@ -85,6 +86,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'none',
     [theme.breakpoints.up('md')]: {
       display: 'flex',
+      marginLeft:'1.5em'
     },
   },
   sectionMobile: {
@@ -190,7 +192,7 @@ export default function Nav(props) {
           <AccountCircle />
         </IconButton>
       </MenuItem>
-      <MenuItem onClick={handleModalOpen}>
+      <MenuItem onClick={handleModalOpen} >
         <IconButton
           aria-label="image-search"
           aria-controls="image-search"
@@ -220,7 +222,7 @@ export default function Nav(props) {
       <AppBar elevation={2} position="fixed" className={classes.appBar} style={{background: '#FFFFFF'}}>
 
         <Toolbar>
-          <Link to="/">
+          <Link to="/" style={{width:'50px', marginRight:'3em'}}>
             <Icon
               edge="start"
               className={classes.menuButton}
