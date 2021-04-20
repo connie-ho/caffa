@@ -68,9 +68,7 @@ const useStyles = makeStyles((theme) => ({
   accountContent: {
     flexDirection: 'column',
     justifyContent: 'center',
-    paddingTop: '30px',
-    paddingLeft: '50px',
-    paddingRight: '50px',
+    padding: '50px',
     minHeight: '90vh',
   },
   media: {

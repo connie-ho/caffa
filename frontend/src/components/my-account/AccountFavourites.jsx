@@ -42,19 +42,20 @@ export default function AccountFavourites(props) {
 
   
   console.log("slicedFav", slicedFav)
+  console.log("")
 
   // Create Coffee List Item
   // pass in slicedFav instead of coffees
     const coffeeList = slicedFav.map(coffee => {
     const coffeeReviews = getReviewsForCoffee(Object.values(reviews),coffee.id)
     const avgRating = avgRatingForCoffee(coffeeReviews);
+    console.log("avgRating", avgRating)
 
     return (
       <Grid item xs={4}>
         <CoffeeListItem
           key={coffee.id}
           coffee={coffee}
-          avgRating={avgRating}
           />
       </Grid>
     );
