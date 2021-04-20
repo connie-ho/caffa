@@ -11,15 +11,15 @@ const getFavourites = function () {
     .catch((err) => console.error(this, "query failed", err.stack));
 };
 
-const getUserFavourites = function (coffeeId) {
+const getUserFavourites = function (userId) {
   const text = `
   SELECT coffees.* 
-  FROM coffees 
-  INNER JOIN favourites ON favourites.coffee_id = coffees.id 
+  FROM coffees INNER JOIN favourites 
+  ON favourites.coffee_id = coffees.id 
   JOIN users ON users.id = favourites.user_id 
-  WHERE users.id = $1 
+  WHERE users.id = 1 
   GROUP BY coffees.id;`
-  const values = [coffeeId];
+  const values = [userId];
 
   return db
     .query(text, values)

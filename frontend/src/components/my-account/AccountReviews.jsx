@@ -4,12 +4,12 @@ import ReviewListItem from '../coffee-id/ReviewListItem';
 import DataContext from '../../contexts/DataContext';
 import {getUserReviews, getReviewedCoffee, reviewsWithImages} from '../../helpers/selectors';
 import Typography from '@material-ui/core/Typography';
-import { Grid, GridListTile } from "@material-ui/core";
+import { Grid, GridListTile, Link } from "@material-ui/core";
 
 
 
 function AccountReviews(props) {
-  const {coffee, classes} = props;
+  const {coffee, classes, titleSize} = props;
   // console.log("accountreview coffee: ", props)
   const {user} = useContext(UserContext);
   const {state} = useContext(DataContext);
@@ -17,6 +17,7 @@ function AccountReviews(props) {
   const users = state.users;
 
   console.log("COFFEE IN ACCOUNT: ", Object.values(coffee))
+  console.log("COFFEEEEE", coffee)
   const accountCoffee = Object.values(coffee)
 
   const [values, setValues] = useState({
@@ -43,7 +44,6 @@ function AccountReviews(props) {
   console.log("TEST HERE :", reviewedCoffees);
 
   console.log("coffee reviews :", Object.values(coffeeReviews))
-  console.log("REVIEWED COFFEES :", reviewedCoffees.image_url)
 
 
   // Create Review List Item
@@ -51,11 +51,13 @@ function AccountReviews(props) {
 
     return (
       <Grid container className={classes.reviewItemSection}>
+        <Link href={`/coffees/${review.coffee_id}`}>
         <img 
           class={classes.media}
-          src={coffee[review.id].image_url}
+          src={state.coffees[review.coffee_id].image_url}
           alt={`${coffee[review.id].name}`}
           />
+        </Link>
           {/* <h2>{coffee[review.id].name}</h2> */}
       <Grid item xs={8} className={classes.reviewCard}>
         <ReviewListItem 
@@ -63,7 +65,7 @@ function AccountReviews(props) {
         key={review.id}
         review={review}
         reviewUser={users[review.user_id]}
-        coffee={accountCoffee}
+        coffee={state.coffees[review.coffee_id]}
         />
       </Grid>
       </Grid>
@@ -75,7 +77,7 @@ function AccountReviews(props) {
   return (
     <div>
     <Grid item xs={4} className={classes.subtitle}>
-      <Typography variant='h2'>Recently Reviewed</Typography>
+      <Typography variant={`${titleSize}`}>Recently Reviewed</Typography>
     </Grid>
     <div>
       {reviewList}

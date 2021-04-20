@@ -11,7 +11,7 @@ export default function AccountProfile(props) {
   return (
     
     <div>
-      <Typography variant='h1' className={classes.title}>My Caffa</Typography>
+      <Typography variant='h1'>My Caffa</Typography>
     </div>
   )
 

@@ -58,6 +58,19 @@ export function getFavouritesForCoffee(favourites, coffeeId){
   return res;
 }
 
+// returns array of favourites for that user
+export function getFavouritesForUser(favourites, userId){
+  const res = [];
+
+  for (const fav of favourites){
+
+    if (fav && Number(fav.user_id) === Number(userId)){
+      res.push(fav);
+    }
+  }
+  return res;
+}
+
 // returns the fav id if the coffee is already liked otherwise null;
 // pass in the filtered favourites array for that coffee
 export function isLiked(favourites, userId){
@@ -204,6 +217,18 @@ export function getReviewedCoffee(reviews, coffees) {
         res.push(coffees[cItem]);
       }
     }
+  }
+  return res;
+}
+
+
+// Get coffee list based on user favourites
+export function userFavCoffees(favourites, coffees) {
+
+  const res = [];
+
+  for (const fave of favourites) {
+    res.push(coffees[fave.coffee_id])
   }
   return res;
 }

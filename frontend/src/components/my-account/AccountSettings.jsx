@@ -16,7 +16,8 @@ import {
 
 
 const AccountSettings = (props) => {
-  const {editUserHandler, classes} = props
+  const {editUserHandler} = props
+  const {classes} = props
   const {user} = useContext(UserContext);
   const [values, setValues] = useState({
     first_name: '',
@@ -43,6 +44,8 @@ const AccountSettings = (props) => {
     });
   };
 
+  console.log("edituserhandler ", editUserHandler)
+
   const handleSubmit = (e) => {
     e.preventDefault()
     console.log('First Name', values.first_name, 'Last Name', values.last_name, 'Email', values.email)
@@ -50,7 +53,6 @@ const AccountSettings = (props) => {
   }
 
   return (
-    <Grid container>
     <form
       autoComplete="off"
       noValidate
@@ -119,14 +121,13 @@ const AccountSettings = (props) => {
             type="submit"
             color="primary"
             variant="outlined"
-            onSubmit={editUserHandler}
+            onSubmit={handleSubmit}
           >
             Save details
           </Button>
         </Box>
       </Card>
     </form>
-    </Grid>
   );
 };
 
