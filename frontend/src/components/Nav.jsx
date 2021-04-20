@@ -217,7 +217,7 @@ export default function Nav(props) {
   return (
     <div className={classes.grow}>
 
-      <AppBar elevation={0} position="fixed" className={classes.appBar} style={{background: '#FFFFFF'}}>
+      <AppBar elevation={2} position="fixed" className={classes.appBar} style={{background: '#FFFFFF'}}>
 
         <Toolbar>
           <Link to="/">

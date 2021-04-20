@@ -2,7 +2,7 @@ import React from 'react'
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import headIcon from "../images/Caffa2.png"
+import headIcon from "../images/CaffaInverted.png"
 import FacebookIcon from '@material-ui/icons/Facebook';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import InstagramIcon from '@material-ui/icons/Instagram';
@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems:'flex-start',
     alignContent:'center',
     }
-  }
+  },
 }))
 
 export default function Footer() {
