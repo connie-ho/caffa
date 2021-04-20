@@ -49,7 +49,7 @@ const TopPicks = (props) => {
     <Grid container direction="row" >
       <Grid item xs={0} sm={1} />
       <Grid item xs={12} sm={10} fullWidth >
-      <Grid container direction='column' style={{margin:'5rem 0rem 8.5rem 0rem'}} >
+      <Grid container direction='column' style={{margin:'5rem 0rem 11rem 0rem'}} >
               <Typography variant='h2' className={classes.title} >Caffa</Typography>
               <Typography variant='h4' className={classes.paragraph} >Great coffee is a simple joy. Finding the perfect one should just as simple.</Typography>
         </Grid>
