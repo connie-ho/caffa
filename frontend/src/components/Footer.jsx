@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent:'center',
     color: theme.palette.text.light,
     
-    [theme.breakpoints.up('sm')]: {
+    [theme.breakpoints.up('lg')]: {
     display:'flex',
     flexDirection:'column',
     alignItems:'flex-start',

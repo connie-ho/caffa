@@ -9,7 +9,6 @@ const useStyles = makeStyles((theme) => ({
   
   container:{
     display: 'flex',
-    height: '100vh',
     width: '100%',
     flexDirection: 'column',
     alignItems: 'center',
@@ -17,18 +16,22 @@ const useStyles = makeStyles((theme) => ({
     objectFit:'cover'
   },
   imageContainer: {
+    display: 'flex',
     position: 'relative',
+    flexDirection: 'column',
     backgroundSize: 'contain',
     backgroundRepeat: 'no-repeat',
-    overflow: 'hidden'
+    overflow: 'hidden',
+    [theme.breakpoints.down('sm')]: {
+      height:'100px'
+    }
   },
   image :{
-    display:'block',
     objectFit: 'cover',
     width: '100%',
-    maxHeight: '60%',
+    maxHeight: '60vh',
     [theme.breakpoints.down('sm')]: {
-      maxHeight:'40%'
+      height:'50vh'
     }
     
   },
@@ -83,18 +86,12 @@ const useStyles = makeStyles((theme) => ({
   const classes = useStyles();
 
   return (
-    <Grid container direction="row"
-    justify="center"
-    alignItems="center"
-    className={classes.container}>
+
       <Grid item xs={12} container className={classes.imageContainer}>
         <img src= {heroImage} className = {classes.image} alt="cafe" />
         <Grid item>
-        {/* <Typography variant='h1' className={classes.title}>Caffa</Typography> */}
-        <Typography variant='h3' className={classes.subtitle}>Great coffee is a simple joy</Typography>
-        <Typography variant='h3' className={classes.subtitle}>We're here to help with that</Typography>
         </Grid>
       </Grid>
-    </Grid>
+
   )
 } <Grid item xs={12}></Grid>
