@@ -62,7 +62,7 @@ export default function SearchList(props) {
       searchTerm = storedArray.toString()
     }
 
-    if(searchTerm){
+    if(searchTerm !== 'error'){
 
       const string = stripSearchTerms(searchTerm)
     
@@ -94,7 +94,7 @@ export default function SearchList(props) {
     }
     return (
       <Grid item xs={12}>
-      <Typography variant="p" style={{fontSize:'2em'}}>An error has occurred in image search, please try again.</Typography>
+      <Typography variant="p" style={{fontSize:'2em'}}>There was an error in image search. Your image may not have been detected as a coffee bean bag.</Typography>
       </Grid>
     )
   }
