@@ -63,7 +63,6 @@ function Coffees(props) {
   useEffect(()=>{
 
     const newHasFilters = hasSelectedFilters(filters);
-    console.log(filters)
     if(!newHasFilters){
       setFilteredCoffees((prev)=>(Object.values(state.coffees)))
     }
