@@ -1,7 +1,6 @@
 import React, {useContext} from 'react';
 import UserContext from '../contexts/UserContext';
 import {Link, NavLink} from 'react-router-dom';
-
 import { fade, makeStyles } from '@material-ui/core/styles';
 import { Icon } from "@material-ui/core"
 import AppBar from '@material-ui/core/AppBar';
@@ -28,9 +27,10 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(2),
   },
   appBar: {
-    padding: '0.5 0.5rem',
+    padding: '0.5rem 0.5rem',
     maxWidth: '100%',
     zIndex: theme.zIndex.drawer + 1,
+    alignItems: 'center'
   },
   title: {
     display: 'none',
@@ -43,7 +43,8 @@ const useStyles = makeStyles((theme) => ({
     display: 'none',
     [theme.breakpoints.up('sm')]: {
       display: 'block',
-      marginLeft:0
+      marginLeft:0,
+      marginRight:'2em'
     },
   },
   search: {
@@ -85,6 +86,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'none',
     [theme.breakpoints.up('md')]: {
       display: 'flex',
+      marginLeft:'1.5em'
     },
   },
   sectionMobile: {
@@ -190,7 +192,7 @@ export default function Nav(props) {
           <AccountCircle />
         </IconButton>
       </MenuItem>
-      <MenuItem onClick={handleModalOpen}>
+      <MenuItem onClick={handleModalOpen} >
         <IconButton
           aria-label="image-search"
           aria-controls="image-search"
@@ -217,10 +219,10 @@ export default function Nav(props) {
   return (
     <div className={classes.grow}>
 
-      <AppBar elevation={0} position="fixed" className={classes.appBar} style={{background: '#FFFFFF'}}>
+      <AppBar elevation={2} position="fixed" className={classes.appBar} style={{background: '#FFFFFF'}}>
 
         <Toolbar>
-          <Link to="/">
+          <Link to="/" style={{width:'50px', marginRight:'3em'}}>
             <Icon
               edge="start"
               className={classes.menuButton}

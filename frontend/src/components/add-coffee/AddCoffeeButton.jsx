@@ -31,8 +31,8 @@ export default function AddCoffeeButton(props) {
       }
     },
     button: {
-      paddingLeft:'0px',
-      color:'black'
+      paddingLeft:'15px',
+      margin:'1em 1em'
     }
   }));
   
@@ -40,7 +40,7 @@ export default function AddCoffeeButton(props) {
   
   return (
     <>
-      <Button variant="outlined" color="primary" disableRipple size="large" style={{ fontSize: '1.5em' }} classNames={classes.button} onClick={handleModalOpen}>Can't find your coffee? click here to add it. </Button>
+      <Button variant="outlined" color="primary" disableRipple size="medium" style={{ fontSize: '1.25em' }} className={classes.button} onClick={handleModalOpen}>Can't find your coffee? click here to add it. </Button>
       {renderModal}
     </>
   )
