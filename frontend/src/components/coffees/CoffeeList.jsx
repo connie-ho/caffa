@@ -27,7 +27,7 @@ const CoffeeList = (props) => {
   const coffeeList = currentCoffees.map(coffee => {
 
     return (
-      <Grid item xs={12} sm={6} md={4} lg={3} style={{padding:'1.5em 1.5em'}}>
+      <Grid item xs={12} sm={8} md={6} lg={4} style={{padding:'1.5em 1.5em'}}>
         <CoffeeListItem
           key={coffee.id}
           coffee={coffee}

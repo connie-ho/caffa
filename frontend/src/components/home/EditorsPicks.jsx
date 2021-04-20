@@ -10,7 +10,7 @@ export default function EditorPick(props) {
   const {state} = useContext(DataContext);
   const users = Object.values(state.users);
   const coffees =  Object.values(state.coffees);
-  const coffee = coffees[number]
+  const coffee = coffees[number - 1]
   const user = users[userid - 1]
 
 
