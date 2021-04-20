@@ -50,7 +50,6 @@ const AccountSettings = (props) => {
   }
 
   return (
-    <Grid container>
     <form
       autoComplete="off"
       noValidate
@@ -126,7 +125,6 @@ const AccountSettings = (props) => {
         </Box>
       </Card>
     </form>
-    </Grid>
   );
 };
 

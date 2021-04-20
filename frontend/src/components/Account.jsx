@@ -67,14 +67,21 @@ const useStyles = makeStyles((theme) => ({
   },
   accountContent: {
     flexDirection: 'column',
-    marginTop: '30px',
-    marginLeft: '50px',
+    justifyContent: 'center',
+    paddingTop: '30px',
+    paddingLeft: '50px',
+    paddingRight: '50px',
+    minHeight: '90vh',
   },
   media: {
     height: 275,
     width: 180,
     backgroundSize: 'contain'
     
+  },
+  settingsForm: {
+    flexDirection: 'row',
+    justifyContent: 'center',
   },
   title: {
     textAlign: 'center',
