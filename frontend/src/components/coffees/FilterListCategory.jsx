@@ -20,6 +20,7 @@ export default function FilterListCategory(props) {
     handleFilters,
     category
   } = props;
+
   const [open, setOpen] = React.useState(true);
 
   const handleClick = () => {

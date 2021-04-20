@@ -62,7 +62,7 @@ function Coffees(props) {
 
   const handleFilters = (filters)=>{
     const res = getFilteredCoffees(coffees, categories, filters)
-    setFilteredCoffees(prev => [...res])
+    setFilteredCoffees(prev => res)
 
     // if there are no filters selected, display all
     const newHasFilters = hasSelectedFilters(filters);

@@ -130,11 +130,16 @@ export function getFilteredCoffees(allCoffees, filterCategories, filterObj){
       // item is a number that maps to the items in filtercategories
       for(const item of filterObj[category]){
         if(coffee[category] === filterCategories[category]['items'][item]['type']){
+          // works if the coffee is in the same category
           res.push(coffee)
-        }
+        } 
       }
     }
   }
+
+
+
+
 
   return res;
 }
