@@ -4,9 +4,9 @@ import {Route, Switch} from 'react-router-dom';
 import DataContext from '../../contexts/DataContext';
 import Coffee from '../coffee-id/Coffee';
 import CoffeeList from './CoffeeList';
-import FilterList from './FilterList';
-import SortList from './SortList';
 import SortFilterDrawer from './SortFilterDrawer';
+import AddCoffeeButton from '../add-coffee/AddCoffeeButton';
+
 import Footer from '../Footer'
 import {formatRegions, getFilteredCoffees, hasSelectedFilters} from '../../helpers/selectors';
 
@@ -17,6 +17,7 @@ function Coffees(props) {
   
   const {state} = useContext(DataContext);
   const regions = Object.values(state.regions);
+  const coffees = Object.values(state.coffees);
 
   // Define categories to filter for
   const categories = {
@@ -44,7 +45,6 @@ function Coffees(props) {
     4: 'Rating: Low to High',
     5: 'Rating: High to Low',
   }
-  const coffees = Object.values(state.coffees);
 
   // FilterArray to apply to coffees
   const [filters, setFilters] = useState({
@@ -56,12 +56,24 @@ function Coffees(props) {
   const [filteredCoffees, setFilteredCoffees] = useState(coffees)
   const [hasFilters, setHasFilters] = useState(hasSelectedFilters(filters))
   
+  // useEffect(()=>{
+  //   setFilteredCoffees((prev)=>(Object.values(state.coffees)))
+  // },[state.coffees])
+
   useEffect(()=>{
-    setFilteredCoffees((prev)=>(Object.values(state.coffees)))
-  },[state.coffees])
+
+    const newHasFilters = hasSelectedFilters(filters);
+    if(!newHasFilters){
+      setFilteredCoffees((prev)=>(Object.values(state.coffees)))
+    }
+    setHasFilters(prev => newHasFilters);
+
+  }, [hasFilters, state.coffees, filters])
 
   const handleFilters = (filters)=>{
-    const res = getFilteredCoffees(coffees, categories, filters)
+    // pass in a copy of the filters
+    const copyFilters = {...filters};
+    const res = getFilteredCoffees(coffees, categories, copyFilters)
     setFilteredCoffees(prev => res)
 
     // if there are no filters selected, display all
@@ -144,7 +156,11 @@ function Coffees(props) {
               setFilters={setFilters}
               handleFilters={handleFilters}
             />
+<<<<<<< HEAD
+            {!filteredCoffees.length && <h1>There doesn't seem to be any results, try our image search instead</h1>}
+=======
             <div style={{width:'100%', display: 'flex', flexDirection: 'column', minHeight:'90vh'}}>
+>>>>>>> da3179c281452c124a2e1012ba33fa4c793ebd43
             <CoffeeList
               coffees={filteredCoffees}
             />
