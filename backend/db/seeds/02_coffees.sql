@@ -74,4 +74,23 @@ Gobs of body, intriguing chocolate character. Dynamite as drip, scintillating as
  'Analog Coffee',
  'Medium-High',
  'Arabica',
- 'https://cdn.shopify.com/s/files/1/1521/8648/products/Mambo5_grande.jpg?v=1602599464')
+ 'https://cdn.shopify.com/s/files/1/1521/8648/products/Mambo5_grande.jpg?v=1602599464'),
+
+ ('Epic Espresso',
+  'Floral, clean, sweet and lush. Direct trade. Commercially directed light espresso roast.',
+  'Ethiopia',
+  'Light',
+  '49th Parallel',
+  'Medium-High',
+  'Arabica',
+  'https://i.ibb.co/Rh2K0tH/Epic-Espresso-730x730.png'),
+
+  ('Coffee Mix 3 in 1',
+  'Rapid instant coffee, best for those days when theres a rush!',
+  'Vietnam',
+  'Light',
+  'G7 Coffee',
+  'Medium-High',
+  'Arabica',
+  'https://media.discordapp.net/attachments/827663934982455316/833753284330127362/41uLYt4bGhL._AC_.jpg'
+  )

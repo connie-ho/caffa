@@ -15,7 +15,7 @@ const getCoffees = function () {
 
 const getMostFavouritedCoffees = function () {
   const text = `
-  SELECT coffees.* FROM coffees INNER JOIN favourites ON favourites.coffee_id = coffees.id GROUP BY coffees.id LIMIT 6;`;
+  SELECT coffees.* FROM coffees INNER JOIN favourites ON favourites.coffee_id = coffees.id GROUP BY coffees.id ORDER BY COUNT(favourites.coffee_id) DESC LIMIT 6;`;
 
   return db
     .query(text)
