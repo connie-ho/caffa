@@ -9,7 +9,6 @@ export default function SearchBar(props) {
   
   const {state} = useContext(DataContext);
   const coffees = Object.values(state.coffees)
-  console.log('cursed', coffees)
   const [autoCompleteOpen, setAutoCompleteOpen] = useState(false)
   const [value,setValue] = useState('')
   const useStyles = makeStyles((theme) => ({ 

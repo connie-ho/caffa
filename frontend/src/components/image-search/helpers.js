@@ -23,27 +23,28 @@ export async function googleImageDetection(url) {
       }
     ]
   });
-  let response = await fetch(
-    `https://vision.googleapis.com/v1/images:annotate?key=${process.env.REACT_APP_GOOGLE_API_KEY}`, {
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
-      },
-      method: "POST",
-      body: body
-    }
-  );
-  
-  let responseJson = await response.json();
-  console.log('obj', responseJson)
-  
-  if (!responseJson.responses[0].textAnnotations) {
+
+  let response = ''
+
+  try {
+   response = await axios.post('/api/search', {body})
+  } catch (error) {
+    console.error(error)
+  }
+
+  //If data sent back is an error message
+  if (!response || response.data.error ) {
     console.log('error occurred in image search')
+    return ['error']
+  }
+  //If data sent back is an empty object
+  else if(Object.keys(response.data).length === 0) {
+    console.log('no text detected')
     return []
   }
   
   else {
-  let finalArray = responseJson.responses[0].textAnnotations.map(function(obj) {
+  let finalArray = response.data.textAnnotations.map(function(obj) {
     return obj.description
   })
   

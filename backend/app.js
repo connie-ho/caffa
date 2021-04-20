@@ -58,6 +58,7 @@ const coffeesRouter = require("./routes/coffees");
 const favouritesRouter = require("./routes/favourites");
 const reviewsRouter = require("./routes/reviews");
 const cafeRouter = require("./routes/cafes");
+const searchRouter = require("./routes/search");
 
 // app.use("/api/", indexRouter);
 app.use("/api/users", usersRouter);
@@ -65,6 +66,7 @@ app.use("/api/coffees", coffeesRouter);
 app.use("/api/favourites", favouritesRouter);
 app.use("/api/reviews", reviewsRouter);
 app.use("/api/cafes", cafeRouter);
+app.use("/api/search", searchRouter);
 
 app.use(logger("dev"));
 app.use(express.json());

@@ -5,7 +5,6 @@ import DataContext from '../../contexts/DataContext';
 import Coffee from '../coffee-id/Coffee';
 import CoffeeList from './CoffeeList';
 import SortFilterDrawer from './SortFilterDrawer';
-import AddCoffeeButton from '../add-coffee/AddCoffeeButton';
 
 import Footer from '../Footer'
 import {formatRegions, getFilteredCoffees, hasSelectedFilters} from '../../helpers/selectors';
@@ -34,7 +33,7 @@ function Coffees(props) {
       },
       'region': {
         name: 'Region',
-        items: formatRegions(regions, 11) // get helper function to define this later
+        items: formatRegions(regions, 11) 
       },
   }
   // Define sorting choices
@@ -156,8 +155,8 @@ function Coffees(props) {
               setFilters={setFilters}
               handleFilters={handleFilters}
             />
-            {!filteredCoffees.length && <h1>There doesn't seem to be any results, try our image search instead</h1>}
             <div style={{width:'100%', display: 'flex', flexDirection: 'column', minHeight:'90vh'}}>
+            {!filteredCoffees.length && <p className={classes["no-results"]}>There doesn't seem to be any results, try our image search instead!</p>}
             <CoffeeList
               coffees={filteredCoffees}
             />
