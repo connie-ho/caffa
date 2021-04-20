@@ -1,6 +1,6 @@
 import {React, useEffect} from 'react';
 import Grid from '@material-ui/core/Grid';
-import heroImage from '../../images/heroComponent5.png'
+import heroImage from '../../images/cafe.jpg'
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 
@@ -26,8 +26,8 @@ const useStyles = makeStyles((theme) => ({
     display:'block',
     objectFit: 'cover',
     width: '100%',
-    maxHeight: '70%',
-    transform:`translate(0em,-6em)`
+    maxHeight: '80%',
+    
   },
   title: {
     display: 'inline-block',
@@ -57,7 +57,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'inline-block',
     position: 'absolute',
     top: '66%',
-    color: 'black',
+    color: 'Black',
     right:'-5%',
     fontSize:'25px',
     width:'100vw',
@@ -65,7 +65,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'inline-block',
     position: 'absolute',
     top: '65%',
-    color: 'black',
+    color: 'Black',
     textAlign: 'center',
     right:'16.5%',
     fontSize:'30px'
@@ -85,8 +85,8 @@ const useStyles = makeStyles((theme) => ({
       <Grid item xs={12} container className={classes.imageContainer}>
         <img src= {heroImage} className = {classes.image}  />
         <Grid item>
-        <Typography variant='h1' className={classes.title}>Caffa</Typography>
-        <Typography variant='h2' className={classes.subtitle}>Bringing you energy whenever, wherever.</Typography>
+        {/* <Typography variant='h1' className={classes.title}>Caffa.</Typography>
+        <Typography variant='h2' className={classes.subtitle}>Bringing you energy whenever, wherever.</Typography> */}
         </Grid>
       </Grid>
     </Grid>
