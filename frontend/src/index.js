@@ -69,11 +69,11 @@ let theme = createMuiTheme({
     MuiButton: {
       outlinedPrimary: {
         color: '#646264',
-        border: '2px solid #F9B403',
+        border: '2px solid #DEBB63',
         borderRadius: '1rem',
         "&:hover": {
-          border: '3px solid #F9B403',
-          backgroundColor: '#F9B403',
+          border: '3px solid #DEBB63',
+          backgroundColor: '#DEBB63',
           color: 'white'
         },
       }
