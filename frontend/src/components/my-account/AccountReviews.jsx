@@ -44,7 +44,6 @@ function AccountReviews(props) {
   console.log("TEST HERE :", reviewedCoffees);
 
   console.log("coffee reviews :", Object.values(coffeeReviews))
-  console.log("REVIEWED COFFEES :", reviewedCoffees.image_url)
 
 
   // Create Review List Item
@@ -52,10 +51,10 @@ function AccountReviews(props) {
 
     return (
       <Grid container className={classes.reviewItemSection}>
-        <Link href={`/coffees/${review.id}`}>
+        <Link href={`/coffees/${review.coffee_id}`}>
         <img 
           class={classes.media}
-          src={coffee[review.id].image_url}
+          src={state.coffees[review.coffee_id].image_url}
           alt={`${coffee[review.id].name}`}
           />
         </Link>

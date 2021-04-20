@@ -197,7 +197,7 @@ export default function Account(props) {
           <Grid container className={classes.accountContent}>
             <AccountFavourites 
               classes={classes}
-              titleSize={titleSize.h1}
+              titleSize={titleSize.h2}
               limit={50}
             />
           </Grid>
@@ -206,7 +206,7 @@ export default function Account(props) {
           <Grid container className={classes.accountContent}>
             <AccountReviews
               classes={classes}
-              titleSize={titleSize.h1}
+              titleSize={titleSize.h2}
               user={user}
               coffee={coffees}
               openReviewForm={openReviewForm}
