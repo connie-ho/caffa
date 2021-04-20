@@ -4,12 +4,12 @@ import ReviewListItem from '../coffee-id/ReviewListItem';
 import DataContext from '../../contexts/DataContext';
 import {getUserReviews, getReviewedCoffee, reviewsWithImages} from '../../helpers/selectors';
 import Typography from '@material-ui/core/Typography';
-import { Grid, GridListTile } from "@material-ui/core";
+import { Grid, GridListTile, Link } from "@material-ui/core";
 
 
 
 function AccountReviews(props) {
-  const {coffee, classes} = props;
+  const {coffee, classes, titleSize} = props;
   // console.log("accountreview coffee: ", props)
   const {user} = useContext(UserContext);
   const {state} = useContext(DataContext);
@@ -52,11 +52,13 @@ function AccountReviews(props) {
 
     return (
       <Grid container className={classes.reviewItemSection}>
+        <Link href={`/coffees/${review.id}`}>
         <img 
           class={classes.media}
           src={coffee[review.id].image_url}
           alt={`${coffee[review.id].name}`}
           />
+        </Link>
           {/* <h2>{coffee[review.id].name}</h2> */}
       <Grid item xs={8} className={classes.reviewCard}>
         <ReviewListItem 
@@ -76,7 +78,7 @@ function AccountReviews(props) {
   return (
     <div>
     <Grid item xs={4} className={classes.subtitle}>
-      <Typography variant='h2'>Recently Reviewed</Typography>
+      <Typography variant={`${titleSize}`}>Recently Reviewed</Typography>
     </Grid>
     <div>
       {reviewList}

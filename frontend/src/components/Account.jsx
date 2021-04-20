@@ -27,7 +27,6 @@ import AccountSettings from './my-account/AccountSettings';
 import AccountFavourites from './my-account/AccountFavourites';
 import AccountReviews from './my-account/AccountReviews';
 import {getUserReviews, isLiked, isReviewed} from '../helpers/selectors';
-import { flexbox } from '@material-ui/system';
 import Footer from './Footer'
 
 const drawerWidth = 240;
@@ -60,6 +59,9 @@ const useStyles = makeStyles((theme) => ({
   reviewCard: {
     padding: '0rem 3rem',
   },
+  reviewCardActionArea: {
+    padding: '0rem 3rem',
+  },
   content: {
     flexGrow: 1,
     minHeight: 'calc(100vh - 70px)',
@@ -88,7 +90,10 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'center',
     marginRight: '100px',
   }
-
+  },
+  secondTitle: {
+    textAlign: 'center',
+    fontVariant: 'h3',
   },
   subtitle: {
     marginTop: '30px',
@@ -99,6 +104,8 @@ const useStyles = makeStyles((theme) => ({
 export default function Account(props) {
   const {editUserHandler} = props
   const classes = useStyles();
+  const secondClasses = useStyles();
+  const titleSize = {h1: 'h1', h2: 'h2', h3: 'h3', h4: 'h4'}
   const {state} = useContext(DataContext);
   const {user} = useContext(UserContext);
   const [openReviewForm, setOpenReviewForm] = useState(false);
@@ -121,10 +128,8 @@ export default function Account(props) {
   
   const coffees = state.coffees;
   const reviews = state.reviews;
-  console.log("STATE IN ACCOUNT :", state)
-  console.log("USER CONTEXT :", user);
-  // console.log("USER ID :", userId);
 
+  console.log("title size:", titleSize.h3)
 
   const coffee = coffees[reviews.user_id]
 
@@ -192,6 +197,7 @@ export default function Account(props) {
           <Grid container className={classes.accountContent}>
             <AccountFavourites 
               classes={classes}
+              titleSize={titleSize.h1}
               limit={50}
             />
           </Grid>
@@ -200,6 +206,7 @@ export default function Account(props) {
           <Grid container className={classes.accountContent}>
             <AccountReviews
               classes={classes}
+              titleSize={titleSize.h1}
               user={user}
               coffee={coffees}
               openReviewForm={openReviewForm}
@@ -222,6 +229,8 @@ export default function Account(props) {
             user={user}
             limit={3}
             classes={classes}
+            titleSize={titleSize.h3}
+            secondClasses={secondClasses}
           />
           <AccountReviews
             user={user}
@@ -230,6 +239,8 @@ export default function Account(props) {
             setOpenReviewForm={setOpenReviewForm}
             limit={3}
             classes={classes}
+            titleSize={titleSize.h3}
+            secondClasses={secondClasses}
           />
           </Grid>
         </Route>

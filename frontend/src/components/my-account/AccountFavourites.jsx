@@ -14,7 +14,7 @@ export default function AccountFavourites(props) {
   const {state} = useContext(DataContext);
   const {user} = useContext(UserContext);
   const {limit} = props;
-  const {classes} = props;
+  const {classes, titleSize} = props;
 
   const [values, setValues] = useState({
     id: '',
@@ -96,7 +96,7 @@ export default function AccountFavourites(props) {
   return (
     <Grid container>
       <Grid item xs={3} className={classes.subtitle}>
-        <Typography variant='h2'>Favourites</Typography>
+        <Typography variant={`${titleSize}`}>Favourites</Typography>
       {!coffeeList.length && 
         <p>There are no favourites here!</p>
       }
