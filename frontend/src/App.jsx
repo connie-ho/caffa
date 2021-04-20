@@ -42,10 +42,8 @@ function App() {
       })
   }
 
-  const editUserHandler = (first_name, last_name, email, password) => {
-    return axios.post("/api/users/edit", {first_name: first_name, last_name: last_name, email: email, password: password})
-      .then(res => {
-      })
+  const editUserHandler = (first_name, last_name, email) => {
+    return axios.post("/api/users/edit", {first_name: first_name, last_name: last_name, email: email})
       .catch(err => {
         console.log(err.message)
       })
@@ -69,9 +67,7 @@ function App() {
       .then(res => setUser(res.data))
   }
 
-  const getUserReviews = () => {
-    
-  }
+
 
 
   const {
@@ -100,6 +96,7 @@ function App() {
             addCoffee={addCoffee}
             loginHandler={loginHandler}
             logoutHandler={logoutHandler}
+            editUserHandler={editUserHandler}
             user={user}
             setUser={setUser}
           />

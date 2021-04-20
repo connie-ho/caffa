@@ -17,6 +17,7 @@ function AccountReviews(props) {
   const users = state.users;
 
   console.log("COFFEE IN ACCOUNT: ", Object.values(coffee))
+  console.log("COFFEEEEE", coffee)
   const accountCoffee = Object.values(coffee)
 
   const [values, setValues] = useState({
@@ -63,7 +64,7 @@ function AccountReviews(props) {
         key={review.id}
         review={review}
         reviewUser={users[review.user_id]}
-        coffee={accountCoffee}
+        coffee={state.coffees[review.coffee_id]}
         />
       </Grid>
       </Grid>

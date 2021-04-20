@@ -16,7 +16,8 @@ import {
 
 
 const AccountSettings = (props) => {
-  const {editUserHandler, classes} = props
+  const {editUserHandler} = props
+  const {classes} = props
   const {user} = useContext(UserContext);
   const [values, setValues] = useState({
     first_name: '',
@@ -42,6 +43,8 @@ const AccountSettings = (props) => {
       [event.target.name]: event.target.value
     });
   };
+
+  console.log("edituserhandler ", editUserHandler)
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -118,7 +121,7 @@ const AccountSettings = (props) => {
             type="submit"
             color="primary"
             variant="outlined"
-            onSubmit={editUserHandler}
+            onSubmit={handleSubmit}
           >
             Save details
           </Button>

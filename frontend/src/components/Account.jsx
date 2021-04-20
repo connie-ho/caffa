@@ -192,7 +192,7 @@ export default function Account(props) {
           <Grid container className={classes.accountContent}>
             <AccountFavourites 
               classes={classes}
-              limit={0}
+              limit={50}
             />
           </Grid>
         </Route>
@@ -210,6 +210,7 @@ export default function Account(props) {
         <Route path="/account/settings">
           <Grid container className={classes.accountContent}>
             <AccountSettings
+              editUserHandler={editUserHandler}
               classes={classes}
             />
           </Grid>
@@ -218,6 +219,7 @@ export default function Account(props) {
           <Grid container className={classes.accountContent} spacing={-10}>
           <AccountProfile classes={classes}/>
           <AccountFavourites
+            user={user}
             limit={3}
             classes={classes}
           />
