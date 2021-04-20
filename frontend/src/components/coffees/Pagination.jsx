@@ -9,7 +9,6 @@ const Paginations = ({coffeesPerPage, totalCoffees, page, setPage}) => {
     pageNumbers.push(i);
   }
   
-
   const handleChange = (event,value) => {
     setPage(value)
   };

@@ -5,7 +5,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Stars from './Stars';
 
@@ -19,7 +18,11 @@ const useStyles = makeStyles((theme)=>({
     border: '0px solid',
     borderRadius: '1rem',
     minWidth: '500px',
-    minHeight: '350px'
+    minHeight: '350px',
+    [theme.breakpoints.down('sm')]: {
+      minWidth: '0',
+      width: '90%'
+    },
   },
   content: {
     display: 'flex',

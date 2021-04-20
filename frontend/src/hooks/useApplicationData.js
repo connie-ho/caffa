@@ -6,7 +6,7 @@ import reducer, {
   SET_REVIEW,
   SET_COFFEE
 } from "../reducers/application";
-import {getRegions} from '../helpers/selectors';
+import {getRegions, getReviewsForCoffee, avgRatingForCoffee} from '../helpers/selectors';
 
 function useApplicationData(){
 
@@ -120,7 +120,16 @@ function useApplicationData(){
           ...state.reviews,
           [res.data.id]: review
         }
+        // updating coffee rating
+        const coffeeReviews = getReviewsForCoffee(Object.values(reviews), coffee_id);
+        const avgRating = avgRatingForCoffee(coffeeReviews);
 
+        const coffee = {
+          ...state.coffees[coffee_id],
+          avg_rating: avgRating
+        }
+        
+        dispatch({type:SET_COFFEE, coffee});
         dispatch({type:SET_REVIEW, reviews});
         return res.data.id;
       })
@@ -128,13 +137,24 @@ function useApplicationData(){
 
   function deleteReview(id){
 
+    const coffee_id = state.reviews[id].coffee_id;
     const reviews = {
       ...state.reviews,
       [id]: null
     }
 
+    // updating coffee rating
+    const coffeeReviews = getReviewsForCoffee(Object.values(reviews), coffee_id);
+    const avgRating = avgRatingForCoffee(coffeeReviews);
+
+    const coffee = {
+      ...state.coffees[coffee_id],
+      avg_rating: avgRating
+    }
+    
     return axios.delete(`/api/reviews/${id}`)
-      .then(res=>{
+    .then(res=>{
+        dispatch({type:SET_COFFEE, coffee});
         dispatch({type: SET_REVIEW, reviews})
       })
 
@@ -149,7 +169,6 @@ function useApplicationData(){
       description, 
       rating
     }
-    console.log('inside edit review request')
     return axios.patch(`/api/reviews/${id}`, req)
       .then(res=>{
 

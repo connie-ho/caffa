@@ -1,4 +1,4 @@
-// returns array of reviews for that coffee
+/// returns array of reviews for that coffee
 export function getReviewsForCoffee(reviews, coffeeId){
   const res = [];
 
@@ -120,23 +120,34 @@ export function getFilteredCoffees(allCoffees, filterCategories, filterObj){
 
   const res = [];
 
+  if(!hasSelectedFilters(filterObj)){
+    return allCoffees;
+  }
+
   if(!allCoffees.length){
     return res;
   }
 
-  for(const coffee of allCoffees){
-    // category are things like region, acidity, roast etc ...
-    for(const category in filterObj){
+  // category are things like region, acidity, roast etc ...
+  for(const category in filterObj){
+    if (!filterObj[category] || !filterObj[category].length){
+      continue;
+    }
+    for(const coffee of allCoffees){
       // item is a number that maps to the items in filtercategories
+
       for(const item of filterObj[category]){
         if(coffee[category] === filterCategories[category]['items'][item]['type']){
+          // works if the coffee is in the same category
           res.push(coffee)
-        }
+        } 
       }
     }
+    // make that category null so that the next iteration skips it
+    filterObj[category] = [];
+    return getFilteredCoffees(res, filterCategories, filterObj)
   }
 
-  return res;
 }
 
 // checks if there are any filters selected
@@ -181,3 +192,18 @@ export function formatRegions(regions, i){
   return res;
 }
 
+
+// Get coffee review images by matching id
+export function getReviewedCoffee(reviews, coffees) {
+
+  const res = [];
+
+  for (const rItem in reviews) {
+    for (const cItem in coffees) {
+      if (reviews[rItem].coffee_id === coffees[cItem].id) {
+        res.push(coffees[cItem]);
+      }
+    }
+  }
+  return res;
+}

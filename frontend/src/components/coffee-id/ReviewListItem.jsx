@@ -115,7 +115,7 @@ export default function ReviewListItem(props) {
         <div>{reviewUser.first_name} {reviewUser.last_name}</div>
       </div>
       <Typography variant="body2" color="textSecondary">
-      {date}
+        {date}
       </Typography>
 
       </CardContent>

@@ -12,7 +12,6 @@ export default function AddCoffeeButton(props) {
   const {url, addCoffee} = props
   const {user, openLogin, setOpenLogin} = useContext(UserContext);
   const [modalOpen, setModalOpen] = useState(false)
-  console.log('usa',user)
   
   const handleModalOpen = () => {
     if (!user) {

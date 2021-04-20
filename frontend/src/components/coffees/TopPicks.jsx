@@ -33,7 +33,6 @@ const TopPicks = (props) => {
     <Grid container direction="row" >
       <Grid item xs={0} sm={1} />
       <Grid item xs={12} sm={10} fullWidth >
-
         <div data-aos="fade"  data-aos-once="true">
           <Typography variant='h2' gutterBottom>Top Favorites</Typography>
           <Typography variant='h4'>Only the best of the best! Chosen by you.</Typography>
