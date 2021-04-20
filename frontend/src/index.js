@@ -24,9 +24,11 @@ let theme = createMuiTheme({
     text: {
       primary: '#252b2d',
       secondary: 'rgba(61,58,58,0.54)',
+      light: 'rgb(250, 244, 234)'
     },
     background: {
       default: '#ffffff',
+      secondary: "rgb(249,246,235)"
     },
   },
   typography: {

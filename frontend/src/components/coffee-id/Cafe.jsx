@@ -20,12 +20,14 @@ const useStyles = makeStyles((theme)=>({
 
   },
   root: {
+    backgroundColor: theme.palette.background.secondary,
     flex: 1,
     minWidth: '40%',
     padding: '1.5em',
     marginRight: '1em',
     borderTop: '1px solid rgb(238,238,238)',
     borderRadius: '1em',
+
   },
   media: {
     height: 300,

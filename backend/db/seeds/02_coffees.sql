@@ -92,5 +92,5 @@ Gobs of body, intriguing chocolate character. Dynamite as drip, scintillating as
   'G7 Coffee',
   'Medium-High',
   'Arabica',
-  'https://media.discordapp.net/attachments/827663934982455316/833753284330127362/41uLYt4bGhL._AC_.jpg'
+  'https://www.londondrugs.com/on/demandware.static/-/Sites-londondrugs-master/default/dwfa01d1ee/products/L8762064/large/L8762064.JPG'
   )
