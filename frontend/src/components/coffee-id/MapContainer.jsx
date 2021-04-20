@@ -1,5 +1,7 @@
 import {useState} from 'react';
 import { GoogleMap, LoadScript, Marker, InfoWindow} from '@react-google-maps/api';
+import classes from './Coffee.module.scss';
+
 
 function MapContainer (props) {
   
@@ -62,7 +64,7 @@ function MapContainer (props) {
               clickable={true}
               onCloseClick={() => setSelected({})}
             >
-              <p>{selected.name} is {selected.distance} km away from city center! </p>
+              <p className={classes['map-info']}>{selected.name} is {selected.distance} km away from city center! </p>
             </InfoWindow>
             )
          }

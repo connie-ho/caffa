@@ -7,6 +7,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+import bean from '../../images/31080.png';
 
 const useStyles = makeStyles((theme)=>({
   section: {
@@ -75,7 +76,7 @@ function Cafe(props) {
             {cafeData.name}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            Rating: {cafeData.rating}
+            Rating: {cafeData.rating}  <img src={bean} style={{ height:'15px', width:'15px'}} alt="bean"/>
           </Typography>
         <Link href={cafeData.url}>
           See More Details On Yelp

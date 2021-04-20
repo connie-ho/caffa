@@ -1,10 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
-import { BrowserRouter as Router } from "react-router-dom";
 import './index.scss'
-import UserContext from "./contexts/UserContext";
-import { createMuiTheme, makeStyles, ThemeProvider, responsiveFontSizes } from '@material-ui/core/styles';
+import { createMuiTheme, ThemeProvider, responsiveFontSizes } from '@material-ui/core/styles';
 // import * as serviceWorker from "./serviceWorker";
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faFlask, faFire, faDna} from '@fortawesome/free-solid-svg-icons'

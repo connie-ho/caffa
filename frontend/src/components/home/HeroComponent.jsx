@@ -1,6 +1,6 @@
 import {React, useEffect} from 'react';
 import Grid from '@material-ui/core/Grid';
-import heroImage from '../../images/cafe.jpg'
+import heroImage from '../../images/cafecropped.jpg'
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 
@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
     display:'block',
     objectFit: 'cover',
     width: '100%',
-    maxHeight: '80%',
+    maxHeight: '60%',
     
   },
   title: {
@@ -83,7 +83,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems="center"
     className={classes.container}>
       <Grid item xs={12} container className={classes.imageContainer}>
-        <img src= {heroImage} className = {classes.image}  />
+        <img src= {heroImage} className = {classes.image} alt="cafe" />
         <Grid item>
         {/* <Typography variant='h1' className={classes.title}>Caffa.</Typography>
         <Typography variant='h2' className={classes.subtitle}>Bringing you energy whenever, wherever.</Typography> */}

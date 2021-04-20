@@ -180,7 +180,11 @@ $maxWidth: 1080px;
   max-width: $maxWidth;
   margin: 0 auto;
   padding: $sectionPadding
-  
+}
+
+
+.map-info {
+  padding: 0 0.5em 0.5em;
 }
 
 @media only screen and (max-width:600px) {

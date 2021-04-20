@@ -181,6 +181,17 @@ function useApplicationData(){
           [id]: review
         }
 
+        // updating coffee rating
+        const coffeeReviews = getReviewsForCoffee(Object.values(reviews), res.data.coffee_id);
+        const avgRating = avgRatingForCoffee(coffeeReviews);
+
+        const coffee = {
+          ...state.coffees[res.data.coffee_id],
+          avg_rating: avgRating
+        }
+        
+        dispatch({type:SET_COFFEE, coffee});
+
         dispatch({type:SET_REVIEW, reviews});
       })
   }
