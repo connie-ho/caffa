@@ -4,9 +4,8 @@ import {Route, Switch} from 'react-router-dom';
 import DataContext from '../../contexts/DataContext';
 import Coffee from '../coffee-id/Coffee';
 import CoffeeList from './CoffeeList';
-import FilterList from './FilterList';
-import SortList from './SortList';
 import SortFilterDrawer from './SortFilterDrawer';
+import AddCoffeeButton from '../add-coffee/AddCoffeeButton';
 
 import {formatRegions, getFilteredCoffees, hasSelectedFilters} from '../../helpers/selectors';
 
@@ -155,6 +154,7 @@ function Coffees(props) {
               setFilters={setFilters}
               handleFilters={handleFilters}
             />
+            {!filteredCoffees.length && <h1>There doesn't seem to be any results, try our image search instead</h1>}
             <CoffeeList
               coffees={filteredCoffees}
             />
