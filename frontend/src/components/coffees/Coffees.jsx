@@ -34,7 +34,7 @@ function Coffees(props) {
       },
       'region': {
         name: 'Region',
-        items: formatRegions(regions, 11) // get helper function to define this later
+        items: formatRegions(regions, 11) 
       },
   }
   // Define sorting choices
@@ -63,6 +63,7 @@ function Coffees(props) {
   useEffect(()=>{
 
     const newHasFilters = hasSelectedFilters(filters);
+    console.log(filters)
     if(!newHasFilters){
       setFilteredCoffees((prev)=>(Object.values(state.coffees)))
     }
@@ -156,11 +157,8 @@ function Coffees(props) {
               setFilters={setFilters}
               handleFilters={handleFilters}
             />
-<<<<<<< HEAD
             {!filteredCoffees.length && <h1>There doesn't seem to be any results, try our image search instead</h1>}
-=======
             <div style={{width:'100%', display: 'flex', flexDirection: 'column', minHeight:'90vh'}}>
->>>>>>> da3179c281452c124a2e1012ba33fa4c793ebd43
             <CoffeeList
               coffees={filteredCoffees}
             />
