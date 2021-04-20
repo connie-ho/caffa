@@ -13,7 +13,7 @@ export default function AccountFavourites(props) {
   // const [favourites, setFavourites] = useState({});
   const {state} = useContext(DataContext);
   const {user} = useContext(UserContext);
-  const {classes, titleSize, limit} = props;
+  const {classes, titleSize, subTitleSize, limit} = props;
   const reviews = state.reviews;
   const coffees = state.coffees;
 
@@ -61,8 +61,11 @@ export default function AccountFavourites(props) {
   
   return (
     <Grid container>
-      <Grid item xs={3} className={classes.subtitle}>
+      <Grid item xs={6} className={classes.titleContainer}>
         <Typography variant={`${titleSize}`}>Favourites</Typography>
+        <Grid item xs={6} className={classes.SubTitle}>
+          <Typography variant={`${subTitleSize}`} >Your own top picks from Caffa</Typography>
+        </Grid>
       {!coffeeList.length && 
         <p>There are no favourites here!</p>
       }

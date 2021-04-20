@@ -5,7 +5,6 @@ import { Grid, GridListTile, Link } from "@material-ui/core";
 
 
 export default function AccountProfile(props) {
-
   const {classes} = props;
   
   return (

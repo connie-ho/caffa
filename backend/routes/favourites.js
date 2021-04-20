@@ -14,7 +14,7 @@ router.get("/", (req, res) => {
     .catch((err) => res.status(500).json({ error: err.message }));
 });
 
-router.get("/user", (req, res) => {
+router.get("/user/:id", (req, res) => {
   console.log("backend userfavourites route", req)
   getUserFavourites(req)
     .then((data) => res.status(200).json(data))
