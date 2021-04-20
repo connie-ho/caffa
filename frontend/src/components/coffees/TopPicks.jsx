@@ -14,13 +14,22 @@ const justinDescription ="Keep it simple, like I always say!"
 
 const connieDescription ="Super versatile and quick to make. Enjoy it as  vietnamese coffee, or whip it with sugar to make dalgona coffee!"
 const useStyles = makeStyles((theme) => ({
+
+  title: {
+    fontSize: '4.0rem',
+    margin: '0px 20px 0px 20px '
+  },
   header: {
     fontSize: '2.5rem',
     margin: '0 0.5em'
   },
   subtitle: {
     fontSize: '1.5rem',
-    margin: '0 1em'
+    margin: '0 1rem'
+  },
+  paragraph: {
+    fontSize:'1.5rem',
+    margin: '0px 16px 0px 16px'
   }
 
 }))
@@ -40,6 +49,10 @@ const TopPicks = (props) => {
     <Grid container direction="row" >
       <Grid item xs={0} sm={1} />
       <Grid item xs={12} sm={10} fullWidth >
+      <Grid container direction='column' style={{margin:'5rem 0rem 8.5rem 0rem'}} >
+              <Typography variant='h2' className={classes.title} >Caffa</Typography>
+              <Typography variant='h4' className={classes.paragraph} >Great coffee is a simple joy. Finding the perfect one should just as simple.</Typography>
+        </Grid>
       <div data-aos="fade"  data-aos-once="true">
           <Grid container direction='column'>
             <Typography variant='h2' className={classes.header} gutterBottom>Editor Picks</Typography>
@@ -49,7 +62,7 @@ const TopPicks = (props) => {
                 <EditorPick userid={2} description={connieDescription} number={22} img='https://avatars.githubusercontent.com/u/66891817?v=4' />
               </Grid>
               <Grid container justify='center' xs={12} sm={6} lg={4} style={{paddingBottom:'1em', paddingTop:'1em'}}>
-                <EditorPick userid={3} number={23} description={justinDescription} img='https://avatars.githubusercontent.com/u/73570663?v=4'/>
+                <EditorPick userid={3} number={20} description={justinDescription} img='https://avatars.githubusercontent.com/u/73570663?v=4'/>
               </Grid>
                 <Grid container justify='center' xs={12} sm={6} lg={4} style={{paddingBottom:'1em', paddingTop:'1em'}}>
                   <EditorPick userid={1} number={21} description={kevinDescription} img='https://avatars.githubusercontent.com/u/31554101?v=4'/>
