@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom:'0px',
     paddingTop: '30px',
     paddingBottom: '30px',
-    backgroundColor: '#fff7f5',
+    backgroundColor: '#f9ebd2',
   },
   footerContainer: {
     display:'flex',
