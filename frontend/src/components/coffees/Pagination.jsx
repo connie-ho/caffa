@@ -9,7 +9,6 @@ const Paginations = ({coffeesPerPage, totalCoffees, page, setPage}) => {
     pageNumbers.push(i);
   }
   
-  console.log('page numbas', pageNumbers[pageNumbers.length -1])
 
   const handleChange = (event,value) => {
     setPage(value)
