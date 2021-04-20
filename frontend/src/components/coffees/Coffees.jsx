@@ -17,6 +17,7 @@ function Coffees(props) {
   
   const {state} = useContext(DataContext);
   const regions = Object.values(state.regions);
+  const coffees = Object.values(state.coffees);
 
   // Define categories to filter for
   const categories = {
@@ -44,7 +45,6 @@ function Coffees(props) {
     4: 'Rating: Low to High',
     5: 'Rating: High to Low',
   }
-  const coffees = Object.values(state.coffees);
 
   // FilterArray to apply to coffees
   const [filters, setFilters] = useState({
@@ -56,12 +56,24 @@ function Coffees(props) {
   const [filteredCoffees, setFilteredCoffees] = useState(coffees)
   const [hasFilters, setHasFilters] = useState(hasSelectedFilters(filters))
   
+  // useEffect(()=>{
+  //   setFilteredCoffees((prev)=>(Object.values(state.coffees)))
+  // },[state.coffees])
+
   useEffect(()=>{
-    setFilteredCoffees((prev)=>(Object.values(state.coffees)))
-  },[state.coffees])
+
+    const newHasFilters = hasSelectedFilters(filters);
+    if(!newHasFilters){
+      setFilteredCoffees((prev)=>(Object.values(state.coffees)))
+    }
+    setHasFilters(prev => newHasFilters);
+
+  }, [hasFilters, state.coffees, filters])
 
   const handleFilters = (filters)=>{
-    const res = getFilteredCoffees(coffees, categories, filters)
+    // pass in a copy of the filters
+    const copyFilters = {...filters};
+    const res = getFilteredCoffees(coffees, categories, copyFilters)
     setFilteredCoffees(prev => res)
 
     // if there are no filters selected, display all
