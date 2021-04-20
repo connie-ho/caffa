@@ -7,6 +7,7 @@ import CoffeeList from './CoffeeList';
 import SortFilterDrawer from './SortFilterDrawer';
 import AddCoffeeButton from '../add-coffee/AddCoffeeButton';
 
+import Footer from '../Footer'
 import {formatRegions, getFilteredCoffees, hasSelectedFilters} from '../../helpers/selectors';
 
 // styles
@@ -140,6 +141,7 @@ function Coffees(props) {
     <Switch>
         <Route path="/coffees/:id">
           <Coffee />
+          <Footer />
         </Route>
         <Route path="/coffees">
       
@@ -149,15 +151,21 @@ function Coffees(props) {
             <SortFilterDrawer
               sortOptions={sortOptions}
               handleSort={handleSort}
-              categories={categories}
+              categories={categories} 
               filters={filters}
               setFilters={setFilters}
               handleFilters={handleFilters}
             />
+<<<<<<< HEAD
             {!filteredCoffees.length && <h1>There doesn't seem to be any results, try our image search instead</h1>}
+=======
+            <div style={{width:'100%', display: 'flex', flexDirection: 'column', minHeight:'90vh'}}>
+>>>>>>> da3179c281452c124a2e1012ba33fa4c793ebd43
             <CoffeeList
               coffees={filteredCoffees}
             />
+            <Footer />
+            </div>
           </div>
         </Route>
       </Switch>

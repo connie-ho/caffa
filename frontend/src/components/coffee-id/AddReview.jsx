@@ -20,10 +20,10 @@ const useStyles = makeStyles((theme)=>({
     alignItems: 'center',
     border: '0px solid',
     borderRadius: '1rem',
-    background: 'rgb(255,247,245)',
+    background: '#f9ebd2',
     "&:hover": { 
       transform: "scale3d(1.05, 1.05, 1)", 
-      background: '#e4d3cf'},
+      background: '#f0cc8f'},
     [theme.breakpoints.down('sm')]: {
       margin: '0 0 1em 0'
     },

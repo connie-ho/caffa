@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import UserContext from '../contexts/UserContext';
-import {Link} from 'react-router-dom';
+import {Link, NavLink} from 'react-router-dom';
 
 import { fade, makeStyles } from '@material-ui/core/styles';
 import { Icon } from "@material-ui/core"
@@ -18,6 +18,7 @@ import FormDialog from './image-search/Dialog';
 import SearchBar from './dynamic-search/SearchBar';
 import headIcon from "../images/Caffa2.png"
 import Paper from '@material-ui/core/Paper'
+import FreeBreakfastIcon from '@material-ui/icons/FreeBreakfast';
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -39,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   allCoffee: {
-    display: 'flex',
+    display: 'none',
     [theme.breakpoints.up('sm')]: {
       display: 'block',
       marginLeft:0
@@ -197,6 +198,17 @@ export default function Nav(props) {
           color="inherit"
         >
           <CameraAltIcon />
+        </IconButton>
+      </MenuItem>
+      <MenuItem onClick={handleMenuClose}>
+        <IconButton
+          aria-label="all-coffeescoffees"
+          aria-controls="all-coffees"
+          aria-haspopup="true"
+          color="inherit"
+        >
+        <NavLink to="/coffees">
+          <FreeBreakfastIcon/> </NavLink>
         </IconButton>
       </MenuItem>
     </Menu>

@@ -56,7 +56,7 @@ const useStyles = makeStyles((theme) => ({
   subtitle: {
     display: 'inline-block',
     position: 'absolute',
-    top: '63%',
+    top: '66%',
     color: 'black',
     right:'-5%',
     fontSize:'25px',

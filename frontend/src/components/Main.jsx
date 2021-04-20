@@ -44,7 +44,7 @@ const Main = (props) => {
 
 
   return (
-    <Grid container direction="column" style={{position:'relative'}}>
+    <Grid container direction="column" style={{position:'relative', width:'100%'}}>
       <SearchContext.Provider value={{results, setResults}}>
         <Grid item>
           <Nav 
@@ -65,12 +65,6 @@ const Main = (props) => {
             </ReviewContext.Provider>
 
           </Route>
-          <>
-            <Route path="/search">
-            <Grid item style={{minHeight:'80vh'}}>
-              <SearchList results={results} setResults={setResults} addCoffee={addCoffee}/>
-            </Grid>
-            </Route>
           <Route path="/coffees" >
             <ReviewContext.Provider value={{addReview, editReview, deleteReview}}>
               <FavouriteContext.Provider value={{addFavourite, deleteFavourite}}>
@@ -78,6 +72,12 @@ const Main = (props) => {
               </FavouriteContext.Provider>
             </ReviewContext.Provider>
           </Route>
+          <>
+            <Route path="/search">
+            <Grid item style={{minHeight:'80vh'}}>
+              <SearchList results={results} setResults={setResults} addCoffee={addCoffee}/>
+            </Grid>
+            </Route>
           <Route path="/login" >
             <Login/>
           </Route>

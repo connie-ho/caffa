@@ -1,6 +1,6 @@
 import {React,useContext} from 'react'
 import Carousel from 'react-elastic-carousel'
-import CoffeeListItem from './../../coffees/CoffeeListItem'
+import CoffeeListItemCarousel from '../Carousel/CoffeeListItemCarousel'
 import {getReviewsForCoffee, avgRatingForCoffee} from '../../../helpers/selectors';
 import DataContext from '../../../contexts/DataContext';
 import { Grid } from "@material-ui/core";
@@ -27,7 +27,7 @@ const CoffeeCarousel = (props) => {
     const avgRating = avgRatingForCoffee(coffeeReviews);
     return (
       <Grid item xs={12} >
-      <CoffeeListItem
+      <CoffeeListItemCarousel
         key={coffee.id}
         coffee={coffee}
         avgRating={avgRating}
@@ -45,7 +45,7 @@ const CoffeeCarousel = (props) => {
     const avgRating = avgRatingForCoffee(coffeeReviews);
     return (
       <Grid item xs={12}>
-      <CoffeeListItem
+      <CoffeeListItemCarousel
         key={coffee.id}
         coffee={coffee}
         avgRating={avgRating}

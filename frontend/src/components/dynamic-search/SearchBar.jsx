@@ -9,6 +9,7 @@ export default function SearchBar(props) {
   
   const {state} = useContext(DataContext);
   const coffees = Object.values(state.coffees)
+  console.log('cursed', coffees)
   const [autoCompleteOpen, setAutoCompleteOpen] = useState(false)
   const [value,setValue] = useState('')
   const useStyles = makeStyles((theme) => ({ 
@@ -30,10 +31,10 @@ export default function SearchBar(props) {
       borderRadius:'2rem',
       
       [theme.breakpoints.up('xs')]: {
-        width: '25ch'
+        width: '30ch'
       },
       [theme.breakpoints.up('sm')]: {
-        width: '70ch'
+        width: '90ch'
       },
 
     }
@@ -47,7 +48,7 @@ export default function SearchBar(props) {
     id="Search Bar"
     options={coffees}
     className={classes.autoComplete}
-    getOptionLabel={(option) => option.name }
+    getOptionLabel={(option) => `${option.brand} ${option.name}` }
     //set autocomplete to only open on input
     open={autoCompleteOpen}
     onInputChange={(event, value, reason) => {
@@ -94,9 +95,13 @@ export default function SearchBar(props) {
             onKeyDown={() => {
               window.location.href = `/coffees/${option.id}`
             }}>
-    
-            <img src= {option.image_url} height={100} width={100} />
-            <p> {option.name} </p>
+            <div style={{display:'flex', flexDirection:'row'}}>
+            <img src= {option.image_url} height={100} width={100} style={{marginRight:'1em'}} />
+            <div style={{display: 'flex', flexDirection:'column', justifyContent:'space-around'}}>
+              <p>{option.brand}</p>
+              <p style={{marginTop:'-10px'}}>{option.name}</p>
+             </div>
+            </div>
         </span>
         </>
       )

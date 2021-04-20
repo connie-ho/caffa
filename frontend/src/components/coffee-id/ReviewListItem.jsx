@@ -25,10 +25,10 @@ const useStyles = makeStyles((theme=>({
     borderRadius: '1rem',
     fontSize: '1.25em',
     marginBottom: '1em',
-    background: 'rgb(255,247,245)',
+    background: '#f9ebd2',
     "&:hover": { 
       transform: "scale3d(1.05, 1.05, 1)", 
-      background: '#e4d3cf'},
+      background: '#f0cc8f'},
   },
   image:{
     width: '2em',
