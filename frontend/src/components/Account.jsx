@@ -6,7 +6,7 @@ import { useState, useContext, useEffect } from 'react';
 import UserContext from '../contexts/UserContext';
 import DataContext from '../contexts/DataContext';
 import { makeStyles } from '@material-ui/core/styles';
-
+import Typography from '@material-ui/core/Typography';
 
 import AccountMenu from './my-account/AccountMenu';
 import AccountProfile from './my-account/AccountProfile';
@@ -161,6 +161,7 @@ export default function Account(props) {
         <Switch>
         <Route path="/account/favourites">
           <Grid container className={classes.accountContent}>
+          <Typography variant='h2' className={classes.header} gutterBottom>Favourites</Typography>
             <AccountFavourites 
               classes={classes}
               titleSize={titleSize.h2}
@@ -169,6 +170,7 @@ export default function Account(props) {
         </Route>
         <Route path="/account/reviews">
           <Grid container className={classes.accountContent}>
+          <Typography variant='h2' className={classes.header} gutterBottom>Reviews</Typography>
             <AccountReviews
               classes={classes}
               titleSize={titleSize.h2}
@@ -190,6 +192,8 @@ export default function Account(props) {
         <Route path="/account">
           <Grid container className={classes.accountContent} spacing={-10}>
           <AccountProfile classes={classes}/>
+          <Typography variant='h2' className={classes.header} gutterBottom>Recent Favourites</Typography>
+          <Typography variant='h3' className={classes.subtitle} gutterBottom >Your own top picks from Caffa</Typography>
           <AccountFavourites
             user={user}
             limit={3}
@@ -197,6 +201,8 @@ export default function Account(props) {
             titleSize={titleSize.h2}
             subTitleSize={titleSize.h4}
           />
+           <Typography variant='h2' className={classes.header} gutterBottom>Recent Reviews</Typography>
+          <Typography variant='h3' className={classes.subtitle} gutterBottom >You left a review on these coffees</Typography>
           <AccountReviews
             user={user}
             coffee={coffees}

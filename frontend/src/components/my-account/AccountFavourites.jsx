@@ -46,7 +46,7 @@ export default function AccountFavourites(props) {
     const coffeeList = userCoffees.map(coffee => {
 
     return (
-      <Grid item xs={4}>
+      <Grid item xs={12} sm={8} md={6} lg={4} style={{padding:'1.5em 1.5em'}}>
         <CoffeeListItem
           key={coffee.id}
           coffee={coffee}
@@ -57,17 +57,11 @@ export default function AccountFavourites(props) {
   
   return (
     <Grid container xs={12}>
-      <Grid item xs={12} className={classes.titleContainer}>
-        <Typography variant={`${titleSize}`} className={classes.header} gutterBottom>Recent Favourites</Typography>
-          <Typography variant={`${subTitleSize}`} className={classes.subtitle} gutterBottom >Your own top picks from Caffa</Typography>
-        <Grid item xs={12} sm={6} className={classes.SubTitle}>
-        </Grid>
+    <Grid container spacing={10}>
+        {coffeeList}
       {!coffeeList.length && 
         <p>There are no favourites here!</p>
       }
-      </Grid>
-    <Grid container spacing={10}>
-        {coffeeList}
     </Grid>
     { limit ? 
         <Grid container xs={12} style={{ justifyContent: 'flex-start' }}>

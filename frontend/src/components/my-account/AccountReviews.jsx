@@ -37,11 +37,6 @@ function AccountReviews(props) {
     return new Date(b.created_at) - new Date(a.created_at);
   }).slice(0, limit);
   
-  // const reviewedCoffees = getReviewedCoffee(coffeeReviews, Object.values(coffee))
-
-
-
-
   // Create Review List Item
   const reviewList = slicedReviews.map(review => {
 
@@ -56,7 +51,6 @@ function AccountReviews(props) {
         </Link>
       <Grid item xs={12} sm={8} className={classes.reviewCard}>
         <ReviewListItem 
-        
         key={review.id}
         review={review}
         reviewUser={users[review.user_id]}
@@ -70,12 +64,6 @@ function AccountReviews(props) {
 
   return (
     <div>
-    <Grid item xs={12} lg={6} className={classes.titleContainer}>
-      <Typography variant={`${titleSize}`} className={classes.header} gutterBottom>Recent Reviews</Typography>
-        <Typography variant={`${subTitleSize}`} className={classes.subtitle} gutterBottom >You left a review on these coffees</Typography>
-      <Grid item xs={12} lg={8} className={classes.SubTitle}>
-      </Grid>
-    </Grid>
     <div>
       {reviewList}
       </div>
