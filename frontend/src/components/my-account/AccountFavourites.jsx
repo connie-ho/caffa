@@ -4,14 +4,11 @@ import UserContext from '../../contexts/UserContext.js';
 import CoffeeListItem from '../coffees/CoffeeListItem.jsx';
 import {getFavouritesForUser, userFavCoffees} from '../../helpers/selectors';
 import { Grid, Button } from "@material-ui/core";
-import Typography from '@material-ui/core/Typography';
 
 export default function AccountFavourites(props) {
-  // const [favourites, setFavourites] = useState({});
   const {state} = useContext(DataContext);
   const {user} = useContext(UserContext);
-  const {classes, titleSize, subTitleSize, limit} = props;
-  const reviews = state.reviews;
+  const {classes, limit} = props;
   const coffees = state.coffees;
 
   const [values, setValues] = useState({

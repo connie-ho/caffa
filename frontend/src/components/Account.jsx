@@ -12,7 +12,6 @@ import AccountMenu from './my-account/AccountMenu';
 import AccountSettings from './my-account/AccountSettings';
 import AccountFavourites from './my-account/AccountFavourites';
 import AccountReviews from './my-account/AccountReviews';
-import {getUserReviews, isLiked, isReviewed} from '../helpers/selectors';
 import Footer from './Footer'
 
 const drawerWidth = 240;
@@ -50,7 +49,6 @@ const useStyles = makeStyles((theme) => ({
   content: {
     flexGrow: 1,
     minHeight: 'calc(100vh - 70px)',
-    // position: 'relative'
   },
   accountContent: {
     flexDirection: 'column',
@@ -61,7 +59,6 @@ const useStyles = makeStyles((theme) => ({
     height: 275,
     width: 180,
     backgroundSize: 'contain'
-    
   },
   avatarSettings: {
     height: 150,
@@ -100,7 +97,6 @@ const useStyles = makeStyles((theme) => ({
   },
   subtitle: {
     fontSize: '1.5rem',
-    // margin: '0 1rem'
   },
   paragraph: {
     fontSize:'1.5rem',
@@ -118,7 +114,7 @@ export default function Account(props) {
   const {state} = useContext(DataContext);
   const {user} = useContext(UserContext);
   const [openReviewForm, setOpenReviewForm] = useState(false);
-  const [values, setValues] = useState({
+  const [currUser, setCurrUser] = useState({
     id: '',
     first_name: '',
     last_name: '',
@@ -126,7 +122,7 @@ export default function Account(props) {
   })
 
   useEffect(()=>{
-    setValues(prev => ({
+    setCurrUser(prev => ({
       ...prev,
       id: user? user.id : '',
       first_name: user? user.first_name : '',

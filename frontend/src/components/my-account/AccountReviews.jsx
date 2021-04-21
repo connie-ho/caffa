@@ -2,14 +2,13 @@ import { useState, useContext, useEffect } from 'react';
 import UserContext from '../../contexts/UserContext';
 import ReviewListItem from '../coffee-id/ReviewListItem';
 import DataContext from '../../contexts/DataContext';
-import {getUserReviews, getReviewedCoffee, reviewsWithImages} from '../../helpers/selectors';
-import Typography from '@material-ui/core/Typography';
-import { Grid, GridListTile, Link, Button } from "@material-ui/core";
+import {getUserReviews} from '../../helpers/selectors';
+import { Grid, Link, Button } from "@material-ui/core";
 
 
 
 function AccountReviews(props) {
-  const {coffee, classes, titleSize, subTitleSize, limit} = props;
+  const {coffee, classes, limit} = props;
   const {user} = useContext(UserContext);
   const {state} = useContext(DataContext);
   const reviews = state.reviews;
@@ -45,6 +44,7 @@ function AccountReviews(props) {
         <Link href={`/coffees/${review.coffee_id}`}>
         <img 
           class={classes.media}
+          style={{objectFit: 'cover'}}
           src={state.coffees[review.coffee_id].image_url}
           alt={`${coffee[review.id].name}`}
           />
