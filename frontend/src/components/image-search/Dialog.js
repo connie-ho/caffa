@@ -48,7 +48,6 @@ export default function FormDialog(props) {
       localStorage.setItem("url", url)
       localStorage.setItem("textarray", textArray)
 
-      console.log('completed functions', url, textArray)
       setLoading(false)
       history.push('/search')
       setOpen(false)

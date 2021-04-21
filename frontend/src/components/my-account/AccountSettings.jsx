@@ -34,8 +34,6 @@ const AccountSettings = (props) => {
   }))
   },[user])
 
-  // console.log("USER IN SETTINGS: ", user)
-  // console.log("PROP IN SETTINGS: ", props)
 
   const handleChange = (event) => {
     setValues({
@@ -44,11 +42,9 @@ const AccountSettings = (props) => {
     });
   };
 
-  console.log("edituserhandler ", editUserHandler)
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log('First Name', values.first_name, 'Last Name', values.last_name, 'Email', values.email)
     editUserHandler(values.first_name, values.last_name, values.email)
   }
 

@@ -52,7 +52,6 @@ function App() {
   const registerHandler = (firstName, lastName, email, password) => {
     return axios.post("/api/users/register", {first_name: firstName, last_name: lastName, email: email, password: password })
     .then(res => {
-      console.log(res)
       setUser(res.data)
       return 'ok'
     })

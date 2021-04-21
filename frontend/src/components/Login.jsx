@@ -101,7 +101,6 @@ export default function Login(props) {
 
       setOpenLogin(prev => false);
     })
-    // console.log('Email', email, 'Password', password)
   }
 
   const handleClickShowPassword = () => {

@@ -27,7 +27,6 @@ export default function Coffee(props) {
 
   // filter for coffee reviews & favourites
   const [coffeeReviews, setCoffeeReviews] = useState(getReviewsForCoffee(Object.values(reviews), coffeeId));
-  // const coffeeReviews = getReviewsForCoffee(Object.values(reviews), coffeeId);
   const coffeeFavourites = getFavouritesForCoffee(Object.values(favourites), coffeeId);
 
   // change state everytime a review is added or deleted
@@ -64,7 +63,6 @@ export default function Coffee(props) {
         />
          <div className={classes['coffee-cafe-section']}>
           <h1 className={classes['coffee-review-heading']}>Featured Cafe for this Coffee</h1>
-          {!cafeData && (<p className={classes['no-reviews']}A>No featured cafes yet</p>)}
           <Cafe 
             cafeData={cafeData}
             setCafeData={setCafeData}

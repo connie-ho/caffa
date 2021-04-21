@@ -38,15 +38,6 @@ export default function RegionSearch(props) {
   const category = 'region';
   
   const handleChange = (event, value) => {
-    
-    // const currIndex = filters[category].indexOf(optionId) //checks if filter is already applied
-    // const newCategory = [...filters[category]]; // initalize new state
-
-    // if (currIndex === -1){
-    //   newCategory.push(optionId) // if not already in array, add and remove from the list
-    // } else {
-    //   newCategory.splice(currIndex, 1) // remove if in the array
-    // }
 
     const newCategory = [];
     for(const val of value){

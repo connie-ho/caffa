@@ -203,7 +203,6 @@ function useApplicationData(){
       const coffee = {
         ...res.data
       }
-      console.log('coffee data', coffee)
       
       dispatch({type: SET_COFFEE, coffee})
       return res.data.id

@@ -1,4 +1,3 @@
-
 # Opening
 
 # Introductions: tell them your name & your background! (see below for tips) 
@@ -13,7 +12,6 @@
 # Walk-through of the main features including tech stack and challenges
 (120-150 sec)
 * Built with React in the front-end and express and postgres in the backend
-
 * Hypothetical scenario: say you're in the store and you wanna know if this coffee is any good
 * Justin takes a pic of his starbucks coffee
 * Implemented responsive design because this app is intended to be used on your phone
@@ -23,13 +21,12 @@ Connie:
 * Switch back to desktop and say: you can also search and filter for the specific coffee you have in mind 
 * Say you wanna see the top rated coffees, you're really interested in coffee from ethopia, brazil, indonesia and you really like dark roast with high acidity then analog coffee is the one for you 
 * Go through details of the analog coffee
-* Sign in to like
 * And we'll even give you a suggestion where you can buy or drink this coffee (and if you click on the pin it looks like your x away from it)
 * Add your review, 
 * Just kidding but if you change your mind about leaving your review you can also delete it 
 * After a few more sips, you find that you actually really like the coffee 
 
-* Let's try searching for another coffee through the dynamic search bar
+* Let's try searching for another coffee through the persistent nav bar
 * Image search -> add coffee 
 * Wanted to make it hard for the user to add a coffee because we eventually want to make our database robust and large enough so that it contains billions of coffees and the user wouldnt really have to addd anything
 * Let's go ahead and like this coffee too and let's see all of our activity on our account page

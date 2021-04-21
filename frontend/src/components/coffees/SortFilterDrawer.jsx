@@ -28,7 +28,6 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     margin: '1rem 0',
     [theme.breakpoints.up('sm')]: {
-      // width: `calc(100% - ${drawerWidth}px)`,
       marginLeft: drawerWidth,
     },
   },
@@ -46,7 +45,6 @@ const useStyles = makeStyles((theme) => ({
   // necessary for content to be below app bar
   toolbar: theme.mixins.toolbar,
   drawerPaper: {
-    // backgroundColor: theme.palette.background.secondary,
     width: drawerWidth,
   },
   content: {

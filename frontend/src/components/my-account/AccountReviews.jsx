@@ -10,7 +10,6 @@ import { Grid, GridListTile, Link } from "@material-ui/core";
 
 function AccountReviews(props) {
   const {coffee, classes, titleSize, subTitleSize} = props;
-  // console.log("accountreview coffee: ", props)
   const {user} = useContext(UserContext);
   const {state} = useContext(DataContext);
   const reviews = state.reviews;
@@ -36,9 +35,6 @@ function AccountReviews(props) {
   const coffeeReviews = getUserReviews(Object.values(reviews), values.id).sort((a,b)=> {return new Date(b.created_at) - new Date(a.created_at)});
 
   const reviewedCoffees = getReviewedCoffee(coffeeReviews, Object.values(coffee))
-  console.log("TEST HERE :", reviewedCoffees);
-
-  console.log("coffee reviews :", Object.values(coffeeReviews))
 
 
   // Create Review List Item
