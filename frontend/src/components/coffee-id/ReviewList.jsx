@@ -12,6 +12,12 @@ function ReviewList(props) {
   const users = state.users;
   const coffeeReviews = getReviewsForCoffee(Object.values(reviews), coffee.id).sort((a,b)=> {return new Date(b.created_at) - new Date(a.created_at)});
 
+  // const [showMore, setShowMore] = useState(false);
+
+  // const handleShowMore = () => {
+  //   setShowMore(ture)
+  // }
+
   // Create Review List Item
   const reviewList = coffeeReviews.map(review => {
     return (
