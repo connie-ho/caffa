@@ -9,7 +9,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 
 import AccountMenu from './my-account/AccountMenu';
-import AccountProfile from './my-account/AccountProfile';
 import AccountSettings from './my-account/AccountSettings';
 import AccountFavourites from './my-account/AccountFavourites';
 import AccountReviews from './my-account/AccountReviews';
@@ -78,8 +77,8 @@ const useStyles = makeStyles((theme) => ({
     fontVariant: 'h3',
   },
   titleContainer: {
-    marginTop: '50px',
-    marginBottom: '30px',
+    marginTop: '5rem',
+    marginBottom: '3rem',
   },
   SubTitle: {
     margin: '10px',
@@ -96,12 +95,8 @@ const useStyles = makeStyles((theme) => ({
       color: 'white'
     },
   },
-  title: {
-    fontSize: '3rem', 
-  },
   header: {
     fontSize: '2.5rem',
-    // margin: '0 0.5em'
   },
   subtitle: {
     fontSize: '1.5rem',
@@ -111,8 +106,8 @@ const useStyles = makeStyles((theme) => ({
     fontSize:'1.5rem',
     margin: '0px 16px 0px 16px'
   },
-  titleContainer: {
-    margin:'5rem 0rem 5rem 0rem'
+  mainTitle: {
+    fontSize: '3rem', 
   }
 }));
 
@@ -141,14 +136,6 @@ export default function Account(props) {
   },[user])
   
   const coffees = state.coffees;
-  const reviews = state.reviews;
-
-  const coffee = coffees[reviews.user_id]
-
-
-  // filter for coffee reviews & favourites
-  const coffeeReviews = getUserReviews(Object.values(reviews), values.id);
-
 
   return (
     
@@ -190,10 +177,12 @@ export default function Account(props) {
           </Grid>
         </Route>
         <Route path="/account">
-          <Grid container className={classes.accountContent} spacing={-10}>
-          <AccountProfile classes={classes}/>
+          <Grid container className={classes.accountContent}>
+          <Typography variant='h2' className={classes.mainTitle}>My Caffa</Typography>
+          <div className={classes.titleContainer}>
           <Typography variant='h2' className={classes.header} gutterBottom>Recent Favourites</Typography>
           <Typography variant='h3' className={classes.subtitle} gutterBottom >Your own top picks from Caffa</Typography>
+          </div>
           <AccountFavourites
             user={user}
             limit={3}
@@ -201,8 +190,10 @@ export default function Account(props) {
             titleSize={titleSize.h2}
             subTitleSize={titleSize.h4}
           />
-           <Typography variant='h2' className={classes.header} gutterBottom>Recent Reviews</Typography>
-          <Typography variant='h3' className={classes.subtitle} gutterBottom >You left a review on these coffees</Typography>
+          <div className={classes.titleContainer}>
+            <Typography variant='h2' className={classes.header} gutterBottom>Recent Reviews</Typography>
+            <Typography variant='h3' className={classes.subtitle} gutterBottom >You left a review on these coffees</Typography>
+          </div>
           <AccountReviews
             user={user}
             coffee={coffees}
