@@ -57,7 +57,6 @@ router.post("/login", (req, res) => {
 
 // LOGOUT
 router.post('/logout', (req, res) => {
-  console.log("Backend Logout Post ======> ", req.session)
   req.session = null;
   res.send(null);
 });
@@ -71,7 +70,6 @@ router.post("/register", (req, res) => {
     if(!user) {
       addUser(req.body)
         .then(user => {
-          console.log('in register', user)
           req.session.user_id = user.id; 
           res.send({first_name: user.first_name, last_name:user.last_name, email: user.email, id: user.id})
       })
@@ -94,7 +92,6 @@ router.patch("/edit", (req, res) => {
   .then(user => {
     editUser(req.body)
       .then(user => {
-        console.log('in edit', user)
         res.send({first_name: first_name, last_name: last_name, email: email, password: password})
       })
     })
@@ -105,13 +102,9 @@ router.patch("/edit", (req, res) => {
 // Authenticate user
 router.post("/authenticate", (req, res) => {
   const userId = req.session.user_id;
-  console.log("AUTHEN POST USER ID :", userId);
   getUserById(userId)
   .then(data => {
-    console.log("DATA :", data)
-    console.log("DATA ID:", data.id)
     if (data) {
-      console.log("THE /AUTHENTICATE POST COOKIE =============>")
       res.send({first_name: data.first_name, last_name:data.last_name, email: data.email, id: data.id})
     } else {
     res.json(null)

@@ -47,7 +47,6 @@ export default function AccountFavourites(props) {
     const coffeeList = userCoffees.map(coffee => {
     const coffeeReviews = getReviewsForCoffee(Object.values(reviews),coffee.id)
     const avgRating = avgRatingForCoffee(coffeeReviews);
-    console.log("avgRating", avgRating)
 
     return (
       <Grid item xs={4}>

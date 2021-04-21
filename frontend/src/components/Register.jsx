@@ -57,13 +57,10 @@ export default function Login(props) {
   const [password, setPassword] = useState('')
   const {registerHandler} = useContext(UserContext);
   const history = useHistory();
-  // console.log(history.location.pathname)
-  // console.log('mentortest',email, password)
 
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(firstName,lastName,email,password)
     registerHandler(firstName, lastName, email, password)
     .then((data) => {
         if(data ==='ok') {

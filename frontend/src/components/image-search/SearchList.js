@@ -66,7 +66,6 @@ export default function SearchList(props) {
 
       const string = stripSearchTerms(searchTerm)
     
-      console.log('stripped string', string)
       const Results = fuse.search(string, {limit: 5}) 
     
       if (Results.length !== 0) { 

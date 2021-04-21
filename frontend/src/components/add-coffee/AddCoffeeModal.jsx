@@ -93,21 +93,17 @@ export default function CoffeeModal(props) {
   };
 
   const handleChange =(event) => {
-    console.log('event changed', event.target.name)
     setFormState({...formState, [event.target.name]: event.target.value})
   }
 
   const handleSubmit =(event) => {
     event.preventDefault()
     if(validate()) {
-      console.log('all good')
-      console.log(formState)
       addCoffee(formState)
       .then ((data) => {
         history.push(`/coffees/${data}`)
       })
     }
-    console.log('yo')
   }
 
   return (

@@ -30,7 +30,6 @@ const UploadForm = (props) =>  {
     let selected = e.target.files[0]
 
     if (selected && types.includes(selected.type)) {
-      console.log(process.env.REACT_APP_FIREBASE_API_KEY)
       setFile(selected);
       setTempURL(URL.createObjectURL(e.target.files[0]))
       setError('');
