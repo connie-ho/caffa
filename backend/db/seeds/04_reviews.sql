@@ -10,6 +10,6 @@ VALUES
 (1, 'Actually kicked my ass, do not recommend', 2, 3),
 (3, 'Just enough ass kicking!!', 2, 4),
 (1, 'Save your money and buy real beans', 2, 5),
-(2, 'Had higher expectations', 2, 6);
-(4, 'Really surprised how this coffee turned out. Would purchase this item again.', 1, 23);
-(5, 'Really surprised how this coffee turned out.', 2, 23);
+(2, 'Had higher expectations', 2, 6),
+(4, 'Really surprised how this coffee turned out. Would purchase this item again.', 1, 23),
+(5, 'Really surprised how this coffee turned out.', 2, 23),
