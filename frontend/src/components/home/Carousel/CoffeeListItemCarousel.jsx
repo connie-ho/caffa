@@ -48,7 +48,6 @@ function CoffeeListItem(props) {
 
   return (
     <Card 
-      raise={true}
       className={classes.root}
     >
       <CardActionArea >

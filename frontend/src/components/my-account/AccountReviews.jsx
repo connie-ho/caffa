@@ -41,6 +41,7 @@ function AccountReviews(props) {
 
     return (
       <Grid container className={classes.reviewItemSection}>
+        <Grid item sm= {12} md={12} lg={2} style={{display:'flex', justifyContent:'center', width:'100%'}} >
         <Link href={`/coffees/${review.coffee_id}`}>
         <img 
           class={classes.media}
@@ -49,7 +50,8 @@ function AccountReviews(props) {
           alt={`${coffee[review.id].name}`}
           />
         </Link>
-      <Grid item xs={12} sm={8} className={classes.reviewCard}>
+        </Grid>
+      <Grid item md={12} lg={10} className={classes.reviewCard}>
         <ReviewListItem 
         key={review.id}
         review={review}
@@ -68,11 +70,10 @@ function AccountReviews(props) {
       {reviewList}
       </div>
       { limit ? 
-      <Grid item xs={4}>
+   
         <Button className={classes.seeMoreBtn} href="/account/reviews" variant="contained" color="primary" disableElevation>
           SEE MORE
-        </Button>
-      </Grid> : null
+        </Button> : null
       }
       </div>
   )

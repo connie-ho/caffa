@@ -41,7 +41,8 @@ const useStyles = makeStyles((theme) => ({
     margin: '1rem 1rem 1rem'
   },
   reviewCard: {
-    padding: '0rem 3rem',
+    padding: '1rem 0rem',
+    width: '100%'
   },
   reviewCardActionArea: {
     padding: '0rem 3rem',

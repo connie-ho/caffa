@@ -303,7 +303,7 @@ export default function Nav(props) {
             null
           :
           <Link to="/login">
-            <Typography className={classes.title} variant="p" noWrap>
+            <Typography className={classes.title} variant="body2" noWrap>
               LOGIN
             </Typography>
           </Link>
