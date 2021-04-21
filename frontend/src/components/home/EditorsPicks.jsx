@@ -1,8 +1,6 @@
 import {React, useContext, useEffect} from 'react';
 import classes from './editorPick.module.scss'
-import Paper from '@material-ui/core/Paper';
 import DataContext from '../../contexts/DataContext.js';
-import UserContext from '../../contexts/UserContext';
 
 export default function EditorPick(props) {
 

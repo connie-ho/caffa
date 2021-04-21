@@ -105,7 +105,6 @@ const useStyles = makeStyles((theme) => ({
 export default function Account(props) {
   const {editUserHandler} = props
   const classes = useStyles();
-  const secondClasses = useStyles();
   const titleSize = {h1: 'h1', h2: 'h2', h3: 'h3', h4: 'h4', h5: 'h6', subtitle1: 'subtitle1'}
   const {state} = useContext(DataContext);
   const {user} = useContext(UserContext);

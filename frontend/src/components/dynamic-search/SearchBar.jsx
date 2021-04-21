@@ -1,9 +1,8 @@
 import {React, useState, useContext} from 'react'
 import Autocomplete from '@material-ui/lab/Autocomplete';
-import { fade, useTheme, makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 import DataContext from '../../contexts/DataContext';
 import InputBase from '@material-ui/core/InputBase';
-import IconButton from '@material-ui/core/IconButton';
 
 export default function SearchBar(props) {
   
