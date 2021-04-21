@@ -43,7 +43,7 @@ export default function AccountFavourites(props) {
     const coffeeList = userCoffees.map(coffee => {
 
     return (
-      <Grid item xs={12} sm={8} md={6} lg={4} style={{padding:'1.5em 1.5em'}}>
+      <Grid item xs={12} sm={8} md={6} lg={3} style={{padding:'1.5em 1.5em'}}>
         <CoffeeListItem
           key={coffee.id}
           coffee={coffee}
@@ -61,7 +61,7 @@ export default function AccountFavourites(props) {
       }
     </Grid>
     { limit ? 
-        <Grid container xs={12} style={{ justifyContent: 'flex-start' }}>
+        <Grid container xs={12} style={{ justifyContent: 'flex-start', marginTop: '4.5em' }}>
         <Button className={classes.seeMoreBtn} href="/account/favourites" variant="contained" color="primary" disableElevation>
           SEE MORE
         </Button>
