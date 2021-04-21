@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const {
   getFavourites,
-  getUserFavourites,
   addFavourite,
   deleteFavourite,
 } = require("../db/helpers/favourite-queries");
@@ -10,12 +9,6 @@ const {
 // Show details of multiple favourites
 router.get("/", (req, res) => {
   getFavourites()
-    .then((data) => res.status(200).json(data))
-    .catch((err) => res.status(500).json({ error: err.message }));
-});
-
-router.get("/user/:id", (req, res) => {
-  getUserFavourites(req)
     .then((data) => res.status(200).json(data))
     .catch((err) => res.status(500).json({ error: err.message }));
 });

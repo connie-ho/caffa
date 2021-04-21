@@ -19,8 +19,6 @@ router.get("/popular", (req, res) => {
     .catch((err) => res.status(500).json({ error: err.message }));
 });
 
-
-
 router.get("/:id", (req, res) => {
   const coffeeId = Number(req.params.id);
 

@@ -50,17 +50,13 @@ const Main = (props) => {
           />
         </Grid>
       </SearchContext.Provider >
-        {/* <h2>{user ? "I am logged in" : "I am not logged in"}</h2> */}
-
         <Switch>
           <Route path="/account">
           <ReviewContext.Provider value={{addReview, editReview, deleteReview}}>
-
             <Account 
               editUserHandler={editUserHandler}
             />
             </ReviewContext.Provider>
-
           </Route>
           <Route path="/coffees" >
             <ReviewContext.Provider value={{addReview, editReview, deleteReview}}>

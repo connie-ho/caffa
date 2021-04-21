@@ -1,18 +1,13 @@
 import { useState, useContext, useEffect } from 'react';
 import UserContext from '../../contexts/UserContext';
-import { makeStyles } from '@material-ui/core/styles';
-
 import {
   Box,
-  Avatar,
   Button,
   Card,
   CardContent,
   CardHeader,
-  Divider,
   Grid,
   TextField,
-  Typography,
   CardActions,
 } from '@material-ui/core';
 

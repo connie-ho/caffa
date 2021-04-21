@@ -12,11 +12,13 @@ const {
   addUser
 } = require("../db/helpers/user-queries");
 
+// Show details of all users
 router.get("/", (req, res) => {
   getUsers()
     .then((data) => res.status(200).json(data))
     .catch((err) => res.status(500).json({ error: err.message }));
 });
+
 
 // Show details of a user
 router.get("/:id", (req, res) => {
@@ -27,11 +29,12 @@ router.get("/:id", (req, res) => {
     .catch((err) => res.status(500).json({ error: err.message }));
 });
 
-// const userId = req.session.user_id;
+
 // Create a user
 router.post("/", (req, res) => {
   res.send("ok")
 });
+
 
 // Login user
 router.post("/login", (req, res) => {
@@ -42,7 +45,6 @@ router.post("/login", (req, res) => {
     const user = data
     if (bcrypt.compareSync(password, user.password)) {
       req.session.user_id = user.id;
-      // res.cookie('user_id', userId)
       res.send({first_name: user.first_name, last_name:user.last_name, email: user.email, id: user.id})
       return;
     }
@@ -55,15 +57,16 @@ router.post("/login", (req, res) => {
   });
 });
 
-// LOGOUT
+
+// Logout
 router.post('/logout', (req, res) => {
   req.session = null;
   res.send(null);
 });
 
+
 // Register user
 router.post("/register", (req, res) => {
- 
   const {email} = req.body
   getUserByEmail(email)
   .then(user => {
@@ -105,7 +108,6 @@ router.post("/authenticate", (req, res) => {
   getUserById(userId)
   .then(data => {
     if (data) {
-      console.log("THE /AUTHENTICATE POST COOKIE =============>")
       res.send({first_name: data.first_name, last_name: data.last_name, email: data.email, id: data.id, avatar_url: data.avatar_url})
     } else {
     res.json(null)

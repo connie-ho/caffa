@@ -11,22 +11,6 @@ const getFavourites = function () {
     .catch((err) => console.error(this, "query failed", err.stack));
 };
 
-const getUserFavourites = function (userId) {
-  const text = `
-  SELECT coffees.* 
-  FROM coffees INNER JOIN favourites 
-  ON favourites.coffee_id = coffees.id 
-  JOIN users ON users.id = favourites.user_id 
-  WHERE users.id = 1 
-  GROUP BY coffees.id;`
-  const values = [userId];
-
-  return db
-    .query(text, values)
-    .then((data) => data.rows)
-    .catch((err) => console.error(this, "query failed", err.stack));
-};
-
 const addFavourite = function (params) {
   const { user_id, coffee_id } = params;
 
@@ -55,7 +39,6 @@ const deleteFavourite = function (favouriteID) {
 
 module.exports = {
   getFavourites,
-  getUserFavourites,
   addFavourite,
   deleteFavourite
 };

@@ -51,7 +51,6 @@ const useStyles = makeStyles((theme) => ({
   content: {
     flexGrow: 1,
     minHeight: 'calc(100vh - 70px)',
-    // position: 'relative'
   },
   accountContent: {
     flexDirection: 'column',
@@ -61,13 +60,11 @@ const useStyles = makeStyles((theme) => ({
   media: {
     height: 275,
     width: 180,
-    backgroundSize: 'contain'
-    
+    backgroundSize: 'contain',
   },
   avatarSettings: {
     height: 150,
     width: 150,
-    
   },
   settingsForm: {
     flexDirection: 'row',
@@ -111,7 +108,6 @@ const useStyles = makeStyles((theme) => ({
 export default function Account(props) {
   const {editUserHandler} = props
   const classes = useStyles();
-  const titleSize = {h1: 'h1', h2: 'h2', h3: 'h3', h4: 'h4', h5: 'h6', subtitle1: 'subtitle1'}
   const {state} = useContext(DataContext);
   const {user} = useContext(UserContext);
   const [openReviewForm, setOpenReviewForm] = useState(false);
@@ -155,7 +151,7 @@ export default function Account(props) {
           <Grid container className={classes.accountContent}>
             <AccountFavourites 
               classes={classes}
-              titleSize={titleSize.h2}
+              titleSize={'h2'}
             />
           </Grid>
         </Route>
@@ -163,7 +159,7 @@ export default function Account(props) {
           <Grid container className={classes.accountContent}>
             <AccountReviews
               classes={classes}
-              titleSize={titleSize.h2}
+              titleSize={'h2'}
               user={user}
               coffee={coffees}
               openReviewForm={openReviewForm}
@@ -186,8 +182,8 @@ export default function Account(props) {
             user={user}
             limit={3}
             classes={classes}
-            titleSize={titleSize.h2}
-            subTitleSize={titleSize.h4}
+            titleSize={'h2'}
+            subTitleSize={'h4'}
           />
           <AccountReviews
             user={user}
@@ -196,8 +192,8 @@ export default function Account(props) {
             setOpenReviewForm={setOpenReviewForm}
             limit={3}
             classes={classes}
-            titleSize={titleSize.h2}
-            subTitleSize={titleSize.h4}
+            titleSize={'h2'}
+            subTitleSize={'h4'}
           />
           </Grid>
         </Route>

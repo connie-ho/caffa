@@ -1,19 +1,17 @@
 import React, { useEffect, useState } from "react";
+import {BrowserRouter as Router} from "react-router-dom";
 import Main from './components/Main';
 import NotLoggedIn from './components/NotLoggedIn'
 import axios from 'axios';
 import "./App.css";
-import {BrowserRouter as Router} from "react-router-dom";
 import DataContext from './contexts/DataContext';
 import UserContext from './contexts/UserContext';
-
 import useApplicationData from './hooks/useApplicationData';
 
 function App() {
 
   // user logic
   const [user, setUser] = useState(null);
-  // const [homeCoffees, setHomeCoffees] = useState(null);
 
   // allows us to enable the modal and close anywhere in the app
   const [openLogin, setOpenLogin] = useState(false); 
@@ -66,8 +64,6 @@ function App() {
       .then(res => setUser(res.data))
   }
 
-
-  console.log("USER IN APP :", user)
 
   const {
     state, 

@@ -2,9 +2,9 @@ import { useState, useContext, useEffect } from 'react';
 import UserContext from '../../contexts/UserContext';
 import ReviewListItem from '../coffee-id/ReviewListItem';
 import DataContext from '../../contexts/DataContext';
-import {getUserReviews, getReviewedCoffee, reviewsWithImages} from '../../helpers/selectors';
+import {getUserReviews, getReviewedCoffee} from '../../helpers/selectors';
 import Typography from '@material-ui/core/Typography';
-import { Grid, GridListTile, Link, Button } from "@material-ui/core";
+import { Grid, Link, Button } from "@material-ui/core";
 
 
 

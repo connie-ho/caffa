@@ -1,16 +1,13 @@
 import {useContext, useEffect, useState} from 'react';
+import { Grid, Button } from "@material-ui/core";
+import {getReviewsForCoffee, avgRatingForCoffee, getFavouritesForUser, userFavCoffees} from '../../helpers/selectors';
 import DataContext from '../../contexts/DataContext.js';
 import UserContext from '../../contexts/UserContext.js';
 import CoffeeListItem from '../coffees/CoffeeListItem.jsx';
-import {getReviewsForCoffee, avgRatingForCoffee, getFavouritesForUser, userFavCoffees} from '../../helpers/selectors';
-import { Grid, Button } from "@material-ui/core";
 import Typography from '@material-ui/core/Typography';
-import axios from 'axios';
-
 
 
 export default function AccountFavourites(props) {
-  // const [favourites, setFavourites] = useState({});
   const {state} = useContext(DataContext);
   const {user} = useContext(UserContext);
   const {classes, titleSize, subTitleSize, limit} = props;
@@ -42,7 +39,6 @@ export default function AccountFavourites(props) {
   const userCoffees = userFavCoffees(slicedFav, coffees);
 
   
-
   // Create Coffee List Item
     const coffeeList = userCoffees.map(coffee => {
     const coffeeReviews = getReviewsForCoffee(Object.values(reviews),coffee.id)
