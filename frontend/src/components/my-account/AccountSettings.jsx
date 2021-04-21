@@ -17,7 +17,6 @@ import {
 } from '@material-ui/core';
 
 
-
 const AccountSettings = (props) => {
   const {editUserHandler} = props
   const {classes} = props
@@ -39,10 +38,6 @@ const AccountSettings = (props) => {
   }))
   },[user])
 
-<<<<<<< HEAD
-=======
-
->>>>>>> b4821ca2ed32ac7c06da12f5268c6a06d50ee94f
   const handleChange = (event) => {
     setValues({
       ...values,
@@ -50,18 +45,10 @@ const AccountSettings = (props) => {
     });
   };
 
-<<<<<<< HEAD
-=======
-
->>>>>>> b4821ca2ed32ac7c06da12f5268c6a06d50ee94f
   const handleSubmit = (e) => {
     e.preventDefault()
     editUserHandler(values.first_name, values.last_name, values.email)
   }
-
-  console.log("VALUESS ====>", values.avatar_url)
-  console.log("USER ====>", user)
-  console.log("NAME ====>", values.first_name)
 
   return (
     <form
@@ -73,16 +60,16 @@ const AccountSettings = (props) => {
       <Card>
         <CardHeader
           subheader="The information can be edited"
-          title="Profile"
+          title="My Profile"
         />
         <CardContent>
       <Box>
         <img
+          width="150px"
           src={values.avatar_url}
         />
       </Box>
     </CardContent>
-    <Divider />
     <CardActions>
       <Button
         color="primary"
