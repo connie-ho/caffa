@@ -93,4 +93,12 @@ Gobs of body, intriguing chocolate character. Dynamite as drip, scintillating as
   'Medium-High',
   'Arabica',
   'https://www.londondrugs.com/on/demandware.static/-/Sites-londondrugs-master/default/dwfa01d1ee/products/L8762064/large/L8762064.JPG'
-  )
+  ),
+  ('Torrefaction Espresso Roast',
+  'Rich & Caramelly at the heart of our handcrafted latte',
+  'Colombia',
+  'Dark',
+  'Starbucks',
+  'Medium',
+  'Arabica',
+  'https://firebasestorage.googleapis.com/v0/b/project-test-123-84049.appspot.com/o/starbucks.jpg?alt=media&token=d71ac2e8-b770-4fcc-b196-e13a72a4f287')

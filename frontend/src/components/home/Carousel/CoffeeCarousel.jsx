@@ -13,7 +13,7 @@ const CoffeeCarousel = (props) => {
   const reviews = state.reviews;
 
   const coffees = Object.values(homeCoffees)
- 
+  console.log('cafes',coffees)
   const breakPoints = [
     { width: 1, itemsToShow: 1, itemsToScroll: 1, pagination: false },
     { width: 500, itemsToShow: 2, itemsToScroll: 1, pagination: true },
