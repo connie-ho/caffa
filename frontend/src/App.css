@@ -3,7 +3,7 @@ a {
   color: inherit;
 }
 
-*{
+* {
   -ms-overflow-style: none;
 }
 ::-webkit-scrollbar {

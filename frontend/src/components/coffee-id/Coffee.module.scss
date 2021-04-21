@@ -1,10 +1,9 @@
-@import '../../variables';
+@import "../../variables";
 
 $sectionPadding: 2rem 2rem 2rem;
 $maxWidth: 1080px;
 
-
-.coffee-details-wrapper{
+.coffee-details-wrapper {
   background-color: $primaryBackgroundColor;
 }
 
@@ -26,7 +25,6 @@ $maxWidth: 1080px;
   border-radius: 1rem;
 }
 
-
 .coffee-details-name {
   font-family: $primaryFontFamily;
   font-size: 2rem;
@@ -44,16 +42,14 @@ $maxWidth: 1080px;
 .coffee-details-region {
   display: flex;
   align-items: center;
-  
+
   h3 {
     font-weight: 300;
     font-size: 1.1rem;
   }
-
 }
 
 .coffee-details-rating {
-  
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -64,7 +60,7 @@ $maxWidth: 1080px;
     font-size: 2.5rem;
     margin-right: 0.25rem;
   }
-  
+
   div {
     display: flex;
     flex-direction: column;
@@ -77,10 +73,7 @@ $maxWidth: 1080px;
       margin: 0;
       padding: 0;
     }
-
-
   }
-
 }
 
 .coffee-details-description {
@@ -89,14 +82,14 @@ $maxWidth: 1080px;
 }
 
 .coffee-like-icon {
-  color: rgb(238,44,77);
+  color: rgb(238, 44, 77);
 }
 
 .coffee-unlike-icon {
   color: $primaryFontColor;
 }
 
-.coffee-characteristic-section{
+.coffee-characteristic-section {
   margin: 0 auto;
   max-width: $maxWidth;
   display: flex;
@@ -113,15 +106,13 @@ $maxWidth: 1080px;
     display: flex;
     flex-direction: column;
     align-items: center;
-
   }
-  
+
   .icon {
     color: $primaryColor;
     font-size: 2rem;
     margin: 1rem 0;
   }
-
 }
 
 .coffee-review-wrapper {
@@ -146,7 +137,6 @@ $maxWidth: 1080px;
   max-width: $maxWidth;
   display: flex;
   justify-content: space-between;
-
 }
 
 .coffee-review-list {
@@ -176,25 +166,23 @@ $maxWidth: 1080px;
   background-color: $primaryColor;
 }
 
-.coffee-cafe-section{
+.coffee-cafe-section {
   max-width: $maxWidth;
   margin: 0 auto;
-  padding: $sectionPadding
+  padding: $sectionPadding;
 }
-
 
 .map-info {
   padding: 0 0.5em 0.5em;
 }
 
-@media only screen and (max-width:600px) {
-  
+@media only screen and (max-width: 600px) {
   .coffee-details-section {
     flex-direction: column;
     align-items: center;
     width: 100%;
   }
-  
+
   .coffee-details-img {
     margin: 0 auto 2em;
   }
