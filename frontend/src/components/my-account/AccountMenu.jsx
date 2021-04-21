@@ -1,22 +1,28 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Divider from '@material-ui/core/Divider';
 import Drawer from '@material-ui/core/Drawer';
 import Hidden from '@material-ui/core/Hidden';
 import IconButton from '@material-ui/core/IconButton';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-import SortList from './SortList';
-import FilterList from './FilterList';
-
-
-const drawerWidth = 250;
+import ListItem from '@material-ui/core/ListItemIcon';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import RateReviewIcon from '@material-ui/icons/RateReview';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import SettingsIcon from '@material-ui/icons/Settings';
+import List from '@material-ui/core/List';
+const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
   },
   drawer: {
+    position: 'relative',
+    zIndex: 2,
     [theme.breakpoints.up('sm')]: {
       width: drawerWidth,
       flexShrink: 0,
@@ -24,6 +30,7 @@ const useStyles = makeStyles((theme) => ({
   },
   appBar: {
     position: 'absolute',
+    zIndex: theme.zIndex.drawer + 1,
     left: 0,
     display: 'flex',
     margin: '1rem 0',
@@ -42,10 +49,21 @@ const useStyles = makeStyles((theme) => ({
       display: 'none',
     },
   },
+  listItem: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: '0.5rem'
+  },
+  icon: {
+    marginRight: '0.5rem',
+  },
   // necessary for content to be below app bar
   toolbar: theme.mixins.toolbar,
   drawerPaper: {
     width: drawerWidth,
+    boxSizing: 'border-box',
+    padding: '1.5rem',
   },
   content: {
     flexGrow: 1,
@@ -53,15 +71,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function SortFilterDrawer(props) {
+function AccountMenu(props) {
   const { 
     window, 
-    sortOptions, 
-    handleSort,
-    categories,
-    filters,
-    setFilters,
-    handleFilters
   } = props;
   const classes = useStyles();
   const theme = useTheme();
@@ -74,18 +86,37 @@ function SortFilterDrawer(props) {
   const drawer = (
     <div>
       <div className={classes.toolbar} />
-      <Divider />
-      <SortList
-        sortOptions={sortOptions}
-        handleSort={handleSort}
-      />
-      <Divider />
-      <FilterList
-        categories={categories}
-        filters={filters}
-        setFilters={setFilters}
-        handleFilters={handleFilters}
-      />
+      <List>
+
+        <Link to="/account">
+          <ListItem className={classes.listItem}>
+            <AccountCircleIcon className={classes.icon}/>
+            <ListItemText primary={"My Account"} />
+          </ListItem>
+        </Link>
+
+        <Link to="/account/favourites">
+          <ListItem className={classes.listItem}>
+            <FavoriteIcon className={classes.icon}/>
+            <ListItemText primary={"My Favourites"} />
+          </ListItem>
+        </Link>
+
+        <Link to="/account/reviews">
+          <ListItem className={classes.listItem}>
+              <RateReviewIcon className={classes.icon}/>
+            <ListItemText primary={"My Reviews"} />
+          </ListItem>
+        </Link>
+
+        <Link to="/account/settings">
+          <ListItem className={classes.listItem}>
+              <SettingsIcon className={classes.icon}/>
+            <ListItemText primary={"My Settings"} />
+          </ListItem>
+        </Link>
+
+      </List>
     </div>
   );
 
@@ -95,15 +126,15 @@ function SortFilterDrawer(props) {
     <div className={classes.root}>
       <CssBaseline />
       <div className={classes.appBar}>
-          <IconButton
+          {/* <IconButton
             color="inherit"
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
             className={classes.menuButton}
           >
-            {'Sort & Filter'}
-          </IconButton>
+            {'My Caffa'}
+          </IconButton> */}
 
       </div>
       <nav className={classes.drawer} aria-label="mailbox folders">
@@ -141,7 +172,7 @@ function SortFilterDrawer(props) {
   );
 }
 
-SortFilterDrawer.propTypes = {
+AccountMenu.propTypes = {
   /**
    * Injected by the documentation to work in an iframe.
    * You won't need it on your project.
@@ -149,4 +180,4 @@ SortFilterDrawer.propTypes = {
   window: PropTypes.func,
 };
 
-export default SortFilterDrawer;
+export default AccountMenu;

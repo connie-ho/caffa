@@ -22,6 +22,7 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import SettingsIcon from '@material-ui/icons/Settings';
 import RateReviewIcon from '@material-ui/icons/RateReview';
 
+import AccountMenu from './my-account/AccountMenu';
 import AccountProfile from './my-account/AccountProfile';
 import AccountSettings from './my-account/AccountSettings';
 import AccountFavourites from './my-account/AccountFavourites';
@@ -136,10 +137,6 @@ export default function Account(props) {
   // filter for coffee reviews & favourites
   const coffeeReviews = getUserReviews(Object.values(reviews), values.id);
 
-  function ListItemLink(props) {
-    return <ListItem button component="a" {...props} />;
-  }
-  
 
   return (
     
@@ -147,49 +144,7 @@ export default function Account(props) {
       <Helmet>
         <title>Account | Caffa</title>
       </Helmet>
-
-      <Drawer
-        className={classes.drawer}
-        variant="permanent"
-        classes={{
-          paper: classes.drawerPaper,
-        }}
-        >
-        <Toolbar />
-        <div className={classes.drawerContainer}>
-          <List>
-
-              <ListItemLink href="/account">
-                <ListItemIcon>
-                  <AccountCircleIcon />
-                </ListItemIcon>
-                <ListItemText primary={"My Account"} />
-              </ListItemLink>
-
-              <ListItemLink href="/account/favourites">
-                <ListItemIcon>
-                  <FavoriteIcon />
-                </ListItemIcon>
-                <ListItemText primary={"Favourites"} />
-              </ListItemLink>
-
-              <ListItemLink href="/account/reviews">
-                <ListItemIcon>
-                  <RateReviewIcon />
-                </ListItemIcon>
-                <ListItemText primary={"Reviews"} />
-              </ListItemLink>
-
-              <ListItemLink href="/account/settings">
-                <ListItemIcon>
-                  <SettingsIcon />
-                </ListItemIcon>
-                <ListItemText primary={"Settings"} />
-              </ListItemLink>
-
-          </List>
-        </div>
-      </Drawer>
+        <AccountMenu />
       <main className={classes.content}>
         <Switch>
         <Route path="/account/favourites">
