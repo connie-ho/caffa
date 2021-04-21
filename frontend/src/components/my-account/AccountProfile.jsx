@@ -10,7 +10,7 @@ export default function AccountProfile(props) {
   return (
     
     <Grid container className={classes.title}>
-      <Typography variant='h1'>My Caffa</Typography>
+      <Typography variant='h2' className={classes.title}>My Caffa</Typography>
     </Grid>
   )
 

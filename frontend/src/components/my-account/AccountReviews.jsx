@@ -66,9 +66,9 @@ function AccountReviews(props) {
   return (
     <div>
     <Grid item xs={12} lg={6} className={classes.titleContainer}>
-      <Typography variant={`${titleSize}`}>Recent Reviews</Typography>
-      <Grid item xs={12} lg={6} className={classes.SubTitle}>
-        <Typography variant={`${subTitleSize}`} >You left a review on these coffees</Typography>
+      <Typography variant={`${titleSize}`} className={classes.header} gutterBottom>Recent Reviews</Typography>
+      <Grid item xs={12} lg={8} className={classes.SubTitle}>
+        <Typography variant={`${subTitleSize}`} className={classes.subtitle} gutterBottom >You left a review on these coffees</Typography>
       </Grid>
     </Grid>
     <div>

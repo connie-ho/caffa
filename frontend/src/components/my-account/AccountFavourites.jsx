@@ -61,9 +61,9 @@ export default function AccountFavourites(props) {
   return (
     <Grid container xs={12}>
       <Grid item xs={12} lg={6} className={classes.titleContainer}>
-        <Typography variant={`${titleSize}`}>Recent Favourites</Typography>
+        <Typography variant={`${titleSize}`} className={classes.header} gutterBottom>Recent Favourites</Typography>
         <Grid item xs={12} lg={6} className={classes.SubTitle}>
-          <Typography variant={`${subTitleSize}`} >Your own top picks from Caffa</Typography>
+          <Typography variant={`${subTitleSize}`} className={classes.subtitle} gutterBottom >Your own top picks from Caffa</Typography>
         </Grid>
       {!coffeeList.length && 
         <p>There are no favourites here!</p>
@@ -73,7 +73,7 @@ export default function AccountFavourites(props) {
         {coffeeList}
     </Grid>
     { limit ? 
-        <Grid item xs={4}>
+        <Grid container xs={12} style={{ justifyContent: 'center' }}>
         <Button className={classes.seeMoreBtn} href="/account/favourites" variant="contained" color="primary" disableElevation>
           SEE MORE
         </Button>

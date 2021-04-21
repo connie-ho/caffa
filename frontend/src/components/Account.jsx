@@ -73,14 +73,6 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'row',
     justifyContent: 'center',
   },
-  title: {
-    textAlign: 'center',
-
-    [theme.breakpoints.up('md')]: {
-    textAlign: 'center',
-    marginRight: '100px',
-  }
-  },
   secondTitle: {
     textAlign: 'center',
     fontVariant: 'h3',
@@ -95,6 +87,10 @@ const useStyles = makeStyles((theme) => ({
   seeMoreBtn: {
     justifyContent: 'center',
   },
+  title: {
+    fontSize: '4.0rem',
+    margin: '0px 20px 0px 20px '
+  },
   header: {
     fontSize: '2.5rem',
     margin: '0 0.5em'
@@ -102,6 +98,13 @@ const useStyles = makeStyles((theme) => ({
   subtitle: {
     fontSize: '1.5rem',
     margin: '0 1rem'
+  },
+  paragraph: {
+    fontSize:'1.5rem',
+    margin: '0px 16px 0px 16px'
+  },
+  titleContainer: {
+    margin:'5rem 0rem 5rem 0rem'
   }
 }));
 
@@ -183,8 +186,8 @@ export default function Account(props) {
             user={user}
             limit={3}
             classes={classes}
-            titleSize={titleSize.h4}
-            subTitleSize={titleSize.subtitle1}
+            titleSize={titleSize.h2}
+            subTitleSize={titleSize.h4}
           />
           <AccountReviews
             user={user}
@@ -193,8 +196,8 @@ export default function Account(props) {
             setOpenReviewForm={setOpenReviewForm}
             limit={3}
             classes={classes}
-            titleSize={titleSize.h4}
-            subTitleSize={titleSize.subtitle1}
+            titleSize={titleSize.h2}
+            subTitleSize={titleSize.h4}
           />
           </Grid>
         </Route>
