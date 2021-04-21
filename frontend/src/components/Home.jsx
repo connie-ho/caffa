@@ -18,7 +18,7 @@ const Home = (props) => {
         setHomeCoffees(res.data)
       })
       .catch(err => {
-        console.log(err.message)
+        console.error(err.message)
       })
   }, []);
   

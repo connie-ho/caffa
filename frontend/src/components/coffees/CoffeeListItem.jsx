@@ -62,7 +62,7 @@ function CoffeeListItem(props) {
             {coffee.name}
           </Typography>
           <Typography color='secondary' gutterBottom variant="subtitle1" style={{ fontSize:'1.0em', padding:'10 10', color:'#646264'}} component="h3">
-          {coffee.region}, {coffee.avg_rating? coffee.avg_rating: 'No Ratings Yet!'} {coffee.avg_rating && <img src={bean} style={{ height:'15px', width:'15px'}} /> }
+          {coffee.region}, {coffee.avg_rating? coffee.avg_rating: 'No Ratings Yet!'} {coffee.avg_rating && <img src={bean} alt='bean' style={{ height:'15px', width:'15px'}} /> }
           </Typography>
         </CardContent>
       </Link>

@@ -1,5 +1,4 @@
-import {useContext, useEffect, useState} from 'react';
-import DataContext from '../../contexts/DataContext.js';
+import {useEffect} from 'react';
 import { Grid } from "@material-ui/core";
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
@@ -44,14 +43,13 @@ const TopPicks = (props) => {
     Aos.init({})
   },[]);
 
-  const {homeCoffees, setHomeCoffees} = props
-  const {state} = useContext(DataContext);
+  const {homeCoffees} = props
   const classes = useStyles();
 
   return (
     <Grid container direction="row" >
-      <Grid item xs={0} sm={1} />
-      <Grid item xs={12} sm={10} fullWidth >
+      <Grid item xs={false} sm={1} />
+      <Grid item xs={12} sm={10} >
       <Grid container direction='column' style={{margin:'5rem 0rem 11rem 0rem'}} >
               <Typography variant='h2' className={classes.title} >Caffa</Typography>
               <Typography variant='h4' className={classes.paragraph} >Great coffee is a simple joy. Finding the perfect one should be just as simple.</Typography>
@@ -90,7 +88,7 @@ const TopPicks = (props) => {
       <CoffeeCarousel homeCoffees={homeCoffees} type='rating' > </CoffeeCarousel>
         </div>
       </Grid>
-      <Grid item xs={0} sm={1} />
+      <Grid item xs={false} sm={1} />
     </Grid>
   )
 }

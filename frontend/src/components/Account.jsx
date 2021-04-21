@@ -13,7 +13,6 @@ import AccountProfile from './my-account/AccountProfile';
 import AccountSettings from './my-account/AccountSettings';
 import AccountFavourites from './my-account/AccountFavourites';
 import AccountReviews from './my-account/AccountReviews';
-import {getUserReviews, isLiked, isReviewed} from '../helpers/selectors';
 import Footer from './Footer'
 
 const drawerWidth = 240;
@@ -134,12 +133,6 @@ export default function Account(props) {
   
   const coffees = state.coffees;
   const reviews = state.reviews;
-
-  const coffee = coffees[reviews.user_id]
-
-
-  // filter for coffee reviews & favourites
-  const coffeeReviews = getUserReviews(Object.values(reviews), values.id);
 
 
   return (
