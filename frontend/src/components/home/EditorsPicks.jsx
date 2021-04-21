@@ -1,4 +1,4 @@
-import {React, useContext, useEffect} from 'react';
+import {React, useContext} from 'react';
 import classes from './editorPick.module.scss'
 import DataContext from '../../contexts/DataContext.js';
 
@@ -16,7 +16,7 @@ export default function EditorPick(props) {
     <>
       <div className={classes['editor-coffee-card']}>
   
-        <img className={classes['editor-coffee-image']} src={ coffee && coffee.image_url} />
+        <img className={classes['editor-coffee-image']} alt='coffee' src={ coffee && coffee.image_url} />
         <div className={classes['imgover']}>
         <a href={coffee && `/coffees/${coffee.id}`}>
           <div className={classes['editor-details-section']}>
@@ -27,7 +27,7 @@ export default function EditorPick(props) {
             <h2 className={classes['coffee-details-chosen']}>Chosen by:</h2>
             <h2 className={classes['coffee-details-person']}>{user && `${user.first_name} ${user.last_name}`}</h2>
             <div className={classes['editor-pic-container']}>
-            <img className={classes['editor-pic']} src={img} />
+            <img className={classes['editor-pic']} src={img} alt='avatar' />
           </div>
           </div>
           </a>

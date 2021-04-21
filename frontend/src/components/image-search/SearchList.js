@@ -86,22 +86,22 @@ export default function SearchList(props) {
       return (
         <>
         <Grid item xs={12} >
-        <Typography variant="p" style={{fontSize:'2em', padding:'0.5em'}}>There were no matches!</Typography>
+        <Typography variant="body2" style={{fontSize:'2em', padding:'0.5em'}}>There were no matches!</Typography>
         </Grid>
         </>
       )
     }
     return (
       <Grid item xs={12}>
-      <Typography variant="p" style={{fontSize:'2em'}}>There was an error in image search. Your image may not have been detected as a coffee bean bag.</Typography>
-      </Grid>
+      <Typography variant="body2" style={{fontSize:'2em'}}>There was an error in image search. Your image may not have been detected as a coffee bean bag.</Typography>
+      </Grid> 
     )
   }
 
   return(
   <Grid container direction="row" >
  
-    <Grid item xs={0} sm={1} />
+    <Grid item xs={false} sm={1} />
     <Grid item xs={12} sm={10} >
     <Typography variant="h2" className={classes.header}>Your search results</Typography>
       <Grid container spacing="5">
@@ -110,7 +110,7 @@ export default function SearchList(props) {
       <br></br>
       {storedUrl && <AddCoffeeButton  url={storedUrl} addCoffee={addCoffee} />} 
     </Grid>
-    <Grid item xs={0} sm={1} />
+    <Grid item xs={false} sm={1} />
   </Grid>
   )  
 }

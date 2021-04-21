@@ -5,7 +5,7 @@ import { makeStyles } from '@material-ui/styles'
 
 
 const UploadForm = (props) =>  {
-  const {file, setFile, error, setError, loading} = props
+  const {file, setFile, error, setError} = props
   
   const useClasses = makeStyles(() => ({
     AddHoverColor: {
@@ -48,7 +48,7 @@ const UploadForm = (props) =>  {
       <div className="output">
         { tempURL && (<>
         <input type="file" accept="image/*" capture onChange={changeHandler} /> 
-        <img src={tempURL} width="200" height="200" /> </>)}
+        <img src={tempURL} alt='cafe' width="200" height="200" /> </>)}
       </div>
       }
       { error && <div className='error'>{ error }</div>}

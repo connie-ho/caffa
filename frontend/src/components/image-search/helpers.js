@@ -34,12 +34,10 @@ export async function googleImageDetection(url) {
 
   //If data sent back is an error message
   if (!response || response.data.error ) {
-    console.log('error occurred in image search')
     return ['error']
   }
   //If data sent back is an empty object
   else if(Object.keys(response.data).length === 0) {
-    console.log('no text detected')
     return []
   }
   

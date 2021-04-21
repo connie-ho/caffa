@@ -36,14 +36,14 @@ function App() {
         setUser(res.data)
       })
       .catch(err => {
-        console.log(err.message)
+        console.error(err.message)
       })
   }
 
   const editUserHandler = (first_name, last_name, email) => {
     return axios.post("/api/users/edit", {first_name: first_name, last_name: last_name, email: email})
       .catch(err => {
-        console.log(err.message)
+        console.error(err.message)
       })
   }
 

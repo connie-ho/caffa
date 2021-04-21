@@ -23,19 +23,6 @@ import FormControl from '@material-ui/core/FormControl';
 import clsx from 'clsx';
 
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Caffa
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
-
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
@@ -65,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.secondary.main,
   },
   form: {
-    width: '100%', // Fix IE 11 issue.
+    width: '100%',
     marginTop: theme.spacing(1),
   },
   submit: {
@@ -176,7 +163,7 @@ export default function Login(props) {
           </Button>
           <Grid container>
             <Grid item xs>
-              <Link href="/register" color="secondary">
+              <Link to="/register" color="secondary">
                 Don't have a profile? Click here to register!
               </Link>
             </Grid>

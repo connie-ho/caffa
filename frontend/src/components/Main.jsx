@@ -9,7 +9,6 @@ import Coffees from './coffees/Coffees';
 import FavouriteContext from '../contexts/FavouriteContext';
 import ReviewContext from '../contexts/ReviewContext';
 import SearchContext from '../contexts/SearchContext';
-import HomeContext from '../contexts/HomeContext';
 import Account from './Account';
 import Register from './Register'
 import Footer from './Footer'
@@ -23,12 +22,8 @@ const Main = (props) => {
     deleteReview, 
     addCoffee, 
     user, 
-    setUser, 
     editUserHandler,
-    loginHandler, 
     logoutHandler, 
-    homeCoffees, 
-    setHomeCoffees,
      } = props;
 
   const [results, setResults] = useState(
@@ -78,9 +73,7 @@ const Main = (props) => {
             <Register />
           </Route>
           <Route path="/" exact>
-            <HomeContext.Provider>
               <Home />
-            </HomeContext.Provider>
           </Route>
           <Footer/>
           </>

@@ -6,14 +6,12 @@ import { useState, useContext, useEffect } from 'react';
 import UserContext from '../contexts/UserContext';
 import DataContext from '../contexts/DataContext';
 import { makeStyles } from '@material-ui/core/styles';
-
+import Typography from '@material-ui/core/Typography';
 
 import AccountMenu from './my-account/AccountMenu';
-import AccountProfile from './my-account/AccountProfile';
 import AccountSettings from './my-account/AccountSettings';
 import AccountFavourites from './my-account/AccountFavourites';
 import AccountReviews from './my-account/AccountReviews';
-import {getUserReviews, isLiked, isReviewed} from '../helpers/selectors';
 import Footer from './Footer'
 
 const drawerWidth = 240;
@@ -39,8 +37,8 @@ const useStyles = makeStyles((theme) => ({
     overflow: 'auto',
   },
   reviewItemSection: {
-    padding: '2rem 2rem 2rem',
     alignItems: 'center',
+    margin: '1rem 1rem 1rem'
   },
   reviewCard: {
     padding: '0rem 3rem',
@@ -75,33 +73,36 @@ const useStyles = makeStyles((theme) => ({
     fontVariant: 'h3',
   },
   titleContainer: {
-    marginTop: '50px',
-    marginBottom: '30px',
+    marginTop: '5rem',
+    marginBottom: '3rem',
   },
   SubTitle: {
     margin: '10px',
   },
   seeMoreBtn: {
-    justifyContent: 'center',
-  },
-  title: {
-    fontSize: '4.0rem',
-    margin: '0px 20px 0px 20px '
+    marginTop: '2rem',
+    color: '#646264',
+    backgroundColor: 'white',
+    border: '2px solid #DEBB63',
+    borderRadius: '1rem',
+    "&:hover": {
+      border: '3px solid #DEBB63',
+      backgroundColor: '#DEBB63',
+      color: 'white'
+    },
   },
   header: {
     fontSize: '2.5rem',
-    margin: '0 0.5em'
   },
   subtitle: {
     fontSize: '1.5rem',
-    margin: '0 1rem'
   },
   paragraph: {
     fontSize:'1.5rem',
     margin: '0px 16px 0px 16px'
   },
-  titleContainer: {
-    margin:'5rem 0rem 5rem 0rem'
+  mainTitle: {
+    fontSize: '3rem', 
   }
 }));
 
@@ -111,7 +112,7 @@ export default function Account(props) {
   const {state} = useContext(DataContext);
   const {user} = useContext(UserContext);
   const [openReviewForm, setOpenReviewForm] = useState(false);
-  const [values, setValues] = useState({
+  const [currUser, setCurrUser] = useState({
     id: '',
     first_name: '',
     last_name: '',
@@ -119,7 +120,7 @@ export default function Account(props) {
   })
 
   useEffect(()=>{
-    setValues(prev => ({
+    setCurrUser(prev => ({
       ...prev,
       id: user? user.id : '',
       first_name: user? user.first_name : '',
@@ -129,14 +130,6 @@ export default function Account(props) {
   },[user])
   
   const coffees = state.coffees;
-  const reviews = state.reviews;
-
-  const coffee = coffees[reviews.user_id]
-
-
-  // filter for coffee reviews & favourites
-  const coffeeReviews = getUserReviews(Object.values(reviews), values.id);
-
 
   return (
     
@@ -149,6 +142,7 @@ export default function Account(props) {
         <Switch>
         <Route path="/account/favourites">
           <Grid container className={classes.accountContent}>
+          <Typography variant='h2' className={classes.header} gutterBottom>Favourites</Typography>
             <AccountFavourites 
               classes={classes}
               titleSize={'h2'}
@@ -157,6 +151,7 @@ export default function Account(props) {
         </Route>
         <Route path="/account/reviews">
           <Grid container className={classes.accountContent}>
+          <Typography variant='h2' className={classes.header} gutterBottom>Reviews</Typography>
             <AccountReviews
               classes={classes}
               titleSize={'h2'}
@@ -176,8 +171,12 @@ export default function Account(props) {
           </Grid>
         </Route>
         <Route path="/account">
-          <Grid container className={classes.accountContent} spacing={-10}>
-          <AccountProfile classes={classes}/>
+          <Grid container className={classes.accountContent}>
+          <Typography variant='h2' className={classes.mainTitle}>My Caffa</Typography>
+          <div className={classes.titleContainer}>
+          <Typography variant='h2' className={classes.header} gutterBottom>Recent Favourites</Typography>
+          <Typography variant='h3' className={classes.subtitle} gutterBottom >Your own top picks from Caffa</Typography>
+          </div>
           <AccountFavourites
             user={user}
             limit={3}
@@ -185,6 +184,10 @@ export default function Account(props) {
             titleSize={'h2'}
             subTitleSize={'h4'}
           />
+          <div className={classes.titleContainer}>
+            <Typography variant='h2' className={classes.header} gutterBottom>Recent Reviews</Typography>
+            <Typography variant='h3' className={classes.subtitle} gutterBottom >You left a review on these coffees</Typography>
+          </div>
           <AccountReviews
             user={user}
             coffee={coffees}

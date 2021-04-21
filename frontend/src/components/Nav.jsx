@@ -13,7 +13,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import CameraAltIcon from '@material-ui/icons/CameraAlt';
-import FormDialog from './image-search/Dialog';
+import FormDialog from './image-search/ImageSearchModal';
 import SearchBar from './dynamic-search/SearchBar';
 import headIcon from "../images/Caffa2.png"
 import Paper from '@material-ui/core/Paper'
@@ -248,7 +248,7 @@ export default function Nav(props) {
             </Icon>
           </Link>
           <Link to="/coffees">
-            <Typography className={classes.allCoffee} variant="p" noWrap>
+            <Typography className={classes.allCoffee} variant="body2" noWrap>
               COFFEES
             </Typography>
           </Link>
@@ -303,8 +303,8 @@ export default function Nav(props) {
             null
           :
           <Link to="/login">
-            <Typography className={classes.title} variant="h6" noWrap>
-              Login
+            <Typography className={classes.title} variant="p" noWrap>
+              LOGIN
             </Typography>
           </Link>
             }
