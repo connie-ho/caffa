@@ -38,8 +38,8 @@ const useStyles = makeStyles((theme) => ({
     overflow: 'auto',
   },
   reviewItemSection: {
-    padding: '2rem 2rem 2rem',
     alignItems: 'center',
+    margin: '1rem 1rem 1rem'
   },
   reviewCard: {
     padding: '0rem 3rem',

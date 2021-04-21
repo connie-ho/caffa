@@ -56,7 +56,7 @@ export default function AccountFavourites(props) {
   })
   
   return (
-    <Grid container xs={12}>
+    <Grid container xs={12} style={{marginTop:'2rem'}}>
     <Grid container spacing={10}>
         {coffeeList}
       {!coffeeList.length && 
