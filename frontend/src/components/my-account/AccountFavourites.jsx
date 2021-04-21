@@ -2,12 +2,9 @@ import {useContext, useEffect, useState} from 'react';
 import DataContext from '../../contexts/DataContext.js';
 import UserContext from '../../contexts/UserContext.js';
 import CoffeeListItem from '../coffees/CoffeeListItem.jsx';
-import {getReviewsForCoffee, avgRatingForCoffee, getFavouritesForUser, userFavCoffees} from '../../helpers/selectors';
+import {getFavouritesForUser, userFavCoffees} from '../../helpers/selectors';
 import { Grid, Button } from "@material-ui/core";
 import Typography from '@material-ui/core/Typography';
-import axios from 'axios';
-
-
 
 export default function AccountFavourites(props) {
   // const [favourites, setFavourites] = useState({});
@@ -36,7 +33,9 @@ export default function AccountFavourites(props) {
 
   const favourites = Object.values(state.favourites);
   const Faves = (getFavouritesForUser(favourites, values.id));
-  const favCoffees = Object.values(Faves);
+  const favCoffees = Object.values(Faves).sort((a,b)=>{
+    return new Date(b.created_at) - new Date(a.created_at);
+  });
 
   const slicedFav = favCoffees.slice(0, limit)
   const userCoffees = userFavCoffees(slicedFav, coffees);
@@ -45,8 +44,6 @@ export default function AccountFavourites(props) {
 
   // Create Coffee List Item
     const coffeeList = userCoffees.map(coffee => {
-    const coffeeReviews = getReviewsForCoffee(Object.values(reviews),coffee.id)
-    const avgRating = avgRatingForCoffee(coffeeReviews);
 
     return (
       <Grid item xs={4}>
@@ -60,10 +57,10 @@ export default function AccountFavourites(props) {
   
   return (
     <Grid container xs={12}>
-      <Grid item xs={12} lg={6} className={classes.titleContainer}>
+      <Grid item xs={12} className={classes.titleContainer}>
         <Typography variant={`${titleSize}`} className={classes.header} gutterBottom>Recent Favourites</Typography>
-        <Grid item xs={12} lg={6} className={classes.SubTitle}>
           <Typography variant={`${subTitleSize}`} className={classes.subtitle} gutterBottom >Your own top picks from Caffa</Typography>
+        <Grid item xs={12} sm={6} className={classes.SubTitle}>
         </Grid>
       {!coffeeList.length && 
         <p>There are no favourites here!</p>
@@ -73,7 +70,7 @@ export default function AccountFavourites(props) {
         {coffeeList}
     </Grid>
     { limit ? 
-        <Grid container xs={12} style={{ justifyContent: 'center' }}>
+        <Grid container xs={12} style={{ justifyContent: 'flex-start' }}>
         <Button className={classes.seeMoreBtn} href="/account/favourites" variant="contained" color="primary" disableElevation>
           SEE MORE
         </Button>

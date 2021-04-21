@@ -85,19 +85,27 @@ const useStyles = makeStyles((theme) => ({
     margin: '10px',
   },
   seeMoreBtn: {
-    justifyContent: 'center',
+    marginTop: '2rem',
+    color: '#646264',
+    backgroundColor: 'white',
+    border: '2px solid #DEBB63',
+    borderRadius: '1rem',
+    "&:hover": {
+      border: '3px solid #DEBB63',
+      backgroundColor: '#DEBB63',
+      color: 'white'
+    },
   },
   title: {
-    fontSize: '4.0rem',
-    margin: '0px 20px 0px 20px '
+    fontSize: '3rem', 
   },
   header: {
     fontSize: '2.5rem',
-    margin: '0 0.5em'
+    // margin: '0 0.5em'
   },
   subtitle: {
     fontSize: '1.5rem',
-    margin: '0 1rem'
+    // margin: '0 1rem'
   },
   paragraph: {
     fontSize:'1.5rem',

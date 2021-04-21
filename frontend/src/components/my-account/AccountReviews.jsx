@@ -49,7 +49,7 @@ function AccountReviews(props) {
           alt={`${coffee[review.id].name}`}
           />
         </Link>
-      <Grid item xs={12} lg={8} className={classes.reviewCard}>
+      <Grid item xs={12} sm={8} className={classes.reviewCard}>
         <ReviewListItem 
         
         key={review.id}
@@ -67,8 +67,8 @@ function AccountReviews(props) {
     <div>
     <Grid item xs={12} lg={6} className={classes.titleContainer}>
       <Typography variant={`${titleSize}`} className={classes.header} gutterBottom>Recent Reviews</Typography>
-      <Grid item xs={12} lg={8} className={classes.SubTitle}>
         <Typography variant={`${subTitleSize}`} className={classes.subtitle} gutterBottom >You left a review on these coffees</Typography>
+      <Grid item xs={12} lg={8} className={classes.SubTitle}>
       </Grid>
     </Grid>
     <div>
