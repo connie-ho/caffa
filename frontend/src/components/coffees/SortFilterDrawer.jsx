@@ -8,7 +8,6 @@ import IconButton from '@material-ui/core/IconButton';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import SortList from './SortList';
 import FilterList from './FilterList';
-import Button from '@material-ui/core/Button';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 
 const drawerWidth = 250;
@@ -105,11 +104,6 @@ function SortFilterDrawer(props) {
           >
             <ArrowForwardIosIcon/>
           </IconButton>
-          {/* <ArrowForwardIosIcon> */}
-          {/* <button variant="outlined" color="primary" disableRipple size="medium" onClick={handleDrawerToggle}
-            className={classes.menuButton}>
-          </button> */}
-          {/* </ArrowForwardIosIcon> */}
       </div>
       <nav className={classes.drawer} aria-label="mailbox folders">
         {/* The implementation can be swapped with js to avoid SEO duplication of links. */}

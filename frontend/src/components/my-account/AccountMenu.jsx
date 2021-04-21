@@ -4,16 +4,17 @@ import PropTypes from 'prop-types';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Drawer from '@material-ui/core/Drawer';
 import Hidden from '@material-ui/core/Hidden';
-import IconButton from '@material-ui/core/IconButton';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import ListItem from '@material-ui/core/ListItemIcon';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import RateReviewIcon from '@material-ui/icons/RateReview';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import SettingsIcon from '@material-ui/icons/Settings';
 import List from '@material-ui/core/List';
+import IconButton from '@material-ui/core/IconButton';
+import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
+
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -21,17 +22,17 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
   },
   drawer: {
-    position: 'relative',
-    zIndex: 2,
     [theme.breakpoints.up('sm')]: {
       width: drawerWidth,
       flexShrink: 0,
     },
   },
   appBar: {
-    position: 'absolute',
-    zIndex: theme.zIndex.drawer + 1,
+    position: 'fixed',
     left: 0,
+    height: '2%',
+    width: '1%',
+    transform: `translate(0px, 30vh)`,
     display: 'flex',
     margin: '1rem 0',
     [theme.breakpoints.up('sm')]: {
@@ -39,12 +40,9 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   menuButton: {
-    width: '8rem',
     fontSize: '1rem',
     margin: '0 auto',
-    textDecoration: 'underline',
     color: theme.palette.text.secondary,
-    borderRadius: '1rem',
     [theme.breakpoints.up('sm')]: {
       display: 'none',
     },
@@ -126,16 +124,15 @@ function AccountMenu(props) {
     <div className={classes.root}>
       <CssBaseline />
       <div className={classes.appBar}>
-          {/* <IconButton
+          <IconButton
             color="inherit"
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
             className={classes.menuButton}
           >
-            {'My Caffa'}
-          </IconButton> */}
-
+            <ArrowForwardIosIcon/>
+          </IconButton>
       </div>
       <nav className={classes.drawer} aria-label="mailbox folders">
         {/* The implementation can be swapped with js to avoid SEO duplication of links. */}

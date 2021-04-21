@@ -5,22 +5,8 @@ import { Helmet } from 'react-helmet';
 import { useState, useContext, useEffect } from 'react';
 import UserContext from '../contexts/UserContext';
 import DataContext from '../contexts/DataContext';
-import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
-import Drawer from '@material-ui/core/Drawer';
-import AppBar from '@material-ui/core/AppBar';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Toolbar from '@material-ui/core/Toolbar';
-import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
 
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import SettingsIcon from '@material-ui/icons/Settings';
-import RateReviewIcon from '@material-ui/icons/RateReview';
 
 import AccountMenu from './my-account/AccountMenu';
 import AccountProfile from './my-account/AccountProfile';
@@ -65,7 +51,7 @@ const useStyles = makeStyles((theme) => ({
   content: {
     flexGrow: 1,
     minHeight: 'calc(100vh - 70px)',
-    position: 'relative'
+    // position: 'relative'
   },
   accountContent: {
     flexDirection: 'column',
