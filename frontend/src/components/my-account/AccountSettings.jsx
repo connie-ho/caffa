@@ -1,18 +1,14 @@
 import { useState, useContext, useEffect } from 'react';
 import UserContext from '../../contexts/UserContext';
-import { makeStyles } from '@material-ui/core/styles';
 
 import {
   Box,
-  Avatar,
   Button,
   Card,
   CardContent,
   CardHeader,
-  Divider,
   Grid,
   TextField,
-  Typography,
   CardActions,
 } from '@material-ui/core';
 
@@ -59,7 +55,7 @@ const AccountSettings = (props) => {
     >
       <Card>
         <CardHeader
-          subheader="The information can be edited"
+          subheader="Update your account details here"
           title="My Profile"
         />
         <CardContent>
@@ -67,6 +63,8 @@ const AccountSettings = (props) => {
         <img
           width="150px"
           src={values.avatar_url}
+          alt={values.first_name}
+          style={{borderRadius: '50%'}}
         />
       </Box>
     </CardContent>

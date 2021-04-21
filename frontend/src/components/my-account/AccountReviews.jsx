@@ -2,14 +2,13 @@ import { useState, useContext, useEffect } from 'react';
 import UserContext from '../../contexts/UserContext';
 import ReviewListItem from '../coffee-id/ReviewListItem';
 import DataContext from '../../contexts/DataContext';
-import {getUserReviews, getReviewedCoffee, reviewsWithImages} from '../../helpers/selectors';
-import Typography from '@material-ui/core/Typography';
-import { Grid, GridListTile, Link, Button } from "@material-ui/core";
+import {getUserReviews} from '../../helpers/selectors';
+import { Grid, Link, Button } from "@material-ui/core";
 
 
 
 function AccountReviews(props) {
-  const {coffee, classes, titleSize, subTitleSize, limit} = props;
+  const {coffee, classes, limit} = props;
   const {user} = useContext(UserContext);
   const {state} = useContext(DataContext);
   const reviews = state.reviews;
@@ -33,25 +32,25 @@ function AccountReviews(props) {
 
 
   const coffeeReviews = getUserReviews(Object.values(reviews), values.id).sort((a,b)=> {return new Date(b.created_at) - new Date(a.created_at)});
-
-  const reviewedCoffees = getReviewedCoffee(coffeeReviews, Object.values(coffee))
-
-
+  const slicedReviews = coffeeReviews.sort((a,b)=>{
+    return new Date(b.created_at) - new Date(a.created_at);
+  }).slice(0, limit);
+  
   // Create Review List Item
-  const reviewList = coffeeReviews.map(review => {
+  const reviewList = slicedReviews.map(review => {
 
     return (
       <Grid container className={classes.reviewItemSection}>
         <Link href={`/coffees/${review.coffee_id}`}>
         <img 
           class={classes.media}
+          style={{objectFit: 'cover'}}
           src={state.coffees[review.coffee_id].image_url}
           alt={`${coffee[review.id].name}`}
           />
         </Link>
-      <Grid item xs={12} lg={8} className={classes.reviewCard}>
+      <Grid item xs={12} sm={8} className={classes.reviewCard}>
         <ReviewListItem 
-        
         key={review.id}
         review={review}
         reviewUser={users[review.user_id]}
@@ -65,12 +64,6 @@ function AccountReviews(props) {
 
   return (
     <div>
-    <Grid item xs={12} lg={6} className={classes.titleContainer}>
-      <Typography variant={`${titleSize}`} className={classes.header} gutterBottom>Recent Reviews</Typography>
-      <Grid item xs={12} lg={8} className={classes.SubTitle}>
-        <Typography variant={`${subTitleSize}`} className={classes.subtitle} gutterBottom >You left a review on these coffees</Typography>
-      </Grid>
-    </Grid>
     <div>
       {reviewList}
       </div>
