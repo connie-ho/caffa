@@ -17,6 +17,13 @@
 * Implemented responsive design because this app is intended to be used on your phone
 * Looks like this coffee is pretty good (has four stars, don't actually click)
 
+
+* Rosso Coffee Roasters
+* Santa Lucia
+* Brazil
+* Milk chocolate, marizipan, roasted almond. Naturally processed. Whole bean coffee.
+
+
 Connie: 
 * Switch back to desktop and say: you can also search and filter for the specific coffee you have in mind 
 * Say you wanna see the top rated coffees, you're really interested in coffee from ethopia, brazil, indonesia and you really like dark roast with high acidity then analog coffee is the one for you 
