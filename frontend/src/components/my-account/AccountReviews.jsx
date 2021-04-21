@@ -3,9 +3,7 @@ import UserContext from '../../contexts/UserContext';
 import ReviewListItem from '../coffee-id/ReviewListItem';
 import DataContext from '../../contexts/DataContext';
 import {getUserReviews} from '../../helpers/selectors';
-import {getUserReviews} from '../../helpers/selectors';
 import { Grid, Link, Button } from "@material-ui/core";
-
 
 
 function AccountReviews(props) {

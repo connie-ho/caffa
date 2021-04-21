@@ -4,8 +4,6 @@ import { getFavouritesForUser, userFavCoffees } from '../../helpers/selectors';
 import DataContext from '../../contexts/DataContext.js';
 import UserContext from '../../contexts/UserContext.js';
 import CoffeeListItem from '../coffees/CoffeeListItem.jsx';
-import {getFavouritesForUser, userFavCoffees} from '../../helpers/selectors';
-import { Grid, Button } from "@material-ui/core";
 
 export default function AccountFavourites(props) {
   const {state} = useContext(DataContext);
