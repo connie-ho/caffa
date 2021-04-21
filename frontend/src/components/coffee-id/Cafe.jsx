@@ -3,6 +3,7 @@ import axios from 'axios';
 import Card from '@material-ui/core/Card';
 import Link from '@material-ui/core/Link';
 import MapContainer from './MapContainer';
+import CircularProgress from '@material-ui/core/CircularProgress';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
@@ -36,16 +37,19 @@ const useStyles = makeStyles((theme)=>({
   img: {
     padding: 0,
     margin: 0
+  },
+  loading: {
+    margin: '2rem auto',
   }
 }));
 
 function Cafe(props) {
 
-  const {coffee} = props;
-  const [cafeData, setCafeData] = useState(null);
+  const {coffee, cafeData, setCafeData} = props;
+  // const [cafeData, setCafeData] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(()=>{
-
     const getCafeData = async () => {
 
       const query = coffee.brand.toLowerCase().split(' ').join('+')
@@ -54,14 +58,19 @@ function Cafe(props) {
     }
 
     getCafeData()
-
-  }, [coffee])
+    setLoading(false)
+  }, [coffee, setCafeData])
 
   const classes = useStyles();
 
   return (
-    cafeData && 
     <div className={classes.section}>
+      {loading && 
+      (<div className={classes.loading}>
+        <CircularProgress color="primary" style={{position: 'center'}} /> 
+      </div>)}
+    {cafeData && 
+    (<>
       <Card className={classes.root}>
         <CardMedia
           classes={{
@@ -90,6 +99,7 @@ function Cafe(props) {
         longitude={cafeData.coordinates.longitude}
         distance={Math.round(cafeData.distance/1000 * 10) / 10}
       />
+      </>)}
     </div>
 
   )
