@@ -3,7 +3,7 @@ import DataContext from '../../contexts/DataContext.js';
 import UserContext from '../../contexts/UserContext.js';
 import CoffeeListItem from '../coffees/CoffeeListItem.jsx';
 import {getReviewsForCoffee, avgRatingForCoffee, getFavouritesForUser, userFavCoffees} from '../../helpers/selectors';
-import { Grid, GridListTile } from "@material-ui/core";
+import { Grid, Button } from "@material-ui/core";
 import Typography from '@material-ui/core/Typography';
 import axios from 'axios';
 
@@ -59,11 +59,11 @@ export default function AccountFavourites(props) {
   })
   
   return (
-    <Grid container>
-      <Grid item xs={6} className={classes.titleContainer}>
-        <Typography variant={`${titleSize}`}>Recent Favourites</Typography>
-        <Grid item xs={6} className={classes.SubTitle}>
-          <Typography variant={`${subTitleSize}`} >Your own top picks from Caffa</Typography>
+    <Grid container xs={12}>
+      <Grid item xs={12} lg={6} className={classes.titleContainer}>
+        <Typography variant={`${titleSize}`} className={classes.header} gutterBottom>Recent Favourites</Typography>
+        <Grid item xs={12} lg={6} className={classes.SubTitle}>
+          <Typography variant={`${subTitleSize}`} className={classes.subtitle} gutterBottom >Your own top picks from Caffa</Typography>
         </Grid>
       {!coffeeList.length && 
         <p>There are no favourites here!</p>
@@ -72,7 +72,14 @@ export default function AccountFavourites(props) {
     <Grid container spacing={10}>
         {coffeeList}
     </Grid>
-    {/* {render see more button if limit does not equal 0} */}
+    { limit ? 
+        <Grid container xs={12} style={{ justifyContent: 'center' }}>
+        <Button className={classes.seeMoreBtn} href="/account/favourites" variant="contained" color="primary" disableElevation>
+          SEE MORE
+        </Button>
+      </Grid> : null 
+      }
+
     </Grid>
   )
 

@@ -105,7 +105,8 @@ router.post("/authenticate", (req, res) => {
   getUserById(userId)
   .then(data => {
     if (data) {
-      res.send({first_name: data.first_name, last_name:data.last_name, email: data.email, id: data.id})
+      console.log("THE /AUTHENTICATE POST COOKIE =============>")
+      res.send({first_name: data.first_name, last_name: data.last_name, email: data.email, id: data.id, avatar_url: data.avatar_url})
     } else {
     res.json(null)
     }

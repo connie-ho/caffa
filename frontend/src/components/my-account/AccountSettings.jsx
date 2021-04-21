@@ -4,15 +4,17 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import {
   Box,
+  Avatar,
   Button,
   Card,
   CardContent,
   CardHeader,
   Divider,
   Grid,
-  TextField
+  TextField,
+  Typography,
+  CardActions,
 } from '@material-ui/core';
-
 
 
 const AccountSettings = (props) => {
@@ -23,17 +25,18 @@ const AccountSettings = (props) => {
     first_name: '',
     last_name: '',
     email: '',
+    avatar_url: '',
   })
 
   useEffect(()=>{
     setValues(prev => ({
       ...prev,
-    first_name: user? user.first_name : '',
-    last_name: user? user.last_name : '',
-    email: user? user.email : '',
+      first_name: user? user.first_name : '',
+      last_name: user? user.last_name : '',
+      email: user? user.email : '',
+      avatar_url: user? user.avatar_url : '',
   }))
   },[user])
-
 
   const handleChange = (event) => {
     setValues({
@@ -41,7 +44,6 @@ const AccountSettings = (props) => {
       [event.target.name]: event.target.value
     });
   };
-
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -58,8 +60,25 @@ const AccountSettings = (props) => {
       <Card>
         <CardHeader
           subheader="The information can be edited"
-          title="Profile"
+          title="My Profile"
         />
+        <CardContent>
+      <Box>
+        <img
+          width="150px"
+          src={values.avatar_url}
+        />
+      </Box>
+    </CardContent>
+    <CardActions>
+      <Button
+        color="primary"
+        fullWidth
+        variant="text"
+      >
+        Upload picture
+      </Button>
+    </CardActions>
         <CardContent>
           <Grid
             container

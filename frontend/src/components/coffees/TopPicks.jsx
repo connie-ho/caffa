@@ -8,7 +8,7 @@ import EditorPick from '../home/EditorsPicks'
 import Aos from "aos";
 import "aos/dist/aos.css"
 
-const kevinDescription = "Not too bitter, not too light. I've found my new go-to everyday coffee."
+const kevinDescription = "You won't want to miss out on this epic espresso."
 
 const justinDescription ="Keep it simple, like I always say!"
 
