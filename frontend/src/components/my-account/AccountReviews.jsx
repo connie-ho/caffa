@@ -33,12 +33,17 @@ function AccountReviews(props) {
 
 
   const coffeeReviews = getUserReviews(Object.values(reviews), values.id).sort((a,b)=> {return new Date(b.created_at) - new Date(a.created_at)});
+  const slicedReviews = coffeeReviews.sort((a,b)=>{
+    return new Date(b.created_at) - new Date(a.created_at);
+  }).slice(0, limit);
+  
+  // const reviewedCoffees = getReviewedCoffee(coffeeReviews, Object.values(coffee))
 
-  const reviewedCoffees = getReviewedCoffee(coffeeReviews, Object.values(coffee))
+
 
 
   // Create Review List Item
-  const reviewList = coffeeReviews.map(review => {
+  const reviewList = slicedReviews.map(review => {
 
     return (
       <Grid container className={classes.reviewItemSection}>
