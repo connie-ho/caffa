@@ -23,19 +23,19 @@ const AccountSettings = (props) => {
   const {classes} = props
   const {user} = useContext(UserContext);
   const [values, setValues] = useState({
-    avatar_url: '',
     first_name: '',
     last_name: '',
     email: '',
+    avatar_url: '',
   })
 
   useEffect(()=>{
     setValues(prev => ({
       ...prev,
-    avatar_url: user? user.avatar_url : '',
-    first_name: user? user.first_name : '',
-    last_name: user? user.last_name : '',
-    email: user? user.email : '',
+      first_name: user? user.first_name : '',
+      last_name: user? user.last_name : '',
+      email: user? user.email : '',
+      avatar_url: user? user.avatar_url : '',
   }))
   },[user])
 
@@ -51,6 +51,10 @@ const AccountSettings = (props) => {
     editUserHandler(values.first_name, values.last_name, values.email)
   }
 
+  console.log("VALUESS ====>", values.avatar_url)
+  console.log("USER ====>", user)
+  console.log("NAME ====>", values.first_name)
+
   return (
     <form
       autoComplete="off"
@@ -65,26 +69,22 @@ const AccountSettings = (props) => {
         />
         <CardContent>
       <Box
-        sx={{
-          alignItems: 'center',
-          display: 'flex',
-          flexDirection: 'column'
-        }}
+        // sx={{
+        //   alignItems: 'center',
+        //   display: 'flex',
+        //   flexDirection: 'column'
+        // }}
       >
-        <Avatar
+        <img
           src={values.avatar_url}
-          sx={{
-            height: 100,
-            width: 100
-          }}
         />
-        <Typography
+        {/* <Typography
           color="textPrimary"
           gutterBottom
           variant="h3"
         >
           {values.first_name}
-        </Typography>
+        </Typography> */}
       </Box>
     </CardContent>
     <Divider />

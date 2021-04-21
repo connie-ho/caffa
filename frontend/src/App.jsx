@@ -68,7 +68,7 @@ function App() {
   }
 
 
-
+  console.log("USER IN APP :", user)
 
   const {
     state, 
