@@ -22,7 +22,6 @@ const CoffeeList = (props) => {
   // Change page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-
   // Create Coffee List Item
   const coffeeList = currentCoffees.map(coffee => {
 

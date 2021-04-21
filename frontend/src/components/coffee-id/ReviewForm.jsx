@@ -40,7 +40,6 @@ export default function ReviewForm(props) {
     rating,
     setRating,
     openReviewForm, 
-    // setOpenReviewForm, 
     description,
     setDescription,
     handleStarClick,

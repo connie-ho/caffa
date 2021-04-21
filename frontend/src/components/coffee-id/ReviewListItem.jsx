@@ -1,6 +1,5 @@
 import React, {useContext, useState} from 'react';
 import UserContext from '../../contexts/UserContext';
-import ReviewContext from '../../contexts/ReviewContext';
 
 import DeleteReview from './DeleteReview';
 import EditReview from './EditReview';
@@ -75,7 +74,6 @@ export default function ReviewListItem(props) {
   const {user} = useContext(UserContext);
   
   // define edit and delete functionality
-  const {editReview, deleteReview} = useContext(ReviewContext);
   const [openDelete, setOpenDelete] = useState(false);
   const [openReviewForm, setOpenReviewForm] = useState(false);
   

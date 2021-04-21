@@ -237,7 +237,7 @@ export default function CoffeeModal(props) {
           <Grid container justify='center' alignItems='center' >
           <br></br>
             <img className={classes.image}
-              src={url}
+              src={url} alt="coffee"
             />
           </Grid>
         </Grid>

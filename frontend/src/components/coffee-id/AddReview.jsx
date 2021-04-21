@@ -40,7 +40,7 @@ export default function AddReview(props) {
 
 
   // user logic
-  const {user, openLogin, setOpenLogin} = useContext(UserContext);
+  const {user, setOpenLogin} = useContext(UserContext);
 
   const handleClickOpenReviewForm = () => {
 

@@ -6,7 +6,6 @@ import Checkbox from '@material-ui/core/Checkbox'
 export default function FilterListCategory(props) {
   
   const {
-    classes, 
     item, 
     filters, 
     setFilters,

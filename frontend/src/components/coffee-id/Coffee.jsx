@@ -27,7 +27,6 @@ export default function Coffee(props) {
 
   // filter for coffee reviews & favourites
   const [coffeeReviews, setCoffeeReviews] = useState(getReviewsForCoffee(Object.values(reviews), coffeeId));
-  // const coffeeReviews = getReviewsForCoffee(Object.values(reviews), coffeeId);
   const coffeeFavourites = getFavouritesForCoffee(Object.values(favourites), coffeeId);
 
   // change state everytime a review is added or deleted

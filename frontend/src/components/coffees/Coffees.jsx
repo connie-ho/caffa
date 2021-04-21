@@ -54,10 +54,6 @@ function Coffees(props) {
   })
   const [filteredCoffees, setFilteredCoffees] = useState(coffees)
   const [hasFilters, setHasFilters] = useState(hasSelectedFilters(filters))
-  
-  // useEffect(()=>{
-  //   setFilteredCoffees((prev)=>(Object.values(state.coffees)))
-  // },[state.coffees])
 
   useEffect(()=>{
 
@@ -128,6 +124,8 @@ function Coffees(props) {
       if(sortOption === 'Rating: High to Low'){
         return b.avg_rating - a.avg_rating
       }
+
+      return a.id - b.id //default
 
     })
 

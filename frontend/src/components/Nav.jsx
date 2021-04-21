@@ -238,7 +238,7 @@ export default function Nav(props) {
               size='small'
               >
 
-              <img src={headIcon} width="60" height="50"  /> 
+              <img src={headIcon} width="60" height="50" alt="caffa" /> 
             </Icon>
           </Link>
           <Link to="/coffees">
