@@ -1,4 +1,4 @@
-import {React, useEffect} from 'react';
+import {React} from 'react';
 import Grid from '@material-ui/core/Grid';
 import heroImage from '../../images/cafecropped.jpg'
 import { makeStyles } from '@material-ui/core/styles';
@@ -37,45 +37,24 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     fontSize: '4rem',
-    // display: 'inline-block',
-    // position: 'absolute',
-    // top: '55%',
-    // margin: '10,10',
-    // color: 'Black',
-    // textAlign: 'center',
-    // height: '0',
-    // right:'57%',
-    // zIndex:1,
+
 
     [theme.breakpoints.up('md')]: {
     
     display: 'inline-block',
     position: 'absolute',
-    // top: '53%',
     margin: '10,10',
     color: 'Black',
-    // textAlign: 'center',
     height: '0',
-    // right:'69%',
     zIndex:1,
   }
   },
   subtitle: {
-    // fontFamily: theme.palette
-    // display: 'inline-block',
-    // position: 'absolute',
-    // top: '66%',
-    // color: 'Black',
-    // right:'-5%',
-    // fontSize:'25px',
-    // width:'100vw',
     [theme.breakpoints.up('md')]:{
     display: 'inline-block',
-    // position: 'absolute',
     top: '65%',
     color: 'Black',
     textAlign: 'center',
-    // right:'16.5%',
     fontSize:'30px'
     }
   },
