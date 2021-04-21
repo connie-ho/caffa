@@ -35,7 +35,6 @@ export default function Coffee(props) {
     setCoffeeReviews(prev => getReviewsForCoffee(Object.values(reviews), coffeeId))
   }, [reviews, coffeeId])
 
-
   // check if coffee is already reviewed by user
   const {user} = useContext(UserContext);
   const userId = user? user.id: null
@@ -48,11 +47,13 @@ export default function Coffee(props) {
   // review form logic
   const [openReviewForm, setOpenReviewForm] = useState(false);
 
+  // cafe logic to be passed as props
+  const [cafeData, setCafeData] = useState(null);
+
   return (
     <div >
     {coffee && (
       <>
-
         <Details 
           coffee={coffee}
           reviews={coffeeReviews}
@@ -63,7 +64,10 @@ export default function Coffee(props) {
         />
          <div className={classes['coffee-cafe-section']}>
           <h1 className={classes['coffee-review-heading']}>Featured Cafe for this Coffee</h1>
+          {!cafeData && (<p className={classes['no-reviews']}A>No featured cafes yet</p>)}
           <Cafe 
+            cafeData={cafeData}
+            setCafeData={setCafeData}
             coffee={coffee}
           />
         </div>
