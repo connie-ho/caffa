@@ -19,9 +19,6 @@ const CoffeeList = (props) => {
   const indexOfFirstCoffee = indexOfLastCoffee - coffeesPerPage;
   const currentCoffees = coffees.slice(indexOfFirstCoffee, indexOfLastCoffee)
   
-  // Change page
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
-
   // Create Coffee List Item
   const coffeeList = currentCoffees.map(coffee => {
 

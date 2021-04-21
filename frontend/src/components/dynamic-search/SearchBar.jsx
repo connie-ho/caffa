@@ -72,15 +72,12 @@ export default function SearchBar(props) {
     return <InputBase 
     placeholder="Search…"
     value={value}
-    setValue={(e) => {setValue(e.current.value)}}
     classes={{
       root: classes.inputRoot,
       input: classes.inputInput,
     }}
       {...params.InputProps} {...rest}
-    InputProps={{
-      root:classes.inputbaseRoot
-    }} />;
+ />;
     }}
     renderOption={option => {
       return(

@@ -12,7 +12,6 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import Grid from '@material-ui/core/Grid';
-import Image from 'material-ui-image';
 import { useHistory } from "react-router-dom";
 
 
@@ -243,10 +242,10 @@ export default function CoffeeModal(props) {
         </Grid>
         </DialogContent>
         <DialogActions className={classes.dialogAction}>
-          <Button variant="outlined" color="primary" onClick={handleClose}  color="primary">
+          <Button variant="outlined" color="primary" onClick={handleClose} >
             Cancel
           </Button>
-          <Button variant="outlined" color="primary" type="submit" style={{margin:'0.5em'}} color="primary">
+          <Button variant="outlined" color="primary" type="submit" style={{margin:'0.5em'}} >
             Add
           </Button>
         </DialogActions>
