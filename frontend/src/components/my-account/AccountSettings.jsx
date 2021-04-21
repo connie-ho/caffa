@@ -4,13 +4,16 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import {
   Box,
+  Avatar,
   Button,
   Card,
   CardContent,
   CardHeader,
   Divider,
   Grid,
-  TextField
+  TextField,
+  Typography,
+  CardActions,
 } from '@material-ui/core';
 
 
@@ -20,6 +23,7 @@ const AccountSettings = (props) => {
   const {classes} = props
   const {user} = useContext(UserContext);
   const [values, setValues] = useState({
+    avatar_url: '',
     first_name: '',
     last_name: '',
     email: '',
@@ -28,14 +32,12 @@ const AccountSettings = (props) => {
   useEffect(()=>{
     setValues(prev => ({
       ...prev,
+    avatar_url: user? user.avatar_url : '',
     first_name: user? user.first_name : '',
     last_name: user? user.last_name : '',
     email: user? user.email : '',
   }))
   },[user])
-
-  // console.log("USER IN SETTINGS: ", user)
-  // console.log("PROP IN SETTINGS: ", props)
 
   const handleChange = (event) => {
     setValues({
@@ -44,11 +46,8 @@ const AccountSettings = (props) => {
     });
   };
 
-  console.log("edituserhandler ", editUserHandler)
-
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log('First Name', values.first_name, 'Last Name', values.last_name, 'Email', values.email)
     editUserHandler(values.first_name, values.last_name, values.email)
   }
 
@@ -64,6 +63,40 @@ const AccountSettings = (props) => {
           subheader="The information can be edited"
           title="Profile"
         />
+        <CardContent>
+      <Box
+        sx={{
+          alignItems: 'center',
+          display: 'flex',
+          flexDirection: 'column'
+        }}
+      >
+        <Avatar
+          src={values.avatar_url}
+          sx={{
+            height: 100,
+            width: 100
+          }}
+        />
+        <Typography
+          color="textPrimary"
+          gutterBottom
+          variant="h3"
+        >
+          {values.first_name}
+        </Typography>
+      </Box>
+    </CardContent>
+    <Divider />
+    <CardActions>
+      <Button
+        color="primary"
+        fullWidth
+        variant="text"
+      >
+        Upload picture
+      </Button>
+    </CardActions>
         <CardContent>
           <Grid
             container
