@@ -46,15 +46,14 @@ const useStyles = makeStyles((theme) => ({
   drawerPaper: {
     width: drawerWidth,
     boxSizing: 'border-box',
+    paddingTop: '30px',
   },
   drawerContainer: {
     overflow: 'auto',
   },
-  reviewItemWrapper: {
-    
-  },
   reviewItemSection: {
     padding: '2rem 2rem 2rem',
+    alignItems: 'center',
   },
   reviewCard: {
     padding: '0rem 3rem',
@@ -69,8 +68,7 @@ const useStyles = makeStyles((theme) => ({
   },
   accountContent: {
     flexDirection: 'column',
-    justifyContent: 'center',
-    padding: '50px',
+    padding: '70px 50px 50px 50px',
     minHeight: '90vh',
   },
   media: {
@@ -95,17 +93,20 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'center',
     fontVariant: 'h3',
   },
-  subtitle: {
-    marginTop: '30px',
+  titleContainer: {
+    marginTop: '50px',
     marginBottom: '30px',
-  }
+  },
+  SubTitle: {
+    margin: '10px',
+  },
 }));
 
 export default function Account(props) {
   const {editUserHandler} = props
   const classes = useStyles();
   const secondClasses = useStyles();
-  const titleSize = {h1: 'h1', h2: 'h2', h3: 'h3', h4: 'h4'}
+  const titleSize = {h1: 'h1', h2: 'h2', h3: 'h3', h4: 'h4', h5: 'h6', subtitle1: 'subtitle1'}
   const {state} = useContext(DataContext);
   const {user} = useContext(UserContext);
   const [openReviewForm, setOpenReviewForm] = useState(false);
@@ -229,8 +230,8 @@ export default function Account(props) {
             user={user}
             limit={3}
             classes={classes}
-            titleSize={titleSize.h3}
-            secondClasses={secondClasses}
+            titleSize={titleSize.h4}
+            subTitleSize={titleSize.subtitle1}
           />
           <AccountReviews
             user={user}
@@ -239,8 +240,8 @@ export default function Account(props) {
             setOpenReviewForm={setOpenReviewForm}
             limit={3}
             classes={classes}
-            titleSize={titleSize.h3}
-            secondClasses={secondClasses}
+            titleSize={titleSize.h4}
+            subTitleSize={titleSize.subtitle1}
           />
           </Grid>
         </Route>

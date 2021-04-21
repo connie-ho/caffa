@@ -72,6 +72,13 @@ const useStyles = makeStyles((theme) => ({
   inputRoot: {
     color: 'inherit',
   },
+  imageIcon: {
+    marginRight:'1.5em',
+
+    [theme.breakpoints.up('md')]: {
+      marginRight:'3em',
+    }
+  },
   inputInput: {
     padding: theme.spacing(1, 1, 1, 0),
     // vertical padding + font size from searchIcon
@@ -222,7 +229,7 @@ export default function Nav(props) {
       <AppBar elevation={2} position="fixed" className={classes.appBar} style={{background: '#FFFFFF'}}>
 
         <Toolbar>
-          <Link to="/" style={{width:'50px', marginRight:'3em'}}>
+          <Link to="/" className={classes.imageIcon} style={{width:'50px'}}>
             <Icon
               edge="start"
               className={classes.menuButton}
