@@ -68,23 +68,10 @@ const AccountSettings = (props) => {
           title="Profile"
         />
         <CardContent>
-      <Box
-        // sx={{
-        //   alignItems: 'center',
-        //   display: 'flex',
-        //   flexDirection: 'column'
-        // }}
-      >
+      <Box>
         <img
           src={values.avatar_url}
         />
-        {/* <Typography
-          color="textPrimary"
-          gutterBottom
-          variant="h3"
-        >
-          {values.first_name}
-        </Typography> */}
       </Box>
     </CardContent>
     <Divider />
