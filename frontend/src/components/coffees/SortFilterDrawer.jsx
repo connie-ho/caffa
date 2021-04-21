@@ -8,7 +8,8 @@ import IconButton from '@material-ui/core/IconButton';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import SortList from './SortList';
 import FilterList from './FilterList';
-
+import Button from '@material-ui/core/Button';
+import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 
 const drawerWidth = 250;
 
@@ -23,8 +24,11 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   appBar: {
-    position: 'absolute',
+    position: 'fixed',
     left: 0,
+    height: '2%',
+    width: '1%',
+    transform: `translate(0px, 30vh)`,
     display: 'flex',
     margin: '1rem 0',
     [theme.breakpoints.up('sm')]: {
@@ -32,12 +36,9 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   menuButton: {
-    width: '8rem',
     fontSize: '1rem',
     margin: '0 auto',
-    textDecoration: 'underline',
     color: theme.palette.text.secondary,
-    borderRadius: '1rem',
     [theme.breakpoints.up('sm')]: {
       display: 'none',
     },
@@ -102,9 +103,13 @@ function ResponsiveDrawer(props) {
             onClick={handleDrawerToggle}
             className={classes.menuButton}
           >
-            {'Sort & Filter'}
+            <ArrowForwardIosIcon/>
           </IconButton>
-
+          {/* <ArrowForwardIosIcon> */}
+          {/* <button variant="outlined" color="primary" disableRipple size="medium" onClick={handleDrawerToggle}
+            className={classes.menuButton}>
+          </button> */}
+          {/* </ArrowForwardIosIcon> */}
       </div>
       <nav className={classes.drawer} aria-label="mailbox folders">
         {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
