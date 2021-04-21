@@ -45,7 +45,7 @@ const CoffeeCarousel = (props) => {
     return (
       <Grid item xs={12}>
       <CoffeeListItemCarousel
-        key={coffee.id}
+        key={coffee.name}
         coffee={coffee}
         avgRating={avgRating}
       />

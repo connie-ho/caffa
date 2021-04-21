@@ -124,7 +124,6 @@ export default function Login(props) {
            <FormControl className={clsx(classes.textField)} variant="outlined">
            <InputLabel htmlFor="outlined-adornment-password">Password*</InputLabel>
           <OutlinedInput
-            id="outlined-adornment-password"
             label="Password"
             required
             fullWidth
