@@ -107,6 +107,14 @@ const useStyles = makeStyles((theme) => ({
   },
   seeMoreBtn: {
     justifyContent: 'center',
+  },
+  header: {
+    fontSize: '2.5rem',
+    margin: '0 0.5em'
+  },
+  subtitle: {
+    fontSize: '1.5rem',
+    margin: '0 1rem'
   }
 }));
 
