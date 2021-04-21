@@ -130,8 +130,6 @@ export default function Account(props) {
   const coffees = state.coffees;
   const reviews = state.reviews;
 
-  console.log("title size:", titleSize.h3)
-
   const coffee = coffees[reviews.user_id]
 
 

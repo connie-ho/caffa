@@ -95,7 +95,7 @@ export default function SearchBar(props) {
               window.location.href = `/coffees/${option.id}`
             }}>
             <div style={{display:'flex', flexDirection:'row'}}>
-            <img src= {option.image_url} height={100} width={100} style={{marginRight:'1em'}} />
+            <img src= {option.image_url} height={100} width={100} style={{marginRight:'1em'}} alt={option.name}/>
             <div style={{display: 'flex', flexDirection:'column', justifyContent:'space-around'}}>
               <p>{option.brand}</p>
               <p style={{marginTop:'-10px'}}>{option.name}</p>

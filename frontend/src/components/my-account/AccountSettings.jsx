@@ -39,6 +39,10 @@ const AccountSettings = (props) => {
   }))
   },[user])
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> b4821ca2ed32ac7c06da12f5268c6a06d50ee94f
   const handleChange = (event) => {
     setValues({
       ...values,
@@ -46,6 +50,10 @@ const AccountSettings = (props) => {
     });
   };
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> b4821ca2ed32ac7c06da12f5268c6a06d50ee94f
   const handleSubmit = (e) => {
     e.preventDefault()
     editUserHandler(values.first_name, values.last_name, values.email)

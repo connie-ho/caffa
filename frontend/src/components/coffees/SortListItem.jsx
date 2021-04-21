@@ -14,7 +14,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-
 export default function SortListItem(props) {
 
   const classes = useStyles();
@@ -22,8 +21,6 @@ export default function SortListItem(props) {
   const {
     name, 
   } = props;
-
-  // rgba(0, 0, 0, 0.04);
 
   return (
     <FormControlLabel 

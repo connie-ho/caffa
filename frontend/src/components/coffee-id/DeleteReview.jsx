@@ -3,13 +3,11 @@ import ReviewContext from '../../contexts/ReviewContext';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
 export default function DeleteReview(props) {
  
-  const {open, handleClose, handleClickOpen, id} = props;
+  const {open, handleClose, id} = props;
   const {deleteReview} = useContext(ReviewContext)
 
   const submitHandler = (e) => {

@@ -1,19 +1,16 @@
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import {useState, useContext} from 'react';
+import { Route, Switch} from 'react-router-dom';
+import {useState} from 'react';
 import { Grid } from "@material-ui/core";
 import Nav from './Nav';
 import Login from './Login';
 import Home from './Home';
 import SearchList from './image-search/SearchList';
 import Coffees from './coffees/Coffees';
-import DataContext from '../contexts/DataContext';
 import FavouriteContext from '../contexts/FavouriteContext';
 import ReviewContext from '../contexts/ReviewContext';
 import SearchContext from '../contexts/SearchContext';
 import HomeContext from '../contexts/HomeContext';
 import Account from './Account';
-import AccountFavourites from './my-account/AccountFavourites';
-import AccountSettings from './my-account/AccountSettings';
 import Register from './Register'
 import Footer from './Footer'
 const Main = (props) => {

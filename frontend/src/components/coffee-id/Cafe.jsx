@@ -46,7 +46,6 @@ const useStyles = makeStyles((theme)=>({
 function Cafe(props) {
 
   const {coffee, cafeData, setCafeData} = props;
-  // const [cafeData, setCafeData] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(()=>{
@@ -55,10 +54,10 @@ function Cafe(props) {
       const query = coffee.brand.toLowerCase().split(' ').join('+')
       const cafeDetails = await axios.get(`/api/cafes/?brand=${query}`)
       setCafeData((prev)=>(cafeDetails.data))
+      setLoading(false)
     }
 
     getCafeData()
-    setLoading(false)
   }, [coffee, setCafeData])
 
   const classes = useStyles();

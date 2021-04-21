@@ -39,7 +39,7 @@ export default function Footer() {
     return (
       <Grid container direction='row' justify='center' className={classes.footer}>
         <Grid container xs={12} sm={3} className={classes.footerContainer}> 
-              <img src={headIcon} width="50" height="50"  /> 
+              <img src={headIcon} width="50" height="50" alt="caffa"/> 
           <Typography variant="caption" color="inherit">
            © 2021
           </Typography>
