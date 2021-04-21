@@ -77,6 +77,11 @@ const useStyles = makeStyles((theme) => ({
     backgroundSize: 'contain'
     
   },
+  avatarSettings: {
+    height: 150,
+    width: 150,
+    
+  },
   settingsForm: {
     flexDirection: 'row',
     justifyContent: 'center',
@@ -100,6 +105,9 @@ const useStyles = makeStyles((theme) => ({
   SubTitle: {
     margin: '10px',
   },
+  seeMoreBtn: {
+    justifyContent: 'center',
+  }
 }));
 
 export default function Account(props) {
@@ -197,7 +205,6 @@ export default function Account(props) {
             <AccountFavourites 
               classes={classes}
               titleSize={titleSize.h2}
-              limit={50}
             />
           </Grid>
         </Route>
