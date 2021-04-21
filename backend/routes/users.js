@@ -83,7 +83,7 @@ router.post("/register", (req, res) => {
 
 
 // Edit user
-router.post("/edit", (req, res) => {
+router.patch("/edit", (req, res) => {
   const { first_name, last_name, email, password } = req.body
   currentUser = req.session.user_id;
 

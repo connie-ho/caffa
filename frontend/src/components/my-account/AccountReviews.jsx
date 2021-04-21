@@ -9,17 +9,12 @@ import { Grid, GridListTile, Link } from "@material-ui/core";
 
 
 function AccountReviews(props) {
-  const {coffee, classes, titleSize} = props;
+  const {coffee, classes, titleSize, subTitleSize} = props;
   // console.log("accountreview coffee: ", props)
   const {user} = useContext(UserContext);
   const {state} = useContext(DataContext);
   const reviews = state.reviews;
   const users = state.users;
-
-  console.log("COFFEE IN ACCOUNT: ", Object.values(coffee))
-  console.log("COFFEEEEE", coffee)
-  const accountCoffee = Object.values(coffee)
-
   const [values, setValues] = useState({
     id: '',
     first_name: '',
@@ -72,12 +67,14 @@ function AccountReviews(props) {
     );
   })
 
-  // console.log("review id: ", review.id, "review :", review, "reviewUser :", users[review.user_id], "coffee :", coffee)
 
   return (
     <div>
-    <Grid item xs={4} className={classes.subtitle}>
-      <Typography variant={`${titleSize}`}>Recently Reviewed</Typography>
+    <Grid item xs={6} className={classes.titleContainer}>
+      <Typography variant={`${titleSize}`}>Recent Reviews</Typography>
+      <Grid item xs={6} className={classes.SubTitle}>
+        <Typography variant={`${subTitleSize}`} >You left a review on these coffees</Typography>
+      </Grid>
     </Grid>
     <div>
       {reviewList}

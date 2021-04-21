@@ -13,8 +13,9 @@ export default function AccountFavourites(props) {
   // const [favourites, setFavourites] = useState({});
   const {state} = useContext(DataContext);
   const {user} = useContext(UserContext);
-  const {limit} = props;
-  const {classes, titleSize} = props;
+  const {classes, titleSize, subTitleSize, limit} = props;
+  const reviews = state.reviews;
+  const coffees = state.coffees;
 
   const [values, setValues] = useState({
     id: '',
@@ -33,51 +34,16 @@ export default function AccountFavourites(props) {
     }))
   },[user])
 
-
-  // const {coffees} = props;
-  // console.log("ACC FAVES :", props)
-
-  // useEffect(() => {
-  //   axios
-  //   .get(`/api/favourites/user/${userId}`)
-  //   .then(res => {
-  //     setFavourites(res.data)
-  //   })
-  //   .catch(err => {
-  //     console.log(err.message)
-  //   })
-  // }, []);
-
   const favourites = Object.values(state.favourites);
-  console.log("VALUES ID ===>", values.id)
-  
-  console.log("FAVOURITES :", favourites)
-
-  // some function that allows you to slice the favourites arr
-  
-  // console.log("SLICED FAV :", slicedFav)
-  
-  // const {state} = useContext(DataContext);
-  // console.log("USER ID ===>", user.id)
-  
   const Faves = (getFavouritesForUser(favourites, values.id));
   const favCoffees = Object.values(Faves);
 
-  console.log("FAV COFFEES :", favCoffees)
-
-  const reviews = state.reviews;
-  const slicedFav = favCoffees.slice(0, limit) // what is the slice arguments???
-
-  console.log("slicedFav", slicedFav)
-
-  const coffees = state.coffees;
-
+  const slicedFav = favCoffees.slice(0, limit)
   const userCoffees = userFavCoffees(slicedFav, coffees);
 
   
 
   // Create Coffee List Item
-  // pass in slicedFav instead of coffees
     const coffeeList = userCoffees.map(coffee => {
     const coffeeReviews = getReviewsForCoffee(Object.values(reviews),coffee.id)
     const avgRating = avgRatingForCoffee(coffeeReviews);
@@ -95,8 +61,11 @@ export default function AccountFavourites(props) {
   
   return (
     <Grid container>
-      <Grid item xs={3} className={classes.subtitle}>
-        <Typography variant={`${titleSize}`}>Favourites</Typography>
+      <Grid item xs={6} className={classes.titleContainer}>
+        <Typography variant={`${titleSize}`}>Recent Favourites</Typography>
+        <Grid item xs={6} className={classes.SubTitle}>
+          <Typography variant={`${subTitleSize}`} >Your own top picks from Caffa</Typography>
+        </Grid>
       {!coffeeList.length && 
         <p>There are no favourites here!</p>
       }
