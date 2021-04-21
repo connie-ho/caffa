@@ -30,6 +30,9 @@ const useStyles = makeStyles((theme) => ({
   paragraph: {
     fontSize:'1.5rem',
     margin: '0px 16px 0px 16px'
+  },
+  titleContainer: {
+    margin:'5rem 0rem 11rem 0rem'
   }
 
 }))

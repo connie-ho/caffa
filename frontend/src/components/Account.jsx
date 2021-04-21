@@ -5,23 +5,10 @@ import { Helmet } from 'react-helmet';
 import { useState, useContext, useEffect } from 'react';
 import UserContext from '../contexts/UserContext';
 import DataContext from '../contexts/DataContext';
-import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
-import Drawer from '@material-ui/core/Drawer';
-import AppBar from '@material-ui/core/AppBar';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Toolbar from '@material-ui/core/Toolbar';
-import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
 
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import SettingsIcon from '@material-ui/icons/Settings';
-import RateReviewIcon from '@material-ui/icons/RateReview';
 
+import AccountMenu from './my-account/AccountMenu';
 import AccountProfile from './my-account/AccountProfile';
 import AccountSettings from './my-account/AccountSettings';
 import AccountFavourites from './my-account/AccountFavourites';
@@ -64,7 +51,7 @@ const useStyles = makeStyles((theme) => ({
   content: {
     flexGrow: 1,
     minHeight: 'calc(100vh - 70px)',
-    position: 'relative'
+    // position: 'relative'
   },
   accountContent: {
     flexDirection: 'column',
@@ -121,7 +108,6 @@ const useStyles = makeStyles((theme) => ({
 export default function Account(props) {
   const {editUserHandler} = props
   const classes = useStyles();
-  const secondClasses = useStyles();
   const titleSize = {h1: 'h1', h2: 'h2', h3: 'h3', h4: 'h4', h5: 'h6', subtitle1: 'subtitle1'}
   const {state} = useContext(DataContext);
   const {user} = useContext(UserContext);
@@ -152,10 +138,6 @@ export default function Account(props) {
   // filter for coffee reviews & favourites
   const coffeeReviews = getUserReviews(Object.values(reviews), values.id);
 
-  function ListItemLink(props) {
-    return <ListItem button component="a" {...props} />;
-  }
-  
 
   return (
     
@@ -163,49 +145,7 @@ export default function Account(props) {
       <Helmet>
         <title>Account | Caffa</title>
       </Helmet>
-
-      <Drawer
-        className={classes.drawer}
-        variant="permanent"
-        classes={{
-          paper: classes.drawerPaper,
-        }}
-        >
-        <Toolbar />
-        <div className={classes.drawerContainer}>
-          <List>
-
-              <ListItemLink href="/account">
-                <ListItemIcon>
-                  <AccountCircleIcon />
-                </ListItemIcon>
-                <ListItemText primary={"My Account"} />
-              </ListItemLink>
-
-              <ListItemLink href="/account/favourites">
-                <ListItemIcon>
-                  <FavoriteIcon />
-                </ListItemIcon>
-                <ListItemText primary={"Favourites"} />
-              </ListItemLink>
-
-              <ListItemLink href="/account/reviews">
-                <ListItemIcon>
-                  <RateReviewIcon />
-                </ListItemIcon>
-                <ListItemText primary={"Reviews"} />
-              </ListItemLink>
-
-              <ListItemLink href="/account/settings">
-                <ListItemIcon>
-                  <SettingsIcon />
-                </ListItemIcon>
-                <ListItemText primary={"Settings"} />
-              </ListItemLink>
-
-          </List>
-        </div>
-      </Drawer>
+        <AccountMenu />
       <main className={classes.content}>
         <Switch>
         <Route path="/account/favourites">

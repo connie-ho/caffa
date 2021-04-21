@@ -126,6 +126,7 @@ export default function Nav(props) {
 
   const handleModalOpen = () => {
     setModalOpen(true);
+    setMobileMoreAnchorEl(null)
   };
 
   const handleMobileMenuClose = () => {
@@ -161,6 +162,11 @@ export default function Nav(props) {
         { user &&
         <MenuItem onClick={handleMenuClose}>
           <Link to="/account/favourites">Favourited Coffee</Link> 
+        </MenuItem>
+        }
+        { user &&
+        <MenuItem onClick={handleMenuClose}>
+          <Link to="/account/reviews">Reviewed Coffee</Link> 
         </MenuItem>
         }
         { user &&

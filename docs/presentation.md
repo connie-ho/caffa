@@ -1,6 +1,12 @@
 
 # Opening
 
+1) npm db:reset
+2) login
+3) take picture
+4) add different coffee to test
+5) check for phantom coffee
+
 # Introductions: tell them your name & your background! (see below for tips) 
 * (45-60 sec total for the whole group, so 15-20 sec/person)
 * As each person introduces themselves, hover over their coffee pics
@@ -19,8 +25,15 @@
 * Implemented responsive design because this app is intended to be used on your phone
 * Looks like this coffee is pretty good (has four stars, don't actually click)
 
+
+* Rosso Coffee Roasters
+* Santa Lucia
+* Brazil
+* Milk chocolate, marizipan, roasted almond. Naturally processed. Whole bean coffee.
+
+
 Connie: 
-* Switch back to desktop and say: you can also search and filter for the specific coffee you have in mind 
+* Switch back to desktop and say: you can also sort and filter for the specific coffee you have in mind 
 * Say you wanna see the top rated coffees, you're really interested in coffee from ethopia, brazil, indonesia and you really like dark roast with high acidity then analog coffee is the one for you 
 * Go through details of the analog coffee
 * Sign in to like
@@ -30,6 +43,8 @@ Connie:
 * After a few more sips, you find that you actually really like the coffee 
 
 * Let's try searching for another coffee through the dynamic search bar
+* Since search is a really important feature, we can search for the coffee in the persistent nav bar
+* Rosso coffee
 * Image search -> add coffee 
 * Wanted to make it hard for the user to add a coffee because we eventually want to make our database robust and large enough so that it contains billions of coffees and the user wouldnt really have to addd anything
 * Let's go ahead and like this coffee too and let's see all of our activity on our account page

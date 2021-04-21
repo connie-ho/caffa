@@ -27,7 +27,7 @@ export default function FormDialog(props) {
   useEffect(() => {
     if(uploadFile) {
     setLoading(true)
-    // Google storage image upload, state logic to redirect to /search updating results
+ 
     const storageRef = projectStorage.ref(uploadFile.name);
     storageRef.put(uploadFile).on('state_changed', (snap) => {
 
