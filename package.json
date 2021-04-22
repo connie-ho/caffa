@@ -1,0 +1,22 @@
+{
+  "name": "caffa",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "client:build": "cd frontend && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/connie-ho/caffa.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/connie-ho/caffa/issues"
+  },
+  "homepage": "https://github.com/connie-ho/caffa#readme"
+}
