@@ -70,6 +70,24 @@ http://localhost:3002/
 
 ___  
 
+#### Home Page
+!["Screenshot of Home Page"](https://github.com/connie-ho/caffa/blob/master/docs/screenshots/01-home.png)
+
+#### Editors Picks
+!["Screenshot of Editors Picks"](https://github.com/connie-ho/caffa/blob/master/docs/screenshots/02-editors-pick.png)
+
+#### Browse Coffees
+!["Screenshot of Browse Coffees"](https://github.com/connie-ho/caffa/blob/master/docs/screenshots/03-browse-coffee.png)
+
+#### Coffee Details
+!["Screenshot of Coffee Details"](https://github.com/connie-ho/caffa/blob/master/docs/screenshots/04-coffee.png)
+
+#### Coffee Page Interactions
+!["Screenshot of Coffee Page Interactions"](https://github.com/connie-ho/caffa/blob/master/docs/screenshots/05-caffa.gif)
+
+<br>
+
+___
 
 ## Known Issues/Bugs
 - Filtering in different sequences can cause issues.
