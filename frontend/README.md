@@ -1,12 +1,35 @@
-# Caffa 
+## Caffa 
 
 Welcome to Caffa!
 
-Caffa is a community-driven platform for coffee lovers all around the world. Search your favourite Coffee on Caffa to learn more details about the coffee itself, what others are saying about it and where you can find it at your local shops.
+Caffa is a community-driven platform for coffee lovers all around the world. Search your favourite Coffee through our image search to learn more details about the coffee itself, what others are saying about it and where you can find it at your local shops.
 
 This project was developed by <br> <a href="">Connie Ho</a>, <a href="">Justin Ly</a>, and <a href="">Kevin Phan</a>
 
 <br>
+
+## Final Product
+
+___  
+
+#### Home Page
+!["Screenshot of Home Page"](https://github.com/connie-ho/caffa/blob/master/docs/screenshots/01-home.png)
+
+#### Editors Picks
+!["Screenshot of Editors Picks"](https://github.com/connie-ho/caffa/blob/master/docs/screenshots/02-editors-pick.png)
+
+#### Browse Coffees
+!["Screenshot of Browse Coffees"](https://github.com/connie-ho/caffa/blob/master/docs/screenshots/03-browse-coffee.png)
+
+#### Coffee Details
+!["Screenshot of Coffee Details"](https://github.com/connie-ho/caffa/blob/master/docs/screenshots/04-coffee.png)
+
+#### Coffee Page Interactions
+!["Screenshot of Coffee Page Interactions"](https://github.com/connie-ho/caffa/blob/master/docs/screenshots/05-caffa.gif)
+
+<br>
+
+___
 
 ## Initial Setup
 
@@ -34,6 +57,7 @@ You will need to use the same Google Vision API Key for the Frontend setup as we
 5. Visit **<a href="https://firebase.google.com/docs/storage">Firebase</a>** and obtain an API key and put this in the .env file as well.
 
 <br>
+
 
 ## Getting Started 
 
@@ -66,44 +90,6 @@ npm start
 http://localhost:3002/
 ```
 
-## Final Product
-
-___  
-
-#### Home Page
-!["Screenshot of Home Page"](https://github.com/connie-ho/caffa/blob/master/docs/screenshots/01-home.png)
-
-#### Editors Picks
-!["Screenshot of Editors Picks"](https://github.com/connie-ho/caffa/blob/master/docs/screenshots/02-editors-pick.png)
-
-#### Browse Coffees
-!["Screenshot of Browse Coffees"](https://github.com/connie-ho/caffa/blob/master/docs/screenshots/03-browse-coffee.png)
-
-#### Coffee Details
-!["Screenshot of Coffee Details"](https://github.com/connie-ho/caffa/blob/master/docs/screenshots/04-coffee.png)
-
-#### Coffee Page Interactions
-!["Screenshot of Coffee Page Interactions"](https://github.com/connie-ho/caffa/blob/master/docs/screenshots/05-caffa.gif)
-
-<br>
-
-___
-
-## Known Issues/Bugs
-- Filtering in different sequences can cause issues.
-- Google Vision API sometimes displays errors.
-
-
-<br>
-
-## Future Features
-
-- User interactions such as following other users.
-- Integrated marketplace to buy and sell coffee on Caffa.
-- Admin dashboard to manage new coffee entries by customers to retain consistency with existing records in the database.
-
-<br>
-
 ## Dependencies
 
 - axios: ^0.21.1,
@@ -117,3 +103,17 @@ ___
 - pg: ^8.5.1,
 - pg-native: ^3.0.0,
 - yelp-fusion: ^3.0.0
+
+## Future Features
+
+- User interactions such as following other users.
+- Integrated marketplace to buy and sell coffee on Caffa.
+- Admin dashboard to manage new coffee entries by customers to retain consistency with existing records in the database.
+
+<br>
+
+
+## Known Issues/Bugs
+- Filtering not on page 1 can cause errors
+- Distance is inaccurate on yelp maps
+- Google Vision API sometimes displays errors
