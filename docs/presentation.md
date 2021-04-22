@@ -62,7 +62,7 @@ Now there were a few challenges we faced as a team.
 
 # How you worked as a team 
 (30 sec)
-* First of all, it was challenging to get started because using React was fairly new for all of us, but through daily communication with the team it allowed us to reuse each others components and speed up the production of our app.
+* However, the biggest challenge was getting our API's to work on both desktop and mobile versions of our app.
 
 
 Some of the things we'd like to add in the future are
