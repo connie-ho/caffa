@@ -1,0 +1,13 @@
+DROP TABLE IF EXISTS coffees CASCADE;
+
+CREATE TABLE coffees (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  description TEXT NOT NULL,
+  region VARCHAR(255) NOT NULL,
+  roast VARCHAR(255) NOT NULL,
+  brand VARCHAR(255) NOT NULL,
+  acidity VARCHAR(255) NOT NULL,
+  grain_species VARCHAR(255) NOT NULL,
+  image_url VARCHAR(255) NOT NULL
+);
