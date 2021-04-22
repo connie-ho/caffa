@@ -10,7 +10,7 @@
     "node": "12.x"
   },
   "scripts": {
-    "start": "cd backend && npm install && start",
+    "start": "cd backend && npm install && npm start",
     "heroku-postbuild": "cd frontend && npm install && npm run build"
   },
   "repository": {
