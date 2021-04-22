@@ -21,6 +21,7 @@
     "express": "~4.16.1",
     "libpq": "^1.8.9",
     "morgan": "~1.9.1",
+    "node-gyp": "^8.0.0",
     "pg": "^8.6.0",
     "pg-native": "^3.0.0",
     "yelp-fusion": "^3.0.0"
