@@ -33,7 +33,11 @@
 
 
 Connie: 
-* Switch back to desktop and say: you can also sort and filter for the specific coffee you have in mind 
+* chem/biomedical engineer I came to lighthouse because i wanted to turn my passion for software development into an actual career
+and my favourite coffee is the g7 coffee
+* Switch back to desktop and say, and from the main coffees page you can browse through all the coffees we have
+* But for today i actually wanna sort and filter by preferences
+* you can also sort and filter for the specific coffee you have in mind 
 * Say you wanna see the top rated coffees, you're really interested in coffee from ethopia, brazil, indonesia and you really like dark roast with high acidity then analog coffee is the one for you 
 * Go through details of the analog coffee
 * And we'll even give you a suggestion where you can buy or drink this coffee (and if you click on the pin it looks like your x away from it)
