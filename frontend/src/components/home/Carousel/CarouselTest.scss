@@ -2,22 +2,23 @@
   background-color: #fafafa;
   box-shadow: none !important;
   &:hover {
-    background-color: #F9B403 !important
+    background-color: #f9b403 !important;
   }
   &:focus {
-    background-color: #F9B403 !important
+    background-color: #f9b403 !important;
   }
 }
 
-button.rec-dot:hover, button.rec-dot:active, button.rec-dot:focus  {
-  box-shadow: 0 0 1px 3px #F9B403;
+button.rec-dot:hover,
+button.rec-dot:active,
+button.rec-dot:focus {
+  box-shadow: 0 0 1px 3px #f9b403;
 }
 
-button.rec-dot{
+button.rec-dot {
   background-color: #fafafa;
-
 }
 
 button.rec-dot.rec-dot_active {
-  box-shadow: 0 0 1px 3px #F9B403;
+  box-shadow: 0 0 1px 3px #f9b403;
 }

@@ -1,61 +1,63 @@
-import {React, useState, useEffect, useContext} from 'react';
-import Button from '@material-ui/core/Button';
-import Dialog from '@material-ui/core/Dialog';
-import { makeStyles } from '@material-ui/core';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import Typography from '@material-ui/core/Typography';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import CircularProgress from '@material-ui/core/CircularProgress';
-import UploadForm from './UploadForm';
-import { projectStorage } from '../../firebase/config';
-import {googleImageDetection} from './helpers'
-import { useHistory } from 'react-router-dom';
-import SearchContext from '../../contexts/SearchContext'
+import { React, useState, useEffect, useContext } from "react";
+import Button from "@material-ui/core/Button";
+import Dialog from "@material-ui/core/Dialog";
+import { makeStyles } from "@material-ui/core";
+import DialogActions from "@material-ui/core/DialogActions";
+import DialogContent from "@material-ui/core/DialogContent";
+import Typography from "@material-ui/core/Typography";
+import DialogTitle from "@material-ui/core/DialogTitle";
+import CircularProgress from "@material-ui/core/CircularProgress";
+import UploadForm from "./UploadForm";
+import { projectStorage } from "../../firebase/config";
+import { googleImageDetection } from "./helpers";
+import { useHistory } from "react-router-dom";
+import SearchContext from "../../contexts/SearchContext";
 
 export default function FormDialog(props) {
-
-  const {results, setResults} = useContext(SearchContext)
+  const { results, setResults } = useContext(SearchContext);
   const [file, setFile] = useState(null);
   const [uploadFile, setUploadFile] = useState(null);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [url, setUrl] = useState(null);
   const [textArray, setTextArray] = useState([]);
   const history = useHistory();
 
   useEffect(() => {
-    if(uploadFile) {
-    setLoading(true)
- 
-    const storageRef = projectStorage.ref(uploadFile.name);
-    storageRef.put(uploadFile).on('state_changed', (snap) => {
+    if (uploadFile) {
+      setLoading(true);
 
-    }, (err) => {
-      setError(err)
-    }, async () => {
-      const url = await storageRef.getDownloadURL();
-      const textArray = await googleImageDetection(url)
+      const storageRef = projectStorage.ref(uploadFile.name);
+      storageRef.put(uploadFile).on(
+        "state_changed",
+        (snap) => {},
+        (err) => {
+          setError(err);
+        },
+        async () => {
+          const url = await storageRef.getDownloadURL();
+          const textArray = await googleImageDetection(url);
 
-      setUrl(url)
-      setTextArray(textArray)
-      
-      await setResults({
-        url,
-        textArray: textArray
-      })
-      
-      localStorage.setItem("url", url)
-      localStorage.setItem("textarray", textArray)
+          setUrl(url);
+          setTextArray(textArray);
 
-      setLoading(false)
-      history.push('/search')
-      setOpen(false)
-    })
+          await setResults({
+            url,
+            textArray: textArray,
+          });
+
+          localStorage.setItem("url", url);
+          localStorage.setItem("textarray", textArray);
+
+          setLoading(false);
+          history.push("/search");
+          setOpen(false);
+        }
+      );
     }
-  },[uploadFile])
+  }, [uploadFile]);
 
-  const {open, setOpen} = props
+  const { open, setOpen } = props;
 
   const handleClose = () => {
     setOpen(false);
@@ -63,51 +65,89 @@ export default function FormDialog(props) {
 
   const uploadAndSearch = (file) => {
     if (file) {
-      setUploadFile(file)
+      setUploadFile(file);
+    } else {
+      setError("File not selected");
     }
-    else {
-      setError('File not selected')
-    }
-  }
+  };
 
   const useStyles = makeStyles({
     centreAlignDialogActions: {
-      justifyContent: 'center'
+      justifyContent: "center",
     },
-    paper: { 
-      overflow:'auto', maxHeight: '700px', height:450, width:400, alignItems: 'center'
+    paper: {
+      overflow: "auto",
+      maxHeight: "700px",
+      height: 450,
+      width: 400,
+      alignItems: "center",
     },
     content: {
-      overflow:'auto', display:'flex', flexDirection:'column', justifyContent:'space-between', height:300, width:300, alignItems: 'center', border:"1px dotted black"
+      overflow: "auto",
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "space-between",
+      height: 300,
+      width: 300,
+      alignItems: "center",
+      border: "1px dotted black",
     },
     loading: {
-      transform: `translate(0em, 0rem)`
+      transform: `translate(0em, 0rem)`,
     },
     dialogTitle: {
       root: {
-        fontSize:'2em'  
-      } 
-    }
-  })
-  
-  const classes = useStyles()
+        fontSize: "2em",
+      },
+    },
+  });
+
+  const classes = useStyles();
 
   return (
     <div>
-      <Dialog classes={{ paper: classes.paper }} open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
+      <Dialog
+        classes={{ paper: classes.paper }}
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="form-dialog-title"
+      >
         <DialogTitle id="form-dialog-title">
-          <Typography variant="h6" style={{fontSize: '1.5em'}} > Image Search </Typography>
+          <Typography variant="h6" style={{ fontSize: "1.5em" }}>
+            {" "}
+            Image Search{" "}
+          </Typography>
         </DialogTitle>
         <DialogContent className={classes.content}>
-          <UploadForm file={file} setFile={setFile} error={error} setError={setError} loading={loading}/>
-          {loading && <CircularProgress color="primary" style={{position: 'center'}} /> }  
+          <UploadForm
+            file={file}
+            setFile={setFile}
+            error={error}
+            setError={setError}
+            loading={loading}
+          />
+          {loading && (
+            <CircularProgress color="primary" style={{ position: "center" }} />
+          )}
         </DialogContent>
 
-        <DialogActions classes = {{root: classes.centreAlignDialogActions }}>
-          <Button variant="outlined" onClick={handleClose} style={{fontSize: '1.0em', margin:'0.5rem'}} color="primary">
+        <DialogActions classes={{ root: classes.centreAlignDialogActions }}>
+          <Button
+            variant="outlined"
+            onClick={handleClose}
+            style={{ fontSize: "1.0em", margin: "0.5rem" }}
+            color="primary"
+          >
             Cancel
           </Button>
-          <Button variant="outlined" onClick={() => {uploadAndSearch(file)}} style={{fontSize: '1.0em', margin:'0.5rem'}} color="primary">
+          <Button
+            variant="outlined"
+            onClick={() => {
+              uploadAndSearch(file);
+            }}
+            style={{ fontSize: "1.0em", margin: "0.5rem" }}
+            color="primary"
+          >
             Search
           </Button>
         </DialogActions>

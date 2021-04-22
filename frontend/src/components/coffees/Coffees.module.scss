@@ -1,14 +1,14 @@
 .coffees-page {
-  display:flex;
+  display: flex;
   margin: 0 auto;
   max-width: 100%;
 }
 
 .region-search-input {
- width: 200px; 
- height: 1.5rem;
- margin-bottom: 0.2rem;
- border: 1px solid rgb(175, 175, 175);
+  width: 200px;
+  height: 1.5rem;
+  margin-bottom: 0.2rem;
+  border: 1px solid rgb(175, 175, 175);
 }
 
 .no-results {
@@ -16,13 +16,10 @@
   font-size: 1.5rem;
 }
 
-@media only screen and (max-width:600px) {
-  
+@media only screen and (max-width: 600px) {
   .coffees-page {
-    display:flex;
+    display: flex;
     flex-direction: column;
-    max-width:100%;
+    max-width: 100%;
   }
-  
-  
 }

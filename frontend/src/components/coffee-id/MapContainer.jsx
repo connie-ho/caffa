@@ -1,76 +1,68 @@
-import {useState} from 'react';
-import { GoogleMap, LoadScript, Marker, InfoWindow} from '@react-google-maps/api';
-import classes from './Coffee.module.scss';
+import { useState } from "react";
+import {
+  GoogleMap,
+  LoadScript,
+  Marker,
+  InfoWindow,
+} from "@react-google-maps/api";
+import classes from "./Coffee.module.scss";
 
-
-function MapContainer (props) {
-  
-  const {
-    name,
-    latitude,
-    longitude,
-    distance
-  } = props;
+function MapContainer(props) {
+  const { name, latitude, longitude, distance } = props;
 
   const locations = [
     {
       name: name,
-      location: { 
+      location: {
         lat: latitude,
-        lng: longitude 
+        lng: longitude,
       },
-      distance: distance
+      distance: distance,
     },
   ];
-  
-  const mapStyles = {        
+
+  const mapStyles = {
     width: "100%",
-    flex: 1
+    flex: 1,
   };
-  
+
   const defaultCenter = {
-    lat: latitude, lng: longitude
-  }
-  
-  const [ selected, setSelected ] = useState({});
-  
+    lat: latitude,
+    lng: longitude,
+  };
+
+  const [selected, setSelected] = useState({});
+
   const onSelect = (item) => {
     setSelected(item);
-  }
+  };
 
   return (
-     <LoadScript
-       googleMapsApiKey={process.env.REACT_APP_GOOGLE_API_KEY}>
-        <GoogleMap
-          mapContainerStyle={mapStyles}
-          zoom={13}
-          center={defaultCenter}
-        >
-          {
-            locations.map(item => {
-              return (
-              <Marker key={item.name} 
-                position={item.location}
-                onClick={() => onSelect(item)}
-              />
-              )
-            })
-          }
-          {
-            selected.location && 
-            (
-              <InfoWindow
-              position={selected.location}
-              clickable={true}
-              onCloseClick={() => setSelected({})}
-            >
-              <p className={classes['map-info']}>{selected.name} is {selected.distance} km away from you! </p>
-            </InfoWindow>
-            )
-         }
-        </GoogleMap>
-     </LoadScript>
-  )
+    <LoadScript googleMapsApiKey={process.env.REACT_APP_GOOGLE_API_KEY}>
+      <GoogleMap mapContainerStyle={mapStyles} zoom={13} center={defaultCenter}>
+        {locations.map((item) => {
+          return (
+            <Marker
+              key={item.name}
+              position={item.location}
+              onClick={() => onSelect(item)}
+            />
+          );
+        })}
+        {selected.location && (
+          <InfoWindow
+            position={selected.location}
+            clickable={true}
+            onCloseClick={() => setSelected({})}
+          >
+            <p className={classes["map-info"]}>
+              {selected.name} is {selected.distance} km away from you!{" "}
+            </p>
+          </InfoWindow>
+        )}
+      </GoogleMap>
+    </LoadScript>
+  );
 }
 
 export default MapContainer;

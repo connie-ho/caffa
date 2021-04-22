@@ -1,33 +1,31 @@
-import React, {useState, useContext} from 'react';
-import ReviewForm from './ReviewForm';
-import ReviewContext from '../../contexts/ReviewContext';
-
+import React, { useState, useContext } from "react";
+import ReviewForm from "./ReviewForm";
+import ReviewContext from "../../contexts/ReviewContext";
 
 export default function EditReview(props) {
-
   const {
-    openReviewForm, 
-    setOpenReviewForm, 
-    handleCloseReviewForm, 
-    handleClickOpenReviewForm, 
-    coffee, 
-    review} = props;
+    openReviewForm,
+    setOpenReviewForm,
+    handleCloseReviewForm,
+    handleClickOpenReviewForm,
+    coffee,
+    review,
+  } = props;
 
-  const {editReview} = useContext(ReviewContext);
-  const [description, setDescription] = useState(review.description) 
-  const [rating, setRating] = useState(review.rating)
+  const { editReview } = useContext(ReviewContext);
+  const [description, setDescription] = useState(review.description);
+  const [rating, setRating] = useState(review.rating);
 
-  const handleEditReview = (e)=>{
+  const handleEditReview = (e) => {
     e.preventDefault();
     editReview({
       id: review.id,
       description,
-      rating
-    }).then(()=>{
-      handleCloseReviewForm()
-    })
-
-  }
+      rating,
+    }).then(() => {
+      handleCloseReviewForm();
+    });
+  };
 
   return (
     <div>

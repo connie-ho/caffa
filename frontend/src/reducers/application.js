@@ -13,44 +13,43 @@ export default function reducer(state, action) {
         reviews: action.reviews,
         favourites: action.favourites,
         users: action.users,
-        regions: action.regions
-      }
+        regions: action.regions,
+      };
 
     case SET_USER:
       return {
         ...state,
-        users: action.users
-      }
-      
+        users: action.users,
+      };
+
     case SET_FAVOURITE:
       return {
         ...state,
         favourites: action.favourites,
-      }
-      case SET_REVIEW:
+      };
+    case SET_REVIEW:
       return {
         ...state,
         reviews: action.reviews,
-      }
-    
+      };
+
     case SET_COFFEE:
       return {
         ...state,
-        coffees: {...state.coffees, [action.coffee.id]:action.coffee}
-      }
-    
+        coffees: { ...state.coffees, [action.coffee.id]: action.coffee },
+      };
 
     default:
       throw new Error(
         `Tried to reduce with unsupported action type: ${action.type}`
       );
-  };
-};
+  }
+}
 
 export {
   SET_APPLICATION_DATA,
   SET_FAVOURITE,
   SET_REVIEW,
   SET_USER,
-  SET_COFFEE
-}
+  SET_COFFEE,
+};
