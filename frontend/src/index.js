@@ -78,7 +78,14 @@ let theme = createMuiTheme({
           border: "3px solid #DEBB63",
           backgroundColor: "#DEBB63",
           color: "white",
+          "@media (hover: none)": {
+            color: 'black',
+            "&:active": {
+              backgroundColor: '#DEBB63'
+            }
+          }
         },
+        
       },
     },
   },
