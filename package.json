@@ -1,0 +1,27 @@
+{
+  "name": "caffa",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "engines": {
+    "node": "12.x"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "cd react-ui/ && npm install && npm run build",
+    "start": "cd backend && node ./bin/www"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/connie-ho/caffa.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/connie-ho/caffa/issues"
+  },
+  "homepage": "https://github.com/connie-ho/caffa#readme"
+}
