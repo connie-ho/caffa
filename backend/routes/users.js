@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 // use bcrypt to hash passwords
-// const bcrypt = require('bcryptjs');
+const bcrypt = require('bcryptjs');
 
 const {
   getUserById,
@@ -39,9 +39,8 @@ router.post("/login", (req, res) => {
 
   getUserByEmail(email)
   .then(data => {
-    const user = data;
-    if (password === user.password) {
-      // bcrypt.compareSync comment out bcript
+    const user = data
+    if (bcrypt.compareSync(password, user.password)) {
       req.session.user_id = user.id;
       // res.cookie('user_id', userId)
       res.send({first_name: user.first_name, last_name:user.last_name, email: user.email, id: user.id})
