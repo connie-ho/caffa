@@ -1,70 +1,119 @@
-# Getting Started with Create React App
+## Caffa 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to Caffa!
 
-## Available Scripts
+Caffa is a community-driven platform for coffee lovers all around the world. Search your favourite Coffee through our image search to learn more details about the coffee itself, what others are saying about it and where you can find it at your local shops.
 
-In the project directory, you can run:
+This project was developed by <br> <a href="">Connie Ho</a>, <a href="">Justin Ly</a>, and <a href="">Kevin Phan</a>
 
-### `npm start`
+<br>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Final Product
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+___  
 
-### `npm test`
+#### Home Page
+!["Screenshot of Home Page"](https://github.com/connie-ho/caffa/blob/master/docs/screenshots/01-home.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### Editors Picks
+!["Screenshot of Editors Picks"](https://github.com/connie-ho/caffa/blob/master/docs/screenshots/02-editors-pick.png)
 
-### `npm run build`
+#### Browse Coffees
+!["Screenshot of Browse Coffees"](https://github.com/connie-ho/caffa/blob/master/docs/screenshots/03-browse-coffee.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### Coffee Details
+!["Screenshot of Coffee Details"](https://github.com/connie-ho/caffa/blob/master/docs/screenshots/04-coffee.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#### Coffee Page Interactions
+!["Screenshot of Coffee Page Interactions"](https://github.com/connie-ho/caffa/blob/master/docs/screenshots/05-caffa.gif)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<br>
 
-### `npm run eject`
+___
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Initial Setup
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+___
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+To run the following project on your machine please follow the steps below:  
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+<br>  
 
-## Learn More
+### Backend setup:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. Create an <code> .env </code> in the main backend directory where you'll be providing the required API Keys. 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+2. Obtain an API key from **<a href="https://cloud.google.com/vision/docs/setup">Google Vision </a>** (for image scanning recognition) and **<a href="https://www.yelp.ca/fusion">Yelp Fusion</a>** ( for recommended local cafes). Place these in the ```.env ``` file you created in the backend. 
+You will need to use the same Google Vision API Key for the Frontend setup as well so keep this handy for now.
 
-### Code Splitting
+<br>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Frontend setup:
 
-### Analyzing the Bundle Size
+3. Create an <code> .env </code> in the main frontend directory where you'll be providing the required API Keys. 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+4. Take the **Google Vision** API key you obtained earlier for the backend setup and put this in the .env file. 
 
-### Making a Progressive Web App
+5. Visit **<a href="https://firebase.google.com/docs/storage">Firebase</a>** and obtain an API key and put this in the .env file as well.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+<br>
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Getting Started 
 
-### Deployment
+___
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+1. Install all frontend dependencies while in the main frontend directory.
+```
+npm install
+```
 
-### `npm run build` fails to minify
+2. Install all backend dependencies while in the main backend directory.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```
+npm install
+```
+
+3. Reset the database.
+
+```
+npm run db:reset
+```
+
+4. Run the server for the frontend and backend.
+```
+npm start
+```
+
+5. Lastly, visit the website on your localhost.
+```
+http://localhost:3002/
+```
+
+## Dependencies
+
+- axios: ^0.21.1,
+- bcrypt: ^5.0.1,
+- body-parser: ^1.18.3,
+- cookie-parser: ~1.4.4,
+- cookie-session: ^1.4.0,
+- debug: ~2.6.9,
+- express: ~4.16.1,
+- morgan: ~1.9.1,
+- pg: ^8.5.1,
+- pg-native: ^3.0.0,
+- yelp-fusion: ^3.0.0
+
+## Future Features
+
+- User interactions such as following other users.
+- Integrated marketplace to buy and sell coffee on Caffa.
+- Admin dashboard to manage new coffee entries by customers to retain consistency with existing records in the database.
+
+<br>
+
+
+## Known Issues/Bugs
+- Filtering not on page 1 can cause errors
+- Distance is inaccurate on yelp maps
+- Google Vision API sometimes displays errors
