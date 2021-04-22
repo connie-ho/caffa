@@ -27,7 +27,6 @@ ___
 #### Coffee Page Interactions
 !["Screenshot of Coffee Page Interactions"](https://github.com/connie-ho/caffa/blob/master/docs/screenshots/05-caffa.gif)
 
-<br>
 
 
 ## Initial Setup
@@ -35,7 +34,6 @@ ___
 
 To run the following project on your machine please follow the steps below:  
 
-<br>  
 
 ### Backend setup:
 
@@ -44,7 +42,6 @@ To run the following project on your machine please follow the steps below:
 2. Obtain an API key from **<a href="https://cloud.google.com/vision/docs/setup">Google Vision </a>** (for image scanning recognition) and **<a href="https://www.yelp.ca/fusion">Yelp Fusion</a>** ( for recommended local cafes). Place these in the ```.env ``` file you created in the backend. 
 You will need to use the same Google Vision API Key for the Frontend setup as well so keep this handy for now.
 
-<br>
 
 ### Frontend setup:
 
@@ -104,7 +101,6 @@ http://localhost:3002/
 - Integrated marketplace to buy and sell coffee on Caffa.
 - Admin dashboard to manage new coffee entries by customers to retain consistency with existing records in the database.
 
-<br>
 
 
 ## Known Issues/Bugs
