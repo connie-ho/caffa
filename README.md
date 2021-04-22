@@ -20,6 +20,9 @@ ___
 #### Coffee Page Interactions
 !["Screenshot of Coffee Page Interactions"](https://github.com/connie-ho/caffa/blob/master/docs/screenshots/05-caffa.gif)
 
+## Home Page Desktop
+!["Screenshot of Home Page"](https://github.com/connie-ho/caffa/blob/master/docs/screenshots/01-home.png?raw=true)
+
 #### Browse Coffees
 !["Screenshot of Browse Coffees"](https://github.com/connie-ho/caffa/blob/master/docs/screenshots/03-browse-coffee.png)
 
@@ -33,6 +36,7 @@ ___
 
 
 To run the following project on your machine please follow the steps below:  
+
 
 
 ### Backend setup:
