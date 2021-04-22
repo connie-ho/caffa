@@ -4,9 +4,8 @@ Welcome to Caffa!
 
 Caffa is a community-driven platform for coffee lovers all around the world. Search your favourite Coffee through our image search to learn more details about the coffee itself, what others are saying about it and where you can find it at your local shops.
 
-This project was developed by <br> <a href="">Connie Ho</a>, <a href="">Justin Ly</a>, and <a href="">Kevin Phan</a>
+This project was developed by <a href="">Connie Ho</a>, <a href="">Justin Ly</a>, and <a href="">Kevin Phan</a>
 
-<br>
 
 ## Final Product
 
@@ -27,17 +26,13 @@ ___
 #### Coffee Page Interactions
 !["Screenshot of Coffee Page Interactions"](https://github.com/connie-ho/caffa/blob/master/docs/screenshots/05-caffa.gif)
 
-<br>
 
-___
 
 ## Initial Setup
 
-___
 
 To run the following project on your machine please follow the steps below:  
 
-<br>  
 
 ### Backend setup:
 
@@ -46,7 +41,6 @@ To run the following project on your machine please follow the steps below:
 2. Obtain an API key from **<a href="https://cloud.google.com/vision/docs/setup">Google Vision </a>** (for image scanning recognition) and **<a href="https://www.yelp.ca/fusion">Yelp Fusion</a>** ( for recommended local cafes). Place these in the ```.env ``` file you created in the backend. 
 You will need to use the same Google Vision API Key for the Frontend setup as well so keep this handy for now.
 
-<br>
 
 ### Frontend setup:
 
@@ -56,12 +50,8 @@ You will need to use the same Google Vision API Key for the Frontend setup as we
 
 5. Visit **<a href="https://firebase.google.com/docs/storage">Firebase</a>** and obtain an API key and put this in the .env file as well.
 
-<br>
-
 
 ## Getting Started 
-
-___
 
 1. Install all frontend dependencies while in the main frontend directory.
 ```
@@ -110,7 +100,6 @@ http://localhost:3002/
 - Integrated marketplace to buy and sell coffee on Caffa.
 - Admin dashboard to manage new coffee entries by customers to retain consistency with existing records in the database.
 
-<br>
 
 
 ## Known Issues/Bugs
