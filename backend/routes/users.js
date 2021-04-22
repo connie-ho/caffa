@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 // use bcrypt to hash passwords
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 
 const {
   getUserById,
