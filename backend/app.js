@@ -61,4 +61,9 @@ app.use("/api/reviews", reviewsRouter);
 app.use("/api/cafes", cafeRouter);
 app.use("/api/search", searchRouter);
 
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/build/index.html'));
+});
+
+
 module.exports = app;
