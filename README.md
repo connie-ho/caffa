@@ -29,11 +29,9 @@ ___
 
 <br>
 
-___
 
 ## Initial Setup
 
-___
 
 To run the following project on your machine please follow the steps below:  
 
@@ -56,12 +54,8 @@ You will need to use the same Google Vision API Key for the Frontend setup as we
 
 5. Visit **<a href="https://firebase.google.com/docs/storage">Firebase</a>** and obtain an API key and put this in the .env file as well.
 
-<br>
-
 
 ## Getting Started 
-
-___
 
 1. Install all frontend dependencies while in the main frontend directory.
 ```
