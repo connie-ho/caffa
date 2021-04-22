@@ -10,8 +10,8 @@
     "node": "12.x"
   },
   "scripts": {
-    "start": "cd ./backend && npm install && npm run start",
-    "heroku-postbuild": "cd ./frontend && npm install && npm run build"
+    "start": "cd backend && npm install && start",
+    "heroku-postbuild": "cd frontend && npm install && npm run build"
   },
   "repository": {
     "type": "git",
