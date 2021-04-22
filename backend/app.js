@@ -19,6 +19,8 @@ const db = require("./db");
 
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
+const cors = require("cors");
+app.use(cors());
 
 // app.use("/styles", sass({
 //   src: __dirname + "/styles",
@@ -26,7 +28,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //   debug: true,
 //   outputStyle: 'expanded'
 // }));
-app.use(express.static("public"));
+
+// app.use(express.static("public"));
+
 app.use(cookieSession({
   name: 'session',
   keys: ['key1']
