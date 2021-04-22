@@ -1,8 +1,8 @@
-form{
+form {
   margin: 10px auto 10px;
   text-align: center;
 }
-.file-upload input{
+.file-upload input {
   height: 0;
   width: 0;
   opacity: 0;
@@ -24,16 +24,16 @@ form{
 //   color: black;
 // }
 
-.output{
+.output {
   height: 60px;
   font-size: 0.8rem;
 }
-.error{
+.error {
   color: #f44336;
 }
 
 /* progress bar styles */
-.progress-bar{
+.progress-bar {
   height: 5px;
   background: var(--primary);
   margin-top: 20px;
