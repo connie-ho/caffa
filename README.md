@@ -12,10 +12,13 @@ This project was developed by <a href="">Connie Ho</a>, <a href="">Justin Ly</a>
 ___  
 
 #### Home Page
-!["Screenshot of Home Page"](https://github.com/connie-ho/caffa/blob/master/docs/screenshots/01-home.png)
+!["GIF of Home Page"](https://github.com/connie-ho/caffa/blob/master/docs/screenshots/homepage-scroll.gif?raw=true)
 
-#### Editors Picks
-!["Screenshot of Editors Picks"](https://github.com/connie-ho/caffa/blob/master/docs/screenshots/02-editors-pick.png)
+#### Image Search
+!["GIF of image search"](https://github.com/connie-ho/caffa/blob/master/docs/screenshots/image-search.gif?raw=true)
+
+#### Coffee Page Interactions
+!["Screenshot of Coffee Page Interactions"](https://github.com/connie-ho/caffa/blob/master/docs/screenshots/05-caffa.gif)
 
 #### Browse Coffees
 !["Screenshot of Browse Coffees"](https://github.com/connie-ho/caffa/blob/master/docs/screenshots/03-browse-coffee.png)
@@ -23,8 +26,6 @@ ___
 #### Coffee Details
 !["Screenshot of Coffee Details"](https://github.com/connie-ho/caffa/blob/master/docs/screenshots/04-coffee.png)
 
-#### Coffee Page Interactions
-!["Screenshot of Coffee Page Interactions"](https://github.com/connie-ho/caffa/blob/master/docs/screenshots/05-caffa.gif)
 
 
 
