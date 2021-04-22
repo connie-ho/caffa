@@ -7,7 +7,7 @@
     "doc": "docs"
   },
   "engines": {
-    "node": "12.x"
+    "node": "10.x"
   },  "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "cd frontend && npm install && npm run build",
