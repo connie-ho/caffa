@@ -26,16 +26,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //   debug: true,
 //   outputStyle: 'expanded'
 // }));
-app.use(express.static("public"));
-app.use(cookieSession({
-  name: 'session',
-  keys: ['key1']
-}));
-app.use(logger("dev"));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, "public")));
 
 // // Set up a whitelist and check against it:
 // const whitelist = ['http://localhost:3001', 'http://localhost:3002', 'http://localhost:3005'];
