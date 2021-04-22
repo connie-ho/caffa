@@ -35,7 +35,7 @@ app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, "../frontend/build")));
+app.use(express.static(path.join(__dirname, "../frontend/public")));
 
 // // Set up a whitelist and check against it:
 // const whitelist = ['http://localhost:3001', 'http://localhost:3002', 'http://localhost:3005'];
