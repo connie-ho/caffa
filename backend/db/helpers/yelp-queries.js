@@ -9,6 +9,7 @@ const fetchMyIP = function() {
 };
 
 const fetchCoordsByIP = function(ip) {
+  console.log(ip)
   return axios.get(`https://freegeoip.app/json/${ip}`);
 };
 
@@ -19,6 +20,7 @@ const fetchBusinessDetailsCit = function(term, location) {
     categories: 'coffee,coffeeroasteries,cafes',
     limit: 1,
   };
+  console.log(searchRequest)
 
   return client.search(searchRequest)
     .then(res => {
@@ -38,6 +40,7 @@ const fetchBusinessDetailsCountry = function(term, location) {
     categories: 'coffee,coffeeroasteries,cafes',
     limit: 1,
   };
+  console.log(searchRequest)
 
   return client.search(searchRequest)
     .then(res => res.jsonBody.businesses[0]);
