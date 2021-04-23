@@ -161,7 +161,7 @@ export default function Login(props) {
           </Button>
           <Grid container>
             <Grid item xs>
-              <Link to="/register" color="secondary">
+              <Link href="/register" color="secondary">
                 Don't have a profile? Click here to register!
               </Link>
             </Grid>

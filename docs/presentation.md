@@ -62,7 +62,8 @@ Now there were a few challenges we faced as a team.
 
 # How you worked as a team 
 (30 sec)
-* However, the biggest challenge was getting our API's to work on both desktop and mobile versions of our app.
+* However, the biggest challenge was getting our website to work on both desktop and mobile versions seamlessly through responsive design.
+
 
 
 Some of the things we'd like to add in the future are
