@@ -4,7 +4,7 @@ Welcome to Caffa!
 
 Caffa is a community-driven platform for coffee lovers all around the world. Search your favourite Coffee through our image search to learn more details about the coffee itself, what others are saying about it and where you can find it at your local shops.
 
-This project was developed by <a href="">Connie Ho</a>, <a href="">Justin Ly</a>, and <a href="">Kevin Phan</a>
+This project was developed by <a href="https://github.com/connie-ho">Connie Ho</a>, <a href="https://github.com/Justin1002">Justin Ly</a>, and <a href="https://github.com/dattphan15">Kevin Phan</a>
 
 
 ## Final Product
