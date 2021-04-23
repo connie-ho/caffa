@@ -107,7 +107,7 @@ export default function ReviewListItem(props) {
           <div className={classes.description}>{review.description}</div>
           <div className={classes.userInfo}>
             <img
-              src={reviewUser.avatar_url}
+              src={reviewUser.avatar_url ? reviewUser.avatar_url : 'https://t4.ftcdn.net/jpg/00/64/67/63/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg'}
               alt={reviewUser.first_name}
               className={classes.image}
             />
