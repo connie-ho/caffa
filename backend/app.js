@@ -29,7 +29,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "../frontend/build")));
-
+app.set("trust proxy", true);
 // // Set up a whitelist and check against it:
 // const whitelist = ['http://localhost:3001', 'http://localhost:3002', 'http://localhost:3005'];
 // const corsOptions = {

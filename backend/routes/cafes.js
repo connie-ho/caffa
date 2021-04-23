@@ -6,7 +6,7 @@ const {getCafeData} = require('../db/helpers/yelp-queries');
 
 router.get("/", (req, res) => {
 
-  const ip = req.header('x-forwarded-for') || req.connection.remoteAddress;
+  const ip = req.header('x-forwarded-for') || req.socket.remoteAddress;
   const query = req.query.brand.split("+").join(" ");
 
   getCafeData(query, ip)
