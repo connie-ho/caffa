@@ -56,7 +56,7 @@ function MapContainer(props) {
             onCloseClick={() => setSelected({})}
           >
             <p className={classes["map-info"]}>
-              {selected.name} is {selected.distance} km away from you!{" "}
+              {selected.name} is {selected.distance} km away from city center!{" "}
             </p>
           </InfoWindow>
         )}
