@@ -6,7 +6,7 @@ Caffa is a community-driven platform for coffee lovers all around the world. Sea
 
 This project was developed by <a href="https://github.com/connie-ho">Connie Ho</a>, <a href="https://github.com/Justin1002">Justin Ly</a>, and <a href="https://github.com/dattphan15">Kevin Phan</a>
 
-Visit our website at: http://caffa.herokuapp.com/
+Visit our website at: https://caffa.herokuapp.com/
 
 
 ## Final Product
